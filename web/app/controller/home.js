@@ -2,12 +2,10 @@
 
 module.exports = app => {
   class HomeController extends app.Controller {
-    * index() {
-      this.ctx.body = 'hi, egg';
+    * index(ctx) {
+      return yield ctx.render('home/index.tpl')
     }
-    * test(ctx){
-    	return yield ctx.render('home/test.tpl')
-    }
+    
   }
   return HomeController;
 };

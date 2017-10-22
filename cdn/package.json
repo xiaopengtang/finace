@@ -4,19 +4,22 @@
   "description": "static resource",
   "main": "index.js",
   "scripts": {
-    "build:client": "webpack --config build/build.js --progress --watch",
-    "build:server": "webpack --config build/server.js --progress --watch",
+    "build:client": "cross-env process.env.ENV='production' webpack --config build/build.js --progress --color --watch",
+    "build:server": "cross-env process.env.ENV='production' webpack --config build/server.js --progress --watch",
     "push:client": "cross-env CLIENT=true webpack --config build/push.js --progress",
     "push:server": "cross-env CLIENT=false webpack --config build/push.js --progress"
   },
   "keywords": [
     "static"
   ],
+  "email": "txp_email@126.com",
   "author": "txp",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.0",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "cross-env": "^5.1.0",
     "extract-text-webpack-plugin": "^3.0.1",
     "mobx": "^3.3.1",
@@ -24,13 +27,16 @@
     "node-sass": "^4.5.3",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "webpack": "^3.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.7",
     "lodash": "^4.17.4",
     "sass": "^1.0.0-beta.2",

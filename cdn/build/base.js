@@ -6,7 +6,6 @@ const pkg = require('../package.json')
 const header = [
     `create by ${pkg.author}`
     ,`version:${pkg.version}`
-    ,`GIT:${pkg.homepage}`
     ,`email:${pkg.email}`
     ,`last update:${moment().format("YYYY-MM-DD hh:mm:ss")}`
 ].join("\n")
@@ -17,7 +16,7 @@ const extractSASS = new ExtractTextPlugin('style.css')
 module.exports = {
 	'plugins': [
 	    new webpack.BannerPlugin(header),
-        new webpack.optimize.CommonsChunkPlugin('common.js'),
+        new webpack.optimize.CommonsChunkPlugin('common'),
         extractSASS
 	],
 	'module': {

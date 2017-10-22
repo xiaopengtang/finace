@@ -13,8 +13,10 @@ module.exports = merge(base, {
 	'output': {
 		'library': '[name]',
 		'libraryTarget': 'umd',
-		'filename': '[name].js',
-		'path': CDN.CDN_PATH
+		'filename': "[name].bundle.js",
+        'chunkFilename': "[name].chunk.js",
+		'path': CDN.CDN_PATH,
+		'publicPath': 'public/'
 	},
 	'module': {
 		'rules': [
@@ -27,8 +29,9 @@ module.exports = merge(base, {
 		    			'presets': [['env', {
 		    				'targets': {
 		    					'browsers': ["last 2 versions", "safari >= 7"]
-		    				}
-		    			}]]
+		    				},
+		    				'useBuiltIns': true
+		    			}], 'react', 'stage-1']
 		    		}
 		    	}
 		    }

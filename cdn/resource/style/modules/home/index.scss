@@ -1,0 +1,96 @@
+.home-index {
+	width: 100%;
+	.logo {
+		text-align: center;
+		padding-top: 42px;
+		padding-bottom: 30px;
+	}
+
+	input {
+		width: 100%;
+		height: 50px;
+		outline: none;
+		border: none;
+		border-bottom: 1px solid #eee;
+		font-size:14px;
+	}
+
+	p {
+		width: 90%;
+		margin: 0 auto;
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.logoBox {
+		padding: 80px 40px;
+	}
+
+	.logoBox img {
+		width: 100%;
+	}
+
+	.inputImg {
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		right: 5%;
+		top: 18px;
+	}
+
+	.LogBtn_s:active {
+		position: relative;
+		top: 1px;
+	}
+
+	.goRegist {
+		float: left;
+	}
+
+	.goRegist a {
+		color: #888;
+	}
+
+	.forget {
+		float: right;
+	}
+
+	.forget a {
+		color: #FDCF08;
+	}
+
+	.server {
+		padding-top: 50px;
+	}
+
+	.server a {
+		color: #888888;
+	}
+
+	.LogBtn {
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+		line-height: 40px;
+		font-size: 20px;
+		background-color: #EBEBEB;
+		color: white;
+	}
+
+	.LogBtn_s {
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+		line-height: 40px;
+		font-size: 20px;
+		background-color: #Fdcf08;
+		color: white;
+	}
+
+	.LogBtn_s:active {
+		position: relative;
+		top: 1px;
+	}
+}

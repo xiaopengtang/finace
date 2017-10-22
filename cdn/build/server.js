@@ -17,11 +17,11 @@ module.exports = merge(base, {
 		    	'use': {
 		    		'loader': 'babel',
 		    		'options': {
-		    			'presets': ['env', {
+		    			'presets': [['env', {
 		    				'targets': {
 		    					'node': 'current'
 		    				}
-		    			}]
+		    			}], 'react']
 		    		}
 		    	}
 		    }
