@@ -1,0 +1,28 @@
+'use strict';
+
+const path = require('path')
+
+module.exports = appInfo => {
+  const config = exports = {};
+
+  // use for cookie sign key, should change to your own and keep security
+  config.keys = appInfo.name + '_1508657324896_9661';
+
+  // add your config here
+  config.middleware = [];
+
+  config.view = {
+    root: path.join(appInfo.baseDir, 'resource/view'),
+  	defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.tpl': 'nunjucks',
+      '.nj': 'nunjucks'
+    }
+  }
+
+  config.static = {
+    dir: path.join(appInfo.baseDir,'resource/asserts')
+  }
+
+  return config;
+};
