@@ -9,7 +9,9 @@ const path = require('path')
 const base = require('./base')
 
 module.exports = merge(base, {
-	'entry': path.resolve(__dirname,'../resource/client.js'),
+	'entry': {
+		'main': path.resolve(__dirname,'../resource/client.js')
+	},
 	'output': {
 		'library': '[name]',
 		'libraryTarget': 'umd',
@@ -28,7 +30,7 @@ module.exports = merge(base, {
 		    		'options': {
 		    			'presets': [['env', {
 		    				'targets': {
-		    					'browsers': ["last 2 versions", "safari >= 7"]
+		    					'browsers': ['last 10 Chrome versions', 'last 5 Firefox versions', 'Safari >= 6', 'ie > 8'] //["last 2 versions", "safari >= 7"]
 		    				},
 		    				'useBuiltIns': true
 		    			}], 'react', 'stage-1']

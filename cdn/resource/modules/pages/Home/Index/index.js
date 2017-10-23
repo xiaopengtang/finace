@@ -9,7 +9,7 @@ export default class Index extends Component {
 	login () {}
 	change (e) {}
 	render () {
-		return (
+		return ( 
 			<div className="home-index">
 			    <div className="logo">
 				<img src="/public/i/logo.png" style={{"width": "60%"}} />

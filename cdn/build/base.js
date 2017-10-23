@@ -14,34 +14,42 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSASS = new ExtractTextPlugin('style.css')
 
 module.exports = {
-	'plugins': [
-	    new webpack.BannerPlugin(header),
+    'entry': {
+        'common': ['react', 'react-dom', 'react-router', 'mobx', 'axios']
+    },
+    'plugins': [
+        new webpack.BannerPlugin(header),
         new webpack.optimize.CommonsChunkPlugin('common'),
         extractSASS
-	],
-	'module': {
-		'rules': [
-		    {
+    ],
+    'module': {
+        'rules': [
+            {
                 "test" : /\.css$/,
                 "exclude" : /node_modules/,
-                "use" : ["style-loader","css-loader?modules"]
+                "use" : ["style-loader","css-loader?modules", "postcss-loader"]
             },
             {
-                "test" : /\.(png)|(jpg)|(gif)|(woff)|(svg)|(eot)|(ttf)$/,
+                "test" : /\.(woff)|(svg)|(eot)|(ttf)$/,
                 "exclude" : /node_modules/,
                 "use" : ["url-loader"]
+            },
+            {
+                "test": /\.(png)|(jpg)|(gif)$/,
+                "exclude" : /node_modules/,
+                "use" : ["file-loader"]
             },
             {
                 "test" : /\.scss/,
                 "exclude" : /node_modules/,
                 'use': extractSASS.extract({
                     'fallback': 'style-loader',
-                    'use': ["css-loader","sass-loader"]
+                    'use': ["css-loader", "postcss-loader", "sass-loader"]
                 })
             }
-		]
-	},
-	"resolve" : {
+        ]
+    },
+    "resolve" : {
         "extensions" : [".js", ".json", ".jsx", ".css",".scss"]
     }
 }
