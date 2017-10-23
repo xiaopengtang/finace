@@ -1,4 +1,3 @@
-import Index from './Home/Index'
-import Register from './Home/Register'
-
-export default {Index, Register}  
+export Index from './Home/Index'
+export Register from './Home/Register'
+export ForgetPwd from './Home/ForgetPwd'

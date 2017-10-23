@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 export default class Index extends Component {
 	state = {
@@ -18,7 +19,7 @@ export default class Index extends Component {
 					<input 
 					type="text" 
 					name="accountName" 
-					id="telephoneNumber" 
+					id="telephoneNumber"  
 					onChange={e => this.setState({'tel': e.target.value})}
 					value={this.state.tel}
 					placeholder="请输入您的手机号" /> 
@@ -42,9 +43,8 @@ export default class Index extends Component {
 				</p>
 				<a className="LogBtn_s" onClick={this.login.bind(this)}>立即登录</a>
 				<p style={{"marginTop": "20px"}}>
-					<span className="goRegist"> <a href="javascript:goRegister();">立即注册</a></span>
-					<span className="forget"><a
-						href="http://m.maomibank.com:80/xed_financing_wxgzh/accountinfo/s/toGetBackLoginPassword">忘记密码？</a></span>
+					<span className="goRegist"> <Link to="/register">立即注册</Link></span>
+					<span className="forget"><Link to="/forgetPwd">忘记密码？</Link></span>
 				</p>
 				<p className="server">
 					<a href="tel:400-000-3060">客服电话:400-000-3060</a>

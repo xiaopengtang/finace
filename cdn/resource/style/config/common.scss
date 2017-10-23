@@ -1,0 +1,9 @@
+//公共配置
+$css-prefix : mu !default;  
+
+i{
+	font-size: 14px ;
+	&:before{
+		font-size: 14px;
+	}
+}
