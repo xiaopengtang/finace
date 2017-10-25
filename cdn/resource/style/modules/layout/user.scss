@@ -1,0 +1,53 @@
+.layout-user {
+	display: flex ;
+	height: 100% ;
+	flex-direction: column ;
+	.main-contaiter {
+		flex: 1;
+		overflow-y: scroll ;
+		// background-color: #f7f7f7 ;
+		&>*{
+			background-color: #FFF ;
+		}
+	}
+	.main-header {}
+	.main-footer {
+		background-color: #FFF ;
+		border-top: 1px solid #D8D8D8 ;
+		ul {
+			list-style: none ;
+			display: flex ;
+			li{
+				&.active{
+					a{
+						i{
+							&:before{
+								color: $main-color ;
+							}
+						}
+						h2{
+							color: $main-color ;
+						}
+					}
+				}
+				flex: 1 ;
+				text-align: center ;
+				padding: 5px 0;
+				a{
+					display: block ;
+					i{
+						&:before{
+							font-size: 20px ;
+						}
+					}
+					h2{
+						padding-top: 5px ;
+						line-height: 1;
+						font-size: 12px ;
+						font-weight: bold ;
+					}
+				}
+			}
+		}
+	}
+}

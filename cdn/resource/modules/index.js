@@ -1,4 +1,5 @@
 import 'babel-polyfill'
+import 'antd-mobile/dist/antd-mobile.css'
 import React, {Component} from 'react'
 import style from '../style/index'
 import * as utils from './utils'
@@ -16,6 +17,8 @@ export default async data => {
 						<Route exact path="/" component={Pages.Index} />
 						<Route path="/register" component={Pages.Register} />
 						<Route path="/forgetPwd" component={Pages.ForgetPwd} />
+						<Route path="/home" component={Pages.User.Index} />
+						<Route path="/list" component={Pages.User.List} />
 					</div>
 				</BrowserRouter>
 			)

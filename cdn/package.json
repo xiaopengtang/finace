@@ -4,8 +4,8 @@
   "description": "static resource",
   "main": "index.js",
   "scripts": {
-    "build:client": "cross-env process.env.ENV='production' webpack --config build/build.js --hide-modules --progress --color --watch",
-    "build:server": "cross-env process.env.ENV='production' webpack --config build/server.js --hide-modules --progress --watch",
+    "build:client": "cross-env process.env.ENV='production' webpack --config build/build.js --watch",
+    "build:server": "cross-env process.env.ENV='production' webpack --config build/server.js  --watch",
     "push:client": "cross-env CLIENT=true webpack --config build/push.js --hide-modules --progress",
     "push:server": "cross-env CLIENT=false webpack --config build/push.js --hide-modules --progress"
   },
@@ -16,6 +16,7 @@
   "author": "txp",
   "license": "ISC",
   "dependencies": {
+    "antd-mobile": "^2.0.0",
     "autoprefixer": "^7.1.6",
     "axios": "^0.17.0",
     "babel-cli": "^6.26.0",

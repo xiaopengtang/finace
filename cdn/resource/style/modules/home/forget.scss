@@ -96,15 +96,16 @@
 		height: 38px;
 		float: right;
 		width: 90px;
+		font-size: 14px ;
 		/* margin-top: 11px; */
 	}
 
 	.myButton {
-		background-color: #FEC63D;
+		background-color: $main-color;
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
 		border-radius: 3px;
-		border: 1px solid #FEC63D;
+		border: 1px solid $main-color;
 		display: inline-block;
 		cursor: pointer;
 		color: #ffffff;
@@ -219,11 +220,11 @@
 		/*color: royalblue;*/
 	}
 	.myButton_1 {
-		background-color: #FEC63D;
+		background-color: $main-color;
 		-moz-border-radius: 6px;
 		-webkit-border-radius: 6px;
 		border-radius: 6px;
-		border: 1px solid #FEC63D;
+		border: 1px solid $main-color;
 		display: inline-block;
 		height:25px;
 		line-height:25px;

@@ -12,6 +12,7 @@ const header = [
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const extractSASS = new ExtractTextPlugin('style.css')
+// const extractCSS = new ExtractTextPlugin('style.css')
 
 module.exports = {
     'entry': {
@@ -20,14 +21,19 @@ module.exports = {
     'plugins': [
         new webpack.BannerPlugin(header),
         new webpack.optimize.CommonsChunkPlugin('common'),
-        extractSASS
+        extractSASS,
+        // extractCSS,
+        new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
     ],
     'module': {
         'rules': [
             {
                 "test" : /\.css$/,
-                "exclude" : /node_modules/,
-                "use" : ["style-loader","css-loader?modules", "postcss-loader"]
+                // "exclude" : /node_modules/,
+                "use" : extractSASS.extract({
+                    'fallback': 'style-loader',
+                    'use': ['css-loader', 'postcss-loader']
+                }) //["style-loader","css-loader?modules", "postcss-loader"]
             },
             {
                 "test" : /\.(woff)|(svg)|(eot)|(ttf)$/,
