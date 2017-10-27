@@ -5,10 +5,7 @@
 	.main-contaiter {
 		flex: 1;
 		overflow-y: scroll ;
-		// background-color: #f7f7f7 ;
-		&>*{
-			background-color: #FFF ;
-		}
+		background-color: #F7F7F7 ;
 	}
 	.main-header {}
 	.main-footer {

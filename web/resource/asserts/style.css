@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-10-26 01:17:01
+ * last update:2017-10-27 10:47:16
  */
 /*!
  * 
@@ -10517,9 +10517,8 @@ input[type="button"] {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    overflow-y: scroll; }
-    .layout-user .main-contaiter > * {
-      background-color: #FFF; }
+    overflow-y: scroll;
+    background-color: #F7F7F7; }
   .layout-user .main-footer {
     background-color: #FFF;
     border-top: 1px solid #D8D8D8; }
@@ -11253,3 +11252,23 @@ html, body, .wrap, .pages-content {
 
 .user-index .footer table img {
   width: 30%; }
+
+.home-list .price-info {
+  background-color: #108ee9;
+  padding: 30px 0 15px; }
+  .home-list .price-info .price-title {
+    font-size: 16px;
+    color: #FFF;
+    text-align: center;
+    padding-bottom: 10px; }
+    .home-list .price-info .price-title i {
+      font-style: normal;
+      font-size: 20px; }
+  .home-list .price-info a[role='button'] {
+    margin: 0 20%;
+    height: 30px; }
+    .home-list .price-info a[role='button'] > * {
+      color: #108ee9; }
+    .home-list .price-info a[role='button'] span {
+      font-size: 16px;
+      line-height: 1; }

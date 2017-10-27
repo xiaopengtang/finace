@@ -1,11 +1,17 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { NavBar, Icon } from 'antd-mobile'
 
 export default class Index extends Component {
 	state = {} ;
+	static propTypes = {
+		'title': PropTypes.string
+	};
 
 	static defaultProps = {
-		'module': 'home'
+		'module': 'home',
+		'title': '首页'
 	}
 
 	footerRender () {
@@ -56,7 +62,16 @@ export default class Index extends Component {
 		let {children, module, className, ...other} = this.props
 		return (
 			<div className="layout-user">
-			    <div {...other} className={`main-contaiter ${className}`}>{this.props.children}</div>
+			    <div {...other} className={`main-contaiter ${className}`}>
+			        <NavBar
+				      leftContent={<Icon type="left" />}
+				      rightContent={[
+				        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+				        <Icon key="1" type="ellipsis" />,
+				      ]}
+				    >{this.props.title}</NavBar>
+			        {this.props.children}
+			    </div>
 			    {this.footerRender()}
 			</div>
 		);
