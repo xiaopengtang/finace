@@ -6,12 +6,14 @@ import { NavBar, Icon } from 'antd-mobile'
 export default class Index extends Component {
 	state = {} ;
 	static propTypes = {
-		'title': PropTypes.string
+		'title': PropTypes.string,
+		'footer': PropTypes.node
 	};
 
 	static defaultProps = {
 		'module': 'home',
-		'title': '首页'
+		'title': '首页',
+		'footer': null
 	}
 
 	footerRender () {
@@ -43,7 +45,7 @@ export default class Index extends Component {
 	    ]
 		const tpl = (
 			<div className="main-footer">
-			    <ul>{modules.map((m, i) => {
+			    {this.props.footer ? this.props.footer : <ul>{modules.map((m, i) => {
 			    	return (
 			    		<li key={i} className={m.name === this.props.module ? 'active' : ''}>
 			    		    <Link to={m.url}>
@@ -52,7 +54,7 @@ export default class Index extends Component {
 			    		    </Link>
 			    		</li>
 			    	)
-			    })}</ul>
+			    })}</ul>}
 			</div>
 		)
 		return tpl

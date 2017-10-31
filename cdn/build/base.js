@@ -23,7 +23,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('common'),
         extractSASS,
         // extractCSS,
-        new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
+        // new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
     ],
     'module': {
         'rules': [
@@ -46,16 +46,16 @@ module.exports = {
                 "use" : ["file-loader"]
             },
             {
-                "test" : /\.scss/,
+                "test" : /\.less/,
                 "exclude" : /node_modules/,
                 'use': extractSASS.extract({
                     'fallback': 'style-loader',
-                    'use': ["css-loader", "postcss-loader", "sass-loader"]
+                    'use': ["css-loader", "postcss-loader", "less-loader"]
                 })
             }
         ]
     },
     "resolve" : {
-        "extensions" : [".js", ".json", ".jsx", ".css",".scss"]
+        "extensions" : [".js", ".json", ".jsx", ".css",".less"]
     }
 }

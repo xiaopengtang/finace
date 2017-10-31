@@ -1,2 +1,3 @@
-export Index from './Index'
+export Index from './Index/index.js'
 export List from './List'
+export Detail from './Detail'
