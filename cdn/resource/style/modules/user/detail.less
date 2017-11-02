@@ -1,4 +1,62 @@
 .home-detail{
+	.list{
+		.check-tag{
+			padding: 2px 7px;
+	    	font-size: 10px ;
+	    	border-radius: 14px ;
+	    	line-height: 1;
+	    	background-color: @main-color;
+	    	color: #FFF ;
+	    	display: initial;
+	    	// border: 1px solid #FFF ;
+		}
+	}
+	.user-info{
+		display: flex ;
+		align-items: center;
+		justify-content: space-between ;
+		.user-res{
+			display: flex ;
+		    align-items: center;
+		    .user-tag{
+		    	padding: 2px 7px;
+		    	font-size: 10px ;
+		    	border-radius: 14px ;
+		    	line-height: 1 ;
+		    	color: @main-color ;
+		    	border: 1px solid @main-color ;
+		    	i{
+		    		&:before{
+		    			color: @main-color  ;
+		    		}
+		    	}
+		    }
+		    i{
+		    	padding-left: 10px ;
+		    }
+		}
+		.user-title{
+			display: flex ;
+		    align-items: center;
+			i{
+				&:before{
+					font-size: 24px;
+					line-height: 1;
+					color: @color-red ;
+				}
+				padding-right: 10px;
+				display: inline-block;
+			}
+			span{
+				line-height: 1 ;
+				font-size: 14px;
+				display: inline-block;
+				// line-height: 24px;
+				// height: 24px ;
+				
+			}
+		}
+	}
 	.top{
 		display: flex ;
 		justify-content: space-between ;

@@ -21,12 +21,12 @@ export default async data => {
 						<Route path="/home" component={Pages.User.Index} />
 						<Route path="/list" component={Pages.User.List} />
 						<Route path="/detail" component={Pages.User.Detail} />
+						<Route path="/apply" component={Pages.User.Apply} />
 					</div>
 				</BrowserRouter>
 			)
 		}
 	}
-
 	const body = document.querySelector('.wrap')
 	Dom.render(<Home />, body)
 }
