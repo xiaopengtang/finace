@@ -1,1 +1,37 @@
 @import './reset' ;
+
+.page-appear {
+    opacity: 0.01;
+    margin-left: 100%;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}
+
+.page-appear.page-appear-active {
+    margin-left: 0px;
+    opacity: 1;
+}
+
+.page-enter {
+    opacity: 0.01;
+    margin-left: 100%;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}
+
+.page-enter.page-enter-active {
+    margin-left: 0px;
+    opacity: 1;
+}
+
+.page-leave {
+    opacity: 1;
+    margin-left: 0px;
+    -webkit-transition: all 1.5s;
+    transition: all 1.5s;
+}
+
+.page-leave.page-leave-active {
+    margin-left: -100%;
+    opacity: 0.01;
+}
