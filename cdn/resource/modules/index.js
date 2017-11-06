@@ -13,7 +13,7 @@ export default async data => {
 	class Home extends Component {
 		render () {
 			return ( 
-				<HashRouter
+				<BrowserRouter
 				    >
 					<Switch>
 						<Route exact path="/" component={Pages.Index} />
@@ -24,7 +24,7 @@ export default async data => {
 						<Route path="/detail" component={Pages.User.Detail} />
 						<Route path="/apply" component={Pages.User.Apply} />
 					</Switch>
-				</HashRouter>
+				</BrowserRouter>
 			)
 		}
 	}

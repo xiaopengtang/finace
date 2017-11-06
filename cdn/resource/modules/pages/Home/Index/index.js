@@ -41,7 +41,7 @@ export default class Index extends Component {
 					src={this.state.show ? "public/i/eyesclose.png" : "public/i/eyesopen.png"}
 					className="inputImg" id="tab2" onClick={e => this.setState({'show': !this.state.show})} />
 				</p>
-				<a className="LogBtn_s" onClick={this.login.bind(this)}>立即登录</a>
+				<Link className="LogBtn_s" to="/home" onClick={this.login.bind(this)}>立即登录</Link>
 				<p style={{"marginTop": "20px"}}>
 					<span className="goRegist"> <Link to="/register">立即注册</Link></span>
 					<span className="forget"><Link to="/forgetPwd">忘记密码？</Link></span>
