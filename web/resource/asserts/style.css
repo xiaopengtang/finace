@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-06 11:37:40
+ * last update:2017-11-07 10:49:17
  */
 /*!
  * 
@@ -11537,4 +11537,73 @@ body,
   font-size: 14px ;
   font-weight: bold;
   text-align: center;
+}
+.user-invest .invest-content {
+  -webkit-box-flex: 1 ;
+  -webkit-flex: 1 ;
+      -ms-flex: 1 ;
+          flex: 1 ;
+}
+.user-invest .invest-content .invest-price {
+  padding: 15px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex ;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center ;
+  -webkit-align-items: center ;
+      -ms-flex-align: center ;
+          align-items: center ;
+}
+.user-invest .invest-content .invest-price .show-price {
+  font-size: 16px ;
+  color: #4180e9;
+}
+.user-invest .invest-content .invest-price .show-price-sub {
+  padding-left: 20px ;
+  font-size: 12px ;
+}
+.user-invest .invest-content .invest-price .show-price-mony {
+  font-size: 12px ;
+  color: #4180e9;
+}
+.user-invest .tags-list .am-tag {
+  margin: 0 5px ;
+}
+.user-invest .invest-present {
+  -webkit-box-flex: inherit ;
+  -webkit-flex: inherit ;
+      -ms-flex: inherit ;
+          flex: inherit ;
+  text-align: right;
+}
+.user-invest .invest-date {
+  font-size: 12px ;
+  color: #4180e9;
+}
+.user-invest .invest-date:before {
+  display: inline-block;
+  content: attr(data-txt);
+  font-size: 12px ;
+  color: #000 ;
+}
+.user-invest ul.invest {
+  list-style: none;
+}
+.user-invest ul.invest > li {
+  position: relative;
+}
+.user-invest ul.invest > li:before {
+  position: absolute;
+  display: block;
+  left: 0 ;
+  top: 0 ;
+  background-color: #4180e9;
+  font-size: 14px ;
+  content: attr(data-txt);
+  color: #FFF ;
 }

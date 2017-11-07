@@ -22,6 +22,7 @@ export default async data => {
 						<Route path="/home" component={Pages.User.Index} />
 						<Route path="/list" component={Pages.User.List} />
 						<Route path="/detail" component={Pages.User.Detail} />
+						<Route path="/invest" component={Pages.User.Invest} />
 						<Route path="/apply" component={Pages.User.Apply} />
 					</Switch>
 				</BrowserRouter>
