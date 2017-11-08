@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-07 10:49:17
+ * last update:2017-11-08 10:51:42
  */
 /*!
  * 
@@ -11606,4 +11606,41 @@ body,
   font-size: 14px ;
   content: attr(data-txt);
   color: #FFF ;
+}
+.home-order-main .top-content {
+  padding: 35px 0 ;
+  background-color: #108ee9 ;
+  color: #FFF ;
+  text-align: center;
+}
+.home-order-main .top-content .top-present {
+  font-size: 12px ;
+  line-height: 1;
+  padding: 10px 0 ;
+}
+.home-order-main .top-content .top-title {
+  font-size: 18px ;
+  line-height: 1 ;
+  padding: 10px 0 ;
+}
+.home-order-main .top-content .top-tip {
+  padding: 10px 0 ;
+  font-size: 14px ;
+  line-height: 1 ;
+}
+.home-order-main ul.mdl-content {
+  padding: 10px 15px;
+}
+.home-order-main ul.mdl-content li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex ;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.home-order-main ul.mdl-content li:not(:last-child) {
+  padding-top: 10px ;
 }

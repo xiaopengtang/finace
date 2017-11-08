@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-07 10:49:17
+ * last update:2017-11-08 10:51:42
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -3795,10 +3795,9 @@ exports.default = function () {
 											_react2.default.createElement(Route, { path: '/register', component: Pages.Register }),
 											_react2.default.createElement(Route, { path: '/forgetPwd', component: Pages.ForgetPwd }),
 											_react2.default.createElement(Route, { path: '/home', component: Pages.User.Index }),
-											_react2.default.createElement(Route, { path: '/list', component: Pages.User.List }),
-											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.Detail }),
-											_react2.default.createElement(Route, { path: '/invest', component: Pages.User.Invest }),
-											_react2.default.createElement(Route, { path: '/apply', component: Pages.User.Apply })
+											_react2.default.createElement(Route, { path: '/list', component: Pages.User.Invest }),
+											_react2.default.createElement(Route, { path: '/apply', component: Pages.User.Apply }),
+											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.OrderMain })
 										)
 									);
 								}

@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-07 10:49:17
+ * last update:2017-11-08 10:51:42
  */
 webpackJsonp_name_([0],{
 
@@ -643,7 +643,7 @@ exports.default = Index;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
+exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
 
 var _index = __webpack_require__(643);
 
@@ -661,9 +661,13 @@ var _Apply2 = __webpack_require__(646);
 
 var _Apply3 = _interopRequireDefault(_Apply2);
 
-var _Invest2 = __webpack_require__(658);
+var _Invest2 = __webpack_require__(647);
 
 var _Invest3 = _interopRequireDefault(_Invest2);
+
+var _orderMain = __webpack_require__(659);
+
+var _orderMain2 = _interopRequireDefault(_orderMain);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -672,6 +676,7 @@ exports.List = _List3.default;
 exports.Detail = _Detail3.default;
 exports.Apply = _Apply3.default;
 exports.Invest = _Invest3.default;
+exports.OrderMain = _orderMain2.default;
 
 /***/ }),
 
@@ -1405,7 +1410,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 658:
+/***/ 647:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1424,6 +1429,8 @@ var _user2 = _interopRequireDefault(_user);
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(239);
 
 var _antdMobile = __webpack_require__(238);
 
@@ -1465,80 +1472,84 @@ var Index = function (_Component) {
 				null,
 				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
 				_react2.default.createElement(
-					_antdMobile.Card,
-					null,
-					_react2.default.createElement(_antdMobile.Card.Header, {
-						extra: _react2.default.createElement(
-							'span',
-							{ 'data-txt': '\u671F\u9650', className: 'invest-date' },
-							'15\u5929'
-						),
-						title: '\u73B0\u4EE3\u8F66\u8D28\u62BC\u501F\u6B3E' }),
+					_reactRouterDom.Link,
+					{ to: '/detail', style: { 'display': 'block' } },
 					_react2.default.createElement(
-						_antdMobile.Card.Body,
+						_antdMobile.Card,
 						null,
+						_react2.default.createElement(_antdMobile.Card.Header, {
+							extra: _react2.default.createElement(
+								'span',
+								{ 'data-txt': '\u671F\u9650', className: 'invest-date' },
+								'15\u5929'
+							),
+							title: '\u73B0\u4EE3\u8F66\u8D28\u62BC\u501F\u6B3E' }),
 						_react2.default.createElement(
-							_antdMobile.Flex,
-							{ justify: 'between' },
+							_antdMobile.Card.Body,
+							null,
 							_react2.default.createElement(
-								_antdMobile.Flex.Item,
-								{ className: 'invest-content' },
+								_antdMobile.Flex,
+								{ justify: 'between' },
 								_react2.default.createElement(
-									'div',
-									{ className: 'tags-list' },
+									_antdMobile.Flex.Item,
+									{ className: 'invest-content' },
 									_react2.default.createElement(
-										_antdMobile.Tag,
-										{ small: true },
-										'100\u8D77\u6295'
+										'div',
+										{ className: 'tags-list' },
+										_react2.default.createElement(
+											_antdMobile.Tag,
+											{ small: true },
+											'100\u8D77\u6295'
+										),
+										_react2.default.createElement(
+											_antdMobile.Tag,
+											{ small: true },
+											'100\u8D77\u6295'
+										),
+										_react2.default.createElement(
+											_antdMobile.Tag,
+											{ small: true },
+											'100\u8D77\u6295'
+										)
 									),
 									_react2.default.createElement(
-										_antdMobile.Tag,
-										{ small: true },
-										'100\u8D77\u6295'
-									),
-									_react2.default.createElement(
-										_antdMobile.Tag,
-										{ small: true },
-										'100\u8D77\u6295'
+										'div',
+										{ className: 'invest-price' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'show-price' },
+											'8.08%'
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'show-price-sub' },
+											_react2.default.createElement(
+												'span',
+												null,
+												'\u5269'
+											),
+											_react2.default.createElement(
+												'span',
+												{ className: 'show-price-mony' },
+												'10\u4E07'
+											),
+											_react2.default.createElement(
+												'span',
+												null,
+												'\u5143'
+											)
+										)
 									)
 								),
 								_react2.default.createElement(
-									'div',
-									{ className: 'invest-price' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'show-price' },
-										'8.08%'
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'show-price-sub' },
-										_react2.default.createElement(
-											'span',
-											null,
-											'\u5269'
-										),
-										_react2.default.createElement(
-											'span',
-											{ className: 'show-price-mony' },
-											'10\u4E07'
-										),
-										_react2.default.createElement(
-											'span',
-											null,
-											'\u5143'
-										)
-									)
+									_antdMobile.Flex.Item,
+									{ className: 'invest-present' },
+									'\u6D4B\u8BD5'
 								)
-							),
-							_react2.default.createElement(
-								_antdMobile.Flex.Item,
-								{ className: 'invest-present' },
-								'\u6D4B\u8BD5'
 							)
-						)
-					),
-					_react2.default.createElement(_antdMobile.Card.Footer, { content: '\u6807\u7F16\u53F7\uFF1ANJXED-201700000019' })
+						),
+						_react2.default.createElement(_antdMobile.Card.Footer, { content: '\u6807\u7F16\u53F7\uFF1ANJXED-201700000019' })
+					)
 				)
 			); /*(
       <div>
@@ -1562,6 +1573,226 @@ var Index = function (_Component) {
 					_antdMobile.Tabs,
 					{ tabs: tabs },
 					this.renderTab.bind(this)
+				)
+			);
+		}
+	}]);
+
+	return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 659:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(638);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _reactRouterDom = __webpack_require__(239);
+
+var _antdMobile = __webpack_require__(238);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Index = function (_Component) {
+	_inherits(Index, _Component);
+
+	function Index() {
+		_classCallCheck(this, Index);
+
+		return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+	}
+
+	_createClass(Index, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_user2.default,
+				{ module: 'list', className: 'home-order-main', footer: _react2.default.createElement(
+						'div',
+						{ className: 'detail-footer' },
+						_react2.default.createElement(
+							_reactRouterDom.Link,
+							{ style: { 'color': '#FFF' }, to: '/apply' },
+							'\u7ACB\u5373\u6295\u8D44'
+						)
+					) },
+				_react2.default.createElement(
+					'div',
+					{ className: 'top-content' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'top-present' },
+						'\u9884\u671F\u5E74\u5316\u6536\u76CA\u7387\uFF08%\uFF09'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'top-title' },
+						'14.00'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'top-tip' },
+						'\u8FDB\u5EA6100%,\u5269\u4F59\u53EF\u6295\u91D1\u989D0.00\u5143'
+					)
+				),
+				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
+				_react2.default.createElement(
+					_antdMobile.Accordion,
+					null,
+					_react2.default.createElement(
+						_antdMobile.Accordion.Panel,
+						{ header: _react2.default.createElement(
+								'span',
+								{ className: 'icon icon-file' },
+								' \u9879\u76EE\u8BE6\u60C5 '
+							) },
+						_react2.default.createElement(
+							'ul',
+							{ className: 'mdl-content' },
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6D4B\u8BD5'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									'\u6D4B\u8BD5\u4E0B'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.Accordion.Panel,
+						{ header: _react2.default.createElement(
+								'span',
+								{ className: 'icon icon-user' },
+								' \u8D37\u6B3E\u4EBA\u57FA\u672C\u8D44\u6599 '
+							) },
+						_react2.default.createElement(
+							'ul',
+							{ className: 'mdl-content' },
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6D4B\u8BD5'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									'\u6D4B\u8BD5\u4E0B'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.Accordion.Panel,
+						{ header: _react2.default.createElement(
+								'span',
+								{ className: 'icon icon-car' },
+								' \u8F66\u8F86\u57FA\u672C\u8D44\u6599 '
+							) },
+						_react2.default.createElement(
+							'ul',
+							{ className: 'mdl-content' },
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6D4B\u8BD5'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									'\u6D4B\u8BD5\u4E0B'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.Accordion.Panel,
+						{ header: _react2.default.createElement(
+								'span',
+								{ className: 'icon icon-file-word-o' },
+								' \u8D44\u8D28\u5BA1\u6838 '
+							) },
+						_react2.default.createElement(
+							'ul',
+							{ className: 'mdl-content' },
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6D4B\u8BD5'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									'\u6D4B\u8BD5\u4E0B'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.Accordion.Panel,
+						{ header: _react2.default.createElement(
+								'span',
+								{ className: 'icon icon-file-text' },
+								' \u6295\u8D44\u8BB0\u5F55 '
+							) },
+						_react2.default.createElement(
+							'ul',
+							{ className: 'mdl-content' },
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6D4B\u8BD5'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									'\u6D4B\u8BD5\u4E0B'
+								)
+							)
+						)
+					)
 				)
 			);
 		}
