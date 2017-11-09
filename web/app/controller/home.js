@@ -3,7 +3,8 @@
 module.exports = app => {
   class HomeController extends app.Controller {
     * index(ctx) {
-      return yield ctx.render('home/index.tpl')
+    	const user = ctx.session.user || null
+      return yield ctx.render('home/index.tpl', {user})
     }
     
   }

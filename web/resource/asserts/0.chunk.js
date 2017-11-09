@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-08 10:51:42
+ * last update:2017-11-09 10:43:33
  */
 webpackJsonp_name_([0],{
 
@@ -98,6 +98,11 @@ var Index = function (_Component) {
 	}
 
 	_createClass(Index, [{
+		key: 'componentWillReceiveProps',
+		value: function componentWillReceiveProps(nextProps) {
+			console.log({ nextProps: nextProps });
+		}
+	}, {
 		key: 'footerRender',
 		value: function footerRender() {
 			var _this2 = this;
@@ -665,7 +670,7 @@ var _Invest2 = __webpack_require__(647);
 
 var _Invest3 = _interopRequireDefault(_Invest2);
 
-var _orderMain = __webpack_require__(659);
+var _orderMain = __webpack_require__(648);
 
 var _orderMain2 = _interopRequireDefault(_orderMain);
 
@@ -1585,7 +1590,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 659:
+/***/ 648:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
