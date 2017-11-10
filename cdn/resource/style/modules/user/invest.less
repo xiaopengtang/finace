@@ -1,0 +1,61 @@
+.user-invest {
+	.invest-content{
+		flex: 1 ; 
+		.invest-price{
+			padding: 15px 0;
+			display: flex ;
+			justify-content: flex-start  ;
+			align-items: center ;
+			.show-price{
+				font-size: 16px ;
+				color: @main-color ;
+			}
+			.show-price-sub{
+				padding-left: 20px ;
+				font-size: 12px ;
+			}
+			.show-price-mony{
+				font-size: 12px ;
+				color: @main-color ;
+			}
+
+		}
+	}
+	.tags-list{
+		.am-tag{
+			margin: 0 5px ;
+		}
+	}
+	.invest-present{
+		flex: inherit ;
+		text-align: right;
+	}
+	.invest-date{
+		font-size: 12px ;
+		color: @main-color ;
+		&:before{
+			display: inline-block;
+			content: attr(data-txt) ;
+			font-size: 12px ;
+			color: #000 ;
+			// color: #c9c9c9 ;
+		    
+		}
+	}
+	ul.invest{
+		list-style: none;
+		&>li{
+			position: relative;
+			&:before{
+				position: absolute;
+				display: block;
+				left: 0 ;
+				top: 0 ;
+				background-color: @main-color ;
+				font-size: 14px ;
+				content: attr(data-txt) ;
+				color: #FFF ;
+			}
+		}
+	}
+}

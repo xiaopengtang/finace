@@ -24,5 +24,12 @@ module.exports = appInfo => {
     dir: path.join(appInfo.baseDir,'resource/asserts')
   }
 
+  exports.session = {
+    key: 'SAIER_KEY',
+    maxAge: 24 * 3600 * 1000, // 1 天
+    httpOnly: true,
+    encrypt: true
+  }
+
   return config;
 };

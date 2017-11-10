@@ -15,6 +15,9 @@ export default class Index extends Component {
 		'title': '首页',
 		'footer': null
 	}
+	componentWillReceiveProps(nextProps){
+		console.log({nextProps})
+	}
 
 	footerRender () {
 		const modules = [

@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-06 11:37:40
+ * last update:2017-11-09 10:43:33
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -3159,7 +3159,8 @@ Link.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__["a" /* default */]);
 
 /***/ }),
-/* 238 */
+/* 238 */,
+/* 239 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3218,7 +3219,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 239 */,
 /* 240 */,
 /* 241 */,
 /* 242 */,
@@ -3728,7 +3728,7 @@ var _utils = __webpack_require__(623);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _reactRouterDom = __webpack_require__(238);
+var _reactRouterDom = __webpack_require__(239);
 
 var ReactRouter = _interopRequireWildcard(_reactRouterDom);
 
@@ -3795,9 +3795,9 @@ exports.default = function () {
 											_react2.default.createElement(Route, { path: '/register', component: Pages.Register }),
 											_react2.default.createElement(Route, { path: '/forgetPwd', component: Pages.ForgetPwd }),
 											_react2.default.createElement(Route, { path: '/home', component: Pages.User.Index }),
-											_react2.default.createElement(Route, { path: '/list', component: Pages.User.List }),
-											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.Detail }),
-											_react2.default.createElement(Route, { path: '/apply', component: Pages.User.Apply })
+											_react2.default.createElement(Route, { path: '/list', component: Pages.User.Invest }),
+											_react2.default.createElement(Route, { path: '/apply', component: Pages.User.Apply }),
+											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.OrderMain })
 										)
 									);
 								}
