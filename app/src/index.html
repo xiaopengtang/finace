@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.8.0';i.angular='4.4.4';i.staticDir='build/';})(window);
+  </script>
+  <meta charset="UTF-8">
+  <title>Ionic App</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js"></script>
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <!-- <link href="build/main.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="public/style.css">
+</head>
+<body>
+
+  <!-- Ionic's root component and where the app will load -->
+  <!-- <ion-app></ion-app> -->
+   <div class="wrap">
+    <span class="pages-content"><div class="home-index"><div class="logo"><img src="public/i/logo.png" style="width: 60%;"></div><p style="position: relative;"><input type="text" name="accountName" id="telephoneNumber" value="" placeholder="请输入您的手机号"><img src="public/i/clear.png" class="inputImg" id="tab1"></p><p style="position: relative; margin-bottom: 30px;"><input type="password" name="password" id="passWord" value="" placeholder="登录密码"><img src="public/i/eyesclose.png" class="inputImg" id="tab2"></p><a class="LogBtn_s">立即登录</a><p style="margin-top: 20px;"><span class="goRegist"> <a href="/register">立即注册</a></span><span class="forget"><a href="/forgetPwd">忘记密码？</a></span></p><p class="server"><a href="tel:400-000-3060">客服电话:400-000-3060</a></p></div></span>
+   </div>
+
+  <!-- The polyfills js is generated during the build process -->
+  <!-- <script src="build/polyfills.js"></script> -->
+
+  <!-- The vendor js is generated during the build process
+       It contains all of the dependencies in node_modules -->
+  <script src="build/vendor.js"></script>
+
+  <!-- The main bundle js is generated during the build process -->
+  <!-- <script src="build/main.js"></script> -->
+  <script src="public/common.bundle.js"></script>
+  <script src="public/main.bundle.js"></script>
+  <script>
+    // console.log(react)
+  </script>
+
+
+</body>
+</html>
