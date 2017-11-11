@@ -6,7 +6,6 @@ module.exports = app => {
     	const user = ctx.session.user || null
       return yield ctx.render('home/index.tpl', {user})
     }
-    
   }
   return HomeController;
 };

@@ -28,7 +28,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('common'),
         extractSASS,
         // extractCSS,
-        new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
+        // new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
     ],
     'module': {
         'rules': [

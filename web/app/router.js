@@ -1,8 +1,9 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/*', 'home.index')
+  app.get(/^\/((?!api).)*$/, 'home.index')
   app.get('/api/login', 'user.login')
-  app.get('/api/loginout', 'user.loginout')
-  app.get('/api/saveUserInfo', 'user.saveInfo')
+  app.get('/api/loginStatus', 'user.loginStatus')
+  app.post('/api/loginout', 'user.loginout')
+  app.post('/api/saveUserInfo', 'user.saveInfo')
 };

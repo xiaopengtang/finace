@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-09 10:43:33
+ * last update:2017-11-11 10:00:28
  */
 /*!
  * 
@@ -10448,35 +10448,56 @@ textarea {
 input[type="button"] {
   border-radius: 0;
 }
-.page-appear {
-  opacity: 0.01;
-  margin-left: 100%;
-  -webkit-transition: all 1.5s;
-  transition: all 1.5s;
+.container,
+.container-wrap {
+  height: 100% ;
 }
-.page-appear.page-appear-active {
-  margin-left: 0px;
-  opacity: 1;
+.container.container,
+.container-wrap.container {
+  border-left: 1px solid #c9c9c9 ;
+  border-right: 1px solid #c9c9c9 ;
 }
-.page-enter {
-  opacity: 0.01;
-  margin-left: 100%;
-  -webkit-transition: all 1.5s;
-  transition: all 1.5s;
+.pager-appear {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
 }
-.page-enter.page-enter-active {
-  margin-left: 0px;
-  opacity: 1;
+.pager-appear.pager-appear-active {
+  opacity: 1 ;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: all linear .3s ;
+  transition: all linear .3s ;
 }
-.page-leave {
-  opacity: 1;
-  margin-left: 0px;
-  -webkit-transition: all 1.5s;
-  transition: all 1.5s;
+.pager-enter {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
 }
-.page-leave.page-leave-active {
-  margin-left: -100%;
-  opacity: 0.01;
+.pager-enter.pager-enter-active {
+  opacity: 1 ;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: all linear .3s ;
+  transition: all linear .3s ;
+}
+.pager-leave {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
+}
+.pager-leave.pager-leave-active {
+  opacity: 1 ;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: all linear .3s ;
+  transition: all linear .3s ;
 }
 .layout-user {
   display: -webkit-box;
