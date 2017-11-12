@@ -95,7 +95,7 @@ export default class Index extends Component {
 					<input 
 					    onClick={this.sendCode.bind(this)}
 					    style={{"marginLeft": "10px","minWidth": "77px","marginTop": "11px"}}
-					    type="button" name="" id="sentCaptcha" className=`myButton ${this.state.timer  !== 60 ? 'active' : ''}` value={this.state.timer !== 60?`${this.state.timer}s后重新发送`:'获取验证码'} />
+					    type="button" name="" id="sentCaptcha" className={`myButton ${this.state.timer  !== 60 ? 'active' : ''}`} value={this.state.timer !== 60 ? `${this.state.timer}s后重新发送` :'获取验证码'} />
 				</li>
 				<li>
 				    <i className="icon icon-lock"></i>

@@ -791,10 +791,309 @@ exports.default = Index;
 /***/ }),
 
 /***/ 660:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: F:/node-web/project/finace/cdn/resource/modules/pages/Home/ForgetPwd/index.js: JSX value should be either an expression or a quoted JSX text (98:58)\n\n\u001b[0m \u001b[90m  96 | \u001b[39m\t\t\t\t\t    onClick\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msendCode\u001b[33m.\u001b[39mbind(\u001b[36mthis\u001b[39m)}\n \u001b[90m  97 | \u001b[39m\t\t\t\t\t    style\u001b[33m=\u001b[39m{{\u001b[32m\"marginLeft\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"10px\"\u001b[39m\u001b[33m,\u001b[39m\u001b[32m\"minWidth\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"77px\"\u001b[39m\u001b[33m,\u001b[39m\u001b[32m\"marginTop\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"11px\"\u001b[39m}}\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 | \u001b[39m\t\t\t\t\t    type\u001b[33m=\u001b[39m\u001b[32m\"button\"\u001b[39m name\u001b[33m=\u001b[39m\u001b[32m\"\"\u001b[39m id\u001b[33m=\u001b[39m\u001b[32m\"sentCaptcha\"\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m`myButton ${this.state.timer  !== 60 ? 'active' : ''}`\u001b[39m value\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39mtimer \u001b[33m!==\u001b[39m \u001b[35m60\u001b[39m\u001b[33m?\u001b[39m\u001b[32m`${this.state.timer}s后重新发送`\u001b[39m\u001b[33m:\u001b[39m\u001b[32m'获取验证码'\u001b[39m} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m     | \u001b[39m\t\t\t\t\t                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 | \u001b[39m\t\t\t\t\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 100 | \u001b[39m\t\t\t\t\u001b[33m<\u001b[39m\u001b[33mli\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 101 | \u001b[39m\t\t\t\t    \u001b[33m<\u001b[39m\u001b[33mi\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"icon icon-lock\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mi\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _antdMobile = __webpack_require__(243);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Index = (_temp2 = _class = function (_Component) {
+	_inherits(Index, _Component);
+
+	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Index);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'timer': 60,
+			'password': '',
+			'phone': '',
+			'verficationCode': '',
+			'confirm': ''
+		}, _this.timer = null, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(Index, [{
+		key: 'sendCode',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var _this2 = this;
+
+				var phone, check, res;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								if (!this.timer) {
+									_context.next = 2;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 2:
+								phone = this.state.phone;
+								check = this.context.$utils.check.checkTel(phone);
+
+								if (!(check === false)) {
+									_context.next = 6;
+									break;
+								}
+
+								return _context.abrupt('return', _antdMobile.Toast.info(check.getError()));
+
+							case 6:
+								_context.next = 8;
+								return this.context.$store.auth.sendCode({ phone: phone, 'type': 'forget' });
+
+							case 8:
+								res = _context.sent;
+
+								if (res) {
+									_context.next = 11;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 11:
+								this.timer = setInterval(function () {
+									var timer = _this2.state.timer;
+
+									timer--;
+									if (timer === 0) {
+										clearInterval(_this2.timer);
+										timer = 60;
+										delete _this2.timer;
+									}
+									_this2.setState({ timer: timer });
+								}, 1000);
+
+							case 12:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function sendCode() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return sendCode;
+		}()
+	}, {
+		key: 'sure',
+		value: function () {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				var _this3 = this;
+
+				var _state, phone, confirm, password, verficationCode, check, res;
+
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								_state = this.state, phone = _state.phone, confirm = _state.confirm, password = _state.password, verficationCode = _state.verficationCode;
+								check = this.context.$utils.check.checkTel(phone);
+
+								if (!(check === false)) {
+									_context2.next = 4;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info(check.getError()));
+
+							case 4:
+								if (verficationCode) {
+									_context2.next = 6;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入短信验证码'));
+
+							case 6:
+								if (/^\d+$/.test(verficationCode)) {
+									_context2.next = 8;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请正确输入短信验证码'));
+
+							case 8:
+								if (password) {
+									_context2.next = 10;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入密码'));
+
+							case 10:
+								if (confirm) {
+									_context2.next = 12;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请确认输入密码'));
+
+							case 12:
+								if (!(confirm !== password)) {
+									_context2.next = 14;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('两次密码不同，请确认'));
+
+							case 14:
+								res = this.context.$store.auth.forget({ phone: phone, verficationCode: verficationCode, password: password });
+
+								if (!res.success) {
+									_context2.next = 20;
+									break;
+								}
+
+								_antdMobile.Toast.info('修改成功');
+								return _context2.abrupt('return', setTimeout(function () {
+									return _this3.props.history.push('/');
+								}, 3000));
+
+							case 20:
+								return _context2.abrupt('return', _antdMobile.Toast.info('修改失败'));
+
+							case 21:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, this);
+			}));
+
+			function sure() {
+				return _ref3.apply(this, arguments);
+			}
+
+			return sure;
+		}()
+	}, {
+		key: 'render',
+		value: function render() {
+			var _this4 = this;
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'home-forget' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'logo' },
+					_react2.default.createElement('img', { src: 'public/i/logo.png', style: { 'width': '60%' } })
+				),
+				_react2.default.createElement(
+					'ul',
+					null,
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement('i', { className: 'icon icon-user-o' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'phone': e.currentTarget.value });
+							},
+							value: this.state.phone,
+							type: 'text', name: 'telephone', id: 'telephoneNumber', placeholder: '\u8BF7\u8F93\u5165\u624B\u673A\u53F7' })
+					),
+					_react2.default.createElement(
+						'li',
+						{ className: 'flex' },
+						_react2.default.createElement('i', { className: 'icon icon-check-circle-o' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'verficationCode': e.currentTarget.value });
+							},
+							value: this.state.verficationCode,
+							className: 'f1', type: 'text', name: 'yzm', id: 'captcha', placeholder: '\u8BF7\u8F93\u5165\u77ED\u4FE1\u9A8C\u8BC1\u7801' }),
+						_react2.default.createElement('input', {
+							onClick: this.sendCode.bind(this),
+							style: { "marginLeft": "10px", "minWidth": "77px", "marginTop": "11px" },
+							type: 'button', name: '', id: 'sentCaptcha', className: 'myButton ' + (this.state.timer !== 60 ? 'active' : ''), value: this.state.timer !== 60 ? this.state.timer + 's\u540E\u91CD\u65B0\u53D1\u9001' : '获取验证码' })
+					),
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement('i', { className: 'icon icon-lock' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'password': e.currentTarget.value });
+							},
+							value: this.state.password,
+							type: 'password', name: 'password', id: 'passWord_1', placeholder: '\u8BBE\u7F6E\u65B0\u767B\u5F55\u5BC6\u7801' })
+					),
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement('i', { className: 'icon icon-lock' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'confirm': e.currentTarget.value });
+							},
+							value: this.state.confirm,
+							type: 'password', name: '', id: 'passWord_2', placeholder: '\u786E\u8BA4\u65B0\u767B\u5F55\u5BC6\u7801' })
+					),
+					_react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'myButton_1', id: '', onClick: this.sure.bind(this) },
+							'\u786E\u8BA4\u4FEE\u6539'
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Index;
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
+exports.default = Index;
 
 /***/ }),
 
