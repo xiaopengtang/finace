@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-11 10:00:28
+ * last update:2017-11-12 09:16:17
  */
 /*!
  * 
@@ -10796,6 +10796,10 @@ body,
   font-size: 14px ;
   /* margin-top: 11px; */
 }
+.home-forget #sentCaptcha.active {
+  color: #b3b3b3;
+  background-color: #ebebeb;
+}
 .home-forget .myButton {
   background-color: #4180e9;
   border: 1px solid #4180e9;
@@ -11568,6 +11572,9 @@ body,
   font-weight: bold;
   text-align: center;
 }
+.am-tabs {
+  height: auto !important ;
+}
 .user-invest .invest-content {
   -webkit-box-flex: 1 ;
   -webkit-flex: 1 ;
@@ -11662,6 +11669,7 @@ body,
   padding: 10px 15px;
 }
 .home-order-main ul.mdl-content li {
+  padding-top: 10px ;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11670,7 +11678,4 @@ body,
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-.home-order-main ul.mdl-content li:not(:last-child) {
-  padding-top: 10px ;
 }

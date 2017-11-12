@@ -12,11 +12,12 @@ export * as check from './check'
 export const clientCall = async(setting, value) => {
 	setting = isObject(setting) ? setting
 	: isString(setting) ? {url: setting, data: value} : {}
-	const {url, data, method} = setting || {}
+	let {url, data, method} = setting || {}
+	method = method || 'get'
 	const isGET = /get/i.test(method)
 	const params = {
 		url,
-		method: method || 'get',
+		method: method,
 		data: isGET ? null : data,
 		params: isGET ? data : null, 
 		responseType: 'json',
@@ -50,3 +51,10 @@ export const isFunction = data => type(data) === 'function'
 export const isString = data => type(data) === 'string'
 
 export const isObject = data => type(data) === 'object'
+
+export const queryString = (name, search) => {
+    let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)")
+    search = search || window.location.search
+    let r = window.location.search.substr(1).match(reg)
+    return r !== null ? unescape(r[2]) : null
+}

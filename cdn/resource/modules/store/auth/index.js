@@ -16,8 +16,21 @@ class store {
 		this.login = status
 	}
 
+	@action sendCode = async(params) => {
+		const res = await utils.clientCall('/api/sendCode', params)
+		return res.success ? res.data : null
+	}
+
 	@action sendRegisterCode = async(params) => {
 		return await utils.clientCall('/api/sendRegisterCode', params)
+	}
+
+	@action register = async(params) => {
+		return await utils.clientCall('/api/register', params)
+	}
+
+	@action forget = async(params) => {
+		return await utils.clientCall('/api/forget', params)
 	}
 }
 

@@ -64,7 +64,7 @@ export default async data => {
 		render () {
 			return ( 
 				<BrowserRouter>
-				    <Route exact path="" component={Fade} />
+				    <Route path="" component={Fade} />
 				</BrowserRouter>
 			)
 		}

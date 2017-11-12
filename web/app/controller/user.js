@@ -39,7 +39,28 @@ module.exports = app => class UserController extends app.Controller {
 			'register': '/verfication/get/register/sms/code',
 			'forget': '/verfication/get/forget/sms/code'
 		})[type || 'register']
-		return this.ctx.service.user.send(url, {phone})
+		const res = yield this.ctx.service.user.send(url, {phone})
+		return this.success(res.data)
+	}
+	*list(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('/financial/product/list/page', query)
+		return this.success(res.data)
+	}
+	*detail(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('/financial/product/detail', query)
+		return this.success(res.data)
+	}
+	*register(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('/user/register', query)
+		return this[res.code == 1 ? 'success' : 'error'](res.data)
+	}
+	*forget(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('/user/forget/pwd/phone', query)
+		return this[res.code == 1 ? 'success' : 'error'](res.data)
 	}
 	*loginout(){}
 	*saveInfo(){}
