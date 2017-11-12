@@ -48,6 +48,9 @@ export default async data => {
 						<Route path="/list" component={Pages.User.Invest} />
 						<Route path="/apply" component={Pages.User.Apply} />
 						<Route path="/detail" component={Pages.User.OrderMain} />
+                        <Route path="/user" component={Pages.User.UserDetail} />
+                        <Route path="/setting" component={Pages.User.Setting} />
+                        <Route path="/bindCard" component={Pages.User.BindCard} />
 				    </div>
 				</ReactCSSTransitionGroup>
 			)

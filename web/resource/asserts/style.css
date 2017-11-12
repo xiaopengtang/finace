@@ -11679,3 +11679,60 @@ body,
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.userInfo {
+  position: relative;
+}
+.userInfo .J_Avatar {
+  display: inline-block;
+}
+.userInfo .J_Avatar img {
+  width: 70px;
+  height: 70px;
+}
+.userInfo .J_DetailInfo {
+  display: inline-block;
+  vertical-align: top;
+  width: 180px;
+  height: 70px;
+  box-sizing: border-box;
+  padding: 17px 15px;
+}
+.userInfo .J_DetailInfo > .userName {
+  margin-bottom: 8px;
+}
+.userInfo .J_icon {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+.J_priceWrapper {
+  height: 60px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+.J_priceWrapper > .J_price {
+  color: #f76a24;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.J_operation {
+  text-align: center;
+}
+.J_operation > p {
+  margin-top: 4px;
+}
+.J_operation > img {
+  width: 50px;
+  height: 50px;
+}
+.J_listWrapper {
+  margin: 15px 0 20px;
+}
+.J_listWrapper .J_listItem {
+  position: relative;
+}
+.J_listWrapper .J_listItem .J_icon {
+  position: absolute;
+  right: 0;
+}

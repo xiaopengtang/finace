@@ -4098,7 +4098,10 @@ exports.default = function () {
 											_react2.default.createElement(Route, { path: '/home', component: Pages.User.Index }),
 											_react2.default.createElement(Route, { path: '/list', component: Pages.User.Invest }),
 											_react2.default.createElement(Route, { path: '/apply', component: Pages.User.Apply }),
-											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.OrderMain })
+											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.OrderMain }),
+											_react2.default.createElement(Route, { path: '/user', component: Pages.User.UserDetail }),
+											_react2.default.createElement(Route, { path: '/setting', component: Pages.User.Setting }),
+											_react2.default.createElement(Route, { path: '/bindCard', component: Pages.User.BindCard })
 										)
 									);
 								}
