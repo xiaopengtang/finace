@@ -36,10 +36,13 @@ export default class Index extends Component {
 				'password': pwd
 			}
 		})
-		console.log({data})
+		// console.log({data})
+
 		if (data.success && data.data && data.data.login) {
 			this.context.$store.auth.updateLogin(true)
 			this.props.history.push('/home')
+		}else{
+			Toast.info('密码不正确')
 		}
 	}
 	change (e) {}

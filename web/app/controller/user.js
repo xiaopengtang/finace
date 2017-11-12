@@ -31,13 +31,13 @@ module.exports = app => class UserController extends app.Controller {
 		if(token){
 			this.ctx.session.token = token
 		}
-		return this.success({ login: !!token, result, query })
+		return this.success({ login: !!token})
 	}
 	*sendCode(){
 		const {phone, type} = this.ctx.query
 		const url = ({
-			'register': '/verfication/get/register/sms/code',
-			'forget': '/verfication/get/forget/sms/code'
+			'register': 'http://yqh0303.com:15012/verfication/get/register/sms/code',
+			'forget': 'http://yqh0303.com:15012/verfication/get/forget/sms/code'
 		})[type || 'register']
 		const res = yield this.ctx.service.user.send(url, {phone})
 		return this.success(res.data)
@@ -54,12 +54,12 @@ module.exports = app => class UserController extends app.Controller {
 	}
 	*register(){
 		const {query} = this.ctx
-		const res = yield this.ctx.service.user.send('/user/register', query)
+		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/register', query)
 		return this[res.code == 1 ? 'success' : 'error'](res.data)
 	}
 	*forget(){
 		const {query} = this.ctx
-		const res = yield this.ctx.service.user.send('/user/forget/pwd/phone', query)
+		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/forget/pwd/phone', query)
 		return this[res.code == 1 ? 'success' : 'error'](res.data)
 	}
 	*loginout(){}

@@ -30,7 +30,7 @@ export default class Index extends Component {
 		const {tabs} = this.state
 		return (
 			<User className="user-invest" module="list" title="投资">
-			    <Tabs tabs={tabs} initialPage={2}>{this.renderTab.bind(this)}</Tabs>
+			    <Tabs tabs={tabs} initialPage={0}>{this.renderTab.bind(this)}</Tabs>
 			    <WhiteSpace size="sm"/>
 			</User>
 		)

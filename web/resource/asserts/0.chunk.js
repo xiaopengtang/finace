@@ -311,13 +311,16 @@ var Index = (_temp2 = _class = function (_Component) {
 							case 9:
 								data = _context.sent;
 
-								console.log({ data: data });
+								// console.log({data})
+
 								if (data.success && data.data && data.data.login) {
 									this.context.$store.auth.updateLogin(true);
 									this.props.history.push('/home');
+								} else {
+									_antdMobile.Toast.info('密码不正确');
 								}
 
-							case 12:
+							case 11:
 							case 'end':
 								return _context.stop();
 						}
@@ -1972,7 +1975,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				{ className: 'user-invest', module: 'list', title: '\u6295\u8D44' },
 				_react2.default.createElement(
 					_antdMobile.Tabs,
-					{ tabs: tabs, initialPage: 2 },
+					{ tabs: tabs, initialPage: 0 },
 					this.renderTab.bind(this)
 				),
 				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' })
