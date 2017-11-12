@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-12 09:16:17
+ * last update:2017-11-13 12:54:44
  */
 webpackJsonp_name_([0],{
 
@@ -170,8 +170,13 @@ var Index = (_temp2 = _class = function (_Component) {
 					_react2.default.createElement(
 						_antdMobile.NavBar,
 						{
-							leftContent: _react2.default.createElement(_antdMobile.Icon, { type: 'left' }),
-							rightContent: [_react2.default.createElement(_antdMobile.Icon, { key: '0', type: 'search', style: { marginRight: '16px' } }), _react2.default.createElement(_antdMobile.Icon, { key: '1', type: 'ellipsis' })]
+							leftContent: _react2.default.createElement(_antdMobile.Icon, { type: 'left', onClick: function onClick() {
+									return window.history.go(-1);
+								} }),
+							rightContent: [
+								/*<Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+        <Icon key="1" type="ellipsis" />,*/
+							]
 						},
 						this.props.title
 					),
@@ -186,6 +191,9 @@ var Index = (_temp2 = _class = function (_Component) {
 }(_react.Component), _class.propTypes = {
 	'title': _propTypes2.default.string,
 	'footer': _propTypes2.default.node
+}, _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
 }, _class.defaultProps = {
 	'module': 'home',
 	'title': '首页',
@@ -1135,15 +1143,15 @@ var _orderMain = __webpack_require__(668);
 
 var _orderMain2 = _interopRequireDefault(_orderMain);
 
-var _UserDetail2 = __webpack_require__(680);
+var _UserDetail2 = __webpack_require__(669);
 
 var _UserDetail3 = _interopRequireDefault(_UserDetail2);
 
-var _Setting2 = __webpack_require__(681);
+var _Setting2 = __webpack_require__(670);
 
 var _Setting3 = _interopRequireDefault(_Setting2);
 
-var _BindCard2 = __webpack_require__(682);
+var _BindCard2 = __webpack_require__(671);
 
 var _BindCard3 = _interopRequireDefault(_BindCard2);
 
@@ -2259,7 +2267,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				'financialAudit': {},
 				'financialCar': {},
 				'financialFileList': {},
-				'financialRecordList': {},
+				'financialRecordList': [],
 				'financialUser': {}
 			}
 		}, _temp), _possibleConstructorReturn(_this, _ret);
@@ -2281,17 +2289,19 @@ var Index = (_temp2 = _class = function (_Component) {
 							case 3:
 								info = _context.sent;
 
+								console.log(info);
+
 								if (info) {
-									_context.next = 6;
+									_context.next = 7;
 									break;
 								}
 
 								return _context.abrupt('return');
 
-							case 6:
+							case 7:
 								this.setState({ info: info });
 
-							case 7:
+							case 8:
 							case 'end':
 								return _context.stop();
 						}
@@ -2472,12 +2482,54 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u59D3\u540D'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									info.financialUser.addUser
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6027\u522B'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									[, '男', '女'][info.financialUser.sex]
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u5E74\u9F84'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialUser.age
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u5C45\u4F4F\u5730'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialUser.adress
 								)
 							)
 						)
@@ -2498,12 +2550,83 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u8F66\u8F86\u578B\u53F7'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									info.financialCar.carModel
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8F66\u8F86\u989C\u8272'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carColor
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8F66\u724C\u53F7'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carNum
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8D2D\u4E70\u4EF7\u683C'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carPrice
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u62B5\u62BC\u4EF7\u683C'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.mortgagePrice
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8F66\u8F86\u5E74\u9650'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carLife,
+									'\u5E74'
 								)
 							)
 						)
@@ -2524,12 +2647,152 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u5BA1\u6838\u8D44\u6599'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									'\u5BA1\u6838\u7ED3\u679C'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u5408\u540C\u8D44\u6599:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.contract == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u767B\u8BB0\u8BC1\u4E66:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.registrationCertificate == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u884C\u9A76\u8BC1:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.drivingLicense == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u4EBA\u8F66\u5408\u5F71:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.manCarPhoto == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u501F\u6B3E\u627F\u8BFA\u4E66:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.acceptanceAgreement == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u4E8C\u4EE3\u8EAB\u4EFD\u8BC1:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.certificate == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8EAB\u4EFD\u8BC1\u9A8C\u8BC1\u56FE:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.certificatePhoto == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u62B5\u62BC\u60C5\u51B5\u58F0\u660E:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.mortgageDeclare == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8FDD\u7AE0\u4FE1\u606F:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.peccancy == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u94ED\u724C\u7167\u7247:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.nameplatePhoto == 2 ? '通过' : '未通过'
 								)
 							)
 						)
@@ -2542,22 +2805,21 @@ var Index = (_temp2 = _class = function (_Component) {
 								' \u6295\u8D44\u8BB0\u5F55 '
 							) },
 						_react2.default.createElement(
-							'ul',
-							{ className: 'mdl-content' },
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'label',
-									null,
-									'\u6D4B\u8BD5'
-								),
-								_react2.default.createElement(
-									'span',
-									null,
-									'\u6D4B\u8BD5\u4E0B'
-								)
-							)
+							_antdMobile.List,
+							null,
+							info.financialRecordList.map(function (d) {
+								return _react2.default.createElement(
+									_antdMobile.List.Item,
+									{ multipleLine: true, extra: d.amount + '元' },
+									d.phone,
+									' ',
+									_react2.default.createElement(
+										_antdMobile.List.Item.Brief,
+										null,
+										d.addTime
+									)
+								);
+							})
 						)
 					)
 				)
@@ -2574,7 +2836,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 680:
+/***/ 669:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2884,7 +3146,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 681:
+/***/ 670:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3089,7 +3351,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 682:
+/***/ 671:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

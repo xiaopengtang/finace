@@ -15,14 +15,14 @@ export default class Index extends Component {
 			'financialAudit': {},
 			'financialCar': {},
 			'financialFileList': {},
-			'financialRecordList': {},
+			'financialRecordList': [],
 			'financialUser': {}
 		}
 	}
 	async componentDidMount(){
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
 		const info = await this.context.$store.api.user.queryDetail({productCode})
-		// console.log(info)
+		console.log(info)
 		if(!info){
 			return
 		}
@@ -75,34 +75,106 @@ export default class Index extends Component {
 		            <Accordion.Panel header={<span className="icon icon-user"> 贷款人基本资料 </span>}>
 		                <ul className="mdl-content">
 		                    <li>
-		                    	<label>测试</label>
-		                        <span>测试下</span>
+		                    	<label>姓名</label>
+		                        <span>{info.financialUser.addUser}</span>
+		                    </li>
+		                    <li>
+		                    	<label>性别</label>
+		                        <span>{([,'男','女'])[info.financialUser.sex]}</span>
+		                    </li>
+		                    <li>
+		                    	<label>年龄</label>
+		                        <span>{info.financialUser.age}</span>
+		                    </li>
+		                    <li>
+		                    	<label>居住地</label>
+		                        <span>{info.financialUser.adress}</span>
 		                    </li>
 		                </ul>
 		            </Accordion.Panel>
 		            <Accordion.Panel header={<span className="icon icon-car"> 车辆基本资料 </span>}>
 		                <ul className="mdl-content">
 		                    <li>
-		                    	<label>测试</label>
-		                        <span>测试下</span>
+		                    	<label>车辆型号</label>
+		                        <span>{info.financialCar.carModel}</span>
+		                    </li>
+		                    <li>
+		                    	<label>车辆颜色</label>
+		                        <span>{info.financialCar.carColor}</span>
+		                    </li>
+		                    <li>
+		                    	<label>车牌号</label>
+		                        <span>{info.financialCar.carNum}</span>
+		                    </li>
+		                    <li>
+		                    	<label>购买价格</label>
+		                        <span>{info.financialCar.carPrice}</span>
+		                    </li>
+		                    <li>
+		                    	<label>抵押价格</label>
+		                        <span>{info.financialCar.mortgagePrice}</span>
+		                    </li>
+		                    <li>
+		                    	<label>车辆年限</label>
+		                        <span>{info.financialCar.carLife}年</span>
 		                    </li>
 		                </ul>
 		            </Accordion.Panel>
 		            <Accordion.Panel header={<span className="icon icon-file-word-o"> 资质审核 </span>}>
 		                <ul className="mdl-content">
-		                    <li>
-		                    	<label>测试</label>
-		                        <span>测试下</span>
-		                    </li>
+							<li>
+								<label>审核资料</label>
+								<span>审核结果</span>													
+							</li>
+							<li>
+								<label>合同资料:</label>
+								<span>{info.financialAudit.contract == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>登记证书:</label>
+								<span>{info.financialAudit.registrationCertificate == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>行驶证:</label>
+								<span>{info.financialAudit.drivingLicense == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>人车合影:</label>
+								<span>{info.financialAudit.manCarPhoto == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>借款承诺书:</label>
+								<span>{info.financialAudit.acceptanceAgreement == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>二代身份证:</label>
+								<span>{info.financialAudit.certificate == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>身份证验证图:</label>
+								<span>{info.financialAudit.certificatePhoto == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>抵押情况声明:</label>
+								<span>{info.financialAudit.mortgageDeclare == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>违章信息:</label>
+								<span>{info.financialAudit.peccancy == 2?'通过':'未通过'}</span>
+							</li>
+							<li>
+								<label>铭牌照片:</label>
+								<span>{info.financialAudit.nameplatePhoto == 2?'通过':'未通过'}</span>
+							</li>
+								
 		                </ul>
 		            </Accordion.Panel>
 		            <Accordion.Panel header={<span className="icon icon-file-text"> 投资记录 </span>}>
-		                <ul className="mdl-content">
-		                    <li>
-		                    	<label>测试</label>
-		                        <span>测试下</span>
-		                    </li>
-		                </ul>
+		                <List>{info.financialRecordList.map(d => (
+		                	<List.Item multipleLine extra={d.amount + '元'}>
+					            {d.phone} <List.Item.Brief>{d.addTime}</List.Item.Brief>
+					        </List.Item>
+		                	))}</List>
 		            </Accordion.Panel>
 		        </Accordion>
 		    </User>
