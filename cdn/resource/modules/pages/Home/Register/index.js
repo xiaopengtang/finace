@@ -1,7 +1,13 @@
 import React, {Component} from 'react'
 import {Link} from  'react-router-dom'
+import PropTypes from 'prop-types'
+import { Toast} from 'antd-mobile'
 
 export default class Index extends Component{
+	static contextTypes = {
+		'$store': PropTypes.object.isRequired,
+		'$utils': PropTypes.object.isRequired
+	};
 	state = {
 		'tel': '',
 		'code': '',
@@ -9,10 +15,18 @@ export default class Index extends Component{
 		'phone': '',
 		'isRead': false,
 		'timer': 60,
-		'show': true
+		'show': true,
+		'isAllow': false
 	} ;
 
-	sendCode () {}
+	sendCode () {
+		// console.log(this)
+		const {tel} = this.state
+		const check = this.context.$utils.check.checkTel(tel)
+		if(check === false){
+			Toast.info(check.getError())
+		}
+	}
 
 	checkCode () {}
 

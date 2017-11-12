@@ -15,7 +15,6 @@ export default class Index extends Component {
 		'title': '首页',
 		'footer': null
 	}
-
 	footerRender () {
 		const modules = [
 	    	{

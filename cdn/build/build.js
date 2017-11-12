@@ -28,6 +28,7 @@ module.exports = merge(base, {
 		    	'use': {
 		    		'loader': 'babel-loader',
 		    		'options': {
+		    			'plugins': ['transform-decorators-legacy'],
 		    			'presets': [['env', {
 		    				'targets': {
 		    					'browsers': ['last 10 Chrome versions', 'last 5 Firefox versions', 'Safari >= 6', 'ie > 8'] //["last 2 versions", "safari >= 7"]

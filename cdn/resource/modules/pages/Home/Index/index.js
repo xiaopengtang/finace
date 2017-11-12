@@ -1,13 +1,47 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
+import axios from 'axios'
+import { Toast} from 'antd-mobile'
+import PropTypes from 'prop-types'
 
 export default class Index extends Component {
+	static contextTypes = {
+		'$store': PropTypes.object.isRequired
+	};
 	state = {
 		'tel': '',
 		'pwd': '',
 		'show': true
 	};
-	login () {}
+	componentDidMount(){
+		// console.log(['this.props',this])
+	}
+	async login () {
+		const {tel, pwd} = this.state
+		if(!tel){
+			return Toast.info('请输入您的手机号')
+		}
+		if(!/\d{11}/.test(tel)){
+			return Toast.info('请正确输入手机号')
+		}
+		if(!pwd){
+			return Toast.info('请输入密码')
+		}
+		// const {data} = 
+		const data = await this.context.$store.clientCall({
+			'url': '/api/login',
+			'method': 'get',
+			'data': {
+				'account': tel,
+				'password': pwd
+			}
+		})
+		console.log({data})
+		if (data.success && data.data && data.data.login) {
+			this.context.$store.auth.updateLogin(true)
+			this.props.history.push('/home')
+		}
+	}
 	change (e) {}
 	render () {
 		return ( 
@@ -41,7 +75,7 @@ export default class Index extends Component {
 					src={this.state.show ? "public/i/eyesclose.png" : "public/i/eyesopen.png"}
 					className="inputImg" id="tab2" onClick={e => this.setState({'show': !this.state.show})} />
 				</p>
-				<Link className="LogBtn_s" to="/home" onClick={this.login.bind(this)}>立即登录</Link>
+				<div className="LogBtn_s" to="/home" onClick={this.login.bind(this)}>立即登录</div>
 				<p style={{"marginTop": "20px"}}>
 					<span className="goRegist"> <Link to="/register">立即注册</Link></span>
 					<span className="forget"><Link to="/forgetPwd">忘记密码？</Link></span>
