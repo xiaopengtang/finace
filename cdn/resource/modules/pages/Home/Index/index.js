@@ -27,10 +27,16 @@ export default class Index extends Component {
 		if(!pwd){
 			return Toast.info('请输入密码')
 		}
-		const {data} = await axios.get('/api/login', {
-			'account': tel,
-			'password': pwd
+		// const {data} = 
+		const data = await this.context.$store.clientCall({
+			'url': '/api/login',
+			'method': 'get',
+			'data': {
+				'account': tel,
+				'password': pwd
+			}
 		})
+		console.log({data})
 		if (data.success && data.data && data.data.login) {
 			this.context.$store.auth.updateLogin(true)
 			this.props.history.push('/home')

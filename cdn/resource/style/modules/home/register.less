@@ -50,13 +50,17 @@
 	.yzm_span {
 		font-size: 15px;
 		float: right;
-		color: #b3b3b3;
+		color: #FFF ;
 		width: 120px;
 		height: 42px;
 		line-height: 42px;
-		background-color: #ebebeb;
+		background-color: @main-color;
 		text-align: center;
 		border-radius: 2px;
+		&.active{
+			color: #b3b3b3;
+			background-color: #ebebeb
+		}
 	}
 
 	.yzm_span_fs {

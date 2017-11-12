@@ -1,5 +1,6 @@
 import {observable, action, useStrict} from 'mobx'
-import axios from 'axios'
+
+import * as utils from '../../utils'
 useStrict(true)
 
 class store {
@@ -8,11 +9,15 @@ class store {
 		if(this.login){
 			return true
 		}
-		const {'data': result} = await axios.get('/api/loginStatus')
+		const result = await utils.clientCall('/api/loginStatus')
 		return this.login = result.success
 	}
 	@action updateLogin(status){
 		this.login = status
+	}
+
+	@action sendRegisterCode = async(params) => {
+		return await utils.clientCall('/api/sendRegisterCode', params)
 	}
 }
 

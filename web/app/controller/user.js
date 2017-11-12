@@ -25,7 +25,21 @@ module.exports = app => class UserController extends app.Controller {
 		return this[login?'success':'error']()
 	}
 	*login(){
-		return this.success({ login: true })
+		const {query} = this.ctx
+		const result = yield this.ctx.service.user.login(query)
+		const token = result.data && result.data.token
+		if(token){
+			this.ctx.session.token = token
+		}
+		return this.success({ login: !!token, result, query })
+	}
+	*sendCode(){
+		const {phone, type} = this.ctx.query
+		const url = ({
+			'register': '/verfication/get/register/sms/code',
+			'forget': '/verfication/get/forget/sms/code'
+		})[type || 'register']
+		return this.ctx.service.user.send(url, {phone})
 	}
 	*loginout(){}
 	*saveInfo(){}

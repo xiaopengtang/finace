@@ -3794,7 +3794,7 @@ var _index2 = _interopRequireDefault(_index);
 
 var _utils = __webpack_require__(625);
 
-var utils = _interopRequireWildcard(_utils);
+var $utils = _interopRequireWildcard(_utils);
 
 var _reactRouterDom = __webpack_require__(243);
 
@@ -3847,7 +3847,7 @@ exports.default = function () {
 				switch (_context4.prev = _context4.next) {
 					case 0:
 						_context4.next = 2;
-						return utils.async_import(function (resolve) {
+						return $utils.async_import(function (resolve) {
 							return __webpack_require__.e/* require.ensure */(0).then((function (require) {
 								return resolve(__webpack_require__(653));
 							}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
@@ -3903,18 +3903,17 @@ exports.default = function () {
 
 													case 2:
 														status = _context2.sent;
-
-														if (!status) {
-															_context2.next = 5;
-															break;
-														}
-
-														return _context2.abrupt('return');
-
-													case 5:
 														pathname = this.props.location.pathname;
 														isAuth = ['/', '/register', '/forgetPwd'].indexOf(pathname) === -1;
 
+														if (!status) {
+															_context2.next = 7;
+															break;
+														}
+
+														return _context2.abrupt('return', isAuth ? null : this.props.history.push('/home'));
+
+													case 7:
 														if (!isAuth) {
 															_context2.next = 9;
 															break;
@@ -4001,7 +4000,7 @@ exports.default = function () {
 							_createClass(Home, [{
 								key: 'getChildContext',
 								value: function getChildContext() {
-									return { $store: $store };
+									return { $store: $store, $utils: $utils };
 								}
 							}, {
 								key: 'render',
@@ -4016,7 +4015,8 @@ exports.default = function () {
 
 							return Home;
 						}(_react.Component), _class2.childContextTypes = {
-							'$store': _propTypes2.default.object.isRequired
+							'$store': _propTypes2.default.object.isRequired,
+							'$utils': _propTypes2.default.object.isRequired
 						}, _temp);
 						body = document.querySelector('.wrap');
 						// alert([Dom.render, body])
@@ -7454,15 +7454,105 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
+exports.isObject = exports.isString = exports.isFunction = exports.type = exports.clientCall = exports.check = exports.async_import = undefined;
+
+var _axios = __webpack_require__(151);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _check2 = __webpack_require__(676);
+
+var _check = _interopRequireWildcard(_check2);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 var async_import = exports.async_import = function async_import(cb) {
-  return new Promise(function (resolve) {
-    return cb(function (source) {
-      var aim = '__esModule' in source && source.__esModule && source.default || source;
-      resolve(aim);
-    });
-  });
+	return new Promise(function (resolve) {
+		return cb(function (source) {
+			var aim = '__esModule' in source && source.__esModule && source.default || source;
+			resolve(aim);
+		});
+	});
+};
+
+exports.check = _check;
+var clientCall = exports.clientCall = function () {
+	var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(setting, value) {
+		var _ref2, url, data, method, isGET, params;
+
+		return regeneratorRuntime.wrap(function _callee$(_context) {
+			while (1) {
+				switch (_context.prev = _context.next) {
+					case 0:
+						setting = isObject(setting) ? setting : isString(setting) ? { url: setting, data: value } : {};
+						_ref2 = setting || {}, url = _ref2.url, data = _ref2.data, method = _ref2.method;
+						isGET = /get/i.test(method);
+						params = {
+							url: url,
+							method: method || 'get',
+							data: isGET ? null : data,
+							params: isGET ? data : null,
+							responseType: 'json',
+							transformRequest: [function (data) {
+								var ret = [];
+								for (var it in data) {
+									ret.push(encodeURIComponent(it) + '=' + encodeURIComponent(data[it]));
+								}
+								return ret.join('&');
+							}]
+						};
+
+						if (/post/i.test(params.method)) {
+							params.headers = {
+								'Content-Type': 'application/x-www-form-urlencoded'
+							};
+						}
+						return _context.abrupt('return', new Promise(function (resolve) {
+							return (0, _axios2.default)(params).then(function (api) {
+								return resolve(api.data);
+							}).catch(function () {
+								return resolve({ 'success': false, 'data': null, 'msg': null, 'errorCode': 900001 });
+							});
+						}));
+
+					case 6:
+					case 'end':
+						return _context.stop();
+				}
+			}
+		}, _callee, undefined);
+	}));
+
+	return function clientCall(_x, _x2) {
+		return _ref.apply(this, arguments);
+	};
+}();
+
+var type = exports.type = function type(data) {
+	var r = /\[object (\w+)\]/;
+	if (!r.test(Object.prototype.toString.apply(data))) {
+		return 'null';
+	}
+	var ret = RegExp.$1;
+	return ret.toLowerCase();
+};
+
+var isFunction = exports.isFunction = function isFunction(data) {
+	return type(data) === 'function';
+};
+
+var isString = exports.isString = function isString(data) {
+	return type(data) === 'string';
+};
+
+var isObject = exports.isObject = function isObject(data) {
+	return type(data) === 'object';
 };
 
 /***/ }),
@@ -9384,15 +9474,26 @@ function getTransitionProperties() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.auth = undefined;
+exports.clientCall = exports.auth = undefined;
+
+var _axios = __webpack_require__(151);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _utils = __webpack_require__(625);
+
+var utils = _interopRequireWildcard(_utils);
 
 var _auth2 = __webpack_require__(650);
 
 var _auth3 = _interopRequireDefault(_auth2);
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.auth = _auth3.default;
+var clientCall = exports.clientCall = utils.clientCall;
 
 /***/ }),
 /* 650 */
@@ -9407,15 +9508,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _desc, _value, _class, _descriptor, _descriptor2;
+var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3;
 
 var _mobx = __webpack_require__(106);
 
-var _axios = __webpack_require__(151);
+var _utils = __webpack_require__(625);
 
-var _axios2 = _interopRequireDefault(_axios);
+var utils = _interopRequireWildcard(_utils);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
@@ -9473,6 +9574,8 @@ var store = (_class = function () {
 		_initDefineProp(this, 'login', _descriptor, this);
 
 		_initDefineProp(this, 'check', _descriptor2, this);
+
+		_initDefineProp(this, 'sendRegisterCode', _descriptor3, this);
 	}
 
 	_createClass(store, [{
@@ -9494,8 +9597,7 @@ var store = (_class = function () {
 		var _this = this;
 
 		return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-			var _ref2, result;
-
+			var result;
 			return regeneratorRuntime.wrap(function _callee$(_context) {
 				while (1) {
 					switch (_context.prev = _context.next) {
@@ -9509,14 +9611,13 @@ var store = (_class = function () {
 
 						case 2:
 							_context.next = 4;
-							return _axios2.default.get('/api/loginStatus');
+							return utils.clientCall('/api/loginStatus');
 
 						case 4:
-							_ref2 = _context.sent;
-							result = _ref2['data'];
+							result = _context.sent;
 							return _context.abrupt('return', _this.login = result.success);
 
-						case 7:
+						case 6:
 						case 'end':
 							return _context.stop();
 					}
@@ -9524,7 +9625,37 @@ var store = (_class = function () {
 			}, _callee, _this);
 		}));
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'updateLogin', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'updateLogin'), _class.prototype)), _class);
+}), _applyDecoratedDescriptor(_class.prototype, 'updateLogin', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'updateLogin'), _class.prototype), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'sendRegisterCode', [_mobx.action], {
+	enumerable: true,
+	initializer: function initializer() {
+		var _this2 = this;
+
+		return function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(params) {
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								_context2.next = 2;
+								return utils.clientCall('/api/sendRegisterCode', params);
+
+							case 2:
+								return _context2.abrupt('return', _context2.sent);
+
+							case 3:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, _this2);
+			}));
+
+			return function (_x) {
+				return _ref2.apply(this, arguments);
+			};
+		}();
+	}
+})), _class);
 exports.default = new store();
 
 /***/ }),
@@ -37474,6 +37605,56 @@ exports.push([module.i, "@font-face {\n  font-family: 'eruda-icon';\n    src: ur
 /******/ ]);
 });
 //# sourceMappingURL=eruda.js.map
+
+/***/ }),
+/* 653 */,
+/* 654 */,
+/* 655 */,
+/* 656 */,
+/* 657 */,
+/* 658 */,
+/* 659 */,
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */,
+/* 674 */,
+/* 675 */,
+/* 676 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var checkTel = exports.checkTel = function checkTel(tel) {
+	var ret = false;
+	if (!tel) {
+		ret.__proto__.getError = function () {
+			return '请输入手机号';
+		};
+		return ret;
+	}
+	if (!/\d{11}/.test(tel)) {
+		ret.__proto__.getError = function () {
+			return '请输入正确手机号';
+		};
+		return ret;
+	}
+	return true;
+};
 
 /***/ })
 ],[510]);

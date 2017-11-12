@@ -2,7 +2,7 @@ import 'babel-polyfill'
 import 'antd-mobile/dist/antd-mobile.css'
 import React, {Component} from 'react'
 import style from '../style/index'
-import * as utils from './utils'
+import * as $utils from './utils'
 import * as ReactRouter from 'react-router-dom'
 import Dom from 'react-dom' 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 // console.log(ReactRouter)
 const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
 export default async data => {
-	let Pages = await utils.async_import(resolve => require.ensure([], require => resolve(require('./pages'))))
+	let Pages = await $utils.async_import(resolve => require.ensure([], require => resolve(require('./pages'))))
 	@observer
 	class Fade extends Component{
 		async componentWillReceiveProps(nextProps){
@@ -20,11 +20,11 @@ export default async data => {
 		}
 		async isLogin(){
 			const status = await $store.auth.check()
-			if(status){
-				return 
-			}
 			const {pathname} = this.props.location
 			const isAuth = ['/','/register','/forgetPwd'].indexOf(pathname) === -1
+			if(status){
+				return isAuth ? null : this.props.history.push('/home')
+			}
 			if(isAuth){
 				return this.props.history.push('/')
 			}
@@ -55,10 +55,11 @@ export default async data => {
 	}
 	class Home extends Component {
 		static childContextTypes = {
-			'$store': PropTypes.object.isRequired
+			'$store': PropTypes.object.isRequired,
+			'$utils': PropTypes.object.isRequired
 		}
 		getChildContext(){
-			return {$store}
+			return {$store, $utils}
 		}
 		render () {
 			return ( 

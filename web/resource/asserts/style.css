@@ -10454,8 +10454,13 @@ input[type="button"] {
 }
 .container.container,
 .container-wrap.container {
+  background-color: #FFF ;
   border-left: 1px solid #c9c9c9 ;
   border-right: 1px solid #c9c9c9 ;
+}
+.container.container-wrap,
+.container-wrap.container-wrap {
+  background-color: #f7f7f7;
 }
 .pager-appear {
   -webkit-transform: translateX(100%);
@@ -10609,13 +10614,17 @@ body,
 .home-register .yzm_span {
   font-size: 15px;
   float: right;
-  color: #b3b3b3;
+  color: #FFF ;
   width: 120px;
   height: 42px;
   line-height: 42px;
-  background-color: #ebebeb;
+  background-color: #4180e9;
   text-align: center;
   border-radius: 2px;
+}
+.home-register .yzm_span.active {
+  color: #b3b3b3;
+  background-color: #ebebeb;
 }
 .home-register .yzm_span_fs {
   font-size: 15px;

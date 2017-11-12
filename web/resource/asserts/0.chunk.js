@@ -266,7 +266,7 @@ var Index = (_temp2 = _class = function (_Component) {
 		key: 'login',
 		value: function () {
 			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var _state, tel, pwd, _ref3, data;
+				var _state, tel, pwd, data;
 
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
@@ -299,15 +299,19 @@ var Index = (_temp2 = _class = function (_Component) {
 
 							case 7:
 								_context.next = 9;
-								return _axios2.default.get('/api/login', {
-									'account': tel,
-									'password': pwd
+								return this.context.$store.clientCall({
+									'url': '/api/login',
+									'method': 'get',
+									'data': {
+										'account': tel,
+										'password': pwd
+									}
 								});
 
 							case 9:
-								_ref3 = _context.sent;
-								data = _ref3.data;
+								data = _context.sent;
 
+								console.log({ data: data });
 								if (data.success && data.data && data.data.login) {
 									this.context.$store.auth.updateLogin(true);
 									this.props.history.push('/home');
@@ -443,11 +447,19 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(243);
+
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _antdMobile = __webpack_require__(242);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -459,7 +471,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
@@ -480,13 +492,22 @@ var Index = function (_Component) {
 			'phone': '',
 			'isRead': false,
 			'timer': 60,
-			'show': true
+			'show': true,
+			'isAllow': false
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
 		key: 'sendCode',
-		value: function sendCode() {}
+		value: function sendCode() {
+			// console.log(this)
+			var tel = this.state.tel;
+
+			var check = this.context.$utils.check.checkTel(tel);
+			if (check === false) {
+				_antdMobile.Toast.info(check.getError());
+			}
+		}
 	}, {
 		key: 'checkCode',
 		value: function checkCode() {}
@@ -609,8 +630,10 @@ var Index = function (_Component) {
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),

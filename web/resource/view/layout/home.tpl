@@ -3,7 +3,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta charset="utf-8">
-		<title>{% block title %}{% endblock %}</title>
+		<title>赛尔理财</title>
 		<link rel="stylesheet" type="text/css" href="/public/style.css">
 		{% block style %}{% endblock %}
 	</head>
