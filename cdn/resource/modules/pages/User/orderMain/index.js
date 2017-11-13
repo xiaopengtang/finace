@@ -21,8 +21,10 @@ export default class Index extends Component {
 	}
 	async componentDidMount(){
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
+		// console.log(this)
+		// console.log(productCode)
 		const info = await this.context.$store.api.user.queryDetail({productCode})
-		console.log(info)
+		
 		if(!info){
 			return
 		}

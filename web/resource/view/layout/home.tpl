@@ -15,6 +15,7 @@
 	<script>
 		// var user
 		window.USER = {{user | dump | safe }}
+		window.G = {'isApp': false}
 	</script>
 	<script type="text/javascript" src="/public/common.bundle.js"></script>
 	<script type="text/javascript" src="/public/main.bundle.js"></script>

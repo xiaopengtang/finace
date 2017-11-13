@@ -9,8 +9,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as $store from './store'
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types'
-// console.log(ReactRouter)
 const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
+window.G = window.G || {'isApp': false}
+const Body = G.isApp ? HashRouter : BrowserRouter
 export default async data => {
 	let Pages = await $utils.async_import(resolve => require.ensure([], require => resolve(require('./pages'))))
 	@observer
@@ -35,11 +36,11 @@ export default async data => {
 		render(){
 			return (
 				<ReactCSSTransitionGroup
-				transitionName="pager"
-		        component="div"
-		        className="container-wrap"
-		        transitionAppear={true}
-		        transitionLeave={false}>
+					transitionName="pager"
+			        component="div"
+			        className="container-wrap"
+			        transitionAppear={true}
+			        transitionLeave={false}>
 				    <div className="container" key={this.props.location.pathname}>
 				    	<Route path="/" exact component={Pages.Index} />
 						<Route path="/register" component={Pages.Register} />
@@ -66,9 +67,9 @@ export default async data => {
 		}
 		render () {
 			return ( 
-				<BrowserRouter>
+				<Body>
 				    <Route path="" component={Fade} />
-				</BrowserRouter>
+				</Body>
 			)
 		}
 	}

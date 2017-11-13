@@ -2,6 +2,10 @@
 
 module.exports = app => class UserController extends app.Controller {
 	success (data) {
+		this.ctx.set("Access-Control-Allow-Origin", "*")
+		this.ctx.set('Access-Control-Allow-Credentials', true)
+	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")  
 		this.ctx.status = 200
 		this.ctx.body = {
 			'success': true,
@@ -12,6 +16,10 @@ module.exports = app => class UserController extends app.Controller {
 	}
 	error(msg){
 		msg = msg || null
+		this.ctx.set("Access-Control-Allow-Origin", "*")
+		this.ctx.set('Access-Control-Allow-Credentials', true)
+	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")  
 		this.ctx.status = 200
 		this.ctx.body = {
 			'success': false,
