@@ -13,7 +13,7 @@ export const clientCall = async(setting, value) => {
 	setting = isObject(setting) ? setting
 	: isString(setting) ? {url: setting, data: value} : {}
 	let {url, data, method} = setting || {}
-	url = (window.G.isApp ? 'http://127.0.0.1:7001': '') + url
+	url = (window.G.isApp ? 'http://1989591.51vip.biz:7001': '') + url
 	method = method || 'get'
 	const isGET = /get/i.test(method)
 	const params = {

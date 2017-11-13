@@ -1541,7 +1541,7 @@ var clientCall = exports.clientCall = function () {
 						setting = isObject(setting) ? setting : isString(setting) ? { url: setting, data: value } : {};
 						_ref2 = setting || {}, url = _ref2.url, data = _ref2.data, method = _ref2.method;
 
-						url = (window.G.isApp ? 'http://127.0.0.1:7001' : '') + url;
+						url = (window.G.isApp ? 'http://1989591.51vip.biz:7001' : '') + url;
 						method = method || 'get';
 						isGET = /get/i.test(method);
 						params = {
