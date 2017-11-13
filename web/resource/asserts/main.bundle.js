@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-13 09:58:06
+ * last update:2017-11-13 06:39:09
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')

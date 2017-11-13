@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-13 09:58:06
+ * last update:2017-11-13 06:39:09
  */
 /*!
  * 
@@ -10530,12 +10530,9 @@ input[type="button"] {
   overflow-y: scroll ;
   background-color: #F7F7F7 ;
 }
-.layout-user .main-footer {
-  box-shadow: 2px 2px 5px #dfdfdf ;
-}
 .layout-user .main-footer > ul {
   background-color: #FFF ;
-  border-top: 1px solid #D8D8D8 ;
+  box-shadow: 2px 2px 5px #dfdfdf ;
   list-style: none ;
   display: -webkit-box;
   display: -webkit-flex;
