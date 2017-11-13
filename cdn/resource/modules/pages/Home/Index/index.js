@@ -28,14 +28,17 @@ export default class Index extends Component {
 			return Toast.info('请输入密码')
 		}
 		// const {data} = 
-		const data = await this.context.$store.clientCall({
+		const data = await this.context.$store.auth.doLogin({
+			'account': tel,
+			'password': pwd
+		}) /*this.context.$store.clientCall({
 			'url': '/api/login',
 			'method': 'get',
 			'data': {
 				'account': tel,
 				'password': pwd
 			}
-		})
+		})*/
 		// console.log({data})
 
 		if (data.success && data.data && data.data.login) {

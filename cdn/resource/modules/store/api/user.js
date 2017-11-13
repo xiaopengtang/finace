@@ -21,6 +21,11 @@ class store {
 		const res = await utils.clientCall('/api/index')
 		return res.success ? res.data : null
 	}
+
+	@action account = async() => {
+		const res = await utils.clientCall('/api/query/account')
+		return res.success && res.data && res.data.accountAmount || 0
+	}
 }
 
 

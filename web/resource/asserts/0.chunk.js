@@ -309,18 +309,21 @@ var Index = (_temp2 = _class = function (_Component) {
 
 							case 7:
 								_context.next = 9;
-								return this.context.$store.clientCall({
-									'url': '/api/login',
-									'method': 'get',
-									'data': {
-										'account': tel,
-										'password': pwd
-									}
+								return this.context.$store.auth.doLogin({
+									'account': tel,
+									'password': pwd
 								});
 
 							case 9:
 								data = _context.sent;
-
+								/*this.context.$store.clientCall({
+        'url': '/api/login',
+        'method': 'get',
+        'data': {
+        'account': tel,
+        'password': pwd
+        }
+        })*/
 								// console.log({data})
 
 								if (data.success && data.data && data.data.login) {
@@ -1894,6 +1897,8 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -1904,7 +1909,13 @@ var _user2 = _interopRequireDefault(_user);
 
 var _antdMobile = __webpack_require__(243);
 
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1912,57 +1923,131 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, Index);
 
-		return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'accountAmount': 0
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
+		key: 'componentDidMount',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var accountAmount;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								_context.next = 2;
+								return this.context.$store.api.user.account();
+
+							case 2:
+								accountAmount = _context.sent;
+
+								this.setState({ accountAmount: accountAmount });
+
+							case 4:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function componentDidMount() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return componentDidMount;
+		}()
+	}, {
+		key: 'applyAccout',
+		value: function () {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, this);
+			}));
+
+			function applyAccout() {
+				return _ref3.apply(this, arguments);
+			}
+
+			return applyAccout;
+		}()
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				_user2.default,
-				{ title: '\u5B8C\u5584\u7533\u8BF7\u4FE1\u606F', module: 'list', className: 'user-apply',
+				{ title: '\u6295\u8D44\u64CD\u4F5C', module: 'list', className: 'user-apply',
 					footer: _react2.default.createElement(
 						'div',
 						{ className: 'apply-footer' },
 						_react2.default.createElement(
-							_antdMobile.Checkbox.AgreeItem,
-							null,
-							_react2.default.createElement(
-								'a',
-								{ className: 'apply-footer-notice' },
-								'\u6211\u5DF2\u9605\u8BFB\u5E76\u540C\u610F\u300A\u8D37\u6B3E\u7533\u8BF7\u4E66\u300B'
-							)
-						),
-						_react2.default.createElement(
 							'div',
-							{ className: 'apply-footer-btm' },
-							'\u63D0\u4EA4'
+							{ className: 'apply-footer-btm', onClick: this.applyAccout.bind(this) },
+							'\u7ACB\u5373\u6295\u8D44'
 						)
 					) },
 				_react2.default.createElement(
-					_antdMobile.NoticeBar,
-					{
-						mode: 'closable' },
-					'\u8BE5\u4FE1\u606F\u5C06\u4F5C\u4E3A\u4F60\u7684\u5B9E\u540D\u51ED\u8BC1\uFF0C\u8BF7\u786E\u4FDD\u771F\u5B9E'
+					'div',
+					{ className: 'show-mony' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'show-title' },
+						'\u5B9E\u9645\u6295\u8D44\u6536\u76CA'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'show-num', 'data-txt': '5' },
+						'\u5143'
+					)
 				),
+				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
 				_react2.default.createElement(
-					_antdMobile.Card,
+					_antdMobile.List,
 					null,
 					_react2.default.createElement(
-						_antdMobile.Card.Body,
+						_antdMobile.InputItem,
+						{
+							type: 'money',
+							className: 'input-money',
+							placeholder: '\u8BF7\u8F93\u5165100\u6574\u6570\u500D',
+							clear: true,
+							labelNumber: '2',
+							moneyKeyboardAlign: 'left'
+						},
+						'\xA5'
+					),
+					_react2.default.createElement(
+						_antdMobile.List.Item,
 						null,
+						'\u8D26\u6237\u4F59\u989D',
 						_react2.default.createElement(
-							_antdMobile.Steps,
-							{ size: 'small', current: 1 },
-							_react2.default.createElement(_antdMobile.Steps.Step, { title: 'Finished', description: 'This is description' }),
-							_react2.default.createElement(_antdMobile.Steps.Step, { title: 'In Progress', description: 'This is description' }),
-							_react2.default.createElement(_antdMobile.Steps.Step, { title: 'Waiting', description: 'This is description' })
+							_antdMobile.List.Item.Brief,
+							null,
+							this.state.accountAmount,
+							'\u5143'
 						)
 					)
 				)
@@ -1971,8 +2056,10 @@ var Index = function (_Component) {
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),

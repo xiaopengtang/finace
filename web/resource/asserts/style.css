@@ -10540,10 +10540,10 @@ input[type="button"] {
   padding: 5px 0;
 }
 .layout-user .main-footer > ul li.active a i:before {
-  color: #4180e9;
+  color: #108ee9;
 }
 .layout-user .main-footer > ul li.active a h2 {
-  color: #4180e9;
+  color: #108ee9;
 }
 .layout-user .main-footer > ul li a {
   display: block ;
@@ -10613,7 +10613,7 @@ body,
   width: 120px;
   height: 42px;
   line-height: 42px;
-  background-color: #4180e9;
+  background-color: #108ee9;
   text-align: center;
   border-radius: 2px;
 }
@@ -10628,7 +10628,7 @@ body,
   width: 120px;
   height: 42px;
   line-height: 42px;
-  background-color: #4180e9;
+  background-color: #108ee9;
   text-align: center;
   border-radius: 2px;
 }
@@ -10661,7 +10661,7 @@ body,
   width: 88%;
   height: 43px;
   line-height: 43px;
-  background-color: #4180e9;
+  background-color: #108ee9;
   text-align: center;
   font-size: 20px;
   color: black;
@@ -10796,8 +10796,8 @@ body,
   background-color: #ebebeb;
 }
 .home-forget .myButton {
-  background-color: #4180e9;
-  border: 1px solid #4180e9;
+  background-color: #108ee9;
+  border: 1px solid #108ee9;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -10900,9 +10900,9 @@ body,
   /*color: royalblue;*/
 }
 .home-forget .myButton_1 {
-  background-color: #4180e9;
+  background-color: #108ee9;
   border-radius: 6px;
-  border: 1px solid #4180e9;
+  border: 1px solid #108ee9;
   display: inline-block;
   height: 25px;
   line-height: 25px;
@@ -10994,7 +10994,7 @@ body,
   float: right;
 }
 .home-index .forget a {
-  color: #4180e9;
+  color: #108ee9;
 }
 .home-index .server {
   padding-top: 50px;
@@ -11019,7 +11019,7 @@ body,
   text-align: center;
   line-height: 40px;
   font-size: 20px;
-  background-color: #4180e9;
+  background-color: #108ee9;
   color: white;
 }
 .home-index .LogBtn_s:active {
@@ -11403,7 +11403,7 @@ body,
   color: #c9c9c9 ;
 }
 .home-list .hot-list ul.list-content > li.main-price .info span .font-green {
-  color: #4180e9;
+  color: #108ee9;
 }
 .home-list .hot-list ul.list-content > li .price-mony {
   font-size: 20px ;
@@ -11428,7 +11428,7 @@ body,
   font-size: 10px ;
   border-radius: 14px ;
   line-height: 1;
-  background-color: #4180e9;
+  background-color: #108ee9;
   color: #FFF ;
   display: initial;
 }
@@ -11461,11 +11461,11 @@ body,
   font-size: 10px ;
   border-radius: 14px ;
   line-height: 1 ;
-  color: #4180e9;
-  border: 1px solid #4180e9;
+  color: #108ee9;
+  border: 1px solid #108ee9;
 }
 .home-detail .user-info .user-res .user-tag i:before {
-  color: #4180e9;
+  color: #108ee9;
 }
 .home-detail .user-info .user-res i {
   padding-left: 10px ;
@@ -11547,7 +11547,7 @@ body,
   width: 80% ;
 }
 .detail-footer {
-  background-color: #4180e9;
+  background-color: #108ee9;
   color: #FFF ;
   padding: 15px ;
   line-height: 1;
@@ -11555,8 +11555,39 @@ body,
   font-weight: bold;
   text-align: center;
 }
+.user-apply .show-mony {
+  background-color: #108ee9;
+  color: #FFF ;
+}
+.user-apply .show-mony .show-title {
+  font-size: 12px ;
+  text-align: center;
+  padding-top: 20px ;
+}
+.user-apply .show-mony .show-num {
+  padding: 20px ;
+  font-size: 18px ;
+  text-align: center;
+}
+.user-apply .show-mony .show-num:before {
+  display: inline-block;
+  content: attr(data-txt);
+}
+.user-apply .input-money {
+  height: 70px ;
+}
+.user-apply .input-money .am-input-label {
+  font-size: 32px;
+}
+.user-apply .input-money .fake-input-container {
+  height: 50px ;
+  line-height: 50px ;
+}
+.user-apply .input-money .fake-input-container .fake-input {
+  font-size: 32px ;
+}
 .apply-footer .apply-footer-notice {
-  color: #4180e9;
+  color: #108ee9;
 }
 .apply-footer .apply-footer-btm {
   background-color: #f95d5e;
@@ -11593,7 +11624,7 @@ body,
 }
 .user-invest .invest-content .invest-price .show-price {
   font-size: 16px ;
-  color: #4180e9;
+  color: #108ee9;
 }
 .user-invest .invest-content .invest-price .show-price-sub {
   padding-left: 20px ;
@@ -11601,7 +11632,7 @@ body,
 }
 .user-invest .invest-content .invest-price .show-price-mony {
   font-size: 12px ;
-  color: #4180e9;
+  color: #108ee9;
 }
 .user-invest .tags-list .am-tag {
   margin: 0 5px ;
@@ -11615,7 +11646,7 @@ body,
 }
 .user-invest .invest-date {
   font-size: 12px ;
-  color: #4180e9;
+  color: #108ee9;
 }
 .user-invest .invest-date:before {
   display: inline-block;
@@ -11634,7 +11665,7 @@ body,
   display: block;
   left: 0 ;
   top: 0 ;
-  background-color: #4180e9;
+  background-color: #108ee9;
   font-size: 14px ;
   content: attr(data-txt);
   color: #FFF ;

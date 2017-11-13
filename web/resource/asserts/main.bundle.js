@@ -9575,7 +9575,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3;
+var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4;
 
 var _mobx = __webpack_require__(86);
 
@@ -9642,6 +9642,8 @@ var store = (_class = function store() {
 	_initDefineProp(this, 'queryDetail', _descriptor2, this);
 
 	_initDefineProp(this, 'index', _descriptor3, this);
+
+	_initDefineProp(this, 'account', _descriptor4, this);
 }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'queryList', [_mobx.action], {
 	enumerable: true,
 	initializer: function initializer() {
@@ -9741,6 +9743,32 @@ var store = (_class = function store() {
 			};
 		}();
 	}
+}), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'account', [_mobx.action], {
+	enumerable: true,
+	initializer: function initializer() {
+		var _this4 = this;
+
+		return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+			var res;
+			return regeneratorRuntime.wrap(function _callee4$(_context4) {
+				while (1) {
+					switch (_context4.prev = _context4.next) {
+						case 0:
+							_context4.next = 2;
+							return utils.clientCall('/api/query/account');
+
+						case 2:
+							res = _context4.sent;
+							return _context4.abrupt('return', res.success && res.data && res.data.accountAmount || 0);
+
+						case 4:
+						case 'end':
+							return _context4.stop();
+					}
+				}
+			}, _callee4, _this4);
+		}));
+	}
 })), _class);
 exports.default = new store();
 
@@ -9757,7 +9785,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8;
 
 var _mobx = __webpack_require__(86);
 
@@ -9822,18 +9850,32 @@ var store = (_class = function () {
 
 		_initDefineProp(this, 'login', _descriptor, this);
 
-		_initDefineProp(this, 'check', _descriptor2, this);
+		_initDefineProp(this, 'user', _descriptor2, this);
 
-		_initDefineProp(this, 'sendCode', _descriptor3, this);
+		_initDefineProp(this, 'check', _descriptor3, this);
 
-		_initDefineProp(this, 'sendRegisterCode', _descriptor4, this);
+		_initDefineProp(this, 'doLogin', _descriptor4, this);
 
-		_initDefineProp(this, 'register', _descriptor5, this);
+		_initDefineProp(this, 'sendCode', _descriptor5, this);
 
-		_initDefineProp(this, 'forget', _descriptor6, this);
+		_initDefineProp(this, 'sendRegisterCode', _descriptor6, this);
+
+		_initDefineProp(this, 'register', _descriptor7, this);
+
+		_initDefineProp(this, 'forget', _descriptor8, this);
 	}
 
 	_createClass(store, [{
+		key: 'updateStatus',
+		value: function updateStatus(api) {
+			var _ref = api.success && api.data || {},
+			    login = _ref.login,
+			    user = _ref.user;
+
+			this.login = login;
+			this.user = user;
+		}
+	}, {
 		key: 'updateLogin',
 		value: function updateLogin(status) {
 			this.login = status;
@@ -9846,7 +9888,12 @@ var store = (_class = function () {
 	initializer: function initializer() {
 		return false;
 	}
-}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'check', [_mobx.action], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'user', [_mobx.observable], {
+	enumerable: true,
+	initializer: function initializer() {
+		return {};
+	}
+}), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'check', [_mobx.action], {
 	enumerable: true,
 	initializer: function initializer() {
 		var _this = this;
@@ -9870,9 +9917,11 @@ var store = (_class = function () {
 
 						case 4:
 							result = _context.sent;
-							return _context.abrupt('return', _this.login = result.success);
 
-						case 6:
+							_this.updateStatus(result);
+							return _context.abrupt('return', _this.login);
+
+						case 7:
 						case 'end':
 							return _context.stop();
 					}
@@ -9880,26 +9929,28 @@ var store = (_class = function () {
 			}, _callee, _this);
 		}));
 	}
-}), _applyDecoratedDescriptor(_class.prototype, 'updateLogin', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'updateLogin'), _class.prototype), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'sendCode', [_mobx.action], {
+}), _applyDecoratedDescriptor(_class.prototype, 'updateStatus', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'updateStatus'), _class.prototype), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'doLogin', [_mobx.action], {
 	enumerable: true,
 	initializer: function initializer() {
 		var _this2 = this;
 
 		return function () {
-			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(params) {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(params) {
 				var res;
 				return regeneratorRuntime.wrap(function _callee2$(_context2) {
 					while (1) {
 						switch (_context2.prev = _context2.next) {
 							case 0:
 								_context2.next = 2;
-								return utils.clientCall('/api/sendCode', params);
+								return utils.clientCall('/api/login', params);
 
 							case 2:
 								res = _context2.sent;
-								return _context2.abrupt('return', res.success ? res.data : null);
 
-							case 4:
+								_this2.updateStatus(res);
+								return _context2.abrupt('return', res);
+
+							case 5:
 							case 'end':
 								return _context2.stop();
 						}
@@ -9908,28 +9959,30 @@ var store = (_class = function () {
 			}));
 
 			return function (_x) {
-				return _ref2.apply(this, arguments);
+				return _ref3.apply(this, arguments);
 			};
 		}();
 	}
-}), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'sendRegisterCode', [_mobx.action], {
+}), _applyDecoratedDescriptor(_class.prototype, 'updateLogin', [_mobx.action], Object.getOwnPropertyDescriptor(_class.prototype, 'updateLogin'), _class.prototype), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, 'sendCode', [_mobx.action], {
 	enumerable: true,
 	initializer: function initializer() {
 		var _this3 = this;
 
 		return function () {
-			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(params) {
+			var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(params) {
+				var res;
 				return regeneratorRuntime.wrap(function _callee3$(_context3) {
 					while (1) {
 						switch (_context3.prev = _context3.next) {
 							case 0:
 								_context3.next = 2;
-								return utils.clientCall('/api/sendRegisterCode', params);
+								return utils.clientCall('/api/sendCode', params);
 
 							case 2:
-								return _context3.abrupt('return', _context3.sent);
+								res = _context3.sent;
+								return _context3.abrupt('return', res.success ? res.data : null);
 
-							case 3:
+							case 4:
 							case 'end':
 								return _context3.stop();
 						}
@@ -9938,23 +9991,23 @@ var store = (_class = function () {
 			}));
 
 			return function (_x2) {
-				return _ref3.apply(this, arguments);
+				return _ref4.apply(this, arguments);
 			};
 		}();
 	}
-}), _descriptor5 = _applyDecoratedDescriptor(_class.prototype, 'register', [_mobx.action], {
+}), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, 'sendRegisterCode', [_mobx.action], {
 	enumerable: true,
 	initializer: function initializer() {
 		var _this4 = this;
 
 		return function () {
-			var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(params) {
+			var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(params) {
 				return regeneratorRuntime.wrap(function _callee4$(_context4) {
 					while (1) {
 						switch (_context4.prev = _context4.next) {
 							case 0:
 								_context4.next = 2;
-								return utils.clientCall('/api/register', params);
+								return utils.clientCall('/api/sendRegisterCode', params);
 
 							case 2:
 								return _context4.abrupt('return', _context4.sent);
@@ -9968,23 +10021,23 @@ var store = (_class = function () {
 			}));
 
 			return function (_x3) {
-				return _ref4.apply(this, arguments);
+				return _ref5.apply(this, arguments);
 			};
 		}();
 	}
-}), _descriptor6 = _applyDecoratedDescriptor(_class.prototype, 'forget', [_mobx.action], {
+}), _descriptor7 = _applyDecoratedDescriptor(_class.prototype, 'register', [_mobx.action], {
 	enumerable: true,
 	initializer: function initializer() {
 		var _this5 = this;
 
 		return function () {
-			var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(params) {
+			var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(params) {
 				return regeneratorRuntime.wrap(function _callee5$(_context5) {
 					while (1) {
 						switch (_context5.prev = _context5.next) {
 							case 0:
 								_context5.next = 2;
-								return utils.clientCall('/api/forget', params);
+								return utils.clientCall('/api/register', params);
 
 							case 2:
 								return _context5.abrupt('return', _context5.sent);
@@ -9998,7 +10051,37 @@ var store = (_class = function () {
 			}));
 
 			return function (_x4) {
-				return _ref5.apply(this, arguments);
+				return _ref6.apply(this, arguments);
+			};
+		}();
+	}
+}), _descriptor8 = _applyDecoratedDescriptor(_class.prototype, 'forget', [_mobx.action], {
+	enumerable: true,
+	initializer: function initializer() {
+		var _this6 = this;
+
+		return function () {
+			var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(params) {
+				return regeneratorRuntime.wrap(function _callee6$(_context6) {
+					while (1) {
+						switch (_context6.prev = _context6.next) {
+							case 0:
+								_context6.next = 2;
+								return utils.clientCall('/api/forget', params);
+
+							case 2:
+								return _context6.abrupt('return', _context6.sent);
+
+							case 3:
+							case 'end':
+								return _context6.stop();
+						}
+					}
+				}, _callee6, _this6);
+			}));
+
+			return function (_x5) {
+				return _ref7.apply(this, arguments);
 			};
 		}();
 	}

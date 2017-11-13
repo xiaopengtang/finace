@@ -5,12 +5,24 @@ useStrict(true)
 
 class store {
 	@observable login = false;
+	@observable user = {} ;
 	@action check = async() => {
 		if(this.login){
 			return true
 		}
 		const result = await utils.clientCall('/api/loginStatus')
-		return this.login = result.success
+		this.updateStatus(result)
+		return this.login
+	}
+	@action updateStatus(api){
+		const {login, user} = api.success && api.data || {}
+		this.login = login
+		this.user = user
+	}
+	@action doLogin = async(params) => {
+		const res = await utils.clientCall('/api/login', params)
+		this.updateStatus(res)
+		return res 
 	}
 	@action updateLogin(status){
 		this.login = status

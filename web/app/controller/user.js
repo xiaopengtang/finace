@@ -36,18 +36,29 @@ module.exports = app => class UserController extends app.Controller {
 		const res = yield this.ctx.service.user.send(url)
 		return this.ajaxReturn(res)
 	}
+	*account(){
+		const url = 'http://1989591.51vip.biz:15003/account/get'
+		const ret = yield this.ctx.service.user.send(url, {
+			'userId': this.ctx.session.user.userId
+		})
+		return this.ajaxReturn(ret)
+	}	
 	*loginStatus(){
-		const login = this.ctx.session.token
-		return this[login?'success':'error']()
+		
+		const {token, ...other} = this.ctx.session.user || {}
+		const login = !!token
+		const user = {...other}
+		return this[login?'success':'error']({login, user})
 	}
 	*login(){
 		const {query} = this.ctx
 		const result = yield this.ctx.service.user.login(query)
-		const token = result.data && result.data.token
+		const {token, ...other} = result.data || {}
 		if(token){
-			this.ctx.session.token = token
+			this.ctx.session.user = result.data || null
+			// this.ctx.session.token = token
 		}
-		return this.success({ login: !!token})
+		return this.success({ login: !!token, user: {...other}})
 	}
 	*sendCode(){
 		const {phone, type} = this.ctx.query
@@ -79,6 +90,9 @@ module.exports = app => class UserController extends app.Controller {
 		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/forget/pwd/phone', query)
 		return this[res.code == 1 ? 'success' : 'error'](res.data)
 	}
-	*loginout(){}
+	*loginout(){
+		this.ctx.session.user = null
+		return this.success()
+	}
 	*saveInfo(){}
 }

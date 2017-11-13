@@ -1,4 +1,37 @@
-.user-apply{}
+.user-apply{
+	.show-mony{
+		background-color: #108ee9;
+		color: #FFF ;
+		.show-title{
+			font-size: 12px ;
+			text-align: center;
+			padding-top: 20px ;
+		}
+		.show-num{
+			&:before{
+				display: inline-block;
+				content: attr(data-txt) ;
+			}
+			padding: 20px ;
+			font-size: 18px ;
+			text-align: center;
+		}
+	}
+	.input-money{
+		height: 70px ;
+		.am-input-label{
+			font-size: 32px;
+		}
+
+		.fake-input-container{
+			height: 50px ;
+			line-height: 50px ;
+			.fake-input{
+				font-size: 32px ;
+			}
+		}
+	}
+}
 .apply-footer{
 	.apply-footer-notice{
 		color: @main-color ;

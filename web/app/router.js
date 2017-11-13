@@ -10,6 +10,7 @@ module.exports = app => {
   app.get('/api/register', 'user.register')
   app.get('/api/forget', 'user.forget')
   app.get('/api/index', 'user.index')
+  app.get('/api/query/account', 'user.account')
   app.post('/api/loginout', 'user.loginout')
   app.post('/api/saveUserInfo', 'user.saveInfo')
 };
