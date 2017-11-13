@@ -356,7 +356,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'logo' },
-					_react2.default.createElement('img', { src: 'public/i/logo.png', style: { "width": "60%" } })
+					_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/logo.png', style: { "width": "60%" } })
 				),
 				_react2.default.createElement(
 					'p',
@@ -371,7 +371,7 @@ var Index = (_temp2 = _class = function (_Component) {
 						value: this.state.tel,
 						placeholder: '\u8BF7\u8F93\u5165\u60A8\u7684\u624B\u673A\u53F7' }),
 					_react2.default.createElement('img', {
-						src: 'public/i/clear.png',
+						src: 'http://1989591.51vip.biz:7001/public/i/clear.png',
 						className: 'inputImg',
 						id: 'tab1',
 						onClick: function onClick(e) {
@@ -391,7 +391,7 @@ var Index = (_temp2 = _class = function (_Component) {
 						},
 						placeholder: '\u767B\u5F55\u5BC6\u7801' }),
 					_react2.default.createElement('img', {
-						src: this.state.show ? "public/i/eyesclose.png" : "public/i/eyesopen.png",
+						src: this.state.show ? "http://1989591.51vip.biz:7001/public/i/eyesclose.png" : "http://1989591.51vip.biz:7001/public/i/eyesopen.png",
 						className: 'inputImg', id: 'tab2', onClick: function onClick(e) {
 							return _this2.setState({ 'show': !_this2.state.show });
 						} })
@@ -686,7 +686,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'logo' },
-					_react2.default.createElement('img', { src: 'public/i/logo.png', style: { 'width': '60%' } }),
+					_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/logo.png', style: { 'width': '60%' } }),
 					_react2.default.createElement('input', { type: 'hidden', id: 'result', value: '' })
 				),
 				_react2.default.createElement(
@@ -1032,7 +1032,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'logo' },
-					_react2.default.createElement('img', { src: 'public/i/logo.png', style: { 'width': '60%' } })
+					_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/logo.png', style: { 'width': '60%' } })
 				),
 				_react2.default.createElement(
 					'ul',
@@ -1236,17 +1236,17 @@ var Index = function (_Component) {
 										_react2.default.createElement(
 											'th',
 											null,
-											_react2.default.createElement('img', { src: 'public/i/yaoqinghaoyouicon.png', style: { "width": "60px", "height": "60px" } })
+											_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/yaoqinghaoyouicon.png', style: { "width": "60px", "height": "60px" } })
 										),
 										_react2.default.createElement(
 											'th',
 											null,
-											_react2.default.createElement('img', { src: 'public/i/choujiangicon.png', style: { "width": "60px", "height": "60px" } })
+											_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/choujiangicon.png', style: { "width": "60px", "height": "60px" } })
 										),
 										_react2.default.createElement(
 											'th',
 											null,
-											_react2.default.createElement('img', { src: 'public/i/paihangbangicon.png', style: { "width": "60px", "height": "60px" } })
+											_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/paihangbangicon.png', style: { "width": "60px", "height": "60px" } })
 										)
 									),
 									_react2.default.createElement(
@@ -1274,7 +1274,7 @@ var Index = function (_Component) {
 						_react2.default.createElement(
 							'div',
 							{ className: 'guide' },
-							_react2.default.createElement('img', { src: 'public/i/guide.png' })
+							_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/guide.png' })
 						),
 						_react2.default.createElement(
 							'div',

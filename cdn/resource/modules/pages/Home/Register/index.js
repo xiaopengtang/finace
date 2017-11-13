@@ -86,7 +86,7 @@ export default class Index extends Component{
 		return (
 			<div className="home-register">
 				<div className="logo">
-					<img src="public/i/logo.png" style={{'width': '60%'}} /><input type="hidden" id="result" value="" />
+					<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{'width': '60%'}} /><input type="hidden" id="result" value="" />
 				</div>
 				<div className="center"> 
 					<ul>

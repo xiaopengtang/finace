@@ -76,7 +76,7 @@ export default class Index extends Component {
 		return (
 			<div className="home-forget">
 			    <div className="logo">
-					<img src="public/i/logo.png" style={{'width': '60%'}} />
+					<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{'width': '60%'}} />
 				</div>
 				<ul>
 				<li>

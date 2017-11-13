@@ -13,13 +13,13 @@ export default class Index extends Component {
 							    <tbody>
 									<tr>
 										<th>
-											<img src="public/i/yaoqinghaoyouicon.png" style={{"width": "60px","height": "60px"}} />
+											<img src="http://1989591.51vip.biz:7001/public/i/yaoqinghaoyouicon.png" style={{"width": "60px","height": "60px"}} />
 										</th>
 										<th>
-											<img src="public/i/choujiangicon.png" style={{"width": "60px","height": "60px"}} />
+											<img src="http://1989591.51vip.biz:7001/public/i/choujiangicon.png" style={{"width": "60px","height": "60px"}} />
 										</th>
 										<th>
-											<img src="public/i/paihangbangicon.png" style={{"width": "60px","height": "60px"}} />
+											<img src="http://1989591.51vip.biz:7001/public/i/paihangbangicon.png" style={{"width": "60px","height": "60px"}} />
 										</th>
 									</tr>
 									<tr>
@@ -37,7 +37,7 @@ export default class Index extends Component {
 							</table>
 						</div>
 						<div className="guide">
-							<img src="public/i/guide.png" />
+							<img src="http://1989591.51vip.biz:7001/public/i/guide.png" />
 						</div>
 						<div className="att">
 							<i className="icon icon-bullhorn">&nbsp;&nbsp;投资有风险，入市需谨慎！</i>

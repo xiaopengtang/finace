@@ -10,9 +10,11 @@ import * as $store from './store'
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types'
 const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
-window.G = window.G || {'isApp': false}
-const Body = G.isApp ? HashRouter : BrowserRouter
+// window.G = window.G || {'isApp': false}
 export default async data => {
+	window.G = window.G || {'isApp': true}
+	const Body = window.G.isApp ? HashRouter : BrowserRouter
+	// console.log([Body, HashRouter, BrowserRouter, window.G])
 	let Pages = await $utils.async_import(resolve => require.ensure([], require => resolve(require('./pages'))))
 	@observer
 	class Fade extends Component{

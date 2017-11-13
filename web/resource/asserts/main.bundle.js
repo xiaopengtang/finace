@@ -3953,27 +3953,29 @@ var BrowserRouter = ReactRouter.BrowserRouter,
     Switch = ReactRouter.Switch,
     IndexRoute = ReactRouter.IndexRoute,
     HashRouter = ReactRouter.HashRouter;
-
-window.G = window.G || { 'isApp': false };
-var Body = G.isApp ? HashRouter : BrowserRouter;
+// window.G = window.G || {'isApp': false}
 
 exports.default = function () {
 	var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data) {
 		var _class, _class2, _temp;
 
-		var Pages, Fade, Home, body;
+		var Body, Pages, Fade, Home, body;
 		return regeneratorRuntime.wrap(function _callee4$(_context4) {
 			while (1) {
 				switch (_context4.prev = _context4.next) {
 					case 0:
-						_context4.next = 2;
+						window.G = window.G || { 'isApp': true };
+						Body = window.G.isApp ? HashRouter : BrowserRouter;
+						// console.log([Body, HashRouter, BrowserRouter, window.G])
+
+						_context4.next = 4;
 						return $utils.async_import(function (resolve) {
 							return __webpack_require__.e/* require.ensure */(0).then((function (require) {
 								return resolve(__webpack_require__(655));
 							}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 						});
 
-					case 2:
+					case 4:
 						Pages = _context4.sent;
 						Fade = (0, _mobxReact.observer)(_class = function (_Component) {
 							_inherits(Fade, _Component);
@@ -4146,7 +4148,7 @@ exports.default = function () {
 
 						_reactDom2.default.render(_react2.default.createElement(Home, null), body);
 
-					case 7:
+					case 9:
 					case 'end':
 						return _context4.stop();
 				}

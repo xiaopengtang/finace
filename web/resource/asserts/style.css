@@ -10531,7 +10531,7 @@ input[type="button"] {
   background-color: #F7F7F7 ;
 }
 .layout-user .main-footer {
-  background-color: #F7F7F7 ;
+  box-shadow: 2px 2px 5px #dfdfdf ;
 }
 .layout-user .main-footer > ul {
   background-color: #FFF ;
