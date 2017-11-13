@@ -34,12 +34,12 @@ export default class Index extends Component {
 	    		'icon': 'icon-line-chart',
 	    		'text': '投资'
 	    	},
-	    	{
+	    	/*{
 	    		'url': '/market',
 	    		'name': 'market',
 	    		'icon': 'icon-shopping-cart',
 	    		'text': '商城'
-	    	},
+	    	},*/
 	    	{
 	    		'url': '/user',
 	    		'name': 'user',

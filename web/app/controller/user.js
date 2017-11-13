@@ -28,6 +28,14 @@ module.exports = app => class UserController extends app.Controller {
 			'errorCode': 7000001
 		}
 	}
+	ajaxReturn (res){
+		return this[res.code == 1 ? 'success' :'error'](res.data)
+	}
+	*index(){
+		const url = '/financial/product/list/recommend'
+		const res = yield this.ctx.service.user.send(url)
+		return this.ajaxReturn(res)
+	}
 	*loginStatus(){
 		const login = this.ctx.session.token
 		return this[login?'success':'error']()
@@ -52,6 +60,7 @@ module.exports = app => class UserController extends app.Controller {
 	}
 	*list(){
 		const {query} = this.ctx
+		query.status = 4
 		const res = yield this.ctx.service.user.send('/financial/product/list/page', query)
 		return this.success(res.data)
 	}

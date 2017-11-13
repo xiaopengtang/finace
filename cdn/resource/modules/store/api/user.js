@@ -16,6 +16,11 @@ class store {
 		const res = await utils.clientCall('/api/detail', param)
 		return res.success ? res.data : null
 	}
+
+	@action index = async(param) => {
+		const res = await utils.clientCall('/api/index')
+		return res.success ? res.data : null
+	}
 }
 
 

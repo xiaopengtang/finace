@@ -28,9 +28,12 @@ export default class Index extends Component {
 	}
 	render () {
 		const {tabs} = this.state
+		let page = this.context.$utils.queryString('type')
+		page = parseInt(page)
+		page = isNaN(page) ? 0 : page - 1
 		return (
 			<User className="user-invest" module="list" title="投资">
-			    <Tabs tabs={tabs} initialPage={0}>{this.renderTab.bind(this)}</Tabs>
+			    <Tabs tabs={tabs} initialPage={page}>{this.renderTab.bind(this)}</Tabs>
 			    <WhiteSpace size="sm"/>
 			</User>
 		)
