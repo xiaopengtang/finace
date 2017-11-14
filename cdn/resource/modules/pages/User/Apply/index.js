@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import User from '../../../layout/user'
-import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, InputItem, Modal} from 'antd-mobile'
+import { NoticeBar, Toast, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, InputItem, Modal} from 'antd-mobile'
 import PropTypes from 'prop-types'
 
 export default class Index extends Component {
@@ -23,6 +23,9 @@ export default class Index extends Component {
 	}
 	async applyAccout(){
 		const {accountAmount, investmentAmount} = this.state
+		if(!investmentAmount){
+			return Toast.info('请输入投资金额')
+		}
 		if(accountAmount < investmentAmount){
 			const status = await new Promise(resolve => Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [
 		    {'text': '取消'},
@@ -31,7 +34,7 @@ export default class Index extends Component {
 			return status
 		}
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
-		const res = await this.context.$utils.clientCall('/app/saveOrder',{investmentAmount, productCode})
+		const res = await this.context.$utils.clientCall('/api/saveOrder',{investmentAmount, productCode})
 	    if(res.success){
 	    	Toast.success('下单成功', 1)
 	    }else{

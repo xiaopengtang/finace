@@ -1993,40 +1993,48 @@ var Index = (_temp2 = _class = function (_Component) {
 							case 0:
 								_state = this.state, accountAmount = _state.accountAmount, investmentAmount = _state.investmentAmount;
 
-								if (!(accountAmount < investmentAmount)) {
-									_context2.next = 6;
+								if (investmentAmount) {
+									_context2.next = 3;
 									break;
 								}
 
-								_context2.next = 4;
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入投资金额'));
+
+							case 3:
+								if (!(accountAmount < investmentAmount)) {
+									_context2.next = 8;
+									break;
+								}
+
+								_context2.next = 6;
 								return new Promise(function (resolve) {
 									return _antdMobile.Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [{ 'text': '取消' }, { 'text': '前往', 'onPress': function onPress() {
 											return resolve(true);
 										} }]);
 								});
 
-							case 4:
+							case 6:
 								status = _context2.sent;
 								return _context2.abrupt('return', status);
 
-							case 6:
+							case 8:
 								productCode = this.context.$utils.queryString('id', this.props.location.search);
-								_context2.next = 9;
-								return this.context.$utils.clientCall('/app/saveOrder', { investmentAmount: investmentAmount, productCode: productCode });
+								_context2.next = 11;
+								return this.context.$utils.clientCall('/api/saveOrder', { investmentAmount: investmentAmount, productCode: productCode });
 
-							case 9:
+							case 11:
 								res = _context2.sent;
 
 								if (res.success) {
-									Toast.success('下单成功', 1);
+									_antdMobile.Toast.success('下单成功', 1);
 								} else {
-									Toast.fail('下单失败', 1);
+									_antdMobile.Toast.fail('下单失败', 1);
 								}
 								setTimeout(function () {
 									return _this2.props.history.push('/');
 								}, 2000);
 
-							case 12:
+							case 14:
 							case 'end':
 								return _context2.stop();
 						}
