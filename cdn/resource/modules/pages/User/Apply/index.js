@@ -23,13 +23,13 @@ export default class Index extends Component {
 	}
 	async applyAccout(){
 		const {accountAmount, investmentAmount} = this.state
-		/*if(accountAmount < investmentAmount){
+		if(accountAmount < investmentAmount){
 			const status = await new Promise(resolve => Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [
 		    {'text': '取消'},
 		    {'text': '前往', 'onPress': () => resolve(true)}
 			]))
 			return status
-		}*/
+		}
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
 		const res = await this.context.$utils.clientCall('/app/saveOrder',{investmentAmount, productCode})
 	    if(res.success){

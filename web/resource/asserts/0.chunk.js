@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-13 12:54:44
+ * last update:2017-11-14 11:35:57
  */
 webpackJsonp_name_([0],{
 
@@ -1985,26 +1985,36 @@ var Index = (_temp2 = _class = function (_Component) {
 			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
 				var _this2 = this;
 
-				var _state, accountAmount, investmentAmount, productCode, res;
+				var _state, accountAmount, investmentAmount, status, productCode, res;
 
 				return regeneratorRuntime.wrap(function _callee2$(_context2) {
 					while (1) {
 						switch (_context2.prev = _context2.next) {
 							case 0:
 								_state = this.state, accountAmount = _state.accountAmount, investmentAmount = _state.investmentAmount;
-								/*if(accountAmount < investmentAmount){
-        	const status = await new Promise(resolve => Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [
-            {'text': '取消'},
-            {'text': '前往', 'onPress': () => resolve(true)}
-        	]))
-        	return status
-        }*/
 
-								productCode = this.context.$utils.queryString('id', this.props.location.search);
+								if (!(accountAmount < investmentAmount)) {
+									_context2.next = 6;
+									break;
+								}
+
 								_context2.next = 4;
-								return this.context.$utils.clientCall('/app/saveOrder', { investmentAmount: investmentAmount, productCode: productCode });
+								return new Promise(function (resolve) {
+									return _antdMobile.Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [{ 'text': '取消' }, { 'text': '前往', 'onPress': function onPress() {
+											return resolve(true);
+										} }]);
+								});
 
 							case 4:
+								status = _context2.sent;
+								return _context2.abrupt('return', status);
+
+							case 6:
+								productCode = this.context.$utils.queryString('id', this.props.location.search);
+								_context2.next = 9;
+								return this.context.$utils.clientCall('/app/saveOrder', { investmentAmount: investmentAmount, productCode: productCode });
+
+							case 9:
 								res = _context2.sent;
 
 								if (res.success) {
@@ -2016,7 +2026,7 @@ var Index = (_temp2 = _class = function (_Component) {
 									return _this2.props.history.push('/');
 								}, 2000);
 
-							case 7:
+							case 12:
 							case 'end':
 								return _context2.stop();
 						}
