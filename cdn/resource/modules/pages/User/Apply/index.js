@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import User from '../../../layout/user'
-import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, InputItem} from 'antd-mobile'
+import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, InputItem, Modal} from 'antd-mobile'
 import PropTypes from 'prop-types'
 
 export default class Index extends Component {
@@ -9,14 +9,35 @@ export default class Index extends Component {
 		'$utils': PropTypes.object.isRequired
 	};
 	state = {
-		'accountAmount': 0
+		'accountAmount': 0,
+		'investmentAmount': 0,
+		'scale': 0
 	}
 	async componentDidMount(){
 		const accountAmount = await this.context.$store.api.user.account()
-		this.setState({accountAmount})
+		let scale = this.context.$utils.queryString('scale')
+		scale = parseFloat((parseFloat(scale) * 0.0001).toFixed(4))
+		scale = isNaN(scale) ? 0 : scale
+		// console.log({scale})
+		this.setState({accountAmount, scale})
 	}
 	async applyAccout(){
-		// 
+		const {accountAmount, investmentAmount} = this.state
+		/*if(accountAmount < investmentAmount){
+			const status = await new Promise(resolve => Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [
+		    {'text': '取消'},
+		    {'text': '前往', 'onPress': () => resolve(true)}
+			]))
+			return status
+		}*/
+		const productCode = this.context.$utils.queryString('id', this.props.location.search)
+		const res = await this.context.$utils.clientCall('/app/saveOrder',{investmentAmount, productCode})
+	    if(res.success){
+	    	Toast.success('下单成功', 1)
+	    }else{
+	    	Toast.fail('下单失败', 1)
+	    }
+	    setTimeout(() => this.props.history.push('/'), 2000)
 	}
 	render () {
 		return (
@@ -27,20 +48,17 @@ export default class Index extends Component {
 		    </div>}>
 		        <div className="show-mony">
 		           <div className="show-title">实际投资收益</div>
-		           <div className="show-num" data-txt="5">元</div>
+		           <div className="show-num" data-txt={(this.state.scale * this.state.investmentAmount).toFixed(2)}>元</div>
 		        </div>
 		        <WhiteSpace size="sm" />
 		        {/*<NoticeBar 
 		        		        mode="closable">该信息将作为你的实名凭证，请确保真实</NoticeBar>*/}
 			    <List>
-			        <InputItem
-				        type="money"
-				        className="input-money"
-			            placeholder="请输入100整数倍"
-			            clear
-			            labelNumber="2"
-			            moneyKeyboardAlign="left"
-			            >¥</InputItem>
+			        <List.Item className="input-money">
+			            <label>¥</label>
+			            <input 
+			                value={this.state.investmentAmount} type="number" onChange={e => this.setState({'investmentAmount': e.currentTarget.value})}/>
+			        </List.Item>
 			    	<List.Item>
 			    		账户余额<List.Item.Brief>{this.state.accountAmount}元</List.Item.Brief>
 			    	</List.Item>

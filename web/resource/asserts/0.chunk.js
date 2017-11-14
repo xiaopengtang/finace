@@ -1938,7 +1938,9 @@ var Index = (_temp2 = _class = function (_Component) {
 		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-			'accountAmount': 0
+			'accountAmount': 0,
+			'investmentAmount': 0,
+			'scale': 0
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
@@ -1946,7 +1948,7 @@ var Index = (_temp2 = _class = function (_Component) {
 		key: 'componentDidMount',
 		value: function () {
 			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var accountAmount;
+				var accountAmount, scale;
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
@@ -1956,10 +1958,14 @@ var Index = (_temp2 = _class = function (_Component) {
 
 							case 2:
 								accountAmount = _context.sent;
+								scale = this.context.$utils.queryString('scale');
 
-								this.setState({ accountAmount: accountAmount });
+								scale = parseFloat((parseFloat(scale) * 0.0001).toFixed(4));
+								scale = isNaN(scale) ? 0 : scale;
+								// console.log({scale})
+								this.setState({ accountAmount: accountAmount, scale: scale });
 
-							case 4:
+							case 7:
 							case 'end':
 								return _context.stop();
 						}
@@ -1977,10 +1983,40 @@ var Index = (_temp2 = _class = function (_Component) {
 		key: 'applyAccout',
 		value: function () {
 			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				var _this2 = this;
+
+				var _state, accountAmount, investmentAmount, productCode, res;
+
 				return regeneratorRuntime.wrap(function _callee2$(_context2) {
 					while (1) {
 						switch (_context2.prev = _context2.next) {
 							case 0:
+								_state = this.state, accountAmount = _state.accountAmount, investmentAmount = _state.investmentAmount;
+								/*if(accountAmount < investmentAmount){
+        	const status = await new Promise(resolve => Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [
+            {'text': '取消'},
+            {'text': '前往', 'onPress': () => resolve(true)}
+        	]))
+        	return status
+        }*/
+
+								productCode = this.context.$utils.queryString('id', this.props.location.search);
+								_context2.next = 4;
+								return this.context.$utils.clientCall('/app/saveOrder', { investmentAmount: investmentAmount, productCode: productCode });
+
+							case 4:
+								res = _context2.sent;
+
+								if (res.success) {
+									Toast.success('下单成功', 1);
+								} else {
+									Toast.fail('下单失败', 1);
+								}
+								setTimeout(function () {
+									return _this2.props.history.push('/');
+								}, 2000);
+
+							case 7:
 							case 'end':
 								return _context2.stop();
 						}
@@ -1997,6 +2033,8 @@ var Index = (_temp2 = _class = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this3 = this;
+
 			return _react2.default.createElement(
 				_user2.default,
 				{ title: '\u6295\u8D44\u64CD\u4F5C', module: 'list', className: 'user-apply',
@@ -2019,7 +2057,7 @@ var Index = (_temp2 = _class = function (_Component) {
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'show-num', 'data-txt': '5' },
+						{ className: 'show-num', 'data-txt': (this.state.scale * this.state.investmentAmount).toFixed(2) },
 						'\u5143'
 					)
 				),
@@ -2028,16 +2066,17 @@ var Index = (_temp2 = _class = function (_Component) {
 					_antdMobile.List,
 					null,
 					_react2.default.createElement(
-						_antdMobile.InputItem,
-						{
-							type: 'money',
-							className: 'input-money',
-							placeholder: '\u8BF7\u8F93\u5165100\u6574\u6570\u500D',
-							clear: true,
-							labelNumber: '2',
-							moneyKeyboardAlign: 'left'
-						},
-						'\xA5'
+						_antdMobile.List.Item,
+						{ className: 'input-money' },
+						_react2.default.createElement(
+							'label',
+							null,
+							'\xA5'
+						),
+						_react2.default.createElement('input', {
+							value: this.state.investmentAmount, type: 'number', onChange: function onChange(e) {
+								return _this3.setState({ 'investmentAmount': e.currentTarget.value });
+							} })
 					),
 					_react2.default.createElement(
 						_antdMobile.List.Item,
@@ -2433,7 +2472,9 @@ var Index = (_temp2 = _class = function (_Component) {
 				'financialFileList': {},
 				'financialRecordList': [],
 				'financialUser': {}
-			}
+			},
+			'scale': 0,
+			'productCode': null
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
@@ -2441,7 +2482,8 @@ var Index = (_temp2 = _class = function (_Component) {
 		key: 'componentDidMount',
 		value: function () {
 			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var productCode, info;
+				var productCode, info, _info$financialProduc, preYearRate, deadlineDays, scale;
+
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
@@ -2464,9 +2506,16 @@ var Index = (_temp2 = _class = function (_Component) {
 								return _context.abrupt('return');
 
 							case 6:
-								this.setState({ info: info });
+								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
 
-							case 7:
+								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
+								deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays;
+								scale = parseInt(preYearRate * 0.01 * deadlineDays / 365 * 10000);
+								// preYearRate = parseFloat(preYearRate)
+
+								this.setState({ info: info, scale: scale, productCode: productCode });
+
+							case 11:
 							case 'end':
 								return _context.stop();
 						}
@@ -2496,7 +2545,10 @@ var Index = (_temp2 = _class = function (_Component) {
 						{ className: 'detail-footer' },
 						_react2.default.createElement(
 							_reactRouterDom.Link,
-							{ style: { 'color': '#FFF' }, to: '/apply' },
+							{ style: { 'color': '#FFF' }, to: {
+									'pathname': '/apply',
+									'search': '?id=' + this.state.productCode + '&scale=' + this.state.scale
+								} },
 							'\u7ACB\u5373\u6295\u8D44'
 						)
 					) },
