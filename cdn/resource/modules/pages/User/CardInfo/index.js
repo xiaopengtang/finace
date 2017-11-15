@@ -29,7 +29,7 @@ export default class Index extends Component {
           </WingBlank>
           <WingBlank>
             <div className="J_logout">
-              <a href="/bindCard">
+              <a href="/certification">
                 <Button type="primary">去绑定银行卡</Button>
               </a>
             </div>

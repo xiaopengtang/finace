@@ -14,6 +14,13 @@ export default class Index extends Component {
 
   state = {
     value: 0,
+
+    oldPass: "",
+    oldPassHideText: "",
+    newPass: "",
+    newPassHideText: "",
+    newPassCheck: "",
+    newPassCheckHideText: "",
   };
 
   onChange(e){
@@ -30,36 +37,61 @@ export default class Index extends Component {
     })
   }
 
+  changeInfo(e, key){
+    let length = e.target.value.length;
+    let hideText = "";
+    for(var i=0; i<length; i++){
+      hideText+= "*";
+    };
+    this.setState({
+      [key]: e.target.value,
+      [key+"HideText"]: hideText
+    })
+  }
+
 	render () {
+    let self = this;
 		return (
 		    <User title="重置密码" module="userDetail" className="user-detail"
 		    	footer={
             <div></div>
 				  }
         >
-          <div>
+          <WingBlank>
             <List renderHeader={() => '请输入旧密码:'} className="my-list">
               <Item>
-                <input type="number" value={this.state.value} onChange={this.onChange}/>
+                <input type="text" value={this.state.oldPassHideText}
+                  onChange={
+                    (e)=>{
+                      self.changeInfo(e, "oldPass");
+                    }
+                }/>
               </Item>
             </List>
-          </div>
+          </WingBlank>
 
-          <div>
+          <WingBlank>
             <List renderHeader={() => '请输入新密码:'} className="my-list">
               <Item>
-                <input type="number" value={this.state.value} onChange={this.onChange}/>
+                <input type="text" value={this.state.newPassHideText} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "newPass");
+                  }
+                }/>
               </Item>
             </List>
-          </div>
+          </WingBlank>
 
-          <div>
+          <WingBlank>
             <List renderHeader={() => '请重新输入新密码:'} className="my-list">
               <Item>
-                <input type="number" value={this.state.value} onChange={this.onChange}/>
+                <input type="text" value={this.state.newPassCheckHideText} onChange={(e)=>{
+                    self.changeInfo(e, "newPassCheck");
+                  }
+                }/>
               </Item>
             </List>
-          </div>
+          </WingBlank>
 
           <WingBlank>
             <div className="J_logout">

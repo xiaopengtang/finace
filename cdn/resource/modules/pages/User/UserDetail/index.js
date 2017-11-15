@@ -10,6 +10,7 @@ export default class Index extends Component {
 		'$store': PropTypes.object.isRequired,
 		'$utils': PropTypes.object.isRequired
 	};
+
 	state = {
 		'info': {
 			'financialProduct': {},
@@ -23,11 +24,18 @@ export default class Index extends Component {
 		'productCode': null
 	}
 
+	getChildContext(){
+		return {$store, $utils}
+	}
+
 	async componentDidMount(){
-		const productCode = this.context.$utils.queryString('id', this.props.location.search)
-		const info = await this.context.$store.api.user.queryDetail({productCode})
-		console.log(productCode);
+		// const productCode = this.context.$utils.queryString('id', this.props.location.search)
+		const info = await this.context.$store.api.user.account({});
+		console.log(222);
 		console.log(info);
+		console.log(this.context.$store.api.user);
+		console.log(this.context);
+
 		if(!info){
 			return
 		}
@@ -48,11 +56,11 @@ export default class Index extends Component {
 							<div className="userInfo">
 								<a href="/setting">
 									<div className="J_Avatar">
-										<img src="public/i/user_defualt.png" />
+										<img src="http://1989591.51vip.biz:7001/public/i/user_defualt.png" />
 									</div>
 									<div className="J_DetailInfo">
-										<p className="userName">我是用户名</p>
-										<p className="phoneNum">我是电话号码</p>
+										<p className="userName">leeexmxmx</p>
+										<p className="phoneNum">137****3044</p>
 									</div>
 									<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
 								</a>
@@ -63,19 +71,19 @@ export default class Index extends Component {
 							<Flex>
 								<Flex.Item>
 									<div className="J_priceWrapper">
-										<p className="J_price">1234</p>
+										<p className="J_price">0</p>
 										<p>总资产(元)</p>
 									</div>
 								</Flex.Item>
 								<Flex.Item>
 									<div className="J_priceWrapper">
-										<p className="J_price">1234</p>
+										<p className="J_price">0</p>
 										<p>可用余额(元)</p>
 									</div>
 								</Flex.Item>
 								<Flex.Item>
 									<div className="J_priceWrapper">
-										<p className="J_price">1234</p>
+										<p className="J_price">0</p>
 										<p>投资金额(元)</p>
 									</div>
 								</Flex.Item>
@@ -87,7 +95,7 @@ export default class Index extends Component {
 								<Flex.Item>
 									<a href="/recharge">
 										<div className="J_operation">
-											<img src="public/i/recharge_defualt.png"></img>
+											<img src="http://1989591.51vip.biz:7001/public/i/recharge_defualt.png"></img>
 											<p>充值</p>
 										</div>
 									</a>
@@ -95,7 +103,7 @@ export default class Index extends Component {
 								<Flex.Item>
 									<a href="/withdrawals">
 										<div className="J_operation">
-											<img src="public/i/withdrawals_defualt.png"></img>
+											<img src="http://1989591.51vip.biz:7001/public/i/withdrawals_defualt.png"></img>
 											<p>提现</p>
 										</div>
 									</a>
@@ -103,7 +111,7 @@ export default class Index extends Component {
 								<Flex.Item>
 									<a href="/cardInfo">
 									<div className="J_operation">
-										<img src="public/i/card_defualt.png"></img>
+										<img src="http://1989591.51vip.biz:7001/public/i/card_defualt.png"></img>
 										<p>银行卡</p>
 									</div>
 									</a>

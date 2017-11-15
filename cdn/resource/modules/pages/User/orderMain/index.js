@@ -24,9 +24,9 @@ export default class Index extends Component {
 	async componentDidMount(){
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
 		// console.log(this)
-		// console.log(productCode)
+		console.log(productCode)
 		const info = await this.context.$store.api.user.queryDetail({productCode})
-		
+
 		if(!info){
 			return
 		}
@@ -40,10 +40,10 @@ export default class Index extends Component {
 	render () {
 		const {info} = this.state
 		return (
-		    <User 
+		    <User
 		        title={info.financialProduct.productName}
-		        module="list" 
-		        className="home-order-main" 
+		        module="list"
+		        className="home-order-main"
 		        footer={<div className="detail-footer"><Link style={{'color': '#FFF', 'width': '100%'}} to={{
 		        	'pathname': '/apply',
 		        	'search': `?id=${this.state.productCode}&scale=${this.state.scale}`
@@ -136,7 +136,7 @@ export default class Index extends Component {
 		                <ul className="mdl-content">
 							<li>
 								<label>审核资料</label>
-								<span>审核结果</span>													
+								<span>审核结果</span>
 							</li>
 							<li>
 								<label>合同资料:</label>
@@ -178,7 +178,7 @@ export default class Index extends Component {
 								<label>铭牌照片:</label>
 								<span>{info.financialAudit.nameplatePhoto == 2?'通过':'未通过'}</span>
 							</li>
-								
+
 		                </ul>
 		            </Accordion.Panel>
 		            <Accordion.Panel header={<span className="icon icon-file-text"> 投资记录 </span>}>
