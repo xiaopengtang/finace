@@ -34,7 +34,7 @@ export default class Index extends Component {
 							<Item
                 extra={
                   <div>
-                    <span>{"暂不支持认证" + " "}</span>
+                    <span>{}</span>
                     <i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
                   </div>
                 }

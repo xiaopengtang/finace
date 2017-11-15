@@ -2,13 +2,42 @@ import React, {Component} from 'react'
 import User from '../../../layout/user'
 import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion} from 'antd-mobile'
 const {Item} = List;
+import PropTypes from 'prop-types'
 
 export default class Index extends Component {
 
+	static contextTypes = {
+		'$store': PropTypes.object.isRequired,
+		'$utils': PropTypes.object.isRequired
+	};
+	state = {
+		'info': {
+			'financialProduct': {},
+			'financialAudit': {},
+			'financialCar': {},
+			'financialFileList': {},
+			'financialRecordList': [],
+			'financialUser': {}
+		},
+		'scale': 0,
+		'productCode': null
+	}
 
-	onChange = (key) => {
-    console.log(key);
-  }
+	async componentDidMount(){
+		const productCode = this.context.$utils.queryString('id', this.props.location.search)
+		const info = await this.context.$store.api.user.queryDetail({productCode})
+		console.log(productCode);
+		console.log(info);
+		if(!info){
+			return
+		}
+		let {preYearRate, deadlineDays} = info.financialProduct
+		preYearRate = isNaN(preYearRate) ? 0 : preYearRate
+		deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays
+		const scale = parseInt(((preYearRate * 0.01 * deadlineDays) / 365) * 10000)
+		// preYearRate = parseFloat(preYearRate)
+		this.setState({info, scale, productCode})
+	}
 
 	render () {
 		return (
@@ -56,22 +85,28 @@ export default class Index extends Component {
 						<WingBlank>
 							<Flex>
 								<Flex.Item>
-									<div className="J_operation">
-										<img src="public/i/recharge_defualt.png"></img>
-										<p>充值</p>
-									</div>
+									<a href="/recharge">
+										<div className="J_operation">
+											<img src="public/i/recharge_defualt.png"></img>
+											<p>充值</p>
+										</div>
+									</a>
 								</Flex.Item>
 								<Flex.Item>
-									<div className="J_operation">
-										<img src="public/i/withdrawals_defualt.png"></img>
-										<p>提现</p>
-									</div>
+									<a href="/withdrawals">
+										<div className="J_operation">
+											<img src="public/i/withdrawals_defualt.png"></img>
+											<p>提现</p>
+										</div>
+									</a>
 								</Flex.Item>
 								<Flex.Item>
-									<div className="J_operation">
-										<img src="public/i/card_defualt.png"></img>
-										<p>银行卡</p>
-									</div>
+									<a href="/bindCard">
+										<div className="J_operation">
+											<img src="public/i/card_defualt.png"></img>
+											<p>银行卡</p>
+										</div>
+									</a>
 								</Flex.Item>
 							</Flex>
 						</WingBlank>
