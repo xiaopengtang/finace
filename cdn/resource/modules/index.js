@@ -10,14 +10,6 @@ import * as $store from './store'
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types'
 
-class Report extends Component{
-	render(){
-		const {children, m, ...other} = this.props
-		return (
-			<div {...other} dangerouslySetInnerHTML={{'__html': `<a m="${m}">${children}</a>`}}></div>
-		)
-	}
-}
 const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
 // window.G = window.G || {'isApp': false}
 export default async data => {
