@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-11 10:00:28
+ * last update:2017-11-12 11:36:12
  */
 webpackJsonp_name_([0],{
 
@@ -65,13 +65,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -214,13 +214,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
-var _axios = __webpack_require__(151);
+var _axios = __webpack_require__(101);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
@@ -453,13 +453,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -751,7 +751,7 @@ exports.default = Index;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
+exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
 
 var _index = __webpack_require__(659);
 
@@ -777,6 +777,22 @@ var _orderMain = __webpack_require__(664);
 
 var _orderMain2 = _interopRequireDefault(_orderMain);
 
+var _UserDetail2 = __webpack_require__(665);
+
+var _UserDetail3 = _interopRequireDefault(_UserDetail2);
+
+var _Setting2 = __webpack_require__(666);
+
+var _Setting3 = _interopRequireDefault(_Setting2);
+
+var _BindCard2 = __webpack_require__(667);
+
+var _BindCard3 = _interopRequireDefault(_BindCard2);
+
+var _Certification2 = __webpack_require__(679);
+
+var _Certification3 = _interopRequireDefault(_Certification2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Index = _index2.default;
@@ -785,6 +801,10 @@ exports.Detail = _Detail3.default;
 exports.Apply = _Apply3.default;
 exports.Invest = _Invest3.default;
 exports.OrderMain = _orderMain2.default;
+exports.UserDetail = _UserDetail3.default;
+exports.Setting = _Setting3.default;
+exports.BindCard = _BindCard3.default;
+exports.Certification = _Certification3.default;
 
 /***/ }),
 
@@ -809,7 +829,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1046,9 +1066,9 @@ var _user = __webpack_require__(654);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1252,9 +1272,9 @@ var _user = __webpack_require__(654);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1447,7 +1467,7 @@ var _user = __webpack_require__(654);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1543,9 +1563,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1719,9 +1739,9 @@ var _user = __webpack_require__(654);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _reactRouterDom = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(242);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1913,6 +1933,844 @@ var Index = function (_Component) {
 	}]);
 
 	return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 665:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(654);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Item = _antdMobile.List.Item;
+
+var Index = function (_Component) {
+	_inherits(Index, _Component);
+
+	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Index);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function (key) {
+			console.log(key);
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(Index, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				_user2.default,
+				{ title: '\u4E2A\u4EBA\u4E2D\u5FC3', module: 'userDetail', className: 'user-detail' },
+				_react2.default.createElement(
+					_antdMobile.NoticeBar,
+					{ mode: 'closable' },
+					'\u8BE5\u4FE1\u606F\u5C06\u4F5C\u4E3A\u4F60\u7684\u5B9E\u540D\u51ED\u8BC1\uFF0C\u8BF7\u786E\u4FDD\u771F\u5B9E'
+				),
+				_react2.default.createElement(
+					_antdMobile.WingBlank,
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'userInfo' },
+						_react2.default.createElement(
+							'a',
+							{ href: '/setting' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_Avatar' },
+								_react2.default.createElement('img', { src: 'public/i/user_defualt.png' })
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_DetailInfo' },
+								_react2.default.createElement(
+									'p',
+									{ className: 'userName' },
+									'\u6211\u662F\u7528\u6237\u540D'
+								),
+								_react2.default.createElement(
+									'p',
+									{ className: 'phoneNum' },
+									'\u6211\u662F\u7535\u8BDD\u53F7\u7801'
+								)
+							),
+							_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+						)
+					)
+				),
+				_react2.default.createElement(
+					_antdMobile.WingBlank,
+					null,
+					_react2.default.createElement(
+						_antdMobile.Flex,
+						null,
+						_react2.default.createElement(
+							_antdMobile.Flex.Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_priceWrapper' },
+								_react2.default.createElement(
+									'p',
+									{ className: 'J_price' },
+									'1234'
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'\u603B\u8D44\u4EA7(\u5143)'
+								)
+							)
+						),
+						_react2.default.createElement(
+							_antdMobile.Flex.Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_priceWrapper' },
+								_react2.default.createElement(
+									'p',
+									{ className: 'J_price' },
+									'1234'
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'\u53EF\u7528\u4F59\u989D(\u5143)'
+								)
+							)
+						),
+						_react2.default.createElement(
+							_antdMobile.Flex.Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_priceWrapper' },
+								_react2.default.createElement(
+									'p',
+									{ className: 'J_price' },
+									'1234'
+								),
+								_react2.default.createElement(
+									'p',
+									null,
+									'\u6295\u8D44\u91D1\u989D(\u5143)'
+								)
+							)
+						)
+					)
+				),
+				_react2.default.createElement(
+					_antdMobile.WingBlank,
+					null,
+					_react2.default.createElement(
+						_antdMobile.Flex,
+						null,
+						_react2.default.createElement(
+							_antdMobile.Flex.Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_operation' },
+								_react2.default.createElement('img', { src: 'public/i/recharge_defualt.png' }),
+								_react2.default.createElement(
+									'p',
+									null,
+									'\u5145\u503C'
+								)
+							)
+						),
+						_react2.default.createElement(
+							_antdMobile.Flex.Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_operation' },
+								_react2.default.createElement('img', { src: 'public/i/withdrawals_defualt.png' }),
+								_react2.default.createElement(
+									'p',
+									null,
+									'\u63D0\u73B0'
+								)
+							)
+						),
+						_react2.default.createElement(
+							_antdMobile.Flex.Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_operation' },
+								_react2.default.createElement('img', { src: 'public/i/card_defualt.png' }),
+								_react2.default.createElement(
+									'p',
+									null,
+									'\u94F6\u884C\u5361'
+								)
+							)
+						)
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'J_listWrapper' },
+					_react2.default.createElement(
+						_antdMobile.Accordion,
+						{ accordion: true, className: 'my-accordion', onChange: this.onChange },
+						_react2.default.createElement(
+							_antdMobile.Accordion.Panel,
+							{ header: '\u76F8\u5173\u7EDF\u8BA1\u91D1\u989D(\u5143)' },
+							_react2.default.createElement(
+								_antdMobile.List,
+								{ className: 'my-list' },
+								_react2.default.createElement(
+									Item,
+									{ extra: 12345 },
+									'\u7D2F\u8BA1\u6295\u6807\u6536\u76CA(\u5143)'
+								),
+								_react2.default.createElement(
+									Item,
+									{ extra: 12345 },
+									'\u7D2F\u8BA1\u6295\u6807\u6536\u76CA(\u5143)'
+								),
+								_react2.default.createElement(
+									Item,
+									{ extra: 12345 },
+									'\u7D2F\u8BA1\u6295\u6807\u6536\u76CA(\u5143)'
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.List,
+						{ className: 'my-list' },
+						_react2.default.createElement(
+							Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_listItem' },
+								'\u6295\u8D44\u5386\u53F2',
+								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.List,
+						{ className: 'my-list' },
+						_react2.default.createElement(
+							Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_listItem' },
+								'\u8D44\u91D1\u660E\u7EC6',
+								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.List,
+						{ className: 'my-list' },
+						_react2.default.createElement(
+							Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_listItem' },
+								'\u5B89\u5168\u4FDD\u969C',
+								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.List,
+						{ className: 'my-list' },
+						_react2.default.createElement(
+							Item,
+							null,
+							_react2.default.createElement(
+								'div',
+								{ className: 'J_listItem' },
+								'\u4F18\u60E0\u5238',
+								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+							)
+						)
+					),
+					_react2.default.createElement(
+						_antdMobile.WingBlank,
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'J_logout' },
+							_react2.default.createElement(
+								_antdMobile.Button,
+								{ type: 'warning' },
+								'\u9000\u51FA\u767B\u5F55'
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 666:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(654);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Item = _antdMobile.List.Item;
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Index);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function (key) {
+      console.log(key);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u4E2A\u4EBA\u8BBE\u7F6E', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          'div',
+          { className: '' },
+          _react2.default.createElement(
+            _antdMobile.List,
+            { className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              { extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    "aaaaaaaaaa" + " "
+                  ),
+                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                ) },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u7528\u6237\u540D'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _antdMobile.List,
+            { className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              {
+                extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    "暂不支持认证" + " "
+                  ),
+                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                )
+              },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u4E2A\u4EBA\u4FE1\u606F'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _antdMobile.List,
+            { className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              {
+                extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    "个人账户"
+                  )
+                )
+              },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u8D26\u6237\u7C7B\u578B'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _antdMobile.List,
+            { className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              {
+                extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    "13770673044"
+                  )
+                )
+              },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u624B\u673A'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _antdMobile.List,
+            { className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              {
+                extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                )
+              },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u94F6\u884C\u5361'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _antdMobile.List,
+            { className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              {
+                extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                )
+              },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u66F4\u6362\u5BC6\u7801'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 667:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(654);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+
+var customIcon = function customIcon() {
+  return _react2.default.createElement(
+    'svg',
+    { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 42 42', className: 'am-icon am-icon-md' },
+    _react2.default.createElement(
+      'g',
+      { fillRule: 'evenodd', stroke: 'transparent', strokeWidth: '4' },
+      _react2.default.createElement('path', { d: 'M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z' }),
+      _react2.default.createElement('path', { fill: '#FFF', d: 'M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z' })
+    )
+  );
+};
+
+var steps = [{
+  title: '实名认证',
+  description: 'This is description'
+}, {
+  title: '绑定银行卡',
+  description: 'This is description'
+}, {
+  title: '人工验证',
+  description: 'This is description'
+}].map(function (s, i) {
+  return _react2.default.createElement(Step, { key: i, title: s.title, description: "" });
+});
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Index);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function (key) {
+      console.log(key);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u7ED1\u5B9A\u94F6\u884C\u5361', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          'div',
+          { className: 'J_steps' },
+          _react2.default.createElement(
+            _antdMobile.WingBlank,
+            { mode: 20, className: 'stepsExample' },
+            _react2.default.createElement(_antdMobile.WhiteSpace, null),
+            _react2.default.createElement(
+              _antdMobile.Steps,
+              { current: 1, direction: 'horizontal' },
+              steps
+            ),
+            _react2.default.createElement(_antdMobile.WhiteSpace, null)
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 679:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(654);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+
+var customIcon = function customIcon() {
+  return _react2.default.createElement(
+    'svg',
+    { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 42 42', className: 'am-icon am-icon-md' },
+    _react2.default.createElement(
+      'g',
+      { fillRule: 'evenodd', stroke: 'transparent', strokeWidth: '4' },
+      _react2.default.createElement('path', { d: 'M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z' }),
+      _react2.default.createElement('path', { fill: '#FFF', d: 'M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z' })
+    )
+  );
+};
+
+var steps = [{
+  title: '实名认证',
+  description: 'This is description'
+}, {
+  title: '绑定银行卡',
+  description: 'This is description'
+}, {
+  title: '人工验证',
+  description: 'This is description'
+}].map(function (s, i) {
+  return _react2.default.createElement(Step, { key: i, title: s.title, description: "" });
+});
+
+var seasons = [{
+  label: '男',
+  value: 1
+}, {
+  label: '女',
+  value: 0
+}];
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Index);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      data: [],
+      cols: 1,
+      pickerValue: [],
+      asyncValue: [],
+      sValue: ['男', 1],
+      visible: false
+    }, _this.onChange = function (value) {
+      console.log(value);
+      _this.setState({
+        value: value
+      });
+    }, _this.onScrollChange = function (value) {
+      console.log(value);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u5B9E\u540D\u8BA4\u8BC1', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          'div',
+          { className: 'J_steps' },
+          _react2.default.createElement(
+            _antdMobile.WingBlank,
+            { mode: 20, className: 'stepsExample' },
+            _react2.default.createElement(_antdMobile.WhiteSpace, null),
+            _react2.default.createElement(
+              _antdMobile.Steps,
+              { current: 0, direction: 'horizontal' },
+              steps
+            ),
+            _react2.default.createElement(_antdMobile.WhiteSpace, null)
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '姓名';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: '111' })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '身份证号';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: '111' })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.Picker,
+          {
+            data: seasons,
+            cols: this.state.cols,
+            value: this.state.asyncValue,
+            onChange: function onChange(v) {
+              return _this2.setState({ sValue: v }, function (x) {
+                return console.log(_this2.state);
+              });
+            },
+            onOk: function onOk(v) {
+              return console.log(v);
+            },
+            title: '\u9009\u62E9\u6027\u522B'
+          },
+          _react2.default.createElement(
+            _antdMobile.List.Item,
+            { arrow: 'horizontal', onClick: this.onClick },
+            '\u6027\u522B'
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              _antdMobile.Button,
+              { type: 'primary' },
+              '\u786E\u8BA4'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
 }(_react.Component);
 
 exports.default = Index;
