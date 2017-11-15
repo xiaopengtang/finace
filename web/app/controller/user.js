@@ -57,8 +57,11 @@ module.exports = app => class UserController extends app.Controller {
 		if(token){
 			this.ctx.session.user = result.data || null
 			// this.ctx.session.token = token
+			return this.success({ login: true, user: {userId}})
+		}else{
+			return this.error(res.data)
 		}
-		return this.success({ login: !!token, user: {userId}})
+		
 	}
 	*sendCode(){
 		const {phone, type} = this.ctx.query

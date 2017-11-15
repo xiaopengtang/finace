@@ -45,7 +45,7 @@ export default class Index extends Component {
 			this.context.$store.auth.updateLogin(true)
 			this.props.history.push('/home')
 		}else{
-			Toast.info('密码不正确')
+			Toast.info( data.data || '登录失败' )
 		}
 	}
 	change (e) {}

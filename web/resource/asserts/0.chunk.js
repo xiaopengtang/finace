@@ -330,7 +330,7 @@ var Index = (_temp2 = _class = function (_Component) {
 									this.context.$store.auth.updateLogin(true);
 									this.props.history.push('/home');
 								} else {
-									_antdMobile.Toast.info('密码不正确');
+									_antdMobile.Toast.info(data.data || '登录失败');
 								}
 
 							case 11:
@@ -2567,7 +2567,7 @@ var Index = (_temp2 = _class = function (_Component) {
 						{ className: 'detail-footer' },
 						_react2.default.createElement(
 							_reactRouterDom.Link,
-							{ style: { 'color': '#FFF' }, to: {
+							{ style: { 'color': '#FFF', 'width': '100%' }, to: {
 									'pathname': '/apply',
 									'search': '?id=' + this.state.productCode + '&scale=' + this.state.scale
 								} },
