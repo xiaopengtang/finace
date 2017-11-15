@@ -4,7 +4,7 @@ import React, {Component, cloneElement} from 'react'
 import style from '../style/index'
 import * as $utils from './utils'
 import * as ReactRouter from 'react-router-dom'
-import Dom from 'react-dom' 
+import Dom from 'react-dom'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as $store from './store'
 import { observer } from 'mobx-react';
@@ -37,6 +37,7 @@ export default async data => {
 			await this.isLogin()
 		}
 		render(){
+			console.log(Pages.User.Recharge);
 			return (
 				<ReactCSSTransitionGroup
 					transitionName="pager"
@@ -46,15 +47,22 @@ export default async data => {
 			        transitionLeave={false}>
 				    <div className="container" key={this.props.location.pathname}>
 				    	<Route path="/" exact component={Pages.Index} />
-						<Route path="/register" component={Pages.Register} />
-						<Route path="/forgetPwd" component={Pages.ForgetPwd} />
-						<Route path="/home" component={Pages.User.Index} />
-						<Route path="/list" component={Pages.User.Invest} />
-						<Route path="/apply" component={Pages.User.Apply} />
-						<Route path="/detail" component={Pages.User.OrderMain} />
-                        <Route path="/user" component={Pages.User.UserDetail} />
-                        <Route path="/setting" component={Pages.User.Setting} />
-                        <Route path="/bindCard" component={Pages.User.BindCard} />
+							<Route path="/register" component={Pages.Register} />
+							<Route path="/forgetPwd" component={Pages.ForgetPwd} />
+							<Route path="/home" component={Pages.User.Index} />
+							<Route path="/list" component={Pages.User.Invest} />
+							<Route path="/apply" component={Pages.User.Apply} />
+							<Route path="/detail" component={Pages.User.OrderMain} />
+            	<Route path="/user" component={Pages.User.UserDetail} />
+            	<Route path="/setting" component={Pages.User.Setting} />
+            	<Route path="/bindCard" component={Pages.User.BindCard} />
+							<Route path="/recharge" component={Pages.User.Recharge} />
+							<Route path="/withdrawals" component={Pages.User.Withdrawals} />
+							<Route path="/cardInfo" component={Pages.User.CardInfo} />
+							<Route path="/resetPassword" component={Pages.User.ResetPassword} />
+							<Route path="/history" component={Pages.User.History} />
+							<Route path="/transactionDetails" component={Pages.User.TransactionDetails} />
+
 				    </div>
 				</ReactCSSTransitionGroup>
 			)
@@ -69,7 +77,7 @@ export default async data => {
 			return {$store, $utils}
 		}
 		render () {
-			return ( 
+			return (
 				<Body>
 				    <Route path="" component={Fade} />
 				</Body>

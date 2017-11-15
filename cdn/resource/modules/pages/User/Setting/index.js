@@ -34,7 +34,7 @@ export default class Index extends Component {
 							<Item
                 extra={
                   <div>
-                    <span>{"暂不支持认证" + " "}</span>
+                    <span></span>
                     <i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
                   </div>
                 }
@@ -72,34 +72,36 @@ export default class Index extends Component {
 								</div>
 							</Item>
 						</List>
-
-            <List className="my-list">
-              <Item
-                extra={
-                  <div>
-                    <i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
-                  </div>
-                }
-              >
-                <div className="J_listItem">
-                  银行卡
-                </div>
-              </Item>
-            </List>
-
-            <List className="my-list">
-              <Item
-                extra={
-                  <div>
-                    <i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
-                  </div>
-                }
-              >
-                <div className="J_listItem">
-                  更换密码
-                </div>
-              </Item>
-            </List>
+						<a href="/cardInfo">
+            	<List className="my-list">
+              	<Item
+                	extra={
+                  	<div>
+                    	<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
+                  	</div>
+                	}
+              	>
+                	<div className="J_listItem">
+                  	银行卡
+                	</div>
+              	</Item>
+            	</List>
+						</a>
+						<a href="/resetPassword">
+            	<List className="my-list">
+              	<Item
+                	extra={
+                  	<div>
+                    	<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
+                  	</div>
+                	}
+              	>
+                	<div className="J_listItem">
+                  	更换密码
+                	</div>
+              	</Item>
+            	</List>
+						</a>
 					</div>
 		    </User>
 		 )
