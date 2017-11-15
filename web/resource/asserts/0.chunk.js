@@ -1319,97 +1319,107 @@ var Index = (_temp2 = _class = function (_Component) {
 				list.map(function (it) {
 					return _react2.default.createElement(
 						'li',
-						null,
+						{ className: 'hot-list' },
 						_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
 						_react2.default.createElement(
 							_antdMobile.Card,
-							null,
-							_react2.default.createElement(_antdMobile.Card.Header, { title: [, '新手专享', '精选理财', '爆款推荐'][it.financialProduct.productType] }),
+							{ full: true },
+							_react2.default.createElement(_antdMobile.Card.Header, {
+								title: it.financialProduct.productName }),
 							_react2.default.createElement(
 								_antdMobile.Card.Body,
-								{ className: 'index-list' },
+								null,
 								_react2.default.createElement(
-									_reactRouterDom.Link,
-									{ to: {
-											'pathname': '/detail',
-											'search': '?id=' + it.financialProduct.productCode
-										} },
+									'ul',
+									{ className: 'list-content' },
 									_react2.default.createElement(
-										'h2',
+										'li',
 										null,
-										it.financialProduct.productName
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'tag-list' },
-										it.financialTagList.map(function (t) {
-											return _react2.default.createElement(
-												_antdMobile.Tag,
-												{ small: true },
-												t.name
-											);
-										})
-									),
-									_react2.default.createElement(
-										_antdMobile.Flex,
-										{ align: 'center' },
 										_react2.default.createElement(
-											_antdMobile.Flex.Item,
-											{ className: 'detail-list' },
-											_react2.default.createElement(
-												'label',
-												null,
-												it.financialProduct.availableAmount,
-												'\u5143'
-											),
+											'div',
+											{ className: 'price-mony' },
+											it.financialProduct.availableAmount,
+											'\u5143'
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'price-sub' },
+											'\u5269\u4F59\u91D1\u989D'
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										{ className: 'main-price' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'info' },
 											_react2.default.createElement(
 												'span',
 												null,
-												'\u5269\u4F59\u91D1\u989D'
-											)
-										),
-										_react2.default.createElement(
-											_antdMobile.Flex.Item,
-											{ className: 'detail-list' },
+												'\u5E74\u5229\u7387'
+											),
 											_react2.default.createElement(
-												'label',
-												{ className: 'red' },
+												'span',
+												{ className: 'font-green' },
 												it.financialProduct.preYearRate,
 												'%'
-											),
-											_react2.default.createElement(
-												'span',
-												null,
-												'\u5E74\u5316\u6536\u76CA'
 											)
 										),
 										_react2.default.createElement(
-											_antdMobile.Flex.Item,
-											{ className: 'detail-list' },
+											'div',
+											{ className: 'info' },
+											'\u6295\u8D44\u671F\u9650',
+											it.financialProduct.deadline,
+											['', '天', '周', '月', '年'][it.financialProduct.deadlineUnit]
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											_reactRouterDom.Link,
+											{ to: {
+													'pathname': '/detail',
+													'search': '?id=' + it.financialProduct.productCode
+												} },
 											_react2.default.createElement(
-												'label',
-												null,
-												it.financialProduct.deadline,
-												['', '天', '周', '月', '年'][it.financialProduct.deadlineUnit]
-											),
-											_react2.default.createElement(
-												'span',
-												null,
-												'\u6295\u8D44\u671F\u9650'
+												'div',
+												{ className: 'label' },
+												'\u4E00\u952E\u7533\u8BF7'
 											)
 										)
 									)
-								),
-								_react2.default.createElement(
-									_reactRouterDom.Link,
-									{
-										to: {
-											'pathname': '/list',
-											'search': '?type=' + it.financialProduct.productType
-										},
-										className: 'list-more' },
-									'\u67E5\u770B\u66F4\u591A'
 								)
+							),
+							_react2.default.createElement(_antdMobile.Card.Footer, { content: _react2.default.createElement(
+									'div',
+									{ className: 'price-btm' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'label-tag' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'label ' + [, 'red', 'green', 'yellow'][it.financialProduct.productType] },
+											[, '新手专享', '精选理财', '爆款推荐'][it.financialProduct.productType]
+										),
+										_react2.default.createElement(
+											'span',
+											null,
+											it.financialTagList.map(function (t) {
+												return t.name + '  ';
+											})
+										)
+									)
+								) }),
+							_react2.default.createElement(
+								_reactRouterDom.Link,
+								{
+									to: {
+										'pathname': '/list',
+										'search': '?type=' + it.financialProduct.productType
+									},
+									className: 'list-more' },
+								'\u67E5\u770B\u66F4\u591A'
 							)
 						)
 					);
@@ -1421,7 +1431,7 @@ var Index = (_temp2 = _class = function (_Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				_user2.default,
-				{ className: 'user-index' },
+				{ className: 'home-list user-index' },
 				_react2.default.createElement(
 					_antdMobile.Card,
 					null,

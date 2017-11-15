@@ -22,9 +22,9 @@ export default class Index extends Component {
 		return (
 			<ul style={{'listStyle': 'none'}}>
 			   {list.map(it => (
-			   	    <li>
+			   	    <li className="hot-list">
 			   	        <WhiteSpace size="sm"/>
-					   	<Card>
+					   	{/*<Card>
 					    	<Card.Header title={([,'新手专享','精选理财','爆款推荐'])[it.financialProduct.productType]}></Card.Header>
 					    	<Card.Body className="index-list">
 					    	    <Link to={{
@@ -57,6 +57,44 @@ export default class Index extends Component {
 									}} 
 					    	        className="list-more">查看更多</Link>
 					    	</Card.Body>
+					    </Card>*/}
+					    <Card full>
+					        <Card.Header 
+					            title={it.financialProduct.productName}></Card.Header>
+					        <Card.Body>
+					            <ul className="list-content">
+					                <li>
+					                	<div className="price-mony">{it.financialProduct.availableAmount}元</div>
+					                	<div className="price-sub">剩余金额</div>
+					                </li>
+					                <li className="main-price">
+					                	<div className="info">
+					                	    <span>年利率</span><span className="font-green">{it.financialProduct.preYearRate}%</span>
+					                	</div>
+					                	<div className="info">投资期限{it.financialProduct.deadline}{(['','天','周','月','年'])[it.financialProduct.deadlineUnit]}</div>
+					                </li>
+					                <li>
+					                    <Link to={{
+					                    	'pathname': '/detail',
+					    	    	        'search': `?id=${it.financialProduct.productCode}`
+					                    }}>
+					                    	<div className="label">一键申请</div>
+					                    </Link>
+					                </li>
+					            </ul>
+					        </Card.Body>
+					        <Card.Footer content={<div className="price-btm">
+					            <div className="label-tag">
+					                <span className={`label ${([,'red', 'green', 'yellow'])[it.financialProduct.productType]}`}>{([,'新手专享','精选理财','爆款推荐'])[it.financialProduct.productType]}</span>
+					                <span>{it.financialTagList.map(t => t.name + '  ')}</span>
+					            </div>
+					        </div>}/>
+					        <Link 
+				    	        to={{
+									'pathname': '/list',
+									'search': `?type=${it.financialProduct.productType}`
+								}} 
+				    	        className="list-more">查看更多</Link>
 					    </Card>
 			   	    </li>
 			   	))}
@@ -65,7 +103,7 @@ export default class Index extends Component {
 	}
 	render () {
 		return (
-			<User className="user-index">
+			<User className="home-list user-index">
 			    <Card>
 			        <Card.Body>
 			        	<div className="yqhy">

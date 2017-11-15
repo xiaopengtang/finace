@@ -11028,6 +11028,13 @@ body,
   position: relative;
   top: 1px;
 }
+.user-index .list-more {
+  padding: 16px 0 10px;
+  text-align: center;
+  color: #108ee9;
+  font-size: 14px ;
+  display: block;
+}
 .user-index .index-list > a {
   display: block;
 }
@@ -11061,14 +11068,6 @@ body,
 }
 .user-index .index-list > a .detail-list label.red {
   color: #f95d5e;
-}
-.user-index .index-list .list-more {
-  border-top: 1px solid #ddd ;
-  padding-top: 10px ;
-  text-align: center;
-  color: #108ee9;
-  font-size: 14px ;
-  display: block;
 }
 .user-index input[type="button"],
 .user-index input[type="submit"],
@@ -11364,9 +11363,6 @@ body,
 .home-list .price-info a[role='button'] span {
   font-size: 16px ;
   line-height: 1 ;
-}
-.home-list .hot-list .am-card {
-  margin-top: 10px ;
 }
 .home-list .hot-list .price-btm {
   background-color: #f9f9f9 ;
