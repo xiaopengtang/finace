@@ -78,7 +78,7 @@ export default class Index extends Component {
 					                    	'pathname': '/detail',
 					    	    	        'search': `?id=${it.financialProduct.productCode}`
 					                    }}>
-					                    	<div className="label">一键申请</div>
+					                    	<div className="label">立即投资</div>
 					                    </Link>
 					                </li>
 					            </ul>

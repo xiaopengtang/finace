@@ -1385,7 +1385,7 @@ var Index = (_temp2 = _class = function (_Component) {
 											_react2.default.createElement(
 												'div',
 												{ className: 'label' },
-												'\u4E00\u952E\u7533\u8BF7'
+												'\u7ACB\u5373\u6295\u8D44'
 											)
 										)
 									)
