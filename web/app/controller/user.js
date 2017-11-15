@@ -45,20 +45,20 @@ module.exports = app => class UserController extends app.Controller {
 	}	
 	*loginStatus(){
 		
-		const {token, ...other} = this.ctx.session.user || {}
+		const {token, userId} = this.ctx.session.user || {}
 		const login = !!token
-		const user = {...other}
+		const user = {userId}
 		return this[login?'success':'error']({login, user})
 	}
 	*login(){
 		const {query} = this.ctx
 		const result = yield this.ctx.service.user.login(query)
-		const {token, ...other} = result.data || {}
+		const {token, userId} = result.data || {}
 		if(token){
 			this.ctx.session.user = result.data || null
 			// this.ctx.session.token = token
 		}
-		return this.success({ login: !!token, user: {...other}})
+		return this.success({ login: !!token, user: {userId}})
 	}
 	*sendCode(){
 		const {phone, type} = this.ctx.query

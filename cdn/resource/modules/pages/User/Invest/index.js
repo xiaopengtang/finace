@@ -28,7 +28,7 @@ export default class Index extends Component {
 	}
 	render () {
 		const {tabs} = this.state
-		let page = this.context.$utils.queryString('type')
+		let page = this.context.$utils.queryString('type', this.props.location.search)
 		page = parseInt(page)
 		page = isNaN(page) ? 0 : page - 1
 		return (

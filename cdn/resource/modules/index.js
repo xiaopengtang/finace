@@ -1,6 +1,6 @@
 import 'babel-polyfill'
 import 'antd-mobile/dist/antd-mobile.css'
-import React, {Component} from 'react'
+import React, {Component, cloneElement} from 'react'
 import style from '../style/index'
 import * as $utils from './utils'
 import * as ReactRouter from 'react-router-dom'
@@ -9,6 +9,15 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as $store from './store'
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types'
+
+class Report extends Component{
+	render(){
+		const {children, m, ...other} = this.props
+		return (
+			<div {...other} dangerouslySetInnerHTML={{'__html': `<a m="${m}">${children}</a>`}}></div>
+		)
+	}
+}
 const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
 // window.G = window.G || {'isApp': false}
 export default async data => {

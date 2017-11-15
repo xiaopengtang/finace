@@ -108,7 +108,6 @@ export default class Index extends Component {
 			        </Card.Body>
 			    </Card>
 			    {this.renderList()}
-			    <WhiteSpace size="sm"/>
 			</User>
 		)
 	}
