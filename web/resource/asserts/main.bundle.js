@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-15 10:49:52
+ * last update:2017-11-15 03:00:01
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -4085,6 +4085,7 @@ exports.default = function () {
 							}, {
 								key: 'render',
 								value: function render() {
+									console.log(Pages.User.Recharge);
 									return _react2.default.createElement(
 										_reactAddonsCssTransitionGroup2.default,
 										{
@@ -4105,7 +4106,13 @@ exports.default = function () {
 											_react2.default.createElement(Route, { path: '/detail', component: Pages.User.OrderMain }),
 											_react2.default.createElement(Route, { path: '/user', component: Pages.User.UserDetail }),
 											_react2.default.createElement(Route, { path: '/setting', component: Pages.User.Setting }),
-											_react2.default.createElement(Route, { path: '/bindCard', component: Pages.User.BindCard })
+											_react2.default.createElement(Route, { path: '/bindCard', component: Pages.User.BindCard }),
+											_react2.default.createElement(Route, { path: '/recharge', component: Pages.User.Recharge }),
+											_react2.default.createElement(Route, { path: '/withdrawals', component: Pages.User.Withdrawals }),
+											_react2.default.createElement(Route, { path: '/cardInfo', component: Pages.User.CardInfo }),
+											_react2.default.createElement(Route, { path: '/resetPassword', component: Pages.User.ResetPassword }),
+											_react2.default.createElement(Route, { path: '/history', component: Pages.User.History }),
+											_react2.default.createElement(Route, { path: '/transactionDetails', component: Pages.User.TransactionDetails })
 										)
 									);
 								}

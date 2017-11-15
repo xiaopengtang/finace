@@ -44,7 +44,7 @@ export default class Index extends Component {
 		        title={info.financialProduct.productName}
 		        module="list" 
 		        className="home-order-main" 
-		        footer={<div className="detail-footer"><Link style={{'color': '#FFF', 'width': '100%'}} to={{
+		        footer={<div className="detail-footer"><Link style={{'display': 'block','color': '#FFF', 'width': '100%'}} to={{
 		        	'pathname': '/apply',
 		        	'search': `?id=${this.state.productCode}&scale=${this.state.scale}`
 		        }}>立即投资</Link></div>}>

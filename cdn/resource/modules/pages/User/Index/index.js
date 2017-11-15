@@ -27,11 +27,14 @@ export default class Index extends Component {
 						<Card>
 							<Card.Body>
 								<div className="xszxBox">
-									<div className="xszx">
-										<p>{([,'新手专享','精选理财','爆款推荐'])[it.financialProduct.productType]}
-											{/*<b>新手注册送888体验金</b>*/}
-										</p>
-									</div>
+									<div 
+									    onClick={e => this.props.history.push(`/detail?id=${it.financialProduct.productCode}`)}
+									    className="index-list-content">
+										<div className="xszx">
+											<p>{([,'新手专享','精选理财','爆款推荐'])[it.financialProduct.productType]}
+												{/*<b>新手注册送888体验金</b>*/}
+											</p>
+										</div>
 										<p className="content_detail_title">
 											{it.financialProduct.productName}
 											{it.financialTagList.map(t => (<span>{t.name}</span>))}
@@ -39,18 +42,20 @@ export default class Index extends Component {
 										</p>
 										<table border="0">
 											<tbody><tr>
-												<th style={{"fontWeight": "normal"}}><span style={{"fontSize": "20px"}}>{it.financialProduct.availableAmount}</span>元</th>
-												<th style={{"fontWeight": "normal"}}><span style={{"fontSize": "20px", "color": "#F54749"}}>{it.financialProduct.preYearRate}</span>%</th>
-												<th style={{"fontWeight": "normal"}}><span style={{"fontSize": "20px"}}>{it.financialProduct.deadline}</span>
-													{(['','天','周','月','年'])[it.financialProduct.deadlineUnit]}
-													</th>
-											</tr>
-											<tr>
-												<td>剩余金额</td>
-												<td>年化收益</td>
-												<td>投资期限</td>
-											</tr>
-										</tbody></table>
+													<th style={{"fontWeight": "normal"}}><span style={{"fontSize": "20px"}}>{it.financialProduct.availableAmount}</span>元</th>
+													<th style={{"fontWeight": "normal"}}><span style={{"fontSize": "20px", "color": "#F54749"}}>{it.financialProduct.preYearRate}</span>%</th>
+													<th style={{"fontWeight": "normal"}}><span style={{"fontSize": "20px"}}>{it.financialProduct.deadline}</span>
+														{(['','天','周','月','年'])[it.financialProduct.deadlineUnit]}
+														</th>
+												</tr>
+												<tr>
+													<td>剩余金额</td>
+													<td>年化收益</td>
+													<td>投资期限</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 									<Link 
 									    style={{'marginLeft': '0','border': 'none', 'backgroundColor': 'inherit','color': '#4180e9', 'width': '100%'}}
 										to={{

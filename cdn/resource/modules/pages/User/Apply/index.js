@@ -15,7 +15,7 @@ export default class Index extends Component {
 	}
 	async componentDidMount(){
 		const accountAmount = await this.context.$store.api.user.account()
-		let scale = this.context.$utils.queryString('scale')
+		let scale = this.context.$utils.queryString('scale', this.props.location.search)
 		scale = parseFloat((parseFloat(scale) * 0.0001).toFixed(4))
 		scale = isNaN(scale) ? 0 : scale
 		// console.log({scale})
@@ -31,7 +31,7 @@ export default class Index extends Component {
 		    {'text': '取消'},
 		    {'text': '前往', 'onPress': () => resolve(true)}
 			]))
-			return status
+			return status && this.props.history.push('/recharge')
 		}
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
 		const res = await this.context.$utils.clientCall('/api/saveOrder',{investmentAmount, productCode})

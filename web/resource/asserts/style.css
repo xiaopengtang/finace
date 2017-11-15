@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-15 10:49:52
+ * last update:2017-11-15 03:00:01
  */
 /*!
  * 
@@ -11806,4 +11806,10 @@ body,
 }
 .J_steps {
   margin-top: 20px;
+}
+.J_msgText {
+  text-align: center;
+}
+.J_historyItem {
+  margin-top: 10px;
 }

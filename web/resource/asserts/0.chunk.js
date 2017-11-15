@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-15 10:49:52
+ * last update:2017-11-15 03:00:01
  */
 webpackJsonp_name_([0],{
 
@@ -1122,7 +1122,7 @@ exports.default = Index;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
+exports.TransactionDetails = exports.History = exports.ResetPassword = exports.CardInfo = exports.Withdrawals = exports.Recharge = exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
 
 var _index = __webpack_require__(661);
 
@@ -1164,6 +1164,30 @@ var _Certification2 = __webpack_require__(671);
 
 var _Certification3 = _interopRequireDefault(_Certification2);
 
+var _Recharge2 = __webpack_require__(672);
+
+var _Recharge3 = _interopRequireDefault(_Recharge2);
+
+var _Withdrawals2 = __webpack_require__(673);
+
+var _Withdrawals3 = _interopRequireDefault(_Withdrawals2);
+
+var _CardInfo2 = __webpack_require__(674);
+
+var _CardInfo3 = _interopRequireDefault(_CardInfo2);
+
+var _ResetPassword2 = __webpack_require__(675);
+
+var _ResetPassword3 = _interopRequireDefault(_ResetPassword2);
+
+var _History2 = __webpack_require__(676);
+
+var _History3 = _interopRequireDefault(_History2);
+
+var _TransactionDetails2 = __webpack_require__(677);
+
+var _TransactionDetails3 = _interopRequireDefault(_TransactionDetails2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Index = _index2.default;
@@ -1176,6 +1200,12 @@ exports.UserDetail = _UserDetail3.default;
 exports.Setting = _Setting3.default;
 exports.BindCard = _BindCard3.default;
 exports.Certification = _Certification3.default;
+exports.Recharge = _Recharge3.default;
+exports.Withdrawals = _Withdrawals3.default;
+exports.CardInfo = _CardInfo3.default;
+exports.ResetPassword = _ResetPassword3.default;
+exports.History = _History3.default;
+exports.TransactionDetails = _TransactionDetails3.default;
 
 /***/ }),
 
@@ -1276,6 +1306,8 @@ var Index = (_temp2 = _class = function (_Component) {
 	}, {
 		key: 'renderList',
 		value: function renderList() {
+			var _this2 = this;
+
 			var list = this.state.list;
 
 			return _react2.default.createElement(
@@ -1297,82 +1329,90 @@ var Index = (_temp2 = _class = function (_Component) {
 									{ className: 'xszxBox' },
 									_react2.default.createElement(
 										'div',
-										{ className: 'xszx' },
+										{
+											onClick: function onClick(e) {
+												return _this2.props.history.push('/detail?id=' + it.financialProduct.productCode);
+											},
+											className: 'index-list-content' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'xszx' },
+											_react2.default.createElement(
+												'p',
+												null,
+												[, '新手专享', '精选理财', '爆款推荐'][it.financialProduct.productType]
+											)
+										),
 										_react2.default.createElement(
 											'p',
-											null,
-											[, '新手专享', '精选理财', '爆款推荐'][it.financialProduct.productType]
-										)
-									),
-									_react2.default.createElement(
-										'p',
-										{ className: 'content_detail_title' },
-										it.financialProduct.productName,
-										it.financialTagList.map(function (t) {
-											return _react2.default.createElement(
-												'span',
-												null,
-												t.name
-											);
-										})
-									),
-									_react2.default.createElement(
-										'table',
-										{ border: '0' },
+											{ className: 'content_detail_title' },
+											it.financialProduct.productName,
+											it.financialTagList.map(function (t) {
+												return _react2.default.createElement(
+													'span',
+													null,
+													t.name
+												);
+											})
+										),
 										_react2.default.createElement(
-											'tbody',
-											null,
+											'table',
+											{ border: '0' },
 											_react2.default.createElement(
-												'tr',
+												'tbody',
 												null,
 												_react2.default.createElement(
-													'th',
-													{ style: { "fontWeight": "normal" } },
-													_react2.default.createElement(
-														'span',
-														{ style: { "fontSize": "20px" } },
-														it.financialProduct.availableAmount
-													),
-													'\u5143'
-												),
-												_react2.default.createElement(
-													'th',
-													{ style: { "fontWeight": "normal" } },
-													_react2.default.createElement(
-														'span',
-														{ style: { "fontSize": "20px", "color": "#F54749" } },
-														it.financialProduct.preYearRate
-													),
-													'%'
-												),
-												_react2.default.createElement(
-													'th',
-													{ style: { "fontWeight": "normal" } },
-													_react2.default.createElement(
-														'span',
-														{ style: { "fontSize": "20px" } },
-														it.financialProduct.deadline
-													),
-													['', '天', '周', '月', '年'][it.financialProduct.deadlineUnit]
-												)
-											),
-											_react2.default.createElement(
-												'tr',
-												null,
-												_react2.default.createElement(
-													'td',
+													'tr',
 													null,
-													'\u5269\u4F59\u91D1\u989D'
+													_react2.default.createElement(
+														'th',
+														{ style: { "fontWeight": "normal" } },
+														_react2.default.createElement(
+															'span',
+															{ style: { "fontSize": "20px" } },
+															it.financialProduct.availableAmount
+														),
+														'\u5143'
+													),
+													_react2.default.createElement(
+														'th',
+														{ style: { "fontWeight": "normal" } },
+														_react2.default.createElement(
+															'span',
+															{ style: { "fontSize": "20px", "color": "#F54749" } },
+															it.financialProduct.preYearRate
+														),
+														'%'
+													),
+													_react2.default.createElement(
+														'th',
+														{ style: { "fontWeight": "normal" } },
+														_react2.default.createElement(
+															'span',
+															{ style: { "fontSize": "20px" } },
+															it.financialProduct.deadline
+														),
+														['', '天', '周', '月', '年'][it.financialProduct.deadlineUnit]
+													)
 												),
 												_react2.default.createElement(
-													'td',
+													'tr',
 													null,
-													'\u5E74\u5316\u6536\u76CA'
-												),
-												_react2.default.createElement(
-													'td',
-													null,
-													'\u6295\u8D44\u671F\u9650'
+													_react2.default.createElement(
+														'td',
+														null,
+														'\u5269\u4F59\u91D1\u989D'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														'\u5E74\u5316\u6536\u76CA'
+													),
+													_react2.default.createElement(
+														'td',
+														null,
+														'\u6295\u8D44\u671F\u9650'
+													)
 												)
 											)
 										)
@@ -1962,7 +2002,7 @@ var Index = (_temp2 = _class = function (_Component) {
 
 							case 2:
 								accountAmount = _context.sent;
-								scale = this.context.$utils.queryString('scale');
+								scale = this.context.$utils.queryString('scale', this.props.location.search);
 
 								scale = parseFloat((parseFloat(scale) * 0.0001).toFixed(4));
 								scale = isNaN(scale) ? 0 : scale;
@@ -2019,7 +2059,7 @@ var Index = (_temp2 = _class = function (_Component) {
 
 							case 6:
 								status = _context2.sent;
-								return _context2.abrupt('return', status);
+								return _context2.abrupt('return', status && this.props.history.push('/recharge'));
 
 							case 8:
 								productCode = this.context.$utils.queryString('id', this.props.location.search);
@@ -2567,7 +2607,7 @@ var Index = (_temp2 = _class = function (_Component) {
 						{ className: 'detail-footer' },
 						_react2.default.createElement(
 							_reactRouterDom.Link,
-							{ style: { 'color': '#FFF', 'width': '100%' }, to: {
+							{ style: { 'display': 'block', 'color': '#FFF', 'width': '100%' }, to: {
 									'pathname': '/apply',
 									'search': '?id=' + this.state.productCode + '&scale=' + this.state.scale
 								} },
@@ -3088,6 +3128,8 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -3098,7 +3140,13 @@ var _user2 = _interopRequireDefault(_user);
 
 var _antdMobile = __webpack_require__(244);
 
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3107,8 +3155,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Item = _antdMobile.List.Item;
-
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
@@ -3122,12 +3169,72 @@ var Index = function (_Component) {
 			args[_key] = arguments[_key];
 		}
 
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function (key) {
-			console.log(key);
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'info': {
+				'financialProduct': {},
+				'financialAudit': {},
+				'financialCar': {},
+				'financialFileList': {},
+				'financialRecordList': [],
+				'financialUser': {}
+			},
+			'scale': 0,
+			'productCode': null
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
+		key: 'componentDidMount',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var productCode, info, _info$financialProduc, preYearRate, deadlineDays, scale;
+
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								productCode = this.context.$utils.queryString('id', this.props.location.search);
+								_context.next = 3;
+								return this.context.$store.api.user.queryDetail({ productCode: productCode });
+
+							case 3:
+								info = _context.sent;
+
+								console.log(productCode);
+								console.log(info);
+
+								if (info) {
+									_context.next = 8;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 8:
+								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
+
+								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
+								deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays;
+								scale = parseInt(preYearRate * 0.01 * deadlineDays / 365 * 10000);
+								// preYearRate = parseFloat(preYearRate)
+
+								this.setState({ info: info, scale: scale, productCode: productCode });
+
+							case 13:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function componentDidMount() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return componentDidMount;
+		}()
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
@@ -3242,13 +3349,17 @@ var Index = function (_Component) {
 							_antdMobile.Flex.Item,
 							null,
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_operation' },
-								_react2.default.createElement('img', { src: 'public/i/recharge_defualt.png' }),
+								'a',
+								{ href: '/recharge' },
 								_react2.default.createElement(
-									'p',
-									null,
-									'\u5145\u503C'
+									'div',
+									{ className: 'J_operation' },
+									_react2.default.createElement('img', { src: 'public/i/recharge_defualt.png' }),
+									_react2.default.createElement(
+										'p',
+										null,
+										'\u5145\u503C'
+									)
 								)
 							)
 						),
@@ -3256,13 +3367,17 @@ var Index = function (_Component) {
 							_antdMobile.Flex.Item,
 							null,
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_operation' },
-								_react2.default.createElement('img', { src: 'public/i/withdrawals_defualt.png' }),
+								'a',
+								{ href: '/withdrawals' },
 								_react2.default.createElement(
-									'p',
-									null,
-									'\u63D0\u73B0'
+									'div',
+									{ className: 'J_operation' },
+									_react2.default.createElement('img', { src: 'public/i/withdrawals_defualt.png' }),
+									_react2.default.createElement(
+										'p',
+										null,
+										'\u63D0\u73B0'
+									)
 								)
 							)
 						),
@@ -3270,13 +3385,17 @@ var Index = function (_Component) {
 							_antdMobile.Flex.Item,
 							null,
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_operation' },
-								_react2.default.createElement('img', { src: 'public/i/card_defualt.png' }),
+								'a',
+								{ href: '/cardInfo' },
 								_react2.default.createElement(
-									'p',
-									null,
-									'\u94F6\u884C\u5361'
+									'div',
+									{ className: 'J_operation' },
+									_react2.default.createElement('img', { src: 'public/i/card_defualt.png' }),
+									_react2.default.createElement(
+										'p',
+										null,
+										'\u94F6\u884C\u5361'
+									)
 								)
 							)
 						)
@@ -3296,75 +3415,55 @@ var Index = function (_Component) {
 								{ className: 'my-list' },
 								_react2.default.createElement(
 									Item,
-									{ extra: 12345 },
+									{ extra: 0 },
 									'\u7D2F\u8BA1\u6295\u6807\u6536\u76CA(\u5143)'
 								),
 								_react2.default.createElement(
 									Item,
-									{ extra: 12345 },
+									{ extra: 0 },
 									'\u7D2F\u8BA1\u6295\u6807\u6536\u76CA(\u5143)'
 								),
 								_react2.default.createElement(
 									Item,
-									{ extra: 12345 },
+									{ extra: 0 },
 									'\u7D2F\u8BA1\u6295\u6807\u6536\u76CA(\u5143)'
 								)
 							)
 						)
 					),
 					_react2.default.createElement(
-						_antdMobile.List,
-						{ className: 'my-list' },
+						'a',
+						{ href: '/history' },
 						_react2.default.createElement(
-							Item,
-							null,
+							_antdMobile.List,
+							{ className: 'my-list' },
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_listItem' },
-								'\u6295\u8D44\u5386\u53F2',
-								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+								Item,
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'J_listItem' },
+									'\u6295\u8D44\u5386\u53F2',
+									_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+								)
 							)
 						)
 					),
 					_react2.default.createElement(
-						_antdMobile.List,
-						{ className: 'my-list' },
+						'a',
+						{ href: '/transactionDetails' },
 						_react2.default.createElement(
-							Item,
-							null,
+							_antdMobile.List,
+							{ className: 'my-list' },
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_listItem' },
-								'\u8D44\u91D1\u660E\u7EC6',
-								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						_antdMobile.List,
-						{ className: 'my-list' },
-						_react2.default.createElement(
-							Item,
-							null,
-							_react2.default.createElement(
-								'div',
-								{ className: 'J_listItem' },
-								'\u5B89\u5168\u4FDD\u969C',
-								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-							)
-						)
-					),
-					_react2.default.createElement(
-						_antdMobile.List,
-						{ className: 'my-list' },
-						_react2.default.createElement(
-							Item,
-							null,
-							_react2.default.createElement(
-								'div',
-								{ className: 'J_listItem' },
-								'\u4F18\u60E0\u5238',
-								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+								Item,
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'J_listItem' },
+									'\u8D44\u91D1\u660E\u7EC6',
+									_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+								)
 							)
 						)
 					),
@@ -3387,8 +3486,10 @@ var Index = function (_Component) {
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),
@@ -3487,11 +3588,7 @@ var Index = function (_Component) {
                 extra: _react2.default.createElement(
                   'div',
                   null,
-                  _react2.default.createElement(
-                    'span',
-                    null,
-                    "暂不支持认证" + " "
-                  ),
+                  _react2.default.createElement('span', null),
                   _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
                 )
               },
@@ -3549,40 +3646,48 @@ var Index = function (_Component) {
             )
           ),
           _react2.default.createElement(
-            _antdMobile.List,
-            { className: 'my-list' },
+            'a',
+            { href: '/cardInfo' },
             _react2.default.createElement(
-              Item,
-              {
-                extra: _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-                )
-              },
+              _antdMobile.List,
+              { className: 'my-list' },
               _react2.default.createElement(
-                'div',
-                { className: 'J_listItem' },
-                '\u94F6\u884C\u5361'
+                Item,
+                {
+                  extra: _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                  )
+                },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'J_listItem' },
+                  '\u94F6\u884C\u5361'
+                )
               )
             )
           ),
           _react2.default.createElement(
-            _antdMobile.List,
-            { className: 'my-list' },
+            'a',
+            { href: '/resetPassword' },
             _react2.default.createElement(
-              Item,
-              {
-                extra: _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-                )
-              },
+              _antdMobile.List,
+              { className: 'my-list' },
               _react2.default.createElement(
-                'div',
-                { className: 'J_listItem' },
-                '\u66F4\u6362\u5BC6\u7801'
+                Item,
+                {
+                  extra: _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                  )
+                },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'J_listItem' },
+                  '\u66F4\u6362\u5BC6\u7801'
+                )
               )
             )
           )
@@ -3899,6 +4004,703 @@ var Index = function (_Component) {
               _antdMobile.Button,
               { type: 'primary' },
               '\u786E\u8BA4'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 672:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 充值
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+    _this.state = {
+      value: 0
+    };
+
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(Index, [{
+    key: 'onChange',
+    value: function onChange(e) {
+      this.setState({
+        value: e.target.value
+      });
+    }
+
+    // 确认按钮统一甩锅 @丹君
+
+  }, {
+    key: 'determine',
+    value: function determine() {
+      console.log(1111);
+      _antdMobile.Toast.loading("请稍后", 2, function (e) {
+        _antdMobile.Toast.offline('服务器端网络异常!!!', 1);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u5145\u503C', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入充值金额:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              _antdMobile.Button,
+              { type: 'primary', onClick: this.determine },
+              '\u786E\u8BA4'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 673:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 提现
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+    _this.state = {
+      value: 0
+    };
+
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(Index, [{
+    key: 'onChange',
+    value: function onChange(e) {
+      this.setState({
+        value: e.target.value
+      });
+    }
+
+    // 确认按钮统一甩锅 @丹君
+
+  }, {
+    key: 'determine',
+    value: function determine() {
+      console.log(1111);
+      _antdMobile.Toast.loading("请稍后", 2, function (e) {
+        _antdMobile.Toast.offline('服务器端网络异常!!!', 1);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u63D0\u73B0', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入提现金额:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              _antdMobile.Button,
+              { type: 'primary', onClick: this.determine },
+              '\u786E\u8BA4'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 674:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 银行卡信息
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u94F6\u884C\u5361\u4FE1\u606F', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          { size: 'lg' },
+          _react2.default.createElement(_antdMobile.WhiteSpace, { size: 'lg' }),
+          _react2.default.createElement(
+            _antdMobile.Card,
+            null,
+            _react2.default.createElement(
+              _antdMobile.Card.Body,
+              null,
+              _react2.default.createElement(
+                'div',
+                { className: 'J_msgText' },
+                '\u6682\u672A\u53D1\u73B0\u5DF2\u7ED1\u5B9A\u7684\u94F6\u884C\u5361~~~'
+              )
+            )
+          ),
+          _react2.default.createElement(_antdMobile.WhiteSpace, { size: 'lg' })
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              'a',
+              { href: '/bindCard' },
+              _react2.default.createElement(
+                _antdMobile.Button,
+                { type: 'primary' },
+                '\u53BB\u7ED1\u5B9A\u94F6\u884C\u5361'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 675:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 密码重置
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+    _this.state = {
+      value: 0
+    };
+
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(Index, [{
+    key: 'onChange',
+    value: function onChange(e) {
+      this.setState({
+        value: e.target.value
+      });
+    }
+
+    // 确认按钮统一甩锅 @丹君
+
+  }, {
+    key: 'determine',
+    value: function determine() {
+      console.log(1111);
+      _antdMobile.Toast.loading("请稍后", 2, function (e) {
+        _antdMobile.Toast.offline('服务器端网络异常!!!', 1);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u91CD\u7F6E\u5BC6\u7801', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入旧密码:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入新密码:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请重新输入新密码:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              _antdMobile.Button,
+              { type: 'primary', onClick: this.determine },
+              '\u786E\u8BA4'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 676:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 历史
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+
+var history = [];
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+    _this.state = {
+      history: []
+    };
+    return _this;
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u6295\u8D44\u5386\u53F2', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          history.length > 0 ? history.map(function (item) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'J_historyItem' },
+              _react2.default.createElement(
+                _antdMobile.Card,
+                null,
+                _react2.default.createElement(
+                  _antdMobile.Card.Body,
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'This is content of `Card`'
+                  )
+                )
+              )
+            );
+          }) : _react2.default.createElement(
+            'div',
+            { className: 'J_historyItem' },
+            _react2.default.createElement(
+              _antdMobile.Card,
+              null,
+              _react2.default.createElement(
+                _antdMobile.Card.Body,
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: 'J_msgText' },
+                  '\u6682\u65F6\u6CA1\u6709\u6295\u8D44\u5386\u53F2!!!'
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 677:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 资金明细
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+
+var history = [];
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+    _this.state = {
+      history: []
+    };
+    return _this;
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u8D44\u91D1\u660E\u7EC6', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          history.length > 0 ? history.map(function (item) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'J_historyItem' },
+              _react2.default.createElement(
+                _antdMobile.Card,
+                null,
+                _react2.default.createElement(
+                  _antdMobile.Card.Body,
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'This is content of `Card`'
+                  )
+                )
+              )
+            );
+          }) : _react2.default.createElement(
+            'div',
+            { className: 'J_historyItem' },
+            _react2.default.createElement(
+              _antdMobile.Card,
+              null,
+              _react2.default.createElement(
+                _antdMobile.Card.Body,
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: 'J_msgText' },
+                  '\u6682\u65F6\u6CA1\u6709\u4EFB\u4F55\u8D44\u91D1\u8BB0\u5F55!!!'
+                )
+              )
             )
           )
         )
