@@ -2,11 +2,11 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-12 11:36:12
+ * last update:2017-11-14 11:35:57
  */
 webpackJsonp_name_([0],{
 
-/***/ 653:
+/***/ 656:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17,19 +17,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = exports.ForgetPwd = exports.Register = exports.Index = undefined;
 
-var _Index2 = __webpack_require__(655);
+var _Index2 = __webpack_require__(658);
 
 var _Index3 = _interopRequireDefault(_Index2);
 
-var _Register2 = __webpack_require__(656);
+var _Register2 = __webpack_require__(659);
 
 var _Register3 = _interopRequireDefault(_Register2);
 
-var _ForgetPwd2 = __webpack_require__(657);
+var _ForgetPwd2 = __webpack_require__(660);
 
 var _ForgetPwd3 = _interopRequireDefault(_ForgetPwd2);
 
-var _User2 = __webpack_require__(658);
+var _User2 = __webpack_require__(661);
 
 var _User = _interopRequireWildcard(_User2);
 
@@ -44,7 +44,7 @@ exports.User = _User;
 
 /***/ }),
 
-/***/ 654:
+/***/ 657:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65,13 +65,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(245);
+var _reactRouterDom = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -115,12 +115,14 @@ var Index = (_temp2 = _class = function (_Component) {
 				'name': 'list',
 				'icon': 'icon-line-chart',
 				'text': '投资'
-			}, {
-				'url': '/market',
-				'name': 'market',
-				'icon': 'icon-shopping-cart',
-				'text': '商城'
-			}, {
+			},
+			/*{
+   	'url': '/market',
+   	'name': 'market',
+   	'icon': 'icon-shopping-cart',
+   	'text': '商城'
+   },*/
+			{
 				'url': '/user',
 				'name': 'user',
 				'icon': 'icon-user-circle',
@@ -170,8 +172,13 @@ var Index = (_temp2 = _class = function (_Component) {
 					_react2.default.createElement(
 						_antdMobile.NavBar,
 						{
-							leftContent: _react2.default.createElement(_antdMobile.Icon, { type: 'left' }),
-							rightContent: [_react2.default.createElement(_antdMobile.Icon, { key: '0', type: 'search', style: { marginRight: '16px' } }), _react2.default.createElement(_antdMobile.Icon, { key: '1', type: 'ellipsis' })]
+							leftContent: _react2.default.createElement(_antdMobile.Icon, { type: 'left', onClick: function onClick() {
+									return window.history.go(-1);
+								} }),
+							rightContent: [
+								/*<Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+        <Icon key="1" type="ellipsis" />,*/
+							]
 						},
 						this.props.title
 					),
@@ -186,6 +193,9 @@ var Index = (_temp2 = _class = function (_Component) {
 }(_react.Component), _class.propTypes = {
 	'title': _propTypes2.default.string,
 	'footer': _propTypes2.default.node
+}, _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
 }, _class.defaultProps = {
 	'module': 'home',
 	'title': '首页',
@@ -195,7 +205,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 655:
+/***/ 658:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -214,13 +224,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(245);
+var _reactRouterDom = __webpack_require__(244);
 
-var _axios = __webpack_require__(101);
+var _axios = __webpack_require__(103);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 var _propTypes = __webpack_require__(9);
 
@@ -299,25 +309,31 @@ var Index = (_temp2 = _class = function (_Component) {
 
 							case 7:
 								_context.next = 9;
-								return this.context.$store.clientCall({
-									'url': '/api/login',
-									'method': 'get',
-									'data': {
-										'account': tel,
-										'password': pwd
-									}
+								return this.context.$store.auth.doLogin({
+									'account': tel,
+									'password': pwd
 								});
 
 							case 9:
 								data = _context.sent;
+								/*this.context.$store.clientCall({
+        'url': '/api/login',
+        'method': 'get',
+        'data': {
+        'account': tel,
+        'password': pwd
+        }
+        })*/
+								// console.log({data})
 
-								console.log({ data: data });
 								if (data.success && data.data && data.data.login) {
 									this.context.$store.auth.updateLogin(true);
 									this.props.history.push('/home');
+								} else {
+									_antdMobile.Toast.info('密码不正确');
 								}
 
-							case 12:
+							case 11:
 							case 'end':
 								return _context.stop();
 						}
@@ -345,7 +361,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'logo' },
-					_react2.default.createElement('img', { src: 'public/i/logo.png', style: { "width": "60%" } })
+					_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/logo.png', style: { "width": "60%" } })
 				),
 				_react2.default.createElement(
 					'p',
@@ -360,7 +376,7 @@ var Index = (_temp2 = _class = function (_Component) {
 						value: this.state.tel,
 						placeholder: '\u8BF7\u8F93\u5165\u60A8\u7684\u624B\u673A\u53F7' }),
 					_react2.default.createElement('img', {
-						src: 'public/i/clear.png',
+						src: 'http://1989591.51vip.biz:7001/public/i/clear.png',
 						className: 'inputImg',
 						id: 'tab1',
 						onClick: function onClick(e) {
@@ -380,7 +396,7 @@ var Index = (_temp2 = _class = function (_Component) {
 						},
 						placeholder: '\u767B\u5F55\u5BC6\u7801' }),
 					_react2.default.createElement('img', {
-						src: this.state.show ? "public/i/eyesclose.png" : "public/i/eyesopen.png",
+						src: this.state.show ? "http://1989591.51vip.biz:7001/public/i/eyesclose.png" : "http://1989591.51vip.biz:7001/public/i/eyesopen.png",
 						className: 'inputImg', id: 'tab2', onClick: function onClick(e) {
 							return _this2.setState({ 'show': !_this2.state.show });
 						} })
@@ -434,7 +450,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 656:
+/***/ 659:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -453,17 +469,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(245);
+var _reactRouterDom = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -494,28 +510,180 @@ var Index = (_temp2 = _class = function (_Component) {
 			'timer': 60,
 			'show': true,
 			'isAllow': false
-		}, _temp), _possibleConstructorReturn(_this, _ret);
+		}, _this.timer = null, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
 		key: 'sendCode',
-		value: function sendCode() {
-			// console.log(this)
-			var tel = this.state.tel;
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var _this2 = this;
 
-			var check = this.context.$utils.check.checkTel(tel);
-			if (check === false) {
-				_antdMobile.Toast.info(check.getError());
+				var tel, check, res;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								if (!this.timer) {
+									_context.next = 2;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 2:
+								// console.log(this)
+								tel = this.state.tel;
+								check = this.context.$utils.check.checkTel(tel);
+
+								if (!(check === false)) {
+									_context.next = 6;
+									break;
+								}
+
+								return _context.abrupt('return', _antdMobile.Toast.info(check.getError()));
+
+							case 6:
+								_context.next = 8;
+								return this.context.$store.auth.sendCode({ 'phone': tel });
+
+							case 8:
+								res = _context.sent;
+
+								if (res) {
+									_context.next = 11;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 11:
+								this.timer = setInterval(function () {
+									var timer = _this2.state.timer;
+
+									timer--;
+									if (timer === 0) {
+										clearInterval(_this2.timer);
+										timer = 60;
+										delete _this2.timer;
+									}
+									_this2.setState({ timer: timer });
+								}, 1000);
+
+							case 12:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function sendCode() {
+				return _ref2.apply(this, arguments);
 			}
-		}
+
+			return sendCode;
+		}()
 	}, {
 		key: 'checkCode',
 		value: function checkCode() {}
 	}, {
+		key: 'register',
+		value: function () {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				var _this3 = this;
+
+				var tel, check, params, res;
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								tel = this.state.tel;
+								check = this.context.$utils.check.checkTel(tel);
+
+								if (!(check === false)) {
+									_context2.next = 4;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info(check.getError()));
+
+							case 4:
+								if (this.state.code) {
+									_context2.next = 6;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入验证码'));
+
+							case 6:
+								if (/^\d+$/.test(this.state.code)) {
+									_context2.next = 8;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入正确的验证码'));
+
+							case 8:
+								if (this.state.pwd) {
+									_context2.next = 10;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入密码'));
+
+							case 10:
+								if (!(this.state.phone && !/^\d{11}$/.test(this.state.phone))) {
+									_context2.next = 12;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请正确输入推荐人手机号'));
+
+							case 12:
+								params = {
+									"password": this.state.pwd,
+									"phone": this.state.tel,
+									"phoneVerficationCode": this.state.code,
+									"recommenderPhone": this.state.phone
+								};
+								_context2.next = 15;
+								return this.context.$store.auth.register(params);
+
+							case 15:
+								res = _context2.sent;
+
+								if (!res.success) {
+									_context2.next = 21;
+									break;
+								}
+
+								_antdMobile.Toast.info('注册成功');
+								return _context2.abrupt('return', setTimeout(function () {
+									return _this3.props.history.push('/');
+								}, 3000));
+
+							case 21:
+								return _context2.abrupt('return', _antdMobile.Toast.info('注册失败'));
+
+							case 22:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, this);
+			}));
+
+			function register() {
+				return _ref3.apply(this, arguments);
+			}
+
+			return register;
+		}()
+	}, {
 		key: 'render',
 		value: function render() {
-			var _this2 = this,
-			    _React$createElement;
+			var _this4 = this;
 
 			return _react2.default.createElement(
 				'div',
@@ -523,7 +691,7 @@ var Index = (_temp2 = _class = function (_Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'logo' },
-					_react2.default.createElement('img', { src: 'public/i/logo.png', style: { 'width': '60%' } }),
+					_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/logo.png', style: { 'width': '60%' } }),
 					_react2.default.createElement('input', { type: 'hidden', id: 'result', value: '' })
 				),
 				_react2.default.createElement(
@@ -537,13 +705,13 @@ var Index = (_temp2 = _class = function (_Component) {
 							null,
 							_react2.default.createElement('input', {
 								onChange: function onChange(e) {
-									return _this2.setState({ 'tel': e.currentTarget.value });
+									return _this4.setState({ 'tel': e.currentTarget.value });
 								},
 								value: this.state.tel,
 								type: 'text', name: 'telephone', id: 'telephoneNumber', placeholder: '\u8BF7\u8F93\u5165\u6CE8\u518C\u624B\u673A\u53F7' }),
 							_react2.default.createElement('i', {
 								onClick: function onClick(e) {
-									return _this2.setState({ 'tel': '' });
+									return _this4.setState({ 'tel': '' });
 								},
 								id: 'tab1', className: 'icon icon-close' })
 						),
@@ -553,7 +721,7 @@ var Index = (_temp2 = _class = function (_Component) {
 							_react2.default.createElement('input', {
 								value: this.state.code,
 								onChange: function onChange(e) {
-									return _this2.setState({ 'code': e.currentTarget.value });
+									return _this4.setState({ 'code': e.currentTarget.value });
 								},
 								id: 'captcha', name: 'yzm', type: 'text', placeholder: '\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801' }),
 							_react2.default.createElement(
@@ -561,8 +729,8 @@ var Index = (_temp2 = _class = function (_Component) {
 								{
 									onClick: this.sendCode.bind(this),
 									onBlur: this.checkCode.bind(this),
-									id: 'sentCaptcha', className: 'yzm_span' },
-								'\u83B7\u53D6\u9A8C\u8BC1\u7801'
+									id: 'sentCaptcha', className: 'yzm_span ' + (this.state.timer !== 60 ? 'active' : '') },
+								this.state.timer !== 60 ? this.state.timer + 's\u540E\u91CD\u65B0\u53D1\u9001' : '获取验证码'
 							)
 						),
 						_react2.default.createElement(
@@ -571,24 +739,24 @@ var Index = (_temp2 = _class = function (_Component) {
 							_react2.default.createElement('input', {
 								value: this.state.pwd,
 								onChange: function onChange(e) {
-									return _this2.setState({ 'pwd': e.currentTarget.value });
+									return _this4.setState({ 'pwd': e.currentTarget.value });
 								},
 								type: this.state.show ? 'password' : 'text', name: 'password', id: 'passWord_1', placeholder: '\u8BBE\u7F6E\u767B\u5F55\u5BC6\u7801' }),
 							_react2.default.createElement('i', { id: 'tab2',
 								onClick: function onClick(e) {
-									return _this2.setState({ 'show': !_this2.state.show });
+									return _this4.setState({ 'show': !_this4.state.show });
 								},
 								className: 'icon ' + (this.state.show ? 'icon-eye-slash' : 'icon-eye') })
 						),
 						_react2.default.createElement(
 							'li',
 							null,
-							_react2.default.createElement('input', (_React$createElement = {
+							_react2.default.createElement('input', {
 								value: this.state.phone,
 								onChange: function onChange(e) {
-									return _this2.setState({ 'phone': e.currentTarget.value });
+									return _this4.setState({ 'phone': e.currentTarget.value });
 								},
-								type: 'text', name: 'recommendTelephone', id: 'phone' }, _defineProperty(_React$createElement, 'value', ''), _defineProperty(_React$createElement, 'placeholder', '\u63A8\u8350\u4EBA\u624B\u673A\u53F7\uFF08\u975E\u5FC5\u586B\uFF09'), _React$createElement))
+								type: 'text', name: 'recommendTelephone', id: 'phone', placeholder: '\u63A8\u8350\u4EBA\u624B\u673A\u53F7\uFF08\u975E\u5FC5\u586B\uFF09' })
 						)
 					)
 				),
@@ -597,7 +765,7 @@ var Index = (_temp2 = _class = function (_Component) {
 					{ className: 'reg' },
 					_react2.default.createElement(
 						'span',
-						{ className: 'regbutton_sub' },
+						{ className: 'regbutton_sub', onClick: this.register.bind(this) },
 						'\u7ACB\u5373\u6CE8\u518C'
 					),
 					_react2.default.createElement(
@@ -615,7 +783,7 @@ var Index = (_temp2 = _class = function (_Component) {
 					{ className: 'foter' },
 					_react2.default.createElement('i', {
 						onClick: function onClick(e) {
-							return _this2.setState({ 'isRead': !_this2.state.isRead });
+							return _this4.setState({ 'isRead': !_this4.state.isRead });
 						},
 						className: 'img2 icon ' + (this.state.isRead ? 'icon-check-square-o' : 'icon-square-o') }),
 					'\xA0',
@@ -638,7 +806,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 657:
+/***/ 660:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -651,11 +819,21 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _antdMobile = __webpack_require__(243);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -663,7 +841,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
@@ -677,57 +855,248 @@ var Index = function (_Component) {
 			args[_key] = arguments[_key];
 		}
 
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'timer': 60,
+			'password': '',
+			'phone': '',
+			'verficationCode': '',
+			'confirm': ''
+		}, _this.timer = null, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
-		key: "render",
+		key: 'sendCode',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var _this2 = this;
+
+				var phone, check, res;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								if (!this.timer) {
+									_context.next = 2;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 2:
+								phone = this.state.phone;
+								check = this.context.$utils.check.checkTel(phone);
+
+								if (!(check === false)) {
+									_context.next = 6;
+									break;
+								}
+
+								return _context.abrupt('return', _antdMobile.Toast.info(check.getError()));
+
+							case 6:
+								_context.next = 8;
+								return this.context.$store.auth.sendCode({ phone: phone, 'type': 'forget' });
+
+							case 8:
+								res = _context.sent;
+
+								if (res) {
+									_context.next = 11;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 11:
+								this.timer = setInterval(function () {
+									var timer = _this2.state.timer;
+
+									timer--;
+									if (timer === 0) {
+										clearInterval(_this2.timer);
+										timer = 60;
+										delete _this2.timer;
+									}
+									_this2.setState({ timer: timer });
+								}, 1000);
+
+							case 12:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function sendCode() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return sendCode;
+		}()
+	}, {
+		key: 'sure',
+		value: function () {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				var _this3 = this;
+
+				var _state, phone, confirm, password, verficationCode, check, res;
+
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								_state = this.state, phone = _state.phone, confirm = _state.confirm, password = _state.password, verficationCode = _state.verficationCode;
+								check = this.context.$utils.check.checkTel(phone);
+
+								if (!(check === false)) {
+									_context2.next = 4;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info(check.getError()));
+
+							case 4:
+								if (verficationCode) {
+									_context2.next = 6;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入短信验证码'));
+
+							case 6:
+								if (/^\d+$/.test(verficationCode)) {
+									_context2.next = 8;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请正确输入短信验证码'));
+
+							case 8:
+								if (password) {
+									_context2.next = 10;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入密码'));
+
+							case 10:
+								if (confirm) {
+									_context2.next = 12;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请确认输入密码'));
+
+							case 12:
+								if (!(confirm !== password)) {
+									_context2.next = 14;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('两次密码不同，请确认'));
+
+							case 14:
+								res = this.context.$store.auth.forget({ phone: phone, verficationCode: verficationCode, password: password });
+
+								if (!res.success) {
+									_context2.next = 20;
+									break;
+								}
+
+								_antdMobile.Toast.info('修改成功');
+								return _context2.abrupt('return', setTimeout(function () {
+									return _this3.props.history.push('/');
+								}, 3000));
+
+							case 20:
+								return _context2.abrupt('return', _antdMobile.Toast.info('修改失败'));
+
+							case 21:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, this);
+			}));
+
+			function sure() {
+				return _ref3.apply(this, arguments);
+			}
+
+			return sure;
+		}()
+	}, {
+		key: 'render',
 		value: function render() {
+			var _this4 = this;
+
 			return _react2.default.createElement(
-				"div",
-				{ className: "home-forget" },
+				'div',
+				{ className: 'home-forget' },
 				_react2.default.createElement(
-					"div",
-					{ className: "logo" },
-					_react2.default.createElement("img", { src: "public/i/logo.png", style: { 'width': '60%' } })
+					'div',
+					{ className: 'logo' },
+					_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/logo.png', style: { 'width': '60%' } })
 				),
 				_react2.default.createElement(
-					"ul",
+					'ul',
 					null,
 					_react2.default.createElement(
-						"li",
+						'li',
 						null,
-						_react2.default.createElement("i", { className: "icon icon-user-o" }),
-						_react2.default.createElement("input", { type: "text", name: "telephone", id: "telephoneNumber", value: "", placeholder: "\u8BF7\u8F93\u5165\u624B\u673A\u53F7" })
+						_react2.default.createElement('i', { className: 'icon icon-user-o' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'phone': e.currentTarget.value });
+							},
+							value: this.state.phone,
+							type: 'text', name: 'telephone', id: 'telephoneNumber', placeholder: '\u8BF7\u8F93\u5165\u624B\u673A\u53F7' })
 					),
 					_react2.default.createElement(
-						"li",
-						{ className: "flex" },
-						_react2.default.createElement("i", { className: "icon icon-check-circle-o" }),
-						_react2.default.createElement("input", { className: "f1", type: "text", name: "yzm", id: "captcha", value: "", placeholder: "\u8BF7\u8F93\u5165\u77ED\u4FE1\u9A8C\u8BC1\u7801" }),
-						_react2.default.createElement("input", {
+						'li',
+						{ className: 'flex' },
+						_react2.default.createElement('i', { className: 'icon icon-check-circle-o' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'verficationCode': e.currentTarget.value });
+							},
+							value: this.state.verficationCode,
+							className: 'f1', type: 'text', name: 'yzm', id: 'captcha', placeholder: '\u8BF7\u8F93\u5165\u77ED\u4FE1\u9A8C\u8BC1\u7801' }),
+						_react2.default.createElement('input', {
+							onClick: this.sendCode.bind(this),
 							style: { "marginLeft": "10px", "minWidth": "77px", "marginTop": "11px" },
-							type: "button", name: "", id: "sentCaptcha", className: "myButton", value: "\u83B7\u53D6\u9A8C\u8BC1\u7801" })
+							type: 'button', name: '', id: 'sentCaptcha', className: 'myButton ' + (this.state.timer !== 60 ? 'active' : ''), value: this.state.timer !== 60 ? this.state.timer + 's\u540E\u91CD\u65B0\u53D1\u9001' : '获取验证码' })
 					),
 					_react2.default.createElement(
-						"li",
+						'li',
 						null,
-						_react2.default.createElement("i", { className: "icon icon-lock" }),
-						_react2.default.createElement("input", { type: "password", name: "password", id: "passWord_1", value: "", placeholder: "\u8BBE\u7F6E\u65B0\u767B\u5F55\u5BC6\u7801" })
+						_react2.default.createElement('i', { className: 'icon icon-lock' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'password': e.currentTarget.value });
+							},
+							value: this.state.password,
+							type: 'password', name: 'password', id: 'passWord_1', placeholder: '\u8BBE\u7F6E\u65B0\u767B\u5F55\u5BC6\u7801' })
 					),
 					_react2.default.createElement(
-						"li",
+						'li',
 						null,
-						_react2.default.createElement("i", { className: "icon icon-lock" }),
-						_react2.default.createElement("input", { type: "password", name: "", id: "passWord_2", value: "", placeholder: "\u786E\u8BA4\u65B0\u767B\u5F55\u5BC6\u7801" })
+						_react2.default.createElement('i', { className: 'icon icon-lock' }),
+						_react2.default.createElement('input', {
+							onChange: function onChange(e) {
+								return _this4.setState({ 'confirm': e.currentTarget.value });
+							},
+							value: this.state.confirm,
+							type: 'password', name: '', id: 'passWord_2', placeholder: '\u786E\u8BA4\u65B0\u767B\u5F55\u5BC6\u7801' })
 					),
 					_react2.default.createElement(
-						"li",
+						'li',
 						null,
 						_react2.default.createElement(
-							"div",
-							{ className: "myButton_1", id: "" },
-							"\u786E\u8BA4\u4FEE\u6539"
+							'div',
+							{ className: 'myButton_1', id: '', onClick: this.sure.bind(this) },
+							'\u786E\u8BA4\u4FEE\u6539'
 						)
 					)
 				)
@@ -736,13 +1105,15 @@ var Index = function (_Component) {
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),
 
-/***/ 658:
+/***/ 661:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -751,47 +1122,43 @@ exports.default = Index;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
+exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
 
-var _index = __webpack_require__(659);
+var _index = __webpack_require__(662);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _List2 = __webpack_require__(660);
+var _List2 = __webpack_require__(663);
 
 var _List3 = _interopRequireDefault(_List2);
 
-var _Detail2 = __webpack_require__(661);
+var _Detail2 = __webpack_require__(664);
 
 var _Detail3 = _interopRequireDefault(_Detail2);
 
-var _Apply2 = __webpack_require__(662);
+var _Apply2 = __webpack_require__(665);
 
 var _Apply3 = _interopRequireDefault(_Apply2);
 
-var _Invest2 = __webpack_require__(663);
+var _Invest2 = __webpack_require__(666);
 
 var _Invest3 = _interopRequireDefault(_Invest2);
 
-var _orderMain = __webpack_require__(664);
+var _orderMain = __webpack_require__(668);
 
 var _orderMain2 = _interopRequireDefault(_orderMain);
 
-var _UserDetail2 = __webpack_require__(665);
+var _UserDetail2 = __webpack_require__(669);
 
 var _UserDetail3 = _interopRequireDefault(_UserDetail2);
 
-var _Setting2 = __webpack_require__(666);
+var _Setting2 = __webpack_require__(670);
 
 var _Setting3 = _interopRequireDefault(_Setting2);
 
-var _BindCard2 = __webpack_require__(667);
+var _BindCard2 = __webpack_require__(671);
 
 var _BindCard3 = _interopRequireDefault(_BindCard2);
-
-var _Certification2 = __webpack_require__(679);
-
-var _Certification3 = _interopRequireDefault(_Certification2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -804,11 +1171,10 @@ exports.OrderMain = _orderMain2.default;
 exports.UserDetail = _UserDetail3.default;
 exports.Setting = _Setting3.default;
 exports.BindCard = _BindCard3.default;
-exports.Certification = _Certification3.default;
 
 /***/ }),
 
-/***/ 659:
+/***/ 662:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -821,7 +1187,9 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _user = __webpack_require__(654);
+var _class, _temp2;
+
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
@@ -829,9 +1197,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
+
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -839,16 +1215,182 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, Index);
 
-		return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'list': []
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
+		key: 'componentDidMount',
+
+		// 
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var list;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								_context.next = 2;
+								return this.context.$store.api.user.index();
+
+							case 2:
+								list = _context.sent;
+
+								list = Array.isArray(list) ? list : [];
+								this.setState({ list: list });
+
+							case 5:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function componentDidMount() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return componentDidMount;
+		}()
+	}, {
+		key: 'renderList',
+		value: function renderList() {
+			var list = this.state.list;
+
+			return _react2.default.createElement(
+				'ul',
+				{ style: { 'listStyle': 'none' } },
+				list.map(function (it) {
+					return _react2.default.createElement(
+						'li',
+						null,
+						_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
+						_react2.default.createElement(
+							_antdMobile.Card,
+							null,
+							_react2.default.createElement(
+								_antdMobile.Card.Body,
+								null,
+								_react2.default.createElement(
+									'div',
+									{ className: 'xszxBox' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'xszx' },
+										_react2.default.createElement(
+											'p',
+											null,
+											[, '新手专享', '精选理财', '爆款推荐'][it.financialProduct.productType]
+										)
+									),
+									_react2.default.createElement(
+										'p',
+										{ className: 'content_detail_title' },
+										it.financialProduct.productName,
+										it.financialTagList.map(function (t) {
+											return _react2.default.createElement(
+												'span',
+												null,
+												t.name
+											);
+										})
+									),
+									_react2.default.createElement(
+										'table',
+										{ border: '0' },
+										_react2.default.createElement(
+											'tbody',
+											null,
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'th',
+													{ style: { "fontWeight": "normal" } },
+													_react2.default.createElement(
+														'span',
+														{ style: { "fontSize": "20px" } },
+														it.financialProduct.availableAmount
+													),
+													'\u5143'
+												),
+												_react2.default.createElement(
+													'th',
+													{ style: { "fontWeight": "normal" } },
+													_react2.default.createElement(
+														'span',
+														{ style: { "fontSize": "20px", "color": "#F54749" } },
+														it.financialProduct.preYearRate
+													),
+													'%'
+												),
+												_react2.default.createElement(
+													'th',
+													{ style: { "fontWeight": "normal" } },
+													_react2.default.createElement(
+														'span',
+														{ style: { "fontSize": "20px" } },
+														it.financialProduct.deadline
+													),
+													['', '天', '周', '月', '年'][it.financialProduct.deadlineUnit]
+												)
+											),
+											_react2.default.createElement(
+												'tr',
+												null,
+												_react2.default.createElement(
+													'td',
+													null,
+													'\u5269\u4F59\u91D1\u989D'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													'\u5E74\u5316\u6536\u76CA'
+												),
+												_react2.default.createElement(
+													'td',
+													null,
+													'\u6295\u8D44\u671F\u9650'
+												)
+											)
+										)
+									),
+									_react2.default.createElement(
+										_reactRouterDom.Link,
+										{
+											style: { 'marginLeft': '0', 'border': 'none', 'backgroundColor': 'inherit', 'color': '#4180e9', 'width': '100%' },
+											to: {
+												'pathname': '/list',
+												'search': '?type=' + it.financialProduct.productType
+											},
+											className: 'forMore' },
+										'\u67E5\u770B\u66F4\u591A'
+									)
+								)
+							)
+						)
+					);
+				})
+			);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
@@ -875,17 +1417,17 @@ var Index = function (_Component) {
 										_react2.default.createElement(
 											'th',
 											null,
-											_react2.default.createElement('img', { src: 'public/i/yaoqinghaoyouicon.png', style: { "width": "60px", "height": "60px" } })
+											_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/yaoqinghaoyouicon.png', style: { "width": "60px", "height": "60px" } })
 										),
 										_react2.default.createElement(
 											'th',
 											null,
-											_react2.default.createElement('img', { src: 'public/i/choujiangicon.png', style: { "width": "60px", "height": "60px" } })
+											_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/choujiangicon.png', style: { "width": "60px", "height": "60px" } })
 										),
 										_react2.default.createElement(
 											'th',
 											null,
-											_react2.default.createElement('img', { src: 'public/i/paihangbangicon.png', style: { "width": "60px", "height": "60px" } })
+											_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/paihangbangicon.png', style: { "width": "60px", "height": "60px" } })
 										)
 									),
 									_react2.default.createElement(
@@ -913,7 +1455,7 @@ var Index = function (_Component) {
 						_react2.default.createElement(
 							'div',
 							{ className: 'guide' },
-							_react2.default.createElement('img', { src: 'public/i/guide.png' })
+							_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/guide.png' })
 						),
 						_react2.default.createElement(
 							'div',
@@ -926,126 +1468,22 @@ var Index = function (_Component) {
 						)
 					)
 				),
-				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
-				_react2.default.createElement(
-					_antdMobile.Card,
-					null,
-					_react2.default.createElement(
-						_antdMobile.Card.Body,
-						null,
-						_react2.default.createElement(
-							'div',
-							{ className: 'xszxBox' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'xszx' },
-								_react2.default.createElement(
-									'p',
-									null,
-									'\u65B0\u624B\u4E13\u4EAB',
-									_react2.default.createElement(
-										'b',
-										null,
-										'\u65B0\u624B\u6CE8\u518C\u9001888\u4F53\u9A8C\u91D1'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								{ className: 'content_detail_title' },
-								'\u5954\u817E\u8F66\u62B5\u62BC\u501F\u6B3E',
-								_react2.default.createElement(
-									'span',
-									null,
-									'100\u8D77\u6295'
-								),
-								_react2.default.createElement(
-									'span',
-									null,
-									'\u9650\u62951\u6B21'
-								)
-							),
-							_react2.default.createElement(
-								'table',
-								{ border: '0' },
-								_react2.default.createElement(
-									'tbody',
-									null,
-									_react2.default.createElement(
-										'tr',
-										null,
-										_react2.default.createElement(
-											'th',
-											{ style: { "fontWeight": "normal" } },
-											_react2.default.createElement(
-												'span',
-												{ style: { "fontSize": "20px" } },
-												'8000.00'
-											),
-											'\u5143'
-										),
-										_react2.default.createElement(
-											'th',
-											{ style: { "fontWeight": "normal" } },
-											_react2.default.createElement(
-												'span',
-												{ style: { "fontSize": "20px", "color": "#F54749" } },
-												'14.00'
-											),
-											'%'
-										),
-										_react2.default.createElement(
-											'th',
-											{ style: { "fontWeight": "normal" } },
-											_react2.default.createElement(
-												'span',
-												{ style: { "fontSize": "20px" } },
-												'1'
-											),
-											'\u6708'
-										)
-									),
-									_react2.default.createElement(
-										'tr',
-										null,
-										_react2.default.createElement(
-											'td',
-											null,
-											'\u5269\u4F59\u91D1\u989D'
-										),
-										_react2.default.createElement(
-											'td',
-											null,
-											'\u5E74\u5316\u6536\u76CA'
-										),
-										_react2.default.createElement(
-											'td',
-											null,
-											'\u6295\u8D44\u671F\u9650'
-										)
-									)
-								)
-							),
-							_react2.default.createElement(
-								'p',
-								{ className: 'forMore' },
-								'\u67E5\u770B\u66F4\u591A'
-							)
-						)
-					)
-				)
+				this.renderList(),
+				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' })
 			);
 		}
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),
 
-/***/ 660:
+/***/ 663:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1062,13 +1500,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
-var _reactRouterDom = __webpack_require__(245);
+var _reactRouterDom = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1251,7 +1689,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 661:
+/***/ 664:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1268,13 +1706,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _reactRouterDom = __webpack_require__(245);
+var _reactRouterDom = __webpack_require__(244);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1446,7 +1884,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 662:
+/***/ 665:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1459,17 +1897,25 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
+
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1477,105 +1923,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Index = function (_Component) {
-	_inherits(Index, _Component);
-
-	function Index() {
-		_classCallCheck(this, Index);
-
-		return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
-	}
-
-	_createClass(Index, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				_user2.default,
-				{ title: '\u5B8C\u5584\u7533\u8BF7\u4FE1\u606F', module: 'list', className: 'user-apply',
-					footer: _react2.default.createElement(
-						'div',
-						{ className: 'apply-footer' },
-						_react2.default.createElement(
-							_antdMobile.Checkbox.AgreeItem,
-							null,
-							_react2.default.createElement(
-								'a',
-								{ className: 'apply-footer-notice' },
-								'\u6211\u5DF2\u9605\u8BFB\u5E76\u540C\u610F\u300A\u8D37\u6B3E\u7533\u8BF7\u4E66\u300B'
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'apply-footer-btm' },
-							'\u63D0\u4EA4'
-						)
-					) },
-				_react2.default.createElement(
-					_antdMobile.NoticeBar,
-					{
-						mode: 'closable' },
-					'\u8BE5\u4FE1\u606F\u5C06\u4F5C\u4E3A\u4F60\u7684\u5B9E\u540D\u51ED\u8BC1\uFF0C\u8BF7\u786E\u4FDD\u771F\u5B9E'
-				),
-				_react2.default.createElement(
-					_antdMobile.Card,
-					null,
-					_react2.default.createElement(
-						_antdMobile.Card.Body,
-						null,
-						_react2.default.createElement(
-							_antdMobile.Steps,
-							{ size: 'small', current: 1 },
-							_react2.default.createElement(_antdMobile.Steps.Step, { title: 'Finished', description: 'This is description' }),
-							_react2.default.createElement(_antdMobile.Steps.Step, { title: 'In Progress', description: 'This is description' }),
-							_react2.default.createElement(_antdMobile.Steps.Step, { title: 'Waiting', description: 'This is description' })
-						)
-					)
-				)
-			);
-		}
-	}]);
-
-	return Index;
-}(_react.Component);
-
-exports.default = Index;
-
-/***/ }),
-
-/***/ 663:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _user = __webpack_require__(654);
-
-var _user2 = _interopRequireDefault(_user);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(245);
-
-var _antdMobile = __webpack_require__(244);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
@@ -1590,135 +1938,190 @@ var Index = function (_Component) {
 		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-			'tabs': [{ title: '新手专享' }, { title: '精选理财' }, { title: '爆款推荐' }, { title: '猫咪宝' }, { title: '债权转让' }],
-			'tabsSort': [{ 'title': '默认' }, { 'title': '利息' }, { 'title': '金额' }, { 'title': '期限' }]
+			'accountAmount': 0,
+			'investmentAmount': 0,
+			'scale': 0
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
-		key: 'renderTab',
-		value: function renderTab(tab) {
-			var tabsSort = this.state.tabsSort;
+		key: 'componentDidMount',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var accountAmount, scale;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								_context.next = 2;
+								return this.context.$store.api.user.account();
 
-			return _react2.default.createElement(
-				'div',
-				null,
-				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
-				_react2.default.createElement(
-					_reactRouterDom.Link,
-					{ to: '/detail', style: { 'display': 'block' } },
-					_react2.default.createElement(
-						_antdMobile.Card,
-						null,
-						_react2.default.createElement(_antdMobile.Card.Header, {
-							extra: _react2.default.createElement(
-								'span',
-								{ 'data-txt': '\u671F\u9650', className: 'invest-date' },
-								'15\u5929'
-							),
-							title: '\u73B0\u4EE3\u8F66\u8D28\u62BC\u501F\u6B3E' }),
-						_react2.default.createElement(
-							_antdMobile.Card.Body,
-							null,
-							_react2.default.createElement(
-								_antdMobile.Flex,
-								{ justify: 'between' },
-								_react2.default.createElement(
-									_antdMobile.Flex.Item,
-									{ className: 'invest-content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'tags-list' },
-										_react2.default.createElement(
-											_antdMobile.Tag,
-											{ small: true },
-											'100\u8D77\u6295'
-										),
-										_react2.default.createElement(
-											_antdMobile.Tag,
-											{ small: true },
-											'100\u8D77\u6295'
-										),
-										_react2.default.createElement(
-											_antdMobile.Tag,
-											{ small: true },
-											'100\u8D77\u6295'
-										)
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'invest-price' },
-										_react2.default.createElement(
-											'div',
-											{ className: 'show-price' },
-											'8.08%'
-										),
-										_react2.default.createElement(
-											'div',
-											{ className: 'show-price-sub' },
-											_react2.default.createElement(
-												'span',
-												null,
-												'\u5269'
-											),
-											_react2.default.createElement(
-												'span',
-												{ className: 'show-price-mony' },
-												'10\u4E07'
-											),
-											_react2.default.createElement(
-												'span',
-												null,
-												'\u5143'
-											)
-										)
-									)
-								),
-								_react2.default.createElement(
-									_antdMobile.Flex.Item,
-									{ className: 'invest-present' },
-									'\u6D4B\u8BD5'
-								)
-							)
-						),
-						_react2.default.createElement(_antdMobile.Card.Footer, { content: '\u6807\u7F16\u53F7\uFF1ANJXED-201700000019' })
-					)
-				)
-			); /*(
-      <div>
-      	<Tabs tabs={tabsSort}>
-      	    <ul className="invest">
-      	       <li data-txt="爆款"></li>
-      	    </ul>
-      	</Tabs>
-      </div>
-      )*/
-		}
+							case 2:
+								accountAmount = _context.sent;
+								scale = this.context.$utils.queryString('scale');
+
+								scale = parseFloat((parseFloat(scale) * 0.0001).toFixed(4));
+								scale = isNaN(scale) ? 0 : scale;
+								// console.log({scale})
+								this.setState({ accountAmount: accountAmount, scale: scale });
+
+							case 7:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function componentDidMount() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return componentDidMount;
+		}()
+	}, {
+		key: 'applyAccout',
+		value: function () {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				var _this2 = this;
+
+				var _state, accountAmount, investmentAmount, status, productCode, res;
+
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								_state = this.state, accountAmount = _state.accountAmount, investmentAmount = _state.investmentAmount;
+
+								if (investmentAmount) {
+									_context2.next = 3;
+									break;
+								}
+
+								return _context2.abrupt('return', _antdMobile.Toast.info('请输入投资金额'));
+
+							case 3:
+								if (!(accountAmount < investmentAmount)) {
+									_context2.next = 8;
+									break;
+								}
+
+								_context2.next = 6;
+								return new Promise(function (resolve) {
+									return _antdMobile.Modal.alert('温馨提示', '您的账户余额不足，是否充值？', [{ 'text': '取消' }, { 'text': '前往', 'onPress': function onPress() {
+											return resolve(true);
+										} }]);
+								});
+
+							case 6:
+								status = _context2.sent;
+								return _context2.abrupt('return', status);
+
+							case 8:
+								productCode = this.context.$utils.queryString('id', this.props.location.search);
+								_context2.next = 11;
+								return this.context.$utils.clientCall('/api/saveOrder', { investmentAmount: investmentAmount, productCode: productCode });
+
+							case 11:
+								res = _context2.sent;
+
+								if (res.success) {
+									_antdMobile.Toast.success('下单成功', 1);
+								} else {
+									_antdMobile.Toast.fail('下单失败', 1);
+								}
+								setTimeout(function () {
+									return _this2.props.history.push('/');
+								}, 2000);
+
+							case 14:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, this);
+			}));
+
+			function applyAccout() {
+				return _ref3.apply(this, arguments);
+			}
+
+			return applyAccout;
+		}()
 	}, {
 		key: 'render',
 		value: function render() {
-			var tabs = this.state.tabs;
+			var _this3 = this;
 
 			return _react2.default.createElement(
 				_user2.default,
-				{ className: 'user-invest', module: 'list', title: '\u6295\u8D44' },
+				{ title: '\u6295\u8D44\u64CD\u4F5C', module: 'list', className: 'user-apply',
+					footer: _react2.default.createElement(
+						'div',
+						{ className: 'apply-footer' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'apply-footer-btm', onClick: this.applyAccout.bind(this) },
+							'\u7ACB\u5373\u6295\u8D44'
+						)
+					) },
 				_react2.default.createElement(
-					_antdMobile.Tabs,
-					{ tabs: tabs },
-					this.renderTab.bind(this)
+					'div',
+					{ className: 'show-mony' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'show-title' },
+						'\u5B9E\u9645\u6295\u8D44\u6536\u76CA'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'show-num', 'data-txt': (this.state.scale * this.state.investmentAmount).toFixed(2) },
+						'\u5143'
+					)
+				),
+				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
+				_react2.default.createElement(
+					_antdMobile.List,
+					null,
+					_react2.default.createElement(
+						_antdMobile.List.Item,
+						{ className: 'input-money' },
+						_react2.default.createElement(
+							'label',
+							null,
+							'\xA5'
+						),
+						_react2.default.createElement('input', {
+							value: this.state.investmentAmount, type: 'number', onChange: function onChange(e) {
+								return _this3.setState({ 'investmentAmount': e.currentTarget.value });
+							} })
+					),
+					_react2.default.createElement(
+						_antdMobile.List.Item,
+						null,
+						'\u8D26\u6237\u4F59\u989D',
+						_react2.default.createElement(
+							_antdMobile.List.Item.Brief,
+							null,
+							this.state.accountAmount,
+							'\u5143'
+						)
+					)
 				)
 			);
 		}
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),
 
-/***/ 664:
+/***/ 666:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1731,17 +2134,27 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class, _temp2;
+
+var _user = __webpack_require__(657);
+
+var _user2 = _interopRequireDefault(_user);
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _reactRouterDom = __webpack_require__(244);
 
-var _user2 = _interopRequireDefault(_user);
+var _antdMobile = __webpack_require__(243);
 
-var _reactRouterDom = __webpack_require__(245);
+var _propTypes = __webpack_require__(9);
 
-var _antdMobile = __webpack_require__(244);
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _list = __webpack_require__(667);
+
+var _list2 = _interopRequireDefault(_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1751,26 +2164,409 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Index = function (_Component) {
+var Index = (_temp2 = _class = function (_Component) {
 	_inherits(Index, _Component);
 
 	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, Index);
 
-		return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'tabs': [{ title: '新手专享', 'list': [], 'productType': 1 }, { title: '精选理财', 'list': [], 'productType': 2 }, { title: '爆款推荐', 'list': [], 'productType': 3 }],
+			'tabsSort': [{ 'title': '默认' }, { 'title': '利息' }, { 'title': '金额' }, { 'title': '期限' }]
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
+		key: 'renderTab',
+		value: function renderTab(tab) {
+			var tabsSort = this.state.tabsSort;
+
+			return _react2.default.createElement(_list2.default, { type: tab.productType });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var tabs = this.state.tabs;
+
+			var page = this.context.$utils.queryString('type');
+			page = parseInt(page);
+			page = isNaN(page) ? 0 : page - 1;
 			return _react2.default.createElement(
 				_user2.default,
-				{ module: 'list', className: 'home-order-main', footer: _react2.default.createElement(
+				{ className: 'user-invest', module: 'list', title: '\u6295\u8D44' },
+				_react2.default.createElement(
+					_antdMobile.Tabs,
+					{ tabs: tabs, initialPage: page },
+					this.renderTab.bind(this)
+				),
+				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' })
+			);
+		}
+	}]);
+
+	return Index;
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
+exports.default = Index;
+
+/***/ }),
+
+/***/ 667:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(244);
+
+var _antdMobile = __webpack_require__(243);
+
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Index = (_temp2 = _class = function (_Component) {
+	_inherits(Index, _Component);
+
+	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Index);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'data': []
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(Index, [{
+		key: 'componentDidMount',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var productType, data;
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								productType = this.props.type;
+								_context.next = 3;
+								return this.context.$store.api.user.queryList({ 'page': 1, productType: productType });
+
+							case 3:
+								data = _context.sent;
+
+								this.setState({ data: data });
+
+							case 5:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function componentDidMount() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return componentDidMount;
+		}()
+	}, {
+		key: 'renderChild',
+		value: function renderChild(data) {
+			// console.log(info)
+			var info = data.financialProduct;
+			var tagList = data.financialTagList;
+			return _react2.default.createElement(
+				'li',
+				null,
+				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
+				_react2.default.createElement(
+					_reactRouterDom.Link,
+					{ to: {
+							'pathname': '/detail',
+							'search': '?id=' + info.productCode
+						}, style: { 'display': 'block' } },
+					_react2.default.createElement(
+						_antdMobile.Card,
+						null,
+						_react2.default.createElement(_antdMobile.Card.Header, {
+							extra: _react2.default.createElement(
+								'span',
+								{ 'data-txt': '\u671F\u9650', className: 'invest-date' },
+								info.deadline,
+								[, '天', '周', '月', '年'][info.deadlineUnit]
+							),
+							title: info.productName }),
+						_react2.default.createElement(
+							_antdMobile.Card.Body,
+							null,
+							_react2.default.createElement(
+								_antdMobile.Flex,
+								{ justify: 'between' },
+								_react2.default.createElement(
+									_antdMobile.Flex.Item,
+									{ className: 'invest-content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'tags-list' },
+										tagList.map(function (t) {
+											return _react2.default.createElement(
+												_antdMobile.Tag,
+												{ small: true },
+												t.name
+											);
+										})
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'invest-price' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'show-price' },
+											info.preYearRate,
+											'%'
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'show-price-sub' },
+											_react2.default.createElement(
+												'span',
+												null,
+												'\u5269'
+											),
+											_react2.default.createElement(
+												'span',
+												{ className: 'show-price-mony' },
+												info.availableAmount
+											),
+											_react2.default.createElement(
+												'span',
+												null,
+												'\u5143'
+											)
+										)
+									)
+								),
+								_react2.default.createElement(
+									_antdMobile.Flex.Item,
+									{ className: 'invest-present' },
+									((info.totalAmount - info.availableAmount) / info.totalAmount * 100).toFixed(2),
+									'%'
+								)
+							)
+						),
+						_react2.default.createElement(_antdMobile.Card.Footer, { content: '\u6807\u7F16\u53F7\uFF1A' + info.productCode })
+					)
+				)
+			);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
+
+			return _react2.default.createElement(
+				'ul',
+				{ style: { 'listStyle': 'none' } },
+				this.state.data.map(function (d) {
+					return _this2.renderChild(d);
+				})
+			);
+		}
+	}]);
+
+	return Index;
+}(_react.Component), _class.defaultProps = {
+	'type': 1
+}, _class.propTypes = {
+	'type': _propTypes2.default.string
+}, _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
+exports.default = Index;
+
+/***/ }),
+
+/***/ 668:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(657);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _reactRouterDom = __webpack_require__(244);
+
+var _antdMobile = __webpack_require__(243);
+
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Index = (_temp2 = _class = function (_Component) {
+	_inherits(Index, _Component);
+
+	function Index() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
+		_classCallCheck(this, Index);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			'info': {
+				'financialProduct': {},
+				'financialAudit': {},
+				'financialCar': {},
+				'financialFileList': {},
+				'financialRecordList': [],
+				'financialUser': {}
+			},
+			'scale': 0,
+			'productCode': null
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
+
+	_createClass(Index, [{
+		key: 'componentDidMount',
+		value: function () {
+			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+				var productCode, info, _info$financialProduc, preYearRate, deadlineDays, scale;
+
+				return regeneratorRuntime.wrap(function _callee$(_context) {
+					while (1) {
+						switch (_context.prev = _context.next) {
+							case 0:
+								productCode = this.context.$utils.queryString('id', this.props.location.search);
+								// console.log(this)
+								// console.log(productCode)
+
+								_context.next = 3;
+								return this.context.$store.api.user.queryDetail({ productCode: productCode });
+
+							case 3:
+								info = _context.sent;
+
+								if (info) {
+									_context.next = 6;
+									break;
+								}
+
+								return _context.abrupt('return');
+
+							case 6:
+								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
+
+								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
+								deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays;
+								scale = parseInt(preYearRate * 0.01 * deadlineDays / 365 * 10000);
+								// preYearRate = parseFloat(preYearRate)
+
+								this.setState({ info: info, scale: scale, productCode: productCode });
+
+							case 11:
+							case 'end':
+								return _context.stop();
+						}
+					}
+				}, _callee, this);
+			}));
+
+			function componentDidMount() {
+				return _ref2.apply(this, arguments);
+			}
+
+			return componentDidMount;
+		}()
+	}, {
+		key: 'render',
+		value: function render() {
+			var info = this.state.info;
+
+			return _react2.default.createElement(
+				_user2.default,
+				{
+					title: info.financialProduct.productName,
+					module: 'list',
+					className: 'home-order-main',
+					footer: _react2.default.createElement(
 						'div',
 						{ className: 'detail-footer' },
 						_react2.default.createElement(
 							_reactRouterDom.Link,
-							{ style: { 'color': '#FFF' }, to: '/apply' },
+							{ style: { 'color': '#FFF' }, to: {
+									'pathname': '/apply',
+									'search': '?id=' + this.state.productCode + '&scale=' + this.state.scale
+								} },
 							'\u7ACB\u5373\u6295\u8D44'
 						)
 					) },
@@ -1785,12 +2581,16 @@ var Index = function (_Component) {
 					_react2.default.createElement(
 						'div',
 						{ className: 'top-title' },
-						'14.00'
+						info.financialProduct.preYearRate
 					),
 					_react2.default.createElement(
 						'div',
 						{ className: 'top-tip' },
-						'\u8FDB\u5EA6100%,\u5269\u4F59\u53EF\u6295\u91D1\u989D0.00\u5143'
+						'\u8FDB\u5EA6',
+						((info.financialProduct.totalAmount - info.financialProduct.availableAmount) / info.financialProduct.totalAmount * 100).toFixed(2),
+						'%,\u5269\u4F59\u53EF\u6295\u91D1\u989D',
+						info.financialProduct.availableAmount,
+						'\u5143'
 					)
 				),
 				_react2.default.createElement(_antdMobile.WhiteSpace, { size: 'sm' }),
@@ -1813,13 +2613,91 @@ var Index = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u9879\u76EE\u540D\u79F0'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									info.financialProduct.productName
 								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u9884\u671F\u5E74\u5316\u6536\u76CA'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialProduct.preYearRate,
+									'%'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6807\u603B\u91D1\u989D'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialProduct.totalAmount
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6295\u8D44\u671F\u9650'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialProduct.deadline,
+									[, '天', '周', '月', '年'][info.financialProduct.deadlineUnit]
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8D77\u6295\u91D1\u989D'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialProduct.leastAmount
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8FD8\u6B3E\u65B9\u5F0F'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									[, '等额本息', '先息后本'][info.financialProduct.repaymentMethod]
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								'\u63CF\u8FF0\uFF1A',
+								info.financialProduct.remark
 							)
 						)
 					),
@@ -1839,12 +2717,54 @@ var Index = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u59D3\u540D'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									info.financialUser.addUser
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u6027\u522B'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									[, '男', '女'][info.financialUser.sex]
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u5E74\u9F84'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialUser.age
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u5C45\u4F4F\u5730'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialUser.adress
 								)
 							)
 						)
@@ -1865,12 +2785,83 @@ var Index = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u8F66\u8F86\u578B\u53F7'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									info.financialCar.carModel
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8F66\u8F86\u989C\u8272'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carColor
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8F66\u724C\u53F7'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carNum
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8D2D\u4E70\u4EF7\u683C'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carPrice
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u62B5\u62BC\u4EF7\u683C'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.mortgagePrice
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8F66\u8F86\u5E74\u9650'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialCar.carLife,
+									'\u5E74'
 								)
 							)
 						)
@@ -1891,12 +2882,152 @@ var Index = function (_Component) {
 								_react2.default.createElement(
 									'label',
 									null,
-									'\u6D4B\u8BD5'
+									'\u5BA1\u6838\u8D44\u6599'
 								),
 								_react2.default.createElement(
 									'span',
 									null,
-									'\u6D4B\u8BD5\u4E0B'
+									'\u5BA1\u6838\u7ED3\u679C'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u5408\u540C\u8D44\u6599:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.contract == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u767B\u8BB0\u8BC1\u4E66:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.registrationCertificate == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u884C\u9A76\u8BC1:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.drivingLicense == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u4EBA\u8F66\u5408\u5F71:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.manCarPhoto == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u501F\u6B3E\u627F\u8BFA\u4E66:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.acceptanceAgreement == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u4E8C\u4EE3\u8EAB\u4EFD\u8BC1:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.certificate == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8EAB\u4EFD\u8BC1\u9A8C\u8BC1\u56FE:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.certificatePhoto == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u62B5\u62BC\u60C5\u51B5\u58F0\u660E:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.mortgageDeclare == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u8FDD\u7AE0\u4FE1\u606F:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.peccancy == 2 ? '通过' : '未通过'
+								)
+							),
+							_react2.default.createElement(
+								'li',
+								null,
+								_react2.default.createElement(
+									'label',
+									null,
+									'\u94ED\u724C\u7167\u7247:'
+								),
+								_react2.default.createElement(
+									'span',
+									null,
+									info.financialAudit.nameplatePhoto == 2 ? '通过' : '未通过'
 								)
 							)
 						)
@@ -1909,22 +3040,21 @@ var Index = function (_Component) {
 								' \u6295\u8D44\u8BB0\u5F55 '
 							) },
 						_react2.default.createElement(
-							'ul',
-							{ className: 'mdl-content' },
-							_react2.default.createElement(
-								'li',
-								null,
-								_react2.default.createElement(
-									'label',
-									null,
-									'\u6D4B\u8BD5'
-								),
-								_react2.default.createElement(
-									'span',
-									null,
-									'\u6D4B\u8BD5\u4E0B'
-								)
-							)
+							_antdMobile.List,
+							null,
+							info.financialRecordList.map(function (d) {
+								return _react2.default.createElement(
+									_antdMobile.List.Item,
+									{ multipleLine: true, extra: d.amount + '元' },
+									d.phone,
+									' ',
+									_react2.default.createElement(
+										_antdMobile.List.Item.Brief,
+										null,
+										d.addTime
+									)
+								);
+							})
 						)
 					)
 				)
@@ -1933,13 +3063,15 @@ var Index = function (_Component) {
 	}]);
 
 	return Index;
-}(_react.Component);
-
+}(_react.Component), _class.contextTypes = {
+	'$store': _propTypes2.default.object.isRequired,
+	'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),
 
-/***/ 665:
+/***/ 669:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1956,11 +3088,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1996,7 +3128,16 @@ var Index = function (_Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				_user2.default,
-				{ title: '\u4E2A\u4EBA\u4E2D\u5FC3', module: 'userDetail', className: 'user-detail' },
+				{ title: '\u4E2A\u4EBA\u4E2D\u5FC3', module: 'userDetail', className: 'user-detail',
+					footer: _react2.default.createElement(
+						'div',
+						{ className: 'apply-footer' },
+						_react2.default.createElement(
+							_antdMobile.Button,
+							{ type: 'warning' },
+							'\u9000\u51FA\u767B\u5F55'
+						)
+					) },
 				_react2.default.createElement(
 					_antdMobile.NoticeBar,
 					{ mode: 'closable' },
@@ -2009,29 +3150,25 @@ var Index = function (_Component) {
 						'div',
 						{ className: 'userInfo' },
 						_react2.default.createElement(
-							'a',
-							{ href: '/setting' },
+							'div',
+							{ className: 'J_Avatar' },
+							_react2.default.createElement('img', { src: '111' })
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'J_DetailInfo' },
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_Avatar' },
-								_react2.default.createElement('img', { src: 'public/i/user_defualt.png' })
+								'p',
+								{ className: 'userName' },
+								'\u6211\u662F\u7528\u6237\u540D'
 							),
 							_react2.default.createElement(
-								'div',
-								{ className: 'J_DetailInfo' },
-								_react2.default.createElement(
-									'p',
-									{ className: 'userName' },
-									'\u6211\u662F\u7528\u6237\u540D'
-								),
-								_react2.default.createElement(
-									'p',
-									{ className: 'phoneNum' },
-									'\u6211\u662F\u7535\u8BDD\u53F7\u7801'
-								)
-							),
-							_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-						)
+								'p',
+								{ className: 'phoneNum' },
+								'\u6211\u662F\u7535\u8BDD\u53F7\u7801'
+							)
+						),
+						_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
 					)
 				),
 				_react2.default.createElement(
@@ -2108,7 +3245,7 @@ var Index = function (_Component) {
 							_react2.default.createElement(
 								'div',
 								{ className: 'J_operation' },
-								_react2.default.createElement('img', { src: 'public/i/recharge_defualt.png' }),
+								_react2.default.createElement('img', { src: '' }),
 								_react2.default.createElement(
 									'p',
 									null,
@@ -2122,7 +3259,7 @@ var Index = function (_Component) {
 							_react2.default.createElement(
 								'div',
 								{ className: 'J_operation' },
-								_react2.default.createElement('img', { src: 'public/i/withdrawals_defualt.png' }),
+								_react2.default.createElement('img', { src: '' }),
 								_react2.default.createElement(
 									'p',
 									null,
@@ -2136,7 +3273,7 @@ var Index = function (_Component) {
 							_react2.default.createElement(
 								'div',
 								{ className: 'J_operation' },
-								_react2.default.createElement('img', { src: 'public/i/card_defualt.png' }),
+								_react2.default.createElement('img', { src: '' }),
 								_react2.default.createElement(
 									'p',
 									null,
@@ -2231,19 +3368,6 @@ var Index = function (_Component) {
 								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
 							)
 						)
-					),
-					_react2.default.createElement(
-						_antdMobile.WingBlank,
-						null,
-						_react2.default.createElement(
-							'div',
-							{ className: 'J_logout' },
-							_react2.default.createElement(
-								_antdMobile.Button,
-								{ type: 'warning' },
-								'\u9000\u51FA\u767B\u5F55'
-							)
-						)
 					)
 				)
 			);
@@ -2257,7 +3381,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 666:
+/***/ 670:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2274,11 +3398,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2462,7 +3586,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 667:
+/***/ 671:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2473,17 +3597,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(654);
+var _user = __webpack_require__(657);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(244);
+var _antdMobile = __webpack_require__(243);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2494,34 +3620,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Item = _antdMobile.List.Item;
-var Step = _antdMobile.Steps.Step;
-
-
-var customIcon = function customIcon() {
-  return _react2.default.createElement(
-    'svg',
-    { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 42 42', className: 'am-icon am-icon-md' },
-    _react2.default.createElement(
-      'g',
-      { fillRule: 'evenodd', stroke: 'transparent', strokeWidth: '4' },
-      _react2.default.createElement('path', { d: 'M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z' }),
-      _react2.default.createElement('path', { fill: '#FFF', d: 'M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z' })
-    )
-  );
-};
-
-var steps = [{
-  title: '实名认证',
-  description: 'This is description'
-}, {
-  title: '绑定银行卡',
-  description: 'This is description'
-}, {
-  title: '人工验证',
-  description: 'This is description'
-}].map(function (s, i) {
-  return _react2.default.createElement(Step, { key: i, title: s.title, description: "" });
-});
 
 var Index = function (_Component) {
   _inherits(Index, _Component);
@@ -2545,224 +3643,77 @@ var Index = function (_Component) {
   _createClass(Index, [{
     key: 'render',
     value: function render() {
+      var getFieldProps = this.props.form.getFieldProps;
+
+      console.log(1111);
+      console.log(getFieldProps);
       return _react2.default.createElement(
         _user2.default,
-        { title: '\u7ED1\u5B9A\u94F6\u884C\u5361', module: 'userDetail', className: 'user-detail',
+        { title: '\u4E2A\u4EBA\u8BBE\u7F6E', module: 'userDetail', className: 'user-detail',
           footer: _react2.default.createElement('div', null)
         },
         _react2.default.createElement(
           'div',
-          { className: 'J_steps' },
+          { className: '' },
           _react2.default.createElement(
-            _antdMobile.WingBlank,
-            { mode: 20, className: 'stepsExample' },
-            _react2.default.createElement(_antdMobile.WhiteSpace, null),
+            _antdMobile.List,
+            { className: 'my-list' },
             _react2.default.createElement(
-              _antdMobile.Steps,
-              { current: 1, direction: 'horizontal' },
-              steps
-            ),
-            _react2.default.createElement(_antdMobile.WhiteSpace, null)
-          )
-        )
-      );
-    }
-  }]);
-
-  return Index;
-}(_react.Component);
-
-exports.default = Index;
-
-/***/ }),
-
-/***/ 679:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _user = __webpack_require__(654);
-
-var _user2 = _interopRequireDefault(_user);
-
-var _antdMobile = __webpack_require__(244);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Item = _antdMobile.List.Item;
-var Step = _antdMobile.Steps.Step;
-
-
-var customIcon = function customIcon() {
-  return _react2.default.createElement(
-    'svg',
-    { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 42 42', className: 'am-icon am-icon-md' },
-    _react2.default.createElement(
-      'g',
-      { fillRule: 'evenodd', stroke: 'transparent', strokeWidth: '4' },
-      _react2.default.createElement('path', { d: 'M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z' }),
-      _react2.default.createElement('path', { fill: '#FFF', d: 'M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z' })
-    )
-  );
-};
-
-var steps = [{
-  title: '实名认证',
-  description: 'This is description'
-}, {
-  title: '绑定银行卡',
-  description: 'This is description'
-}, {
-  title: '人工验证',
-  description: 'This is description'
-}].map(function (s, i) {
-  return _react2.default.createElement(Step, { key: i, title: s.title, description: "" });
-});
-
-var seasons = [{
-  label: '男',
-  value: 1
-}, {
-  label: '女',
-  value: 0
-}];
-
-var Index = function (_Component) {
-  _inherits(Index, _Component);
-
-  function Index() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Index);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      data: [],
-      cols: 1,
-      pickerValue: [],
-      asyncValue: [],
-      sValue: ['男', 1],
-      visible: false
-    }, _this.onChange = function (value) {
-      console.log(value);
-      _this.setState({
-        value: value
-      });
-    }, _this.onScrollChange = function (value) {
-      console.log(value);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Index, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      return _react2.default.createElement(
-        _user2.default,
-        { title: '\u5B9E\u540D\u8BA4\u8BC1', module: 'userDetail', className: 'user-detail',
-          footer: _react2.default.createElement('div', null)
-        },
-        _react2.default.createElement(
-          'div',
-          { className: 'J_steps' },
-          _react2.default.createElement(
-            _antdMobile.WingBlank,
-            { mode: 20, className: 'stepsExample' },
-            _react2.default.createElement(_antdMobile.WhiteSpace, null),
-            _react2.default.createElement(
-              _antdMobile.Steps,
-              { current: 0, direction: 'horizontal' },
-              steps
-            ),
-            _react2.default.createElement(_antdMobile.WhiteSpace, null)
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
+              Item,
+              { extra: _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    "aaaaaaaaaa" + " "
+                  ),
+                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+                ) },
+              _react2.default.createElement(
+                'div',
+                { className: 'J_listItem' },
+                '\u7528\u6237\u540D'
+              )
+            )
+          ),
           _react2.default.createElement(
             _antdMobile.List,
             { renderHeader: function renderHeader() {
-                return '姓名';
-              }, className: 'my-list' },
+                return 'Format';
+              } },
             _react2.default.createElement(
-              Item,
-              null,
-              _react2.default.createElement('input', { type: 'number', value: '111' })
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            _antdMobile.List,
-            { renderHeader: function renderHeader() {
-                return '身份证号';
-              }, className: 'my-list' },
+              _antdMobile.InputItem,
+              _extends({}, getFieldProps('bankCard', {
+                initialValue: '8888 8888 8888 8888'
+              }), {
+                type: 'bankCard'
+              }),
+              '\u94F6\u884C\u5361'
+            ),
             _react2.default.createElement(
-              Item,
-              null,
-              _react2.default.createElement('input', { type: 'number', value: '111' })
-            )
-          )
-        ),
-        _react2.default.createElement(
-          _antdMobile.Picker,
-          {
-            data: seasons,
-            cols: this.state.cols,
-            value: this.state.asyncValue,
-            onChange: function onChange(v) {
-              return _this2.setState({ sValue: v }, function (x) {
-                return console.log(_this2.state);
-              });
-            },
-            onOk: function onOk(v) {
-              return console.log(v);
-            },
-            title: '\u9009\u62E9\u6027\u522B'
-          },
-          _react2.default.createElement(
-            _antdMobile.List.Item,
-            { arrow: 'horizontal', onClick: this.onClick },
-            '\u6027\u522B'
-          )
-        ),
-        _react2.default.createElement(
-          _antdMobile.WingBlank,
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'J_logout' },
+              _antdMobile.InputItem,
+              _extends({}, getFieldProps('phone'), {
+                type: 'phone',
+                placeholder: '186 1234 1234'
+              }),
+              '\u624B\u673A\u53F7\u7801'
+            ),
             _react2.default.createElement(
-              _antdMobile.Button,
-              { type: 'primary' },
-              '\u786E\u8BA4'
+              _antdMobile.InputItem,
+              _extends({}, getFieldProps('password'), {
+                type: 'password',
+                placeholder: '****'
+              }),
+              '\u5BC6\u7801'
+            ),
+            _react2.default.createElement(
+              _antdMobile.InputItem,
+              _extends({}, getFieldProps('number'), {
+                type: 'number',
+                placeholder: 'click to show number keyboard'
+              }),
+              '\u6570\u5B57\u952E\u76D8'
             )
           )
         )

@@ -2,6 +2,10 @@
 
 module.exports = app => class UserController extends app.Controller {
 	success (data) {
+		this.ctx.set("Access-Control-Allow-Origin", "*")
+		this.ctx.set('Access-Control-Allow-Credentials', true)
+	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")  
 		this.ctx.status = 200
 		this.ctx.body = {
 			'success': true,
@@ -12,6 +16,10 @@ module.exports = app => class UserController extends app.Controller {
 	}
 	error(msg){
 		msg = msg || null
+		this.ctx.set("Access-Control-Allow-Origin", "*")
+		this.ctx.set('Access-Control-Allow-Credentials', true)
+	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")  
 		this.ctx.status = 200
 		this.ctx.body = {
 			'success': false,
@@ -20,27 +28,78 @@ module.exports = app => class UserController extends app.Controller {
 			'errorCode': 7000001
 		}
 	}
+	ajaxReturn (res){
+		return this[res.code == 1 ? 'success' :'error'](res.data)
+	}
+	*index(){
+		const url = '/financial/product/list/recommend'
+		const res = yield this.ctx.service.user.send(url)
+		return this.ajaxReturn(res)
+	}
+	*account(){
+		const url = 'http://1989591.51vip.biz:15003/account/get'
+		const ret = yield this.ctx.service.user.send(url, {
+			'userId': this.ctx.session.user.userId
+		})
+		return this.ajaxReturn(ret)
+	}	
 	*loginStatus(){
-		const login = this.ctx.session.token
-		return this[login?'success':'error']()
+		
+		const {token, ...other} = this.ctx.session.user || {}
+		const login = !!token
+		const user = {...other}
+		return this[login?'success':'error']({login, user})
 	}
 	*login(){
 		const {query} = this.ctx
 		const result = yield this.ctx.service.user.login(query)
-		const token = result.data && result.data.token
+		const {token, ...other} = result.data || {}
 		if(token){
-			this.ctx.session.token = token
+			this.ctx.session.user = result.data || null
+			// this.ctx.session.token = token
 		}
-		return this.success({ login: !!token, result, query })
+		return this.success({ login: !!token, user: {...other}})
 	}
 	*sendCode(){
 		const {phone, type} = this.ctx.query
 		const url = ({
-			'register': '/verfication/get/register/sms/code',
-			'forget': '/verfication/get/forget/sms/code'
+			'register': 'http://yqh0303.com:15012/verfication/get/register/sms/code',
+			'forget': 'http://yqh0303.com:15012/verfication/get/forget/sms/code'
 		})[type || 'register']
-		return this.ctx.service.user.send(url, {phone})
+		const res = yield this.ctx.service.user.send(url, {phone})
+		return this.success(res.data)
 	}
-	*loginout(){}
+	*list(){
+		const {query} = this.ctx
+		query.status = 4
+		const res = yield this.ctx.service.user.send('/financial/product/list/page', query)
+		return this.success(res.data)
+	}
+	*detail(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('/financial/product/detail', query)
+		return this.success(res.data)
+	}
+	*register(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/register', query)
+		return this[res.code == 1 ? 'success' : 'error'](res.data)
+	}
+	*forget(){
+		const {query} = this.ctx
+		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/forget/pwd/phone', query)
+		return this[res.code == 1 ? 'success' : 'error'](res.data)
+	}
+	*loginout(){
+		this.ctx.session.user = null
+		return this.success()
+	}
+	*saveOrder(){
+		const {userId} = this.ctx.session.user || {}
+		let {query} = this.ctx
+		let param = Object.assign({"couponList": [],userId}, query || {})
+		const res = yield this.ctx.service.user.send('http://1989591.51vip.biz:15005/order/commit', param)
+	    return this.ajaxReturn(res)
+	}
 	*saveInfo(){}
 }

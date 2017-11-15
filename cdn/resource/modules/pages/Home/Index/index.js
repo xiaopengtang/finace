@@ -28,18 +28,24 @@ export default class Index extends Component {
 			return Toast.info('请输入密码')
 		}
 		// const {data} = 
-		const data = await this.context.$store.clientCall({
+		const data = await this.context.$store.auth.doLogin({
+			'account': tel,
+			'password': pwd
+		}) /*this.context.$store.clientCall({
 			'url': '/api/login',
 			'method': 'get',
 			'data': {
 				'account': tel,
 				'password': pwd
 			}
-		})
-		console.log({data})
+		})*/
+		// console.log({data})
+
 		if (data.success && data.data && data.data.login) {
 			this.context.$store.auth.updateLogin(true)
 			this.props.history.push('/home')
+		}else{
+			Toast.info('密码不正确')
 		}
 	}
 	change (e) {}
@@ -47,7 +53,7 @@ export default class Index extends Component {
 		return ( 
 			<div className="home-index">
 			    <div className="logo">
-				<img src="public/i/logo.png" style={{"width": "60%"}} />
+				<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{"width": "60%"}} />
 				</div>
 				<p style={{"position": "relative"}}>
 					<input 
@@ -58,7 +64,7 @@ export default class Index extends Component {
 					value={this.state.tel}
 					placeholder="请输入您的手机号" /> 
 					<img 
-					src="public/i/clear.png"
+					src="http://1989591.51vip.biz:7001/public/i/clear.png"
 					className="inputImg" 
 					id="tab1" 
 					onClick={e => this.setState({'tel': ''})} />
@@ -72,7 +78,7 @@ export default class Index extends Component {
 					onChange={e => this.setState({'pwd': e.target.value})}
 					placeholder="登录密码" /> 
 					<img 
-					src={this.state.show ? "public/i/eyesclose.png" : "public/i/eyesopen.png"}
+					src={this.state.show ? "http://1989591.51vip.biz:7001/public/i/eyesclose.png" : "http://1989591.51vip.biz:7001/public/i/eyesopen.png"}
 					className="inputImg" id="tab2" onClick={e => this.setState({'show': !this.state.show})} />
 				</p>
 				<div className="LogBtn_s" to="/home" onClick={this.login.bind(this)}>立即登录</div>

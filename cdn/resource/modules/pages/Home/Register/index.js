@@ -18,23 +18,75 @@ export default class Index extends Component{
 		'show': true,
 		'isAllow': false
 	} ;
+	timer = null;
 
-	sendCode () {
+	async sendCode () {
+		if(this.timer){
+			return
+		}
 		// console.log(this)
 		const {tel} = this.state
 		const check = this.context.$utils.check.checkTel(tel)
 		if(check === false){
-			Toast.info(check.getError())
+			return Toast.info(check.getError())
 		}
+		const res = await this.context.$store.auth.sendCode({'phone': tel})
+		if(!res){
+			return 
+		}
+		this.timer = setInterval(() => {
+			let {timer} = this.state
+			timer--
+			if(timer === 0){
+				clearInterval(this.timer)
+				timer = 60
+				delete this.timer
+			}
+			this.setState({timer})
+		}, 1000)
 	}
 
 	checkCode () {}
+
+	async register(){
+		const {tel} = this.state
+		const check = this.context.$utils.check.checkTel(tel)
+		if(check === false){
+			return Toast.info(check.getError())
+		}
+		if(!this.state.code){
+			return Toast.info('请输入验证码')
+		}
+		if(!/^\d+$/.test(this.state.code)){
+			return Toast.info('请输入正确的验证码')
+		}
+		if(!this.state.pwd){
+			return Toast.info('请输入密码')
+		}
+		if(this.state.phone && !/^\d{11}$/.test(this.state.phone)){
+			return Toast.info('请正确输入推荐人手机号')
+		}
+		const params = {
+		    "password": this.state.pwd,
+		    "phone": this.state.tel,
+		    "phoneVerficationCode": this.state.code,
+		    "recommenderPhone": this.state.phone
+		}
+		const res = await this.context.$store.auth.register(params)
+		if(res.success){
+			Toast.info('注册成功')
+			return setTimeout(() => this.props.history.push('/'), 3000)
+		}else{
+			return Toast.info('注册失败')
+		}
+		// console.log(res)
+	}
 
 	render () {
 		return (
 			<div className="home-register">
 				<div className="logo">
-					<img src="public/i/logo.png" style={{'width': '60%'}} /><input type="hidden" id="result" value="" />
+					<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{'width': '60%'}} /><input type="hidden" id="result" value="" />
 				</div>
 				<div className="center"> 
 					<ul>
@@ -55,7 +107,7 @@ export default class Index extends Component{
 						    <span 
 						        onClick={this.sendCode.bind(this)} 
 						        onBlur={this.checkCode.bind(this)} 
-						        id="sentCaptcha" className="yzm_span">获取验证码</span>
+						        id="sentCaptcha" className={`yzm_span ${this.state.timer  !== 60 ? 'active' : ''}`}>{this.state.timer !== 60?`${this.state.timer}s后重新发送`:'获取验证码'}</span>
 						</li>
 						<li>
 						    <input 
@@ -70,12 +122,12 @@ export default class Index extends Component{
 						    <input 
 						        value={this.state.phone}
 						        onChange={e => this.setState({'phone': e.currentTarget.value})}
-						        type="text" name="recommendTelephone" id="phone" value="" placeholder="推荐人手机号（非必填）" />
+						        type="text" name="recommendTelephone" id="phone" placeholder="推荐人手机号（非必填）" />
 					    </li>
 					</ul>
 				</div>
 				<div className="reg">
-					<span className="regbutton_sub" >立即注册</span>
+					<span className="regbutton_sub" onClick={this.register.bind(this)}>立即注册</span>
 					<p className="regp">
 						<Link to="/" id="reg_a">已有账号去登录 &gt;</Link>
 					</p>

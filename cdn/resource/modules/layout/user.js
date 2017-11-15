@@ -10,6 +10,11 @@ export default class Index extends Component {
 		'footer': PropTypes.node
 	};
 
+	static contextTypes = {
+		'$store': PropTypes.object.isRequired,
+		'$utils': PropTypes.object.isRequired
+	};
+
 	static defaultProps = {
 		'module': 'home',
 		'title': '首页',
@@ -29,12 +34,12 @@ export default class Index extends Component {
 	    		'icon': 'icon-line-chart',
 	    		'text': '投资'
 	    	},
-	    	{
+	    	/*{
 	    		'url': '/market',
 	    		'name': 'market',
 	    		'icon': 'icon-shopping-cart',
 	    		'text': '商城'
-	    	},
+	    	},*/
 	    	{
 	    		'url': '/user',
 	    		'name': 'user',
@@ -65,10 +70,10 @@ export default class Index extends Component {
 			<div className="layout-user">
 			    <div {...other} className={`main-contaiter ${className}`}>
 			        <NavBar
-				      leftContent={<Icon type="left" />}
+				      leftContent={<Icon type="left" onClick={() => window.history.go(-1)} />}
 				      rightContent={[
-				        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-				        <Icon key="1" type="ellipsis" />,
+				        /*<Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+				        <Icon key="1" type="ellipsis" />,*/
 				      ]}
 				    >{this.props.title}</NavBar>
 			        {this.props.children}

@@ -4,14 +4,17 @@ import React, {Component} from 'react'
 import style from '../style/index'
 import * as $utils from './utils'
 import * as ReactRouter from 'react-router-dom'
-import Dom from 'react-dom'
+import Dom from 'react-dom' 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as $store from './store'
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types'
-// console.log(ReactRouter)
 const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
+// window.G = window.G || {'isApp': false}
 export default async data => {
+	window.G = window.G || {'isApp': true}
+	const Body = window.G.isApp ? HashRouter : BrowserRouter
+	// console.log([Body, HashRouter, BrowserRouter, window.G])
 	let Pages = await $utils.async_import(resolve => require.ensure([], require => resolve(require('./pages'))))
 	@observer
 	class Fade extends Component{
@@ -35,23 +38,22 @@ export default async data => {
 		render(){
 			return (
 				<ReactCSSTransitionGroup
-				transitionName="pager"
-		        component="div"
-		        className="container-wrap"
-		        transitionAppear={true}
-		        transitionLeave={false}>
+					transitionName="pager"
+			        component="div"
+			        className="container-wrap"
+			        transitionAppear={true}
+			        transitionLeave={false}>
 				    <div className="container" key={this.props.location.pathname}>
 				    	<Route path="/" exact component={Pages.Index} />
-							<Route path="/register" component={Pages.Register} />
-							<Route path="/forgetPwd" component={Pages.ForgetPwd} />
-							<Route path="/home" component={Pages.User.Index} />
-							<Route path="/list" component={Pages.User.Invest} />
-							<Route path="/apply" component={Pages.User.Apply} />
-							<Route path="/detail" component={Pages.User.OrderMain} />
-              <Route path="/user" component={Pages.User.UserDetail} />
-              <Route path="/setting" component={Pages.User.Setting} />
-              <Route path="/bindCard" component={Pages.User.BindCard} />
-							<Route path="/certification" component={Pages.User.Certification} />
+						<Route path="/register" component={Pages.Register} />
+						<Route path="/forgetPwd" component={Pages.ForgetPwd} />
+						<Route path="/home" component={Pages.User.Index} />
+						<Route path="/list" component={Pages.User.Invest} />
+						<Route path="/apply" component={Pages.User.Apply} />
+						<Route path="/detail" component={Pages.User.OrderMain} />
+                        <Route path="/user" component={Pages.User.UserDetail} />
+                        <Route path="/setting" component={Pages.User.Setting} />
+                        <Route path="/bindCard" component={Pages.User.BindCard} />
 				    </div>
 				</ReactCSSTransitionGroup>
 			)
@@ -66,10 +68,10 @@ export default async data => {
 			return {$store, $utils}
 		}
 		render () {
-			return (
-				<BrowserRouter>
-				    <Route exact path="" component={Fade} />
-				</BrowserRouter>
+			return ( 
+				<Body>
+				    <Route path="" component={Fade} />
+				</Body>
 			)
 		}
 	}
