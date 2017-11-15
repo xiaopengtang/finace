@@ -94,5 +94,12 @@ module.exports = app => class UserController extends app.Controller {
 		this.ctx.session.user = null
 		return this.success()
 	}
+	*saveOrder(){
+		const {userId} = this.ctx.session.user || {}
+		let {query} = this.ctx
+		let param = Object.assign({"couponList": [],userId}, query || {})
+		const res = yield this.ctx.service.user.send('http://1989591.51vip.biz:15005/order/commit', param)
+	    return this.ajaxReturn(res)
+	}
 	*saveInfo(){}
 }

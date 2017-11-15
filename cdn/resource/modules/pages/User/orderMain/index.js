@@ -17,7 +17,9 @@ export default class Index extends Component {
 			'financialFileList': {},
 			'financialRecordList': [],
 			'financialUser': {}
-		}
+		},
+		'scale': 0,
+		'productCode': null
 	}
 	async componentDidMount(){
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
@@ -28,7 +30,12 @@ export default class Index extends Component {
 		if(!info){
 			return
 		}
-		this.setState({info})
+		let {preYearRate, deadlineDays} = info.financialProduct
+		preYearRate = isNaN(preYearRate) ? 0 : preYearRate
+		deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays
+		const scale = parseInt(((preYearRate * 0.01 * deadlineDays) / 365) * 10000)
+		// preYearRate = parseFloat(preYearRate)
+		this.setState({info, scale, productCode})
 	}
 	render () {
 		const {info} = this.state
@@ -37,7 +44,10 @@ export default class Index extends Component {
 		        title={info.financialProduct.productName}
 		        module="list" 
 		        className="home-order-main" 
-		        footer={<div className="detail-footer"><Link style={{'color': '#FFF'}} to="/apply">立即投资</Link></div>}>
+		        footer={<div className="detail-footer"><Link style={{'color': '#FFF'}} to={{
+		        	'pathname': '/apply',
+		        	'search': `?id=${this.state.productCode}&scale=${this.state.scale}`
+		        }}>立即投资</Link></div>}>
 		        <div className="top-content">
 		            <div className="top-present">预期年化收益率（%）</div>
 		            <div className="top-title">{info.financialProduct.preYearRate}</div>

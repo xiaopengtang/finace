@@ -12,24 +12,21 @@ export default class Index extends Component {
 
 	render () {
 		return (
-		    <User title="个人中心" module="userDetail" className="user-detail"
-		    	footer={
-						<div className="apply-footer">
-							<Button type="warning">退出登录</Button>
-		    		</div>
-				}>
+		    <User title="个人中心" module="userDetail" className="user-detail">
 						<NoticeBar mode="closable">该信息将作为你的实名凭证，请确保真实</NoticeBar>
 
 						<WingBlank>
 							<div className="userInfo">
-								<div className="J_Avatar">
-									<img src="111" />
-								</div>
-								<div className="J_DetailInfo">
-									<p className="userName">我是用户名</p>
-									<p className="phoneNum">我是电话号码</p>
-								</div>
-								<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
+								<a href="/setting">
+									<div className="J_Avatar">
+										<img src="public/i/user_defualt.png" />
+									</div>
+									<div className="J_DetailInfo">
+										<p className="userName">我是用户名</p>
+										<p className="phoneNum">我是电话号码</p>
+									</div>
+									<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
+								</a>
 							</div>
 						</WingBlank>
 
@@ -60,19 +57,19 @@ export default class Index extends Component {
 							<Flex>
 								<Flex.Item>
 									<div className="J_operation">
-										<img src=""></img>
+										<img src="public/i/recharge_defualt.png"></img>
 										<p>充值</p>
 									</div>
 								</Flex.Item>
 								<Flex.Item>
 									<div className="J_operation">
-										<img src=""></img>
+										<img src="public/i/withdrawals_defualt.png"></img>
 										<p>提现</p>
 									</div>
 								</Flex.Item>
 								<Flex.Item>
 									<div className="J_operation">
-										<img src=""></img>
+										<img src="public/i/card_defualt.png"></img>
 										<p>银行卡</p>
 									</div>
 								</Flex.Item>
@@ -125,7 +122,13 @@ export default class Index extends Component {
 								</div>
 							</Item>
 						</List>
-						</div>
+
+						<WingBlank>
+							<div className="J_logout">
+								<Button type="warning">退出登录</Button>
+							</div>
+						</WingBlank>
+					</div>
 		    </User>
 		 )
 	}
