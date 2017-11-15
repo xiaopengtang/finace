@@ -73,6 +73,9 @@
 			line-height: 1;
 			align-items: center ;
 			&>li{
+				&>a{
+					display: block;
+				}
 				&:last-child{
 					text-align: right;
 					border-left: none ;
@@ -80,19 +83,22 @@
 				&:first-child{
 					border-left: none ;
 					text-align: left ;
-					padding-right: 30px ;
+					padding-right: 20px ;
 				}
 				border-left: 1px solid rgb(232, 232, 232) ;
 				text-align: left; 
 				// padding: 0 10px ;
 				&.main-price{
 					flex:1 ;
+					// display: flex ;	
+					// flex-direction: column ;
+					// justify-content: space-between ;
 					// padding: 0 10px ;
 					padding-left: 20px ;
 					.info{
-						padding-bottom: 10px;
+						// padding-bottom: 10px;
 						font-size: 14px ;
-						line-height: 1 ;
+						line-height: 1.2 ;
 						color: #c9c9c9 ;
 						span{
 							.font-green{

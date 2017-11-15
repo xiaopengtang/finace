@@ -11420,6 +11420,9 @@ body,
   border-left: 1px solid #e8e8e8;
   text-align: left;
 }
+.home-list .hot-list ul.list-content > li > a {
+  display: block;
+}
 .home-list .hot-list ul.list-content > li:last-child {
   text-align: right;
   border-left: none ;
@@ -11427,7 +11430,7 @@ body,
 .home-list .hot-list ul.list-content > li:first-child {
   border-left: none ;
   text-align: left ;
-  padding-right: 30px ;
+  padding-right: 20px ;
 }
 .home-list .hot-list ul.list-content > li.main-price {
   -webkit-box-flex: 1 ;
@@ -11437,9 +11440,8 @@ body,
   padding-left: 20px ;
 }
 .home-list .hot-list ul.list-content > li.main-price .info {
-  padding-bottom: 10px;
   font-size: 14px ;
-  line-height: 1 ;
+  line-height: 1.2 ;
   color: #c9c9c9 ;
 }
 .home-list .hot-list ul.list-content > li.main-price .info span .font-green {
