@@ -20,7 +20,7 @@ export default class Index extends Component {
 						<List className="my-list">
 							<Item extra={
                   <div>
-                    <span>{"aaaaaaaaaa" + " "}</span>
+                    <span>{"leeexmxmx" + " "}</span>
                     <i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
                   </div>
                 }>
@@ -63,7 +63,7 @@ export default class Index extends Component {
 							<Item
                 extra={
                   <div>
-                    <span>{"13770673044"}</span>
+                    <span>{"137****3044"}</span>
                   </div>
                 }
               >

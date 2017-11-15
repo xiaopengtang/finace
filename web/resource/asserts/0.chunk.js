@@ -1122,7 +1122,7 @@ exports.default = Index;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TransactionDetails = exports.History = exports.ResetPassword = exports.CardInfo = exports.Withdrawals = exports.Recharge = exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
+exports.Verification = exports.TransactionDetails = exports.History = exports.ResetPassword = exports.CardInfo = exports.Withdrawals = exports.Recharge = exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
 
 var _index = __webpack_require__(661);
 
@@ -1188,6 +1188,10 @@ var _TransactionDetails2 = __webpack_require__(677);
 
 var _TransactionDetails3 = _interopRequireDefault(_TransactionDetails2);
 
+var _Verification2 = __webpack_require__(689);
+
+var _Verification3 = _interopRequireDefault(_Verification2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Index = _index2.default;
@@ -1206,6 +1210,7 @@ exports.CardInfo = _CardInfo3.default;
 exports.ResetPassword = _ResetPassword3.default;
 exports.History = _History3.default;
 exports.TransactionDetails = _TransactionDetails3.default;
+exports.Verification = _Verification3.default;
 
 /***/ }),
 
@@ -2552,22 +2557,22 @@ var Index = (_temp2 = _class = function (_Component) {
 							case 0:
 								productCode = this.context.$utils.queryString('id', this.props.location.search);
 								// console.log(this)
-								// console.log(productCode)
 
-								_context.next = 3;
+								console.log(productCode);
+								_context.next = 4;
 								return this.context.$store.api.user.queryDetail({ productCode: productCode });
 
-							case 3:
+							case 4:
 								info = _context.sent;
 
 								if (info) {
-									_context.next = 6;
+									_context.next = 7;
 									break;
 								}
 
 								return _context.abrupt('return');
 
-							case 6:
+							case 7:
 								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
 
 								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
@@ -2577,7 +2582,7 @@ var Index = (_temp2 = _class = function (_Component) {
 
 								this.setState({ info: info, scale: scale, productCode: productCode });
 
-							case 11:
+							case 12:
 							case 'end':
 								return _context.stop();
 						}
@@ -3184,33 +3189,39 @@ var Index = (_temp2 = _class = function (_Component) {
 	}
 
 	_createClass(Index, [{
+		key: 'getChildContext',
+		value: function getChildContext() {
+			return { $store: $store, $utils: $utils };
+		}
+	}, {
 		key: 'componentDidMount',
 		value: function () {
 			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var productCode, info, _info$financialProduc, preYearRate, deadlineDays, scale;
+				var info, _info$financialProduc, preYearRate, deadlineDays, scale;
 
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
 							case 0:
-								productCode = this.context.$utils.queryString('id', this.props.location.search);
-								_context.next = 3;
-								return this.context.$store.api.user.queryDetail({ productCode: productCode });
+								_context.next = 2;
+								return this.context.$store.api.user.account({});
 
-							case 3:
+							case 2:
 								info = _context.sent;
 
-								console.log(productCode);
+								console.log(222);
 								console.log(info);
+								console.log(this.context.$store.api.user);
+								console.log(this.context);
 
 								if (info) {
-									_context.next = 8;
+									_context.next = 9;
 									break;
 								}
 
 								return _context.abrupt('return');
 
-							case 8:
+							case 9:
 								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
 
 								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
@@ -3220,7 +3231,7 @@ var Index = (_temp2 = _class = function (_Component) {
 
 								this.setState({ info: info, scale: scale, productCode: productCode });
 
-							case 13:
+							case 14:
 							case 'end':
 								return _context.stop();
 						}
@@ -3257,7 +3268,7 @@ var Index = (_temp2 = _class = function (_Component) {
 							_react2.default.createElement(
 								'div',
 								{ className: 'J_Avatar' },
-								_react2.default.createElement('img', { src: 'public/i/user_defualt.png' })
+								_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/user_defualt.png' })
 							),
 							_react2.default.createElement(
 								'div',
@@ -3265,12 +3276,12 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'p',
 									{ className: 'userName' },
-									'\u6211\u662F\u7528\u6237\u540D'
+									'leeexmxmx'
 								),
 								_react2.default.createElement(
 									'p',
 									{ className: 'phoneNum' },
-									'\u6211\u662F\u7535\u8BDD\u53F7\u7801'
+									'137****3044'
 								)
 							),
 							_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
@@ -3292,7 +3303,7 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'p',
 									{ className: 'J_price' },
-									'1234'
+									'0'
 								),
 								_react2.default.createElement(
 									'p',
@@ -3310,7 +3321,7 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'p',
 									{ className: 'J_price' },
-									'1234'
+									'0'
 								),
 								_react2.default.createElement(
 									'p',
@@ -3328,7 +3339,7 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'p',
 									{ className: 'J_price' },
-									'1234'
+									'0'
 								),
 								_react2.default.createElement(
 									'p',
@@ -3354,7 +3365,7 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'div',
 									{ className: 'J_operation' },
-									_react2.default.createElement('img', { src: 'public/i/recharge_defualt.png' }),
+									_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/recharge_defualt.png' }),
 									_react2.default.createElement(
 										'p',
 										null,
@@ -3372,7 +3383,7 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'div',
 									{ className: 'J_operation' },
-									_react2.default.createElement('img', { src: 'public/i/withdrawals_defualt.png' }),
+									_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/withdrawals_defualt.png' }),
 									_react2.default.createElement(
 										'p',
 										null,
@@ -3390,7 +3401,7 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'div',
 									{ className: 'J_operation' },
-									_react2.default.createElement('img', { src: 'public/i/card_defualt.png' }),
+									_react2.default.createElement('img', { src: 'http://1989591.51vip.biz:7001/public/i/card_defualt.png' }),
 									_react2.default.createElement(
 										'p',
 										null,
@@ -3568,7 +3579,7 @@ var Index = function (_Component) {
                   _react2.default.createElement(
                     'span',
                     null,
-                    "aaaaaaaaaa" + " "
+                    "leeexmxmx" + " "
                   ),
                   _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
                 ) },
@@ -3634,7 +3645,7 @@ var Index = function (_Component) {
                   _react2.default.createElement(
                     'span',
                     null,
-                    "13770673044"
+                    "137****3044"
                   )
                 )
               },
@@ -3728,6 +3739,8 @@ var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -3767,25 +3780,38 @@ var steps = [{
 var Index = function (_Component) {
   _inherits(Index, _Component);
 
-  function Index() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function Index(props) {
     _classCallCheck(this, Index);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function (key) {
-      console.log(key);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    _this.state = {
+      bankName: "",
+      cardId: "",
+      province: "",
+      city: ""
+    };
+
+    _this.changeInfo = _this.changeInfo.bind(_this);
+    return _this;
   }
 
   _createClass(Index, [{
+    key: 'checkInfo',
+    value: function checkInfo() {
+      _antdMobile.Toast.loading("请稍后", 2, function (e) {
+        window.location.href = "/verification";
+      });
+    }
+  }, {
+    key: 'changeInfo',
+    value: function changeInfo(e, key) {
+      this.setState(_defineProperty({}, key, e.target.value));
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var self = this;
       return _react2.default.createElement(
         _user2.default,
         { title: '\u7ED1\u5B9A\u94F6\u884C\u5361', module: 'userDetail', className: 'user-detail',
@@ -3804,6 +3830,87 @@ var Index = function (_Component) {
               steps
             ),
             _react2.default.createElement(_antdMobile.WhiteSpace, null)
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入银行名:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'text', value: this.state.bankName, onChange: function onChange(e) {
+                  self.changeInfo(e, "bankName");
+                } })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入银行卡号:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'number', value: this.state.cardId, onChange: function onChange(e) {
+                  self.changeInfo(e, "cardId");
+                } })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入开户省份:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'text', value: this.state.province, onChange: function onChange(e) {
+                  self.changeInfo(e, "province");
+                } })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            _antdMobile.List,
+            { renderHeader: function renderHeader() {
+                return '请输入开户城市:';
+              }, className: 'my-list' },
+            _react2.default.createElement(
+              Item,
+              null,
+              _react2.default.createElement('input', { type: 'text', value: this.state.city, onChange: function onChange(e) {
+                  self.changeInfo(e, "city");
+                } })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              _antdMobile.Button,
+              { type: 'primary', onClick: this.checkInfo },
+              '\u786E\u8BA4'
+            )
           )
         )
       );
@@ -3841,6 +3948,8 @@ var _user2 = _interopRequireDefault(_user);
 var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3906,7 +4015,10 @@ var Index = function (_Component) {
       pickerValue: [],
       asyncValue: [],
       sValue: ['男', 1],
-      visible: false
+      visible: false,
+
+      name: "",
+      idNum: ""
     }, _this.onChange = function (value) {
       console.log(value);
       _this.setState({
@@ -3918,10 +4030,23 @@ var Index = function (_Component) {
   }
 
   _createClass(Index, [{
+    key: 'changeInfo',
+    value: function changeInfo(e, key) {
+      this.setState(_defineProperty({}, key, e.target.value));
+    }
+  }, {
+    key: 'checkInfo',
+    value: function checkInfo() {
+      _antdMobile.Toast.loading("请稍后", 2, function (e) {
+        window.location.href = "/bindCard";
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
+      var self = this;
       return _react2.default.createElement(
         _user2.default,
         { title: '\u5B9E\u540D\u8BA4\u8BC1', module: 'userDetail', className: 'user-detail',
@@ -3953,7 +4078,9 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: '111' })
+              _react2.default.createElement('input', { type: 'text', value: this.state.name, onChange: function onChange(e) {
+                  self.changeInfo(e, "name");
+                } })
             )
           )
         ),
@@ -3968,7 +4095,9 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: '111' })
+              _react2.default.createElement('input', { type: 'number', value: this.state.idNum, onChange: function onChange(e) {
+                  self.changeInfo(e, "idNum");
+                } })
             )
           )
         ),
@@ -4002,7 +4131,7 @@ var Index = function (_Component) {
             { className: 'J_logout' },
             _react2.default.createElement(
               _antdMobile.Button,
-              { type: 'primary' },
+              { type: 'primary', onClick: this.checkInfo },
               '\u786E\u8BA4'
             )
           )
@@ -4329,7 +4458,7 @@ var Index = function (_Component) {
             { className: 'J_logout' },
             _react2.default.createElement(
               'a',
-              { href: '/bindCard' },
+              { href: '/certification' },
               _react2.default.createElement(
                 _antdMobile.Button,
                 { type: 'primary' },
@@ -4374,6 +4503,8 @@ var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -4393,7 +4524,14 @@ var Index = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
     _this.state = {
-      value: 0
+      value: 0,
+
+      oldPass: "",
+      oldPassHideText: "",
+      newPass: "",
+      newPassHideText: "",
+      newPassCheck: "",
+      newPassCheckHideText: ""
     };
 
     _this.onChange = _this.onChange.bind(_this);
@@ -4419,15 +4557,28 @@ var Index = function (_Component) {
       });
     }
   }, {
+    key: 'changeInfo',
+    value: function changeInfo(e, key) {
+      var _setState;
+
+      var length = e.target.value.length;
+      var hideText = "";
+      for (var i = 0; i < length; i++) {
+        hideText += "*";
+      };
+      this.setState((_setState = {}, _defineProperty(_setState, key, e.target.value), _defineProperty(_setState, key + "HideText", hideText), _setState));
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var self = this;
       return _react2.default.createElement(
         _user2.default,
         { title: '\u91CD\u7F6E\u5BC6\u7801', module: 'userDetail', className: 'user-detail',
           footer: _react2.default.createElement('div', null)
         },
         _react2.default.createElement(
-          'div',
+          _antdMobile.WingBlank,
           null,
           _react2.default.createElement(
             _antdMobile.List,
@@ -4437,12 +4588,15 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+              _react2.default.createElement('input', { type: 'text', value: this.state.oldPassHideText,
+                onChange: function onChange(e) {
+                  self.changeInfo(e, "oldPass");
+                } })
             )
           )
         ),
         _react2.default.createElement(
-          'div',
+          _antdMobile.WingBlank,
           null,
           _react2.default.createElement(
             _antdMobile.List,
@@ -4452,12 +4606,14 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+              _react2.default.createElement('input', { type: 'text', value: this.state.newPassHideText, onChange: function onChange(e) {
+                  self.changeInfo(e, "newPass");
+                } })
             )
           )
         ),
         _react2.default.createElement(
-          'div',
+          _antdMobile.WingBlank,
           null,
           _react2.default.createElement(
             _antdMobile.List,
@@ -4467,7 +4623,9 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+              _react2.default.createElement('input', { type: 'text', value: this.state.newPassCheckHideText, onChange: function onChange(e) {
+                  self.changeInfo(e, "newPassCheck");
+                } })
             )
           )
         ),
@@ -4701,6 +4859,134 @@ var Index = function (_Component) {
                   '\u6682\u65F6\u6CA1\u6709\u4EFB\u4F55\u8D44\u91D1\u8BB0\u5F55!!!'
                 )
               )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Index;
+}(_react.Component);
+
+exports.default = Index;
+
+/***/ }),
+
+/***/ 689:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _user = __webpack_require__(656);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _antdMobile = __webpack_require__(244);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // 人工验证
+
+
+var Item = _antdMobile.List.Item;
+var Step = _antdMobile.Steps.Step;
+
+
+var history = [];
+
+var Index = function (_Component) {
+  _inherits(Index, _Component);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+    _this.state = {
+      history: []
+    };
+    return _this;
+  }
+
+  _createClass(Index, [{
+    key: 'toHome',
+    value: function toHome() {
+      window.location.href = "/user";
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _user2.default,
+        { title: '\u9A8C\u8BC1\u4E2D', module: 'userDetail', className: 'user-detail',
+          footer: _react2.default.createElement('div', null)
+        },
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          history.length > 0 ? history.map(function (item) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'J_historyItem' },
+              _react2.default.createElement(
+                _antdMobile.Card,
+                null,
+                _react2.default.createElement(
+                  _antdMobile.Card.Body,
+                  null,
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    'This is content of `Card`'
+                  )
+                )
+              )
+            );
+          }) : _react2.default.createElement(
+            'div',
+            { className: 'J_historyItem' },
+            _react2.default.createElement(
+              _antdMobile.Card,
+              null,
+              _react2.default.createElement(
+                _antdMobile.Card.Body,
+                null,
+                _react2.default.createElement(
+                  'div',
+                  { className: 'J_msgText' },
+                  '\u6B63\u5728\u4EBA\u5DE5\u9A8C\u8BC1\u4E2D~'
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _antdMobile.WingBlank,
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'J_logout' },
+            _react2.default.createElement(
+              _antdMobile.Button,
+              { type: 'primary', onClick: this.toHome },
+              '\u8FD4\u56DE'
             )
           )
         )

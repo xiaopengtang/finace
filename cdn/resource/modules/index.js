@@ -37,7 +37,6 @@ export default async data => {
 			await this.isLogin()
 		}
 		render(){
-			console.log(Pages.User.Recharge);
 			return (
 				<ReactCSSTransitionGroup
 					transitionName="pager"
@@ -62,7 +61,8 @@ export default async data => {
 							<Route path="/resetPassword" component={Pages.User.ResetPassword} />
 							<Route path="/history" component={Pages.User.History} />
 							<Route path="/transactionDetails" component={Pages.User.TransactionDetails} />
-
+							<Route path="/certification" component={Pages.User.Certification} />
+							<Route path="/verification" component={Pages.User.Verification} />
 				    </div>
 				</ReactCSSTransitionGroup>
 			)

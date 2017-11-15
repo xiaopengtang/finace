@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import User from '../../../layout/user'
-import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion, InputItem, Picker} from 'antd-mobile'
+import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion, InputItem, Picker, Toast} from 'antd-mobile'
 const {Item} = List;
 const {Step} = Steps;
 
@@ -43,6 +43,9 @@ export default class Index extends Component {
     asyncValue: [],
     sValue: ['男', 1],
     visible: false,
+
+    name: "",
+    idNum: ""
   };
 
   onChange = (value) => {
@@ -56,7 +59,20 @@ export default class Index extends Component {
     console.log(value);
   }
 
+  changeInfo(e, key){
+    this.setState({
+      [key]: e.target.value
+    })
+  }
+
+  checkInfo(){
+    Toast.loading("请稍后", 2, (e)=>{
+      window.location.href = "/bindCard"
+    })
+  }
+
 	render () {
+    let self = this;
 		return (
 		    <User title="实名认证" module="userDetail" className="user-detail"
 		    	footer={
@@ -74,7 +90,11 @@ export default class Index extends Component {
           <div>
             <List renderHeader={() => '姓名'} className="my-list">
               <Item>
-                <input type="number" value="111" />
+                <input type="text" value={this.state.name} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "name")
+                  }
+                }/>
               </Item>
             </List>
           </div>
@@ -82,7 +102,11 @@ export default class Index extends Component {
           <div>
             <List renderHeader={() => '身份证号'} className="my-list">
               <Item>
-                <input type="number" value="111" />
+                <input type="number" value={this.state.idNum} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "idNum")
+                  }
+                }/>
               </Item>
             </List>
           </div>
@@ -100,7 +124,9 @@ export default class Index extends Component {
 
           <WingBlank>
             <div className="J_logout">
-              <Button type="primary">确认</Button>
+              <Button type="primary" onClick={
+                this.checkInfo
+              }>确认</Button>
             </div>
           </WingBlank>
 		    </User>

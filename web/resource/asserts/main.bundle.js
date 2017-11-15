@@ -4085,7 +4085,6 @@ exports.default = function () {
 							}, {
 								key: 'render',
 								value: function render() {
-									console.log(Pages.User.Recharge);
 									return _react2.default.createElement(
 										_reactAddonsCssTransitionGroup2.default,
 										{
@@ -4112,7 +4111,9 @@ exports.default = function () {
 											_react2.default.createElement(Route, { path: '/cardInfo', component: Pages.User.CardInfo }),
 											_react2.default.createElement(Route, { path: '/resetPassword', component: Pages.User.ResetPassword }),
 											_react2.default.createElement(Route, { path: '/history', component: Pages.User.History }),
-											_react2.default.createElement(Route, { path: '/transactionDetails', component: Pages.User.TransactionDetails })
+											_react2.default.createElement(Route, { path: '/transactionDetails', component: Pages.User.TransactionDetails }),
+											_react2.default.createElement(Route, { path: '/certification', component: Pages.User.Certification }),
+											_react2.default.createElement(Route, { path: '/verification', component: Pages.User.Verification })
 										)
 									);
 								}

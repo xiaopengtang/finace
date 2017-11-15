@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import User from '../../../layout/user'
-import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion, InputItem} from 'antd-mobile'
+import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion, InputItem, Toast} from 'antd-mobile'
 const {Item} = List;
 const {Step} = Steps;
 
@@ -26,11 +26,32 @@ const steps = [{
 
 export default class Index extends Component {
 
-	onChange = (key) => {
-    console.log(key);
+  constructor(props){
+    super(props);
+    this.changeInfo = this.changeInfo.bind(this);
+  }
+
+  state= {
+    bankName: "",
+    cardId: "",
+    province: "",
+    city: ""
+  }
+
+	checkInfo(){
+    Toast.loading("请稍后", 2, (e)=>{
+      window.location.href = "/verification"
+    })
+  }
+
+  changeInfo(e, key){
+    this.setState({
+      [key]: e.target.value
+    })
   }
 
 	render () {
+    let self = this;
 		return (
 		    <User title="绑定银行卡" module="userDetail" className="user-detail"
 		    	footer={
@@ -44,6 +65,62 @@ export default class Index extends Component {
               <WhiteSpace />
             </WingBlank>
           </div>
+
+          <WingBlank>
+            <List renderHeader={() => '请输入银行名:'} className="my-list">
+              <Item>
+                <input type="text" value={this.state.bankName} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "bankName")
+                  }
+                }/>
+              </Item>
+            </List>
+          </WingBlank>
+
+          <WingBlank>
+            <List renderHeader={() => '请输入银行卡号:'} className="my-list">
+              <Item>
+                <input type="number" value={this.state.cardId} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "cardId")
+                  }
+                }/>
+              </Item>
+            </List>
+          </WingBlank>
+
+          <WingBlank>
+            <List renderHeader={() => '请输入开户省份:'} className="my-list">
+              <Item>
+                <input type="text" value={this.state.province} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "province")
+                  }
+                }/>
+              </Item>
+            </List>
+          </WingBlank>
+
+          <WingBlank>
+            <List renderHeader={() => '请输入开户城市:'} className="my-list">
+              <Item>
+                <input type="text" value={this.state.city} onChange={
+                  (e)=>{
+                    self.changeInfo(e, "city")
+                  }
+                }/>
+              </Item>
+            </List>
+          </WingBlank>
+
+          <WingBlank>
+            <div className="J_logout">
+              <Button type="primary" onClick={
+                this.checkInfo
+              }>确认</Button>
+            </div>
+          </WingBlank>
 		    </User>
 		 )
 	}
