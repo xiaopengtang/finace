@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-15 03:00:01
+ * last update:2017-11-15 06:08:58
  */
 webpackJsonp_name_([0],{
 
@@ -1188,7 +1188,7 @@ var _TransactionDetails2 = __webpack_require__(677);
 
 var _TransactionDetails3 = _interopRequireDefault(_TransactionDetails2);
 
-var _Verification2 = __webpack_require__(689);
+var _Verification2 = __webpack_require__(678);
 
 var _Verification3 = _interopRequireDefault(_Verification2);
 
@@ -4873,7 +4873,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 689:
+/***/ 678:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
