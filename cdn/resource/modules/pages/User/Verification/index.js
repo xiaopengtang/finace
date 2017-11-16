@@ -18,7 +18,8 @@ export default class Index extends Component {
   };
 
   toHome(){
-    window.location.href = "/user"
+    // window.location.href = "/user"
+    this.props.history.push('/user')
   }
 
 	render () {

@@ -3,6 +3,7 @@ import User from '../../../layout/user'
 import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion} from 'antd-mobile'
 const {Item} = List;
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 export default class Index extends Component {
 
@@ -54,7 +55,7 @@ export default class Index extends Component {
 
 						<WingBlank>
 							<div className="userInfo">
-								<a href="/setting">
+								<Link to="/setting">
 									<div className="J_Avatar">
 										<img src="http://1989591.51vip.biz:7001/public/i/user_defualt.png" />
 									</div>
@@ -63,7 +64,7 @@ export default class Index extends Component {
 										<p className="phoneNum">137****3044</p>
 									</div>
 									<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
-								</a>
+								</Link>
 							</div>
 						</WingBlank>
 
@@ -93,28 +94,28 @@ export default class Index extends Component {
 						<WingBlank>
 							<Flex>
 								<Flex.Item>
-									<a href="/recharge">
+									<Link to="/recharge">
 										<div className="J_operation">
 											<img src="http://1989591.51vip.biz:7001/public/i/recharge_defualt.png"></img>
 											<p>充值</p>
 										</div>
-									</a>
+									</Link>
 								</Flex.Item>
 								<Flex.Item>
-									<a href="/withdrawals">
+									<Link to="/withdrawals">
 										<div className="J_operation">
 											<img src="http://1989591.51vip.biz:7001/public/i/withdrawals_defualt.png"></img>
 											<p>提现</p>
 										</div>
-									</a>
+									</Link>
 								</Flex.Item>
 								<Flex.Item>
-									<a href="/cardInfo">
+									<Link to="/cardInfo">
 									<div className="J_operation">
 										<img src="http://1989591.51vip.biz:7001/public/i/card_defualt.png"></img>
 										<p>银行卡</p>
 									</div>
-									</a>
+									</Link>
 								</Flex.Item>
 							</Flex>
 						</WingBlank>
@@ -130,7 +131,7 @@ export default class Index extends Component {
 							</Accordion.Panel>
 						</Accordion>
 
-						<a href="/history">
+						<Link to="/history">
 							<List className="my-list">
 								<Item>
 									<div className="J_listItem">
@@ -139,9 +140,9 @@ export default class Index extends Component {
 									</div>
 								</Item>
 							</List>
-						</a>
+						</Link>
 
-						<a href="/transactionDetails">
+						<Link to="/transactionDetails">
 							<List className="my-list">
 								<Item>
 									<div className="J_listItem">
@@ -150,7 +151,7 @@ export default class Index extends Component {
 									</div>
 								</Item>
 							</List>
-						</a>
+						</Link>
 
 						<WingBlank>
 							<div className="J_logout">

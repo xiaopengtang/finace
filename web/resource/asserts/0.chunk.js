@@ -2,11 +2,11 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-15 11:02:42
+ * last update:2017-11-15 06:15:34
  */
 webpackJsonp_name_([0],{
 
-/***/ 656:
+/***/ 655:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17,19 +17,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = exports.ForgetPwd = exports.Register = exports.Index = undefined;
 
-var _Index2 = __webpack_require__(658);
+var _Index2 = __webpack_require__(657);
 
 var _Index3 = _interopRequireDefault(_Index2);
 
-var _Register2 = __webpack_require__(659);
+var _Register2 = __webpack_require__(658);
 
 var _Register3 = _interopRequireDefault(_Register2);
 
-var _ForgetPwd2 = __webpack_require__(660);
+var _ForgetPwd2 = __webpack_require__(659);
 
 var _ForgetPwd3 = _interopRequireDefault(_ForgetPwd2);
 
-var _User2 = __webpack_require__(661);
+var _User2 = __webpack_require__(660);
 
 var _User = _interopRequireWildcard(_User2);
 
@@ -44,7 +44,7 @@ exports.User = _User;
 
 /***/ }),
 
-/***/ 657:
+/***/ 656:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65,13 +65,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -205,7 +205,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 658:
+/***/ 657:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -224,13 +224,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
 var _axios = __webpack_require__(103);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
@@ -450,7 +450,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 659:
+/***/ 658:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -469,13 +469,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -806,7 +806,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 660:
+/***/ 659:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -829,7 +829,7 @@ var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1113,7 +1113,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 661:
+/***/ 660:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1124,71 +1124,71 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Verification = exports.TransactionDetails = exports.History = exports.ResetPassword = exports.CardInfo = exports.Withdrawals = exports.Recharge = exports.Certification = exports.BindCard = exports.Setting = exports.UserDetail = exports.OrderMain = exports.Invest = exports.Apply = exports.Detail = exports.List = exports.Index = undefined;
 
-var _index = __webpack_require__(662);
+var _index = __webpack_require__(661);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _List2 = __webpack_require__(663);
+var _List2 = __webpack_require__(662);
 
 var _List3 = _interopRequireDefault(_List2);
 
-var _Detail2 = __webpack_require__(664);
+var _Detail2 = __webpack_require__(663);
 
 var _Detail3 = _interopRequireDefault(_Detail2);
 
-var _Apply2 = __webpack_require__(665);
+var _Apply2 = __webpack_require__(664);
 
 var _Apply3 = _interopRequireDefault(_Apply2);
 
-var _Invest2 = __webpack_require__(666);
+var _Invest2 = __webpack_require__(665);
 
 var _Invest3 = _interopRequireDefault(_Invest2);
 
-var _orderMain = __webpack_require__(668);
+var _orderMain = __webpack_require__(667);
 
 var _orderMain2 = _interopRequireDefault(_orderMain);
 
-var _UserDetail2 = __webpack_require__(669);
+var _UserDetail2 = __webpack_require__(668);
 
 var _UserDetail3 = _interopRequireDefault(_UserDetail2);
 
-var _Setting2 = __webpack_require__(670);
+var _Setting2 = __webpack_require__(669);
 
 var _Setting3 = _interopRequireDefault(_Setting2);
 
-var _BindCard2 = __webpack_require__(671);
+var _BindCard2 = __webpack_require__(670);
 
 var _BindCard3 = _interopRequireDefault(_BindCard2);
 
-var _Certification2 = __webpack_require__(672);
+var _Certification2 = __webpack_require__(671);
 
 var _Certification3 = _interopRequireDefault(_Certification2);
 
-var _Recharge2 = __webpack_require__(673);
+var _Recharge2 = __webpack_require__(672);
 
 var _Recharge3 = _interopRequireDefault(_Recharge2);
 
-var _Withdrawals2 = __webpack_require__(674);
+var _Withdrawals2 = __webpack_require__(673);
 
 var _Withdrawals3 = _interopRequireDefault(_Withdrawals2);
 
-var _CardInfo2 = __webpack_require__(675);
+var _CardInfo2 = __webpack_require__(674);
 
 var _CardInfo3 = _interopRequireDefault(_CardInfo2);
 
-var _ResetPassword2 = __webpack_require__(676);
+var _ResetPassword2 = __webpack_require__(675);
 
 var _ResetPassword3 = _interopRequireDefault(_ResetPassword2);
 
-var _History2 = __webpack_require__(677);
+var _History2 = __webpack_require__(676);
 
 var _History3 = _interopRequireDefault(_History2);
 
-var _TransactionDetails2 = __webpack_require__(678);
+var _TransactionDetails2 = __webpack_require__(677);
 
 var _TransactionDetails3 = _interopRequireDefault(_TransactionDetails2);
 
-var _Verification2 = __webpack_require__(679);
+var _Verification2 = __webpack_require__(678);
 
 var _Verification3 = _interopRequireDefault(_Verification2);
 
@@ -1214,7 +1214,7 @@ exports.Verification = _Verification3.default;
 
 /***/ }),
 
-/***/ 662:
+/***/ 661:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1229,7 +1229,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _class, _temp2;
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
@@ -1237,13 +1237,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1519,7 +1519,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 663:
+/***/ 662:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1536,13 +1536,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1725,7 +1725,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 664:
+/***/ 663:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1742,13 +1742,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1920,7 +1920,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 665:
+/***/ 664:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1939,11 +1939,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
@@ -2157,7 +2157,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 666:
+/***/ 665:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2172,7 +2172,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _class, _temp2;
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
@@ -2180,15 +2180,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _list = __webpack_require__(667);
+var _list = __webpack_require__(666);
 
 var _list2 = _interopRequireDefault(_list);
 
@@ -2257,7 +2257,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 667:
+/***/ 666:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2276,9 +2276,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
@@ -2463,7 +2463,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 668:
+/***/ 667:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2482,13 +2482,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _reactRouterDom = __webpack_require__(244);
+var _reactRouterDom = __webpack_require__(245);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
@@ -2544,22 +2544,22 @@ var Index = (_temp2 = _class = function (_Component) {
 							case 0:
 								productCode = this.context.$utils.queryString('id', this.props.location.search);
 								// console.log(this)
+								// console.log(productCode)
 
-								console.log(productCode);
-								_context.next = 4;
+								_context.next = 3;
 								return this.context.$store.api.user.queryDetail({ productCode: productCode });
 
-							case 4:
+							case 3:
 								info = _context.sent;
 
 								if (info) {
-									_context.next = 7;
+									_context.next = 6;
 									break;
 								}
 
 								return _context.abrupt('return');
 
-							case 7:
+							case 6:
 								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
 
 								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
@@ -2569,7 +2569,7 @@ var Index = (_temp2 = _class = function (_Component) {
 
 								this.setState({ info: info, scale: scale, productCode: productCode });
 
-							case 12:
+							case 11:
 							case 'end':
 								return _context.stop();
 						}
@@ -3107,7 +3107,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 669:
+/***/ 668:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3126,15 +3126,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = __webpack_require__(245);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3250,8 +3252,8 @@ var Index = (_temp2 = _class = function (_Component) {
 						'div',
 						{ className: 'userInfo' },
 						_react2.default.createElement(
-							'a',
-							{ href: '/setting' },
+							_reactRouterDom.Link,
+							{ to: '/setting' },
 							_react2.default.createElement(
 								'div',
 								{ className: 'J_Avatar' },
@@ -3347,8 +3349,8 @@ var Index = (_temp2 = _class = function (_Component) {
 							_antdMobile.Flex.Item,
 							null,
 							_react2.default.createElement(
-								'a',
-								{ href: '/recharge' },
+								_reactRouterDom.Link,
+								{ to: '/recharge' },
 								_react2.default.createElement(
 									'div',
 									{ className: 'J_operation' },
@@ -3365,8 +3367,8 @@ var Index = (_temp2 = _class = function (_Component) {
 							_antdMobile.Flex.Item,
 							null,
 							_react2.default.createElement(
-								'a',
-								{ href: '/withdrawals' },
+								_reactRouterDom.Link,
+								{ to: '/withdrawals' },
 								_react2.default.createElement(
 									'div',
 									{ className: 'J_operation' },
@@ -3383,8 +3385,8 @@ var Index = (_temp2 = _class = function (_Component) {
 							_antdMobile.Flex.Item,
 							null,
 							_react2.default.createElement(
-								'a',
-								{ href: '/cardInfo' },
+								_reactRouterDom.Link,
+								{ to: '/cardInfo' },
 								_react2.default.createElement(
 									'div',
 									{ className: 'J_operation' },
@@ -3430,8 +3432,8 @@ var Index = (_temp2 = _class = function (_Component) {
 						)
 					),
 					_react2.default.createElement(
-						'a',
-						{ href: '/history' },
+						_reactRouterDom.Link,
+						{ to: '/history' },
 						_react2.default.createElement(
 							_antdMobile.List,
 							{ className: 'my-list' },
@@ -3448,8 +3450,8 @@ var Index = (_temp2 = _class = function (_Component) {
 						)
 					),
 					_react2.default.createElement(
-						'a',
-						{ href: '/transactionDetails' },
+						_reactRouterDom.Link,
+						{ to: '/transactionDetails' },
 						_react2.default.createElement(
 							_antdMobile.List,
 							{ className: 'my-list' },
@@ -3492,7 +3494,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 670:
+/***/ 669:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3509,11 +3511,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
+
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3644,8 +3648,8 @@ var Index = function (_Component) {
             )
           ),
           _react2.default.createElement(
-            'a',
-            { href: '/cardInfo' },
+            _reactRouterDom.Link,
+            { to: '/cardInfo' },
             _react2.default.createElement(
               _antdMobile.List,
               { className: 'my-list' },
@@ -3667,8 +3671,8 @@ var Index = function (_Component) {
             )
           ),
           _react2.default.createElement(
-            'a',
-            { href: '/resetPassword' },
+            _reactRouterDom.Link,
+            { to: '/resetPassword' },
             _react2.default.createElement(
               _antdMobile.List,
               { className: 'my-list' },
@@ -3701,7 +3705,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 671:
+/***/ 670:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3718,11 +3722,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3786,8 +3790,11 @@ var Index = function (_Component) {
   _createClass(Index, [{
     key: 'checkInfo',
     value: function checkInfo() {
+      var _this2 = this;
+
       _antdMobile.Toast.loading("请稍后", 2, function (e) {
-        window.location.href = "/verification";
+        // window.location.href = "/verification"
+        _this2.props.history.push('/verification');
       });
     }
   }, {
@@ -3911,7 +3918,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 672:
+/***/ 671:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3928,11 +3935,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4024,14 +4031,17 @@ var Index = function (_Component) {
   }, {
     key: 'checkInfo',
     value: function checkInfo() {
+      var _this2 = this;
+
       _antdMobile.Toast.loading("请稍后", 2, function (e) {
-        window.location.href = "/bindCard";
+        _this2.props.history.push("/bindCard");
+        // window.location.href = ""
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var self = this;
       return _react2.default.createElement(
@@ -4095,8 +4105,8 @@ var Index = function (_Component) {
             cols: this.state.cols,
             value: this.state.asyncValue,
             onChange: function onChange(v) {
-              return _this2.setState({ sValue: v }, function (x) {
-                return console.log(_this2.state);
+              return _this3.setState({ sValue: v }, function (x) {
+                return console.log(_this3.state);
               });
             },
             onOk: function onOk(v) {
@@ -4134,7 +4144,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 673:
+/***/ 672:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4151,11 +4161,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4250,7 +4260,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 674:
+/***/ 673:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4267,11 +4277,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4366,7 +4376,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 675:
+/***/ 674:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4383,11 +4393,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _reactRouterDom = __webpack_require__(245);
+
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4444,8 +4456,8 @@ var Index = function (_Component) {
             'div',
             { className: 'J_logout' },
             _react2.default.createElement(
-              'a',
-              { href: '/certification' },
+              _reactRouterDom.Link,
+              { to: '/certification' },
               _react2.default.createElement(
                 _antdMobile.Button,
                 { type: 'primary' },
@@ -4465,7 +4477,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 676:
+/***/ 675:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4482,11 +4494,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4640,7 +4652,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 677:
+/***/ 676:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4657,11 +4669,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4750,7 +4762,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 678:
+/***/ 677:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4767,11 +4779,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4860,7 +4872,7 @@ exports.default = Index;
 
 /***/ }),
 
-/***/ 679:
+/***/ 678:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4877,11 +4889,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user = __webpack_require__(657);
+var _user = __webpack_require__(656);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _antdMobile = __webpack_require__(243);
+var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4915,7 +4927,8 @@ var Index = function (_Component) {
   _createClass(Index, [{
     key: 'toHome',
     value: function toHome() {
-      window.location.href = "/user";
+      // window.location.href = "/user"
+      this.props.history.push('/user');
     }
   }, {
     key: 'render',

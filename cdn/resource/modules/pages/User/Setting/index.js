@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import User from '../../../layout/user'
+import {Link} from 'react-router-dom'
 import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion} from 'antd-mobile'
 const {Item} = List;
 
@@ -72,7 +73,7 @@ export default class Index extends Component {
 								</div>
 							</Item>
 						</List>
-						<a href="/cardInfo">
+						<Link to="/cardInfo">
             	<List className="my-list">
               	<Item
                 	extra={
@@ -86,8 +87,8 @@ export default class Index extends Component {
                 	</div>
               	</Item>
             	</List>
-						</a>
-						<a href="/resetPassword">
+						</Link>
+						<Link to="/resetPassword">
             	<List className="my-list">
               	<Item
                 	extra={
@@ -101,7 +102,7 @@ export default class Index extends Component {
                 	</div>
               	</Item>
             	</List>
-						</a>
+						</Link>
 					</div>
 		    </User>
 		 )

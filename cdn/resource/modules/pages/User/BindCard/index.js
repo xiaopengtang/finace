@@ -40,7 +40,8 @@ export default class Index extends Component {
 
 	checkInfo(){
     Toast.loading("请稍后", 2, (e)=>{
-      window.location.href = "/verification"
+      // window.location.href = "/verification"
+      this.props.history.push('/verification')
     })
   }
 

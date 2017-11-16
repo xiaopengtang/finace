@@ -1,6 +1,7 @@
 // 银行卡信息
 import React, {Component} from 'react'
 import User from '../../../layout/user'
+import {Link} from 'react-router-dom'
 import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion, InputItem, Picke, Toast} from 'antd-mobile'
 const {Item} = List;
 const {Step} = Steps;
@@ -29,9 +30,9 @@ export default class Index extends Component {
           </WingBlank>
           <WingBlank>
             <div className="J_logout">
-              <a href="/certification">
+              <Link to="/certification">
                 <Button type="primary">去绑定银行卡</Button>
-              </a>
+              </Link>
             </div>
           </WingBlank>
 		    </User>

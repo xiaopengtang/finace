@@ -67,7 +67,8 @@ export default class Index extends Component {
 
   checkInfo(){
     Toast.loading("请稍后", 2, (e)=>{
-      window.location.href = "/bindCard"
+      this.props.history.push("/bindCard")
+      // window.location.href = ""
     })
   }
 
