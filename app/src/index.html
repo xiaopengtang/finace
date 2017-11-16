@@ -38,7 +38,6 @@
   <!-- Ionic's root component and where the app will load -->
   <!-- <ion-app></ion-app> -->
    <div class="wrap">
-    <span class="pages-content"><div class="home-index"><div class="logo"><img src="public/i/logo.png" style="width: 60%;"></div><p style="position: relative;"><input type="text" name="accountName" id="telephoneNumber" value="" placeholder="请输入您的手机号"><img src="public/i/clear.png" class="inputImg" id="tab1"></p><p style="position: relative; margin-bottom: 30px;"><input type="password" name="password" id="passWord" value="" placeholder="登录密码"><img src="public/i/eyesclose.png" class="inputImg" id="tab2"></p><a class="LogBtn_s">立即登录</a><p style="margin-top: 20px;"><span class="goRegist"> <a href="/register">立即注册</a></span><span class="forget"><a href="/forgetPwd">忘记密码？</a></span></p><p class="server"><a href="tel:400-000-3060">客服电话:400-000-3060</a></p></div></span>
    </div>
 
   <!-- The polyfills js is generated during the build process -->
@@ -53,7 +52,7 @@
   <script src="public/common.bundle.js"></script>
   <script src="public/main.bundle.js"></script>
   <script>
-    // console.log(react)
+    window.G = {'isApp': true}
   </script>
 
 
