@@ -29,6 +29,7 @@ export default class Index extends Component {
   constructor(props){
     super(props);
     this.changeInfo = this.changeInfo.bind(this);
+    this.checkInfo = this.checkInfo.bind(this);
   }
 
   state= {
@@ -39,10 +40,29 @@ export default class Index extends Component {
   }
 
 	checkInfo(){
-    Toast.loading("请稍后", 2, (e)=>{
-      // window.location.href = "/verification"
-      this.props.history.push('/verification')
-    })
+
+    let self = this;
+    let msg = false;
+    self.state.bankName == ""
+      ? msg = "姓名不可以为空"
+      : false;
+    self.state.cardId == ""
+      ? msg = "银行卡号不可以为空"
+      : false;
+    self.state.province == ""
+      ? msg = "开户省份不可以为空"
+      : false;
+    self.state.city == ""
+      ? msg = "开户城市不可以为空"
+      : false;
+
+    if (msg) {
+      Toast.fail(msg, 1);
+    } else {
+      Toast.loading("请稍后", 2, (e)=>{
+        self.props.history.push("/verification")
+      })
+    }
   }
 
   changeInfo(e, key){
@@ -70,7 +90,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请输入银行名:'} className="my-list">
               <Item>
-                <input type="text" value={this.state.bankName} onChange={
+                <input className="J_input" type="text" value={this.state.bankName} onChange={
                   (e)=>{
                     self.changeInfo(e, "bankName")
                   }
@@ -82,7 +102,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请输入银行卡号:'} className="my-list">
               <Item>
-                <input type="number" value={this.state.cardId} onChange={
+                <input className="J_input" type="number" value={this.state.cardId} onChange={
                   (e)=>{
                     self.changeInfo(e, "cardId")
                   }
@@ -94,7 +114,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请输入开户省份:'} className="my-list">
               <Item>
-                <input type="text" value={this.state.province} onChange={
+                <input className="J_input" type="text" value={this.state.province} onChange={
                   (e)=>{
                     self.changeInfo(e, "province")
                   }
@@ -106,7 +126,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请输入开户城市:'} className="my-list">
               <Item>
-                <input type="text" value={this.state.city} onChange={
+                <input className="J_input" type="text" value={this.state.city} onChange={
                   (e)=>{
                     self.changeInfo(e, "city")
                   }

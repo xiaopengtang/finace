@@ -1,16 +1,63 @@
 import React, {Component} from 'react'
 import User from '../../../layout/user'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { NoticeBar, WingBlank, Card, WhiteSpace, Button, List, Icon, Checkbox, Steps, Flex, Accordion} from 'antd-mobile'
 const {Item} = List;
 
 export default class Index extends Component {
+
+	static contextTypes = {
+		'$store': PropTypes.object.isRequired,
+		'$utils': PropTypes.object.isRequired
+	};
+
+	state = {
+		'info': {}
+	}
+
+	getChildContext(){
+		return {$store, $utils}
+	}
+
+	async componentDidMount(){
+		const info = await this.context.$store.api.user.userDetail({});
+		if(!info){
+			return
+		}
+		this.setState({info})
+	}
 
 	onChange = (key) => {
     console.log(key);
   }
 
 	render () {
+		let {
+			addTime,
+			birthday,
+			email,
+			emergencyContactName,
+			emergencyContactPhone,
+			emergencyContactRelation,
+			id,
+			idCheck,
+			idNo,
+			idType,
+			lastLoginTime,
+			level,
+			name,
+			optTime,
+			phone,
+			qq,
+			recommender,
+			sex,
+			status,
+			userCode,
+			userId,
+			weibo,
+			weixin,
+		} = this.state.info;
 		return (
 		    <User title="个人设置" module="userDetail" className="user-detail"
 		    	footer={
@@ -21,7 +68,7 @@ export default class Index extends Component {
 						<List className="my-list">
 							<Item extra={
                   <div>
-                    <span>{"leeexmxmx" + " "}</span>
+                    <span>{name? name: userCode + " "}</span>
                     <i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
                   </div>
                 }>
@@ -64,7 +111,7 @@ export default class Index extends Component {
 							<Item
                 extra={
                   <div>
-                    <span>{"137****3044"}</span>
+                    <span>{phone}</span>
                   </div>
                 }
               >

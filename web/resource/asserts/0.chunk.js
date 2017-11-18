@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-15 06:15:34
+ * last update:2017-11-18 02:23:17
  */
 webpackJsonp_name_([0],{
 
@@ -3164,63 +3164,22 @@ var Index = (_temp2 = _class = function (_Component) {
 		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-			'info': {
-				'financialProduct': {},
-				'financialAudit': {},
-				'financialCar': {},
-				'financialFileList': {},
-				'financialRecordList': [],
-				'financialUser': {}
-			},
-			'scale': 0,
-			'productCode': null
+			'info': {}
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(Index, [{
-		key: 'getChildContext',
-		value: function getChildContext() {
-			return { $store: $store, $utils: $utils };
-		}
-	}, {
-		key: 'componentDidMount',
+		key: 'loginout',
 		value: function () {
 			var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-				var info, _info$financialProduc, preYearRate, deadlineDays, scale;
-
 				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
 							case 0:
 								_context.next = 2;
-								return this.context.$store.api.user.account({});
+								return this.context.$store.auth.loginout({});
 
 							case 2:
-								info = _context.sent;
-
-								console.log(222);
-								console.log(info);
-								console.log(this.context.$store.api.user);
-								console.log(this.context);
-
-								if (info) {
-									_context.next = 9;
-									break;
-								}
-
-								return _context.abrupt('return');
-
-							case 9:
-								_info$financialProduc = info.financialProduct, preYearRate = _info$financialProduc.preYearRate, deadlineDays = _info$financialProduc.deadlineDays;
-
-								preYearRate = isNaN(preYearRate) ? 0 : preYearRate;
-								deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays;
-								scale = parseInt(preYearRate * 0.01 * deadlineDays / 365 * 10000);
-								// preYearRate = parseFloat(preYearRate)
-
-								this.setState({ info: info, scale: scale, productCode: productCode });
-
-							case 14:
 							case 'end':
 								return _context.stop();
 						}
@@ -3228,8 +3187,52 @@ var Index = (_temp2 = _class = function (_Component) {
 				}, _callee, this);
 			}));
 
-			function componentDidMount() {
+			function loginout() {
 				return _ref2.apply(this, arguments);
+			}
+
+			return loginout;
+		}()
+	}, {
+		key: 'getChildContext',
+		value: function getChildContext() {
+			return { $store: $store, $utils: $utils };
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function () {
+			var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+				var info;
+				return regeneratorRuntime.wrap(function _callee2$(_context2) {
+					while (1) {
+						switch (_context2.prev = _context2.next) {
+							case 0:
+								_context2.next = 2;
+								return this.context.$store.api.user.userDetail({});
+
+							case 2:
+								info = _context2.sent;
+
+								if (info) {
+									_context2.next = 5;
+									break;
+								}
+
+								return _context2.abrupt('return');
+
+							case 5:
+								this.setState({ info: info });
+
+							case 6:
+							case 'end':
+								return _context2.stop();
+						}
+					}
+				}, _callee2, this);
+			}));
+
+			function componentDidMount() {
+				return _ref3.apply(this, arguments);
 			}
 
 			return componentDidMount;
@@ -3237,6 +3240,33 @@ var Index = (_temp2 = _class = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
+			var _state$info = this.state.info,
+			    addTime = _state$info.addTime,
+			    birthday = _state$info.birthday,
+			    email = _state$info.email,
+			    emergencyContactName = _state$info.emergencyContactName,
+			    emergencyContactPhone = _state$info.emergencyContactPhone,
+			    emergencyContactRelation = _state$info.emergencyContactRelation,
+			    id = _state$info.id,
+			    idCheck = _state$info.idCheck,
+			    idNo = _state$info.idNo,
+			    idType = _state$info.idType,
+			    lastLoginTime = _state$info.lastLoginTime,
+			    level = _state$info.level,
+			    name = _state$info.name,
+			    optTime = _state$info.optTime,
+			    phone = _state$info.phone,
+			    qq = _state$info.qq,
+			    recommender = _state$info.recommender,
+			    sex = _state$info.sex,
+			    status = _state$info.status,
+			    userCode = _state$info.userCode,
+			    userId = _state$info.userId,
+			    weibo = _state$info.weibo,
+			    weixin = _state$info.weixin;
+
 			return _react2.default.createElement(
 				_user2.default,
 				{ title: '\u4E2A\u4EBA\u4E2D\u5FC3', module: 'userDetail', className: 'user-detail' },
@@ -3265,12 +3295,12 @@ var Index = (_temp2 = _class = function (_Component) {
 								_react2.default.createElement(
 									'p',
 									{ className: 'userName' },
-									'leeexmxmx'
+									!!name ? name : userCode
 								),
 								_react2.default.createElement(
 									'p',
 									{ className: 'phoneNum' },
-									'137****3044'
+									phone
 								)
 							),
 							_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
@@ -3475,7 +3505,9 @@ var Index = (_temp2 = _class = function (_Component) {
 							{ className: 'J_logout' },
 							_react2.default.createElement(
 								_antdMobile.Button,
-								{ type: 'warning' },
+								{ type: 'warning', onClick: function onClick(e) {
+										_this2.loginout();
+									} },
 								'\u9000\u51FA\u767B\u5F55'
 							)
 						)
@@ -3501,11 +3533,13 @@ exports.default = Index;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+		value: true
 });
 exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
 
 var _react = __webpack_require__(0);
 
@@ -3517,9 +3551,15 @@ var _user2 = _interopRequireDefault(_user);
 
 var _reactRouterDom = __webpack_require__(245);
 
+var _propTypes = __webpack_require__(9);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _antdMobile = __webpack_require__(244);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3528,179 +3568,251 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Item = _antdMobile.List.Item;
+var Index = (_temp2 = _class = function (_Component) {
+		_inherits(Index, _Component);
 
-var Index = function (_Component) {
-  _inherits(Index, _Component);
+		function Index() {
+				var _ref;
 
-  function Index() {
-    var _ref;
+				var _temp, _this, _ret;
 
-    var _temp, _this, _ret;
+				_classCallCheck(this, Index);
 
-    _classCallCheck(this, Index);
+				for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+						args[_key] = arguments[_key];
+				}
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+				return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+						'info': {}
+				}, _this.onChange = function (key) {
+						console.log(key);
+				}, _temp), _possibleConstructorReturn(_this, _ret);
+		}
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function (key) {
-      console.log(key);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+		_createClass(Index, [{
+				key: 'getChildContext',
+				value: function getChildContext() {
+						return { $store: $store, $utils: $utils };
+				}
+		}, {
+				key: 'componentDidMount',
+				value: function () {
+						var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+								var info;
+								return regeneratorRuntime.wrap(function _callee$(_context) {
+										while (1) {
+												switch (_context.prev = _context.next) {
+														case 0:
+																_context.next = 2;
+																return this.context.$store.api.user.userDetail({});
 
-  _createClass(Index, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _user2.default,
-        { title: '\u4E2A\u4EBA\u8BBE\u7F6E', module: 'userDetail', className: 'user-detail',
-          footer: _react2.default.createElement('div', null)
-        },
-        _react2.default.createElement(
-          'div',
-          { className: '' },
-          _react2.default.createElement(
-            _antdMobile.List,
-            { className: 'my-list' },
-            _react2.default.createElement(
-              Item,
-              { extra: _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                    'span',
-                    null,
-                    "leeexmxmx" + " "
-                  ),
-                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-                ) },
-              _react2.default.createElement(
-                'div',
-                { className: 'J_listItem' },
-                '\u7528\u6237\u540D'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _antdMobile.List,
-            { className: 'my-list' },
-            _react2.default.createElement(
-              Item,
-              {
-                extra: _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement('span', null),
-                  _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-                )
-              },
-              _react2.default.createElement(
-                'div',
-                { className: 'J_listItem' },
-                '\u4E2A\u4EBA\u4FE1\u606F'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _antdMobile.List,
-            { className: 'my-list' },
-            _react2.default.createElement(
-              Item,
-              {
-                extra: _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                    'span',
-                    null,
-                    "个人账户"
-                  )
-                )
-              },
-              _react2.default.createElement(
-                'div',
-                { className: 'J_listItem' },
-                '\u8D26\u6237\u7C7B\u578B'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _antdMobile.List,
-            { className: 'my-list' },
-            _react2.default.createElement(
-              Item,
-              {
-                extra: _react2.default.createElement(
-                  'div',
-                  null,
-                  _react2.default.createElement(
-                    'span',
-                    null,
-                    "137****3044"
-                  )
-                )
-              },
-              _react2.default.createElement(
-                'div',
-                { className: 'J_listItem' },
-                '\u624B\u673A'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/cardInfo' },
-            _react2.default.createElement(
-              _antdMobile.List,
-              { className: 'my-list' },
-              _react2.default.createElement(
-                Item,
-                {
-                  extra: _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-                  )
-                },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'J_listItem' },
-                  '\u94F6\u884C\u5361'
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/resetPassword' },
-            _react2.default.createElement(
-              _antdMobile.List,
-              { className: 'my-list' },
-              _react2.default.createElement(
-                Item,
-                {
-                  extra: _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-                  )
-                },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'J_listItem' },
-                  '\u66F4\u6362\u5BC6\u7801'
-                )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+														case 2:
+																info = _context.sent;
 
-  return Index;
-}(_react.Component);
+																if (info) {
+																		_context.next = 5;
+																		break;
+																}
 
+																return _context.abrupt('return');
+
+														case 5:
+																this.setState({ info: info });
+
+														case 6:
+														case 'end':
+																return _context.stop();
+												}
+										}
+								}, _callee, this);
+						}));
+
+						function componentDidMount() {
+								return _ref2.apply(this, arguments);
+						}
+
+						return componentDidMount;
+				}()
+		}, {
+				key: 'render',
+				value: function render() {
+						var _state$info = this.state.info,
+						    addTime = _state$info.addTime,
+						    birthday = _state$info.birthday,
+						    email = _state$info.email,
+						    emergencyContactName = _state$info.emergencyContactName,
+						    emergencyContactPhone = _state$info.emergencyContactPhone,
+						    emergencyContactRelation = _state$info.emergencyContactRelation,
+						    id = _state$info.id,
+						    idCheck = _state$info.idCheck,
+						    idNo = _state$info.idNo,
+						    idType = _state$info.idType,
+						    lastLoginTime = _state$info.lastLoginTime,
+						    level = _state$info.level,
+						    name = _state$info.name,
+						    optTime = _state$info.optTime,
+						    phone = _state$info.phone,
+						    qq = _state$info.qq,
+						    recommender = _state$info.recommender,
+						    sex = _state$info.sex,
+						    status = _state$info.status,
+						    userCode = _state$info.userCode,
+						    userId = _state$info.userId,
+						    weibo = _state$info.weibo,
+						    weixin = _state$info.weixin;
+
+						return _react2.default.createElement(
+								_user2.default,
+								{ title: '\u4E2A\u4EBA\u8BBE\u7F6E', module: 'userDetail', className: 'user-detail',
+										footer: _react2.default.createElement('div', null)
+								},
+								_react2.default.createElement(
+										'div',
+										{ className: '' },
+										_react2.default.createElement(
+												_antdMobile.List,
+												{ className: 'my-list' },
+												_react2.default.createElement(
+														Item,
+														{ extra: _react2.default.createElement(
+																		'div',
+																		null,
+																		_react2.default.createElement(
+																				'span',
+																				null,
+																				name ? name : userCode + " "
+																		),
+																		_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+																) },
+														_react2.default.createElement(
+																'div',
+																{ className: 'J_listItem' },
+																'\u7528\u6237\u540D'
+														)
+												)
+										),
+										_react2.default.createElement(
+												_antdMobile.List,
+												{ className: 'my-list' },
+												_react2.default.createElement(
+														Item,
+														{
+																extra: _react2.default.createElement(
+																		'div',
+																		null,
+																		_react2.default.createElement('span', null),
+																		_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+																)
+														},
+														_react2.default.createElement(
+																'div',
+																{ className: 'J_listItem' },
+																'\u4E2A\u4EBA\u4FE1\u606F'
+														)
+												)
+										),
+										_react2.default.createElement(
+												_antdMobile.List,
+												{ className: 'my-list' },
+												_react2.default.createElement(
+														Item,
+														{
+																extra: _react2.default.createElement(
+																		'div',
+																		null,
+																		_react2.default.createElement(
+																				'span',
+																				null,
+																				"个人账户"
+																		)
+																)
+														},
+														_react2.default.createElement(
+																'div',
+																{ className: 'J_listItem' },
+																'\u8D26\u6237\u7C7B\u578B'
+														)
+												)
+										),
+										_react2.default.createElement(
+												_antdMobile.List,
+												{ className: 'my-list' },
+												_react2.default.createElement(
+														Item,
+														{
+																extra: _react2.default.createElement(
+																		'div',
+																		null,
+																		_react2.default.createElement(
+																				'span',
+																				null,
+																				phone
+																		)
+																)
+														},
+														_react2.default.createElement(
+																'div',
+																{ className: 'J_listItem' },
+																'\u624B\u673A'
+														)
+												)
+										),
+										_react2.default.createElement(
+												_reactRouterDom.Link,
+												{ to: '/cardInfo' },
+												_react2.default.createElement(
+														_antdMobile.List,
+														{ className: 'my-list' },
+														_react2.default.createElement(
+																Item,
+																{
+																		extra: _react2.default.createElement(
+																				'div',
+																				null,
+																				_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+																		)
+																},
+																_react2.default.createElement(
+																		'div',
+																		{ className: 'J_listItem' },
+																		'\u94F6\u884C\u5361'
+																)
+														)
+												)
+										),
+										_react2.default.createElement(
+												_reactRouterDom.Link,
+												{ to: '/resetPassword' },
+												_react2.default.createElement(
+														_antdMobile.List,
+														{ className: 'my-list' },
+														_react2.default.createElement(
+																Item,
+																{
+																		extra: _react2.default.createElement(
+																				'div',
+																				null,
+																				_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+																		)
+																},
+																_react2.default.createElement(
+																		'div',
+																		{ className: 'J_listItem' },
+																		'\u66F4\u6362\u5BC6\u7801'
+																)
+														)
+												)
+										)
+								)
+						);
+				}
+		}]);
+
+		return Index;
+}(_react.Component), _class.contextTypes = {
+		'$store': _propTypes2.default.object.isRequired,
+		'$utils': _propTypes2.default.object.isRequired
+}, _temp2);
 exports.default = Index;
 
 /***/ }),
@@ -3784,18 +3896,28 @@ var Index = function (_Component) {
     };
 
     _this.changeInfo = _this.changeInfo.bind(_this);
+    _this.checkInfo = _this.checkInfo.bind(_this);
     return _this;
   }
 
   _createClass(Index, [{
     key: 'checkInfo',
     value: function checkInfo() {
-      var _this2 = this;
 
-      _antdMobile.Toast.loading("请稍后", 2, function (e) {
-        // window.location.href = "/verification"
-        _this2.props.history.push('/verification');
-      });
+      var self = this;
+      var msg = false;
+      self.state.bankName == "" ? msg = "姓名不可以为空" : false;
+      self.state.cardId == "" ? msg = "银行卡号不可以为空" : false;
+      self.state.province == "" ? msg = "开户省份不可以为空" : false;
+      self.state.city == "" ? msg = "开户城市不可以为空" : false;
+
+      if (msg) {
+        _antdMobile.Toast.fail(msg, 1);
+      } else {
+        _antdMobile.Toast.loading("请稍后", 2, function (e) {
+          self.props.history.push("/verification");
+        });
+      }
     }
   }, {
     key: 'changeInfo',
@@ -3837,7 +3959,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.bankName, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.bankName, onChange: function onChange(e) {
                   self.changeInfo(e, "bankName");
                 } })
             )
@@ -3854,7 +3976,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.cardId, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'number', value: this.state.cardId, onChange: function onChange(e) {
                   self.changeInfo(e, "cardId");
                 } })
             )
@@ -3871,7 +3993,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.province, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.province, onChange: function onChange(e) {
                   self.changeInfo(e, "province");
                 } })
             )
@@ -3888,7 +4010,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.city, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.city, onChange: function onChange(e) {
                   self.changeInfo(e, "city");
                 } })
             )
@@ -3989,21 +4111,27 @@ var seasons = [{
   value: 0
 }];
 
+//
+// <Picker
+//   data={seasons}
+//   cols={this.state.cols}
+//   value={this.state.asyncValue}
+//   onChange={v => this.setState({ sValue: v }, x=>console.log(this.state))}
+//   onOk={v => console.log(v)}
+//   title="选择性别"
+// >
+//   <List.Item arrow="horizontal" onClick={this.onClick}>性别</List.Item>
+// </Picker>
+
 var Index = function (_Component) {
   _inherits(Index, _Component);
 
-  function Index() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function Index(props) {
     _classCallCheck(this, Index);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Index.__proto__ || Object.getPrototypeOf(Index)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this.state = {
       data: [],
       cols: 1,
       pickerValue: [],
@@ -4013,14 +4141,21 @@ var Index = function (_Component) {
 
       name: "",
       idNum: ""
-    }, _this.onChange = function (value) {
+    };
+
+    _this.onChange = function (value) {
       console.log(value);
       _this.setState({
         value: value
       });
-    }, _this.onScrollChange = function (value) {
+    };
+
+    _this.onScrollChange = function (value) {
       console.log(value);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    };
+
+    _this.checkInfo = _this.checkInfo.bind(_this);
+    return _this;
   }
 
   _createClass(Index, [{
@@ -4031,18 +4166,24 @@ var Index = function (_Component) {
   }, {
     key: 'checkInfo',
     value: function checkInfo() {
-      var _this2 = this;
 
-      _antdMobile.Toast.loading("请稍后", 2, function (e) {
-        _this2.props.history.push("/bindCard");
-        // window.location.href = ""
-      });
+      var self = this;
+      console.log(self.state);
+      var msg = false;
+      self.state.name == "" ? msg = "姓名不可以为空" : false;
+      self.state.idNum == "" ? msg = "身份证号不可以为空" : false;
+
+      if (msg) {
+        _antdMobile.Toast.fail(msg, 1);
+      } else {
+        _antdMobile.Toast.loading("请稍后", 2, function (e) {
+          self.props.history.push("/bindCard");
+        });
+      }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
-
       var self = this;
       return _react2.default.createElement(
         _user2.default,
@@ -4075,7 +4216,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.name, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.name, onChange: function onChange(e) {
                   self.changeInfo(e, "name");
                 } })
             )
@@ -4092,32 +4233,10 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.idNum, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'number', value: this.state.idNum, onChange: function onChange(e) {
                   self.changeInfo(e, "idNum");
                 } })
             )
-          )
-        ),
-        _react2.default.createElement(
-          _antdMobile.Picker,
-          {
-            data: seasons,
-            cols: this.state.cols,
-            value: this.state.asyncValue,
-            onChange: function onChange(v) {
-              return _this3.setState({ sValue: v }, function (x) {
-                return console.log(_this3.state);
-              });
-            },
-            onOk: function onOk(v) {
-              return console.log(v);
-            },
-            title: '\u9009\u62E9\u6027\u522B'
-          },
-          _react2.default.createElement(
-            _antdMobile.List.Item,
-            { arrow: 'horizontal', onClick: this.onClick },
-            '\u6027\u522B'
           )
         ),
         _react2.default.createElement(
@@ -4208,7 +4327,6 @@ var Index = function (_Component) {
   }, {
     key: 'determine',
     value: function determine() {
-      console.log(1111);
       _antdMobile.Toast.loading("请稍后", 2, function (e) {
         _antdMobile.Toast.offline('服务器端网络异常!!!', 1);
       });
@@ -4232,7 +4350,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+              _react2.default.createElement('input', { className: 'J_input', type: 'number', value: this.state.value, onChange: this.onChange })
             )
           )
         ),
@@ -4348,7 +4466,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'number', value: this.state.value, onChange: this.onChange })
+              _react2.default.createElement('input', { className: 'J_input', type: 'number', value: this.state.value, onChange: this.onChange })
             )
           )
         ),
@@ -4587,7 +4705,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.oldPassHideText,
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.oldPassHideText,
                 onChange: function onChange(e) {
                   self.changeInfo(e, "oldPass");
                 } })
@@ -4605,7 +4723,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.newPassHideText, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.newPassHideText, onChange: function onChange(e) {
                   self.changeInfo(e, "newPass");
                 } })
             )
@@ -4622,7 +4740,7 @@ var Index = function (_Component) {
             _react2.default.createElement(
               Item,
               null,
-              _react2.default.createElement('input', { type: 'text', value: this.state.newPassCheckHideText, onChange: function onChange(e) {
+              _react2.default.createElement('input', { className: 'J_input', type: 'text', value: this.state.newPassCheckHideText, onChange: function onChange(e) {
                   self.changeInfo(e, "newPassCheck");
                 } })
             )
@@ -4921,6 +5039,8 @@ var Index = function (_Component) {
     _this.state = {
       history: []
     };
+
+    _this.toHome = _this.toHome.bind(_this);
     return _this;
   }
 
@@ -4971,7 +5091,7 @@ var Index = function (_Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'J_msgText' },
-                  '\u6B63\u5728\u4EBA\u5DE5\u9A8C\u8BC1\u4E2D~'
+                  '\u6B63\u5728\u4E3A\u60A8\u5BA1\u6838~'
                 )
               )
             )

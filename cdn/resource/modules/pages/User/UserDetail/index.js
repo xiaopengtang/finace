@@ -13,16 +13,11 @@ export default class Index extends Component {
 	};
 
 	state = {
-		'info': {
-			'financialProduct': {},
-			'financialAudit': {},
-			'financialCar': {},
-			'financialFileList': {},
-			'financialRecordList': [],
-			'financialUser': {}
-		},
-		'scale': 0,
-		'productCode': null
+		'info': {}
+	}
+
+	async loginout(){
+		await this.context.$store.auth.loginout({});
 	}
 
 	getChildContext(){
@@ -30,25 +25,39 @@ export default class Index extends Component {
 	}
 
 	async componentDidMount(){
-		// const productCode = this.context.$utils.queryString('id', this.props.location.search)
-		const info = await this.context.$store.api.user.account({});
-		console.log(222);
-		console.log(info);
-		console.log(this.context.$store.api.user);
-		console.log(this.context);
-
+		const info = await this.context.$store.api.user.userDetail({});
 		if(!info){
 			return
 		}
-		let {preYearRate, deadlineDays} = info.financialProduct
-		preYearRate = isNaN(preYearRate) ? 0 : preYearRate
-		deadlineDays = isNaN(deadlineDays) ? 0 : deadlineDays
-		const scale = parseInt(((preYearRate * 0.01 * deadlineDays) / 365) * 10000)
-		// preYearRate = parseFloat(preYearRate)
-		this.setState({info, scale, productCode})
+		this.setState({info})
 	}
 
 	render () {
+		let {
+			addTime,
+			birthday,
+			email,
+			emergencyContactName,
+			emergencyContactPhone,
+			emergencyContactRelation,
+			id,
+			idCheck,
+			idNo,
+			idType,
+			lastLoginTime,
+			level,
+			name,
+			optTime,
+			phone,
+			qq,
+			recommender,
+			sex,
+			status,
+			userCode,
+			userId,
+			weibo,
+			weixin,
+		} = this.state.info;
 		return (
 		    <User title="个人中心" module="userDetail" className="user-detail">
 						<NoticeBar mode="closable">该信息将作为你的实名凭证，请确保真实</NoticeBar>
@@ -60,8 +69,8 @@ export default class Index extends Component {
 										<img src="http://1989591.51vip.biz:7001/public/i/user_defualt.png" />
 									</div>
 									<div className="J_DetailInfo">
-										<p className="userName">leeexmxmx</p>
-										<p className="phoneNum">137****3044</p>
+										<p className="userName">{!!name? name: userCode }</p>
+										<p className="phoneNum">{phone}</p>
 									</div>
 									<i class="icon icon-chevron-right J_icon" aria-hidden="true"></i>
 								</Link>
@@ -155,7 +164,9 @@ export default class Index extends Component {
 
 						<WingBlank>
 							<div className="J_logout">
-								<Button type="warning">退出登录</Button>
+								<Button type="warning" onClick={(e)=>{
+									this.loginout();
+								}}>退出登录</Button>
 							</div>
 						</WingBlank>
 					</div>

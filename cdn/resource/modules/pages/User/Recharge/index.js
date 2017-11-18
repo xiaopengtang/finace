@@ -25,7 +25,6 @@ export default class Index extends Component {
 
   // 确认按钮统一甩锅 @丹君
   determine(){
-    console.log(1111);
     Toast.loading("请稍后", 2, (e)=>{
       Toast.offline('服务器端网络异常!!!', 1);
     })
@@ -41,7 +40,7 @@ export default class Index extends Component {
           <div>
             <List renderHeader={() => '请输入充值金额:'} className="my-list">
               <Item>
-                <input type="number" value={this.state.value} onChange={this.onChange}/>
+                <input className="J_input" type="number" value={this.state.value} onChange={this.onChange}/>
               </Item>
             </List>
           </div>

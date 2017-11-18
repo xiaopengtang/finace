@@ -4,9 +4,10 @@ module.exports = app => class UserController extends app.Controller {
 	success (data) {
 		this.ctx.set("Access-Control-Allow-Origin", "*")
 		this.ctx.set('Access-Control-Allow-Credentials', true)
-	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
-	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")  
+	  this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	  this.ctx.set("Access-Control-Allow-Methods","POST,GET")
 		this.ctx.status = 200
+		console.log(data);
 		this.ctx.body = {
 			'success': true,
 			'msg': null,
@@ -18,8 +19,8 @@ module.exports = app => class UserController extends app.Controller {
 		msg = msg || null
 		this.ctx.set("Access-Control-Allow-Origin", "*")
 		this.ctx.set('Access-Control-Allow-Credentials', true)
-	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
-	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")  
+	  this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	  this.ctx.set("Access-Control-Allow-Methods","POST,GET")
 		this.ctx.status = 200
 		this.ctx.body = {
 			'success': false,
@@ -40,11 +41,20 @@ module.exports = app => class UserController extends app.Controller {
 		const url = 'http://1989591.51vip.biz:15003/account/get'
 		const ret = yield this.ctx.service.user.send(url, {
 			'userId': this.ctx.session.user.userId
-		})
+		});
+		console.log(ret);
 		return this.ajaxReturn(ret)
-	}	
+	}
+	*userDetail(){
+		const url = 'http://1989591.51vip.biz:15012/user/query/user/detail'
+		const ret = yield this.ctx.service.user.send(url, {
+			'userId': this.ctx.session.user.userId
+		});
+		console.log(ret);
+		return this.ajaxReturn(ret)
+	}
 	*loginStatus(){
-		
+
 		const {token, userId} = this.ctx.session.user || {}
 		const login = !!token
 		const user = {userId}
@@ -61,7 +71,7 @@ module.exports = app => class UserController extends app.Controller {
 		}else{
 			return this.error(res.data)
 		}
-		
+
 	}
 	*sendCode(){
 		const {phone, type} = this.ctx.query
@@ -94,7 +104,8 @@ module.exports = app => class UserController extends app.Controller {
 		return this[res.code == 1 ? 'success' : 'error'](res.data)
 	}
 	*loginout(){
-		this.ctx.session.user = null
+		this.ctx.session.user = null;
+		console.log(1111);
 		return this.success()
 	}
 	*saveOrder(){

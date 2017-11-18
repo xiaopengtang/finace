@@ -11,6 +11,7 @@ export default class Index extends Component {
 
   constructor(props){
     super(props);
+    this.toHome = this.toHome.bind(this);
   }
 
   state = {
@@ -46,7 +47,7 @@ export default class Index extends Component {
               : <div className="J_historyItem">
                   <Card>
                     <Card.Body>
-                      <div className="J_msgText">正在人工验证中~</div>
+                      <div className="J_msgText">正在为您审核~</div>
                     </Card.Body>
                   </Card>
                 </div>

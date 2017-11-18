@@ -60,7 +60,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请输入旧密码:'} className="my-list">
               <Item>
-                <input type="text" value={this.state.oldPassHideText}
+                <input className="J_input" type="text" value={this.state.oldPassHideText}
                   onChange={
                     (e)=>{
                       self.changeInfo(e, "oldPass");
@@ -73,7 +73,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请输入新密码:'} className="my-list">
               <Item>
-                <input type="text" value={this.state.newPassHideText} onChange={
+                <input className="J_input" type="text" value={this.state.newPassHideText} onChange={
                   (e)=>{
                     self.changeInfo(e, "newPass");
                   }
@@ -85,7 +85,7 @@ export default class Index extends Component {
           <WingBlank>
             <List renderHeader={() => '请重新输入新密码:'} className="my-list">
               <Item>
-                <input type="text" value={this.state.newPassCheckHideText} onChange={(e)=>{
+                <input className="J_input" type="text" value={this.state.newPassCheckHideText} onChange={(e)=>{
                     self.changeInfo(e, "newPassCheck");
                   }
                 }/>

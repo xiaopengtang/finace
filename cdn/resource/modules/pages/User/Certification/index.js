@@ -34,7 +34,24 @@ const seasons = [
     value: 0,
   },
 ];
+
+//
+// <Picker
+//   data={seasons}
+//   cols={this.state.cols}
+//   value={this.state.asyncValue}
+//   onChange={v => this.setState({ sValue: v }, x=>console.log(this.state))}
+//   onOk={v => console.log(v)}
+//   title="选择性别"
+// >
+//   <List.Item arrow="horizontal" onClick={this.onClick}>性别</List.Item>
+// </Picker>
 export default class Index extends Component {
+
+  constructor(props){
+    super(props);
+    this.checkInfo = this.checkInfo.bind(this);
+  }
 
   state = {
     data: [],
@@ -66,10 +83,25 @@ export default class Index extends Component {
   }
 
   checkInfo(){
-    Toast.loading("请稍后", 2, (e)=>{
-      this.props.history.push("/bindCard")
-      // window.location.href = ""
-    })
+
+    let self = this;
+    console.log(self.state);
+    let msg = false;
+    self.state.name == ""
+      ? msg = "姓名不可以为空"
+      : false;
+    self.state.idNum == ""
+      ? msg = "身份证号不可以为空"
+      : false;
+
+    if (msg) {
+      Toast.fail(msg, 1);
+    } else {
+      Toast.loading("请稍后", 2, (e)=>{
+        self.props.history.push("/bindCard")
+      })
+    }
+
   }
 
 	render () {
@@ -91,7 +123,7 @@ export default class Index extends Component {
           <div>
             <List renderHeader={() => '姓名'} className="my-list">
               <Item>
-                <input type="text" value={this.state.name} onChange={
+                <input className="J_input" type="text" value={this.state.name} onChange={
                   (e)=>{
                     self.changeInfo(e, "name")
                   }
@@ -103,7 +135,7 @@ export default class Index extends Component {
           <div>
             <List renderHeader={() => '身份证号'} className="my-list">
               <Item>
-                <input type="number" value={this.state.idNum} onChange={
+                <input className="J_input" type="number" value={this.state.idNum} onChange={
                   (e)=>{
                     self.changeInfo(e, "idNum")
                   }
@@ -111,17 +143,6 @@ export default class Index extends Component {
               </Item>
             </List>
           </div>
-
-          <Picker
-            data={seasons}
-            cols={this.state.cols}
-            value={this.state.asyncValue}
-            onChange={v => this.setState({ sValue: v }, x=>console.log(this.state))}
-            onOk={v => console.log(v)}
-            title="选择性别"
-          >
-            <List.Item arrow="horizontal" onClick={this.onClick}>性别</List.Item>
-          </Picker>
 
           <WingBlank>
             <div className="J_logout">

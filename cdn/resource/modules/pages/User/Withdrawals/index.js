@@ -40,7 +40,7 @@ export default class Index extends Component {
           <div>
             <List renderHeader={() => '请输入提现金额:'} className="my-list">
               <Item>
-                <input type="number" value={this.state.value} onChange={this.onChange}/>
+                <input className="J_input" type="number" value={this.state.value} onChange={this.onChange}/>
               </Item>
             </List>
           </div>

@@ -22,10 +22,16 @@ class store {
 	@action doLogin = async(params) => {
 		const res = await utils.clientCall('/api/login', params)
 		this.updateStatus(res)
-		return res 
+		return res
 	}
 	@action updateLogin(status){
 		this.login = status
+	}
+
+	@action loginout = async(params) => {
+		const res = await utils.clientCall('/api/loginout', params)
+		this.updateStatus(res)
+		return res
 	}
 
 	@action sendCode = async(params) => {
