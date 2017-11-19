@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-19 10:09:31
+ * last update:2017-11-19 12:52:06
  */
 /*!
  * 
@@ -7574,6 +7574,20 @@ i:before {
   font-size: 14px;
   color: #999 ;
 }
+.logo {
+  text-align: center;
+  padding-top: 42px;
+  padding-bottom: 30px;
+}
+.logo .logo-img {
+  width: 60% ;
+  margin: 0 auto ;
+  padding: 20px 0;
+  background-color: #f95d5e;
+  color: #FFF ;
+  font-weight: bold;
+  font-size: 24px ;
+}
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -10586,6 +10600,8 @@ body,
   width: 100%;
 }
 .home-register .center ul {
+  padding: 0 16px;
+  list-style: none;
   position: relative;
 }
 .home-register .center li {
@@ -10703,6 +10719,8 @@ body,
   font-size: 18px ;
 }
 .home-forget ul {
+  list-style: none;
+  padding: 0 16px ;
   /* width: 100%; */
   margin-top: 20px;
   margin-left: 15px;
@@ -10740,11 +10758,6 @@ body,
 }
 .home-forget ul > li:last-child {
   text-align: center;
-}
-.home-forget .logo {
-  text-align: center;
-  padding-top: 42px;
-  padding-bottom: 30px;
 }
 .home-forget :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
