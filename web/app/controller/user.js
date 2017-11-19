@@ -4,10 +4,9 @@ module.exports = app => class UserController extends app.Controller {
 	success (data) {
 		this.ctx.set("Access-Control-Allow-Origin", "*")
 		this.ctx.set('Access-Control-Allow-Credentials', true)
-	  this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
-	  this.ctx.set("Access-Control-Allow-Methods","POST,GET")
+	    this.ctx.set("Access-Control-Allow-Headers", "x-requested-with,content-type")
+	    this.ctx.set("Access-Control-Allow-Methods","POST,GET")
 		this.ctx.status = 200
-		console.log(data);
 		this.ctx.body = {
 			'success': true,
 			'msg': null,
@@ -54,7 +53,6 @@ module.exports = app => class UserController extends app.Controller {
 		return this.ajaxReturn(ret)
 	}
 	*loginStatus(){
-
 		const {token, userId} = this.ctx.session.user || {}
 		const login = !!token
 		const user = {userId}
@@ -80,7 +78,7 @@ module.exports = app => class UserController extends app.Controller {
 			'forget': 'http://yqh0303.com:15012/verfication/get/forget/sms/code'
 		})[type || 'register']
 		const res = yield this.ctx.service.user.send(url, {phone})
-		return this.success(res.data)
+		return this.ajaxReturn(res)
 	}
 	*list(){
 		const {query} = this.ctx
@@ -96,17 +94,17 @@ module.exports = app => class UserController extends app.Controller {
 	*register(){
 		const {query} = this.ctx
 		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/register', query)
-		return this[res.code == 1 ? 'success' : 'error'](res.data)
+		return this.ajaxReturn(res)
 	}
 	*forget(){
 		const {query} = this.ctx
 		const res = yield this.ctx.service.user.send('http://yqh0303.com:15012/user/forget/pwd/phone', query)
-		return this[res.code == 1 ? 'success' : 'error'](res.data)
+		return this.ajaxReturn(res)
 	}
 	*loginout(){
 		this.ctx.session.user = null;
-		console.log(1111);
-		return this.success()
+		// console.log(1111);
+		return this.success(null)
 	}
 	*saveOrder(){
 		const {userId} = this.ctx.session.user || {}

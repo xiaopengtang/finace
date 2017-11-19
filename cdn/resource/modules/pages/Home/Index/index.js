@@ -53,7 +53,7 @@ export default class Index extends Component {
 		return ( 
 			<div className="home-index">
 			    <div className="logo">
-				<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{"width": "60%"}} />
+				    <div className="logo-img">LOGO</div>
 				</div>
 				<p style={{"position": "relative"}}>
 					<input 
@@ -63,11 +63,10 @@ export default class Index extends Component {
 					onChange={e => this.setState({'tel': e.target.value})}
 					value={this.state.tel}
 					placeholder="请输入您的手机号" /> 
-					<img 
-					src="http://1989591.51vip.biz:7001/public/i/clear.png"
-					className="inputImg" 
+					<i 
+					className="inputImg icon icon-close" 
 					id="tab1" 
-					onClick={e => this.setState({'tel': ''})} />
+					onClick={e => this.setState({'tel': ''})}></i>
 				</p>
 				<p style={{"position": "relative","marginBottom": "30px"}}>
 					<input 
@@ -77,9 +76,8 @@ export default class Index extends Component {
 					value={this.state.pwd}
 					onChange={e => this.setState({'pwd': e.target.value})}
 					placeholder="登录密码" /> 
-					<img 
-					src={this.state.show ? "http://1989591.51vip.biz:7001/public/i/eyesclose.png" : "http://1989591.51vip.biz:7001/public/i/eyesopen.png"}
-					className="inputImg" id="tab2" onClick={e => this.setState({'show': !this.state.show})} />
+					<i 
+					className={`inputImg icon ${this.state.show ? 'icon-eye' : 'icon-eye-slash'}`} id="tab2" onClick={e => this.setState({'show': !this.state.show})}></i>
 				</p>
 				<div className="LogBtn_s" to="/home" onClick={this.login.bind(this)}>立即登录</div>
 				<p style={{"marginTop": "20px"}}>

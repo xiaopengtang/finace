@@ -17,7 +17,10 @@ export default class Index extends Component {
 	}
 
 	async loginout(){
-		await this.context.$store.auth.loginout({});
+		const res = await this.context.$store.auth.loginout({});
+		if(res.success){
+			return this.props.history.push('/')
+		}
 	}
 
 	getChildContext(){
@@ -59,7 +62,7 @@ export default class Index extends Component {
 			weixin,
 		} = this.state.info;
 		return (
-		    <User title="个人中心" module="userDetail" className="user-detail">
+		    <User title="个人中心" module="user" className="user-detail">
 						<NoticeBar mode="closable">该信息将作为你的实名凭证，请确保真实</NoticeBar>
 
 						<WingBlank>

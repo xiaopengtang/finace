@@ -13,6 +13,6 @@ module.exports = app => {
   app.get('/api/saveOrder', 'user.saveOrder')
   app.get('/api/query/account', 'user.account')
   app.get('/api/query/userDetail', 'user.userDetail')
-  app.post('/api/loginout', 'user.loginout')
+  app.get('/api/loginout', 'user.loginout')
   app.post('/api/saveUserInfo', 'user.saveInfo')
 };

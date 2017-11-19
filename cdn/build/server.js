@@ -7,7 +7,8 @@ module.exports = merge(base, {
 	'output': {
 		'library': '[name]',
 		'libraryTarget': 'umd',
-		'filename': '[name].js'
+		'filename': '[name].js',
+		'path': CDN.COMPONENT_PATH
 	},
 	'module': {
 		'rules': [
@@ -19,9 +20,9 @@ module.exports = merge(base, {
 		    		'options': {
 		    			'presets': [['env', {
 		    				'targets': {
-		    					'node': 'current'
+		    					'node': '6.10.0'
 		    				}
-		    			}], 'react']
+		    			}], 'react','stage-1']
 		    		}
 		    	}
 		    }

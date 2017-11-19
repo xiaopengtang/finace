@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-18 02:23:17
+ * last update:2017-11-19 10:53:51
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -37577,8 +37577,7 @@ var Tabs = function (_Component) {
                 prefixCls = _props2.prefixCls,
                 tabBarPosition = _props2.tabBarPosition,
                 tabDirection = _props2.tabDirection,
-                useOnPan = _props2.useOnPan,
-                noRenderContent = _props2.noRenderContent;
+                useOnPan = _props2.useOnPan;
 
             var isTabVertical = this.isTabVertical(tabDirection);
             var tabBarProps = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, this.getTabBarBaseProps());
@@ -37587,7 +37586,7 @@ var Tabs = function (_Component) {
                 'div',
                 { key: 'tabBar', className: prefixCls + '-tab-bar-wrap' },
                 this.renderTabBar(tabBarProps, __WEBPACK_IMPORTED_MODULE_9__DefaultTabBar__["a" /* DefaultTabBar */])
-            ), !noRenderContent && __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
+            ), __WEBPACK_IMPORTED_MODULE_6_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_7_rc_gesture__["a" /* default */],
                 __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({ key: '$content', direction: isTabVertical ? 'vertical' : 'horizontal', onSwipe: this.onSwipe }, onPan),
                 this.renderContent()

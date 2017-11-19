@@ -31,8 +31,8 @@ export default class Index extends Component{
 			return Toast.info(check.getError())
 		}
 		const res = await this.context.$store.auth.sendCode({'phone': tel})
-		if(!res){
-			return 
+		if(!res.success){
+			return Toast.info(res.msg)
 		}
 		this.timer = setInterval(() => {
 			let {timer} = this.state
@@ -86,7 +86,7 @@ export default class Index extends Component{
 		return (
 			<div className="home-register">
 				<div className="logo">
-					<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{'width': '60%'}} /><input type="hidden" id="result" value="" />
+					<div className="logo-img">LOGO</div><input type="hidden" id="result" value="" />
 				</div>
 				<div className="center"> 
 					<ul>
@@ -132,13 +132,13 @@ export default class Index extends Component{
 						<Link to="/" id="reg_a">已有账号去登录 &gt;</Link>
 					</p>
 				</div>
-				<div className="foter">
+				{/*<div className="foter">
 					<i 
 					    onClick={e => this.setState({'isRead': !this.state.isRead})}
 					    className={`img2 icon ${this.state.isRead ? 'icon-check-square-o' : 'icon-square-o'}`}></i>
 					&nbsp; 
 					<a id="reg_a" href="http://m.maomibank.com:80/xed_financing_wxgzh/registrationProtocol.jsp">注册即代表同意 《猫咪财富服务协议》</a>
-				</div>
+				</div>*/}
 			</div>
 		)
 	}

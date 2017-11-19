@@ -36,7 +36,7 @@ class store {
 
 	@action sendCode = async(params) => {
 		const res = await utils.clientCall('/api/sendCode', params)
-		return res.success ? res.data : null
+		return res
 	}
 
 	@action sendRegisterCode = async(params) => {

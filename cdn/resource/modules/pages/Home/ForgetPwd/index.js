@@ -27,9 +27,10 @@ export default class Index extends Component {
 			return Toast.info(check.getError())
 		}
 		const res = await this.context.$store.auth.sendCode({phone, 'type': 'forget'})
-		if(!res){
-			return 
+		if(!res.success){
+			return Toast.fail(res.msg)
 		}
+		Toast.success('发送成功')
 		this.timer = setInterval(() => {
 			let {timer} = this.state
 			timer--
@@ -63,7 +64,7 @@ export default class Index extends Component {
 		if(confirm !== password){
 			return Toast.info('两次密码不同，请确认')
 		}
-		const res = this.context.$store.auth.forget({phone, verficationCode, password})
+		const res = await this.context.$store.auth.forget({phone, verficationCode, password})
 		if(res.success){
 			Toast.info('修改成功')
 			return setTimeout(() => this.props.history.push('/'), 3000)
@@ -76,7 +77,7 @@ export default class Index extends Component {
 		return (
 			<div className="home-forget">
 			    <div className="logo">
-					<img src="http://1989591.51vip.biz:7001/public/i/logo.png" style={{'width': '60%'}} />
+					<div className="logo-img">LOGO</div>
 				</div>
 				<ul>
 				<li>
