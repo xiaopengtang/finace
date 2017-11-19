@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-19 07:55:53
+ * last update:2017-11-19 10:49:08
  */
 exports.ids = [0];
 exports.modules = {
@@ -219,7 +219,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 		}, _temp;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		// console.log(['this.props',this])
 	}
 	login() {
@@ -885,7 +885,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 	}
 
 	// 
-	componentDidMount() {
+	componentWillMount() {
 		var _this = this;
 
 		return _asyncToGenerator(function* () {
@@ -1492,7 +1492,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 		}, _temp;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		var _this = this;
 
 		return _asyncToGenerator(function* () {
@@ -1707,7 +1707,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 		}, _temp;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		var _this = this;
 
 		return _asyncToGenerator(function* () {
@@ -1872,7 +1872,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 		}, _temp;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		var _this = this;
 
 		return _asyncToGenerator(function* () {
@@ -2462,7 +2462,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 		})();
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		var _this2 = this;
 
 		return _asyncToGenerator(function* () {
@@ -2806,7 +2806,7 @@ let Index = (_temp2 = _class = class Index extends _react.Component {
 		return { $store, $utils };
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		var _this = this;
 
 		return _asyncToGenerator(function* () {

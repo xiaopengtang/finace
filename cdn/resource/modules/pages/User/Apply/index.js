@@ -13,7 +13,7 @@ export default class Index extends Component {
 		'investmentAmount': 0,
 		'scale': 0
 	}
-	async componentDidMount(){
+	async componentWillMount(){
 		const accountAmount = await this.context.$store.api.user.account()
 		let scale = this.context.$utils.queryString('scale', this.props.location.search)
 		scale = parseFloat((parseFloat(scale) * 0.0001).toFixed(4))

@@ -12,7 +12,7 @@ export default class Index extends Component {
 		'list': []
 	};
 	// 
-	async componentDidMount(){
+	async componentWillMount(){
 		let list = await this.context.$store.api.user.index()
 		list = Array.isArray(list) ? list : []
 		this.setState({list})

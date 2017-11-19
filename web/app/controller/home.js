@@ -6,7 +6,9 @@ module.exports = app => {
     * index(ctx) {
     	const html = yield render.default(ctx.url)
     	const user = ctx.session.user || null
-      return yield ctx.render('home/index.tpl', {user, html})
+    	const cdn = this.config.cdn || {}
+
+      return yield ctx.render('home/index.tpl', {user, html, cdn})
     }
   }
   return HomeController;

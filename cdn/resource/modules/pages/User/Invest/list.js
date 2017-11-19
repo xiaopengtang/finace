@@ -17,7 +17,7 @@ export default class Index extends Component{
 		'$store': PropTypes.object.isRequired,
 		'$utils': PropTypes.object.isRequired
 	};
-	async componentDidMount(){
+	async componentWillMount(){
 		const productType = this.props.type
 		const data = await this.context.$store.api.user.queryList({'page': 1, productType})
 		this.setState({data})

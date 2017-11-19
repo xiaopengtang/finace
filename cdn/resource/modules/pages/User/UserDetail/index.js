@@ -22,7 +22,7 @@ export default class Index extends Component {
 		}
 	}
 
-	async componentDidMount(){
+	async componentWillMount(){
 		const info = await this.context.$store.api.user.userDetail({});
 		if(!info){
 			return

@@ -2,12 +2,14 @@
 
 const path = require('path')
 
+const cdn = require('./config.cdn')
+
 module.exports = appInfo => {
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1508657324896_9661';
-
+  exports.cdn = cdn
   // add your config here
   config.middleware = [];
 

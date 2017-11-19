@@ -21,7 +21,7 @@ export default class Index extends Component {
 		'scale': 0,
 		'productCode': null
 	}
-	async componentDidMount(){
+	async componentWillMount(){
 		const productCode = this.context.$utils.queryString('id', this.props.location.search)
 		// console.log(this)
 		// console.log(productCode)

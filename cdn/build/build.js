@@ -10,6 +10,8 @@ const webpack = require('webpack')
 
 const base = require('./base')
 
+const addVersionForStaticSource = require('./plugins/addVersionForStaticSource')
+
 module.exports = merge(base, {
 	'entry': {
 		'main': path.resolve(__dirname,'../resource/client.js'),
@@ -29,7 +31,8 @@ module.exports = merge(base, {
 	            NODE_ENV: JSON.stringify("production") 
 	        }
 	    }),
-	    new webpack.optimize.CommonsChunkPlugin('common')
+	    new webpack.optimize.CommonsChunkPlugin('common'),
+	    new addVersionForStaticSource
 	],
 	'module': {
 		'rules': [

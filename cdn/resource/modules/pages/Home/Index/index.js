@@ -13,7 +13,7 @@ export default class Index extends Component {
 		'pwd': '',
 		'show': true
 	};
-	componentDidMount(){
+	componentWillMount(){
 		// console.log(['this.props',this])
 	}
 	async login () {
