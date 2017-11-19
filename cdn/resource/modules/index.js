@@ -1,16 +1,16 @@
-import 'babel-polyfill'
+
 import 'antd-mobile/dist/antd-mobile.css'
 import React, {Component, cloneElement} from 'react'
 import style from '../style/index'
 import * as $utils from './utils'
 import * as ReactRouter from 'react-router-dom'
-import Dom from 'react-dom'
+
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as $store from './store'
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types'
 
-const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
+const {BrowserRouter, Route, Switch, IndexRoute, HashRouter, matchPath} = ReactRouter
 /**
 * 初始化
 * @param config:
@@ -20,8 +20,6 @@ const {BrowserRouter, Route, Switch, IndexRoute, HashRouter} = ReactRouter
 */
 export default async config => {
 	config = config || {}
-	window.G = window.G || {'isApp': true}
-	const Body = window.G.isApp ? HashRouter : BrowserRouter
 	let Pages = await $utils.async_import(resolve => require.ensure([], require => resolve(require('./pages'))))
 	@observer
 	class Fade extends Component{
@@ -85,13 +83,27 @@ export default async config => {
 		}
 		render () {
 			return (
-				<Body>
-				    <Route path="" component={Fade} />
-				</Body>
+				<Route path="" component={Fade} />
 			)
 		}
 	}
-	const body = document.querySelector('.wrap')
+	return Home
+	/*let props = {}
+	if(config.url){
+		props = matchPath(config.url, {
+			'path': '/',
+			'component': Home,
+			'exact': true
+		})
+	}*/
+	/*const props = matchPath('/setting', {
+		'path': '/',
+		'component': Home
+	}, props => {
+		console.log({props})
+	})*/
+	// console.log(Render)
+	// const body = document.querySelector('.wrap')
 	// alert([Dom.render, body])
-	Dom.render(<Home />, body)
+	// Dom.render(<Home {...props}/>, body)
 }

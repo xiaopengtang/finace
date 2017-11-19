@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:client": "cross-env process.env.ENV='production' webpack --progress --config build/build.js --watch",
-    "build:server": "cross-env process.env.ENV='production' webpack --config build/server.js  --watch",
+    "build:server": "cross-env process.env.ENV='production' webpack --progress --config build/server.js  --watch",
     "push:client": "cross-env CLIENT=true webpack --config build/push.js --hide-modules --progress",
     "push:server": "cross-env CLIENT=false webpack --config build/push.js --hide-modules --progress",
     "push:app": "cross-env CLIENT=true webpack --config build/app.js --hide-modules --progress"

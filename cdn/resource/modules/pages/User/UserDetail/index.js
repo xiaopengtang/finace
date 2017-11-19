@@ -15,16 +15,11 @@ export default class Index extends Component {
 	state = {
 		'info': {}
 	}
-
 	async loginout(){
 		const res = await this.context.$store.auth.loginout({});
 		if(res.success){
 			return this.props.history.push('/')
 		}
-	}
-
-	getChildContext(){
-		return {$store, $utils}
 	}
 
 	async componentDidMount(){

@@ -13,7 +13,8 @@ export const clientCall = async(setting, value) => {
 	setting = isObject(setting) ? setting
 	: isString(setting) ? {url: setting, data: value} : {}
 	let {url, data, method} = setting || {}
-	url = (window.G.isApp ? 'http://1989591.51vip.biz:7001': '') + url
+	const G = typeof window !== 'undefined' ? window.G : {'isApp': false}
+	url = (G.isApp ? 'http://1989591.51vip.biz:7001': '') + url
 	method = method || 'get'
 	const isGET = /get/i.test(method)
 	const params = {
@@ -55,7 +56,7 @@ export const isObject = data => type(data) === 'object'
 
 export const queryString = (name, search) => {
     let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)")
-    search = search || window.location.search
+    search = search || typeof window !== 'undefined' && window.location.search || ''
     let r = search.substr(1).match(reg)
     return r !== null ? unescape(r[2]) : null
 }

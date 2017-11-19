@@ -77,7 +77,7 @@ export default class Index extends Component {
 					onChange={e => this.setState({'pwd': e.target.value})}
 					placeholder="登录密码" /> 
 					<i 
-					className={`inputImg icon ${this.state.show ? 'icon-eye' : 'icon-eye-slash'}`} id="tab2" onClick={e => this.setState({'show': !this.state.show})}></i>
+					className={`inputImg icon ${this.state.show ? 'icon-eye-slash' : 'icon-eye'}`} id="tab2" onClick={e => this.setState({'show': !this.state.show})}></i>
 				</p>
 				<div className="LogBtn_s" to="/home" onClick={this.login.bind(this)}>立即登录</div>
 				<p style={{"marginTop": "20px"}}>

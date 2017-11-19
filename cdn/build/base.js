@@ -15,17 +15,14 @@ const extractSASS = new ExtractTextPlugin('style.css')
 // const extractCSS = new ExtractTextPlugin('style.css')
 
 module.exports = {
-    'entry': {
-        'common': ['react', 'react-dom', 'react-router', 'mobx', 'axios', 'antd-mobile']
-    },
     'plugins': [
         new webpack.BannerPlugin(header),
-        new webpack.DefinePlugin({
+        /*new webpack.DefinePlugin({
             'process.env': { 
                 NODE_ENV: JSON.stringify("production") 
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin('common'),
+        new webpack.optimize.CommonsChunkPlugin('common'),*/
         extractSASS,
         // extractCSS,
         // new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})

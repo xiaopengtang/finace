@@ -6,11 +6,14 @@ const CDN = require('../cdn.config')
 
 const path = require('path')
 
+const webpack = require('webpack')
+
 const base = require('./base')
 
 module.exports = merge(base, {
 	'entry': {
-		'main': path.resolve(__dirname,'../resource/client.js')
+		'main': path.resolve(__dirname,'../resource/client.js'),
+		'common': ['react', 'react-dom', 'react-router', 'mobx', 'axios', 'antd-mobile']
 	},
 	'output': {
 		'library': '[name]',
@@ -20,6 +23,14 @@ module.exports = merge(base, {
 		'path': CDN.CDN_PATH,
 		'publicPath': 'public/'
 	},
+	'plugins': [
+		new webpack.DefinePlugin({
+	        'process.env': { 
+	            NODE_ENV: JSON.stringify("production") 
+	        }
+	    }),
+	    new webpack.optimize.CommonsChunkPlugin('common')
+	],
 	'module': {
 		'rules': [
 		    {

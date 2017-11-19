@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	    <div class="wrap">
-	    	{% block body %}{% endblock %}
+	    	{{html | safe}}
 	    </div>
 	</body>
 	<script>
