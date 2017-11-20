@@ -1,7 +1,7 @@
 
-import 'antd-mobile/dist/antd-mobile.css'
+
 import React, {Component, cloneElement} from 'react'
-import style from '../style/index'
+
 import * as $utils from './utils'
 import * as ReactRouter from 'react-router-dom'
 
@@ -15,8 +15,6 @@ const {BrowserRouter, Route, Switch, IndexRoute, HashRouter, matchPath} = ReactR
 * 初始化
 * @param config:
 *   enter => 进入
-*
-*
 */
 export default async config => {
 	config = config || {}
@@ -88,22 +86,4 @@ export default async config => {
 		}
 	}
 	return Home
-	/*let props = {}
-	if(config.url){
-		props = matchPath(config.url, {
-			'path': '/',
-			'component': Home,
-			'exact': true
-		})
-	}*/
-	/*const props = matchPath('/setting', {
-		'path': '/',
-		'component': Home
-	}, props => {
-		console.log({props})
-	})*/
-	// console.log(Render)
-	// const body = document.querySelector('.wrap')
-	// alert([Dom.render, body])
-	// Dom.render(<Home {...props}/>, body)
 }

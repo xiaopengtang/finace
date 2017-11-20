@@ -12,10 +12,9 @@ const webpack = require('webpack')
 
 module.exports = merge(base, {
     'entry': {
-        'main': path.resolve(__dirname,'../resource/client.js')
+        'main': path.resolve(__dirname,'../resource/app.js')
     },
     'plugins': [
-        new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
     ],
     'output': {
         'library': '[name]',

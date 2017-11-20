@@ -5,10 +5,6 @@ import React from 'react'
 
 export default async(url) => {
 	const Component = await render()
-	/*const props = matchPath(url, {
-		'path': '/',
-		'exact': true
-	})*/
 	const context = {}
 	return renderToString(
 		<StaticRouter context={context} location={url}>

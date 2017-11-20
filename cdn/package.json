@@ -6,9 +6,10 @@
   "scripts": {
     "build:client": "cross-env process.env.ENV='production' webpack --progress --config build/build.js --watch",
     "build:server": "cross-env process.env.ENV='production' webpack --progress --config build/server.js  --watch",
-    "push:client": "cross-env CLIENT=true webpack --config build/push.js --hide-modules --progress",
-    "push:server": "cross-env CLIENT=false webpack --config build/push.js --hide-modules --progress",
-    "push:app": "cross-env CLIENT=true webpack --config build/app.js --hide-modules --progress"
+    "build:app": "cross-env process.env.ENV='production' webpack --progress --config build/app.js  --watch",
+    "push:client": "cross-env CLIENT=client webpack --config build/push.js --hide-modules --progress",
+    "push:server": "cross-env CLIENT=server webpack --config build/push.js --hide-modules --progress",
+    "push:app": "cross-env CLIENT=app webpack --config build/push.js --hide-modules --progress"
   },
   "keywords": [
     "static"
