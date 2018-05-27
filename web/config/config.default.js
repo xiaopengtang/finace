@@ -23,7 +23,8 @@ module.exports = appInfo => {
   }
 
   config.static = {
-    dir: path.join(appInfo.baseDir,'resource/asserts')
+    dir: path.join(appInfo.baseDir,'resource/asserts'),
+    buffer: true
   }
 
   exports.session = {
