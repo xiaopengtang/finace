@@ -8,7 +8,7 @@
 		{% block style %}{% endblock %}
 	</head>
 	<body>
-	    <div class="wrap">
+	    <div class="wrap"> 
 	    	{{html | safe}}
 	    </div>
 	</body>
