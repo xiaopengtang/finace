@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-20 09:43:24
+ * last update:2018-05-27 05:43:45
  */
 exports.ids = [0];
 exports.modules = {
@@ -2763,7 +2763,7 @@ exports.default = Index;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+		value: true
 });
 exports.default = undefined;
 
@@ -2792,206 +2792,206 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 const { Item } = _antdMobile.List;
 
 let Index = (_temp2 = _class = class Index extends _react.Component {
-	constructor(...args) {
-		var _temp;
+		constructor(...args) {
+				var _temp;
 
-		return _temp = super(...args), this.state = {
-			'info': {}
-		}, this.onChange = key => {
-			console.log(key);
-		}, _temp;
-	}
+				return _temp = super(...args), this.state = {
+						'info': {}
+				}, this.onChange = key => {
+						console.log(key);
+				}, _temp;
+		}
 
-	getChildContext() {
-		return { $store, $utils };
-	}
+		getChildContext() {
+				return { $store, $utils };
+		}
 
-	componentWillMount() {
-		var _this = this;
+		componentWillMount() {
+				var _this = this;
 
-		return _asyncToGenerator(function* () {
-			const info = yield _this.context.$store.api.user.userDetail({});
-			if (!info) {
-				return;
-			}
-			_this.setState({ info });
-		})();
-	}
+				return _asyncToGenerator(function* () {
+						const info = yield _this.context.$store.api.user.userDetail({});
+						if (!info) {
+								return;
+						}
+						_this.setState({ info });
+				})();
+		}
 
-	render() {
-		let {
-			addTime,
-			birthday,
-			email,
-			emergencyContactName,
-			emergencyContactPhone,
-			emergencyContactRelation,
-			id,
-			idCheck,
-			idNo,
-			idType,
-			lastLoginTime,
-			level,
-			name,
-			optTime,
-			phone,
-			qq,
-			recommender,
-			sex,
-			status,
-			userCode,
-			userId,
-			weibo,
-			weixin
-		} = this.state.info;
-		return _react2.default.createElement(
-			_user2.default,
-			{ title: '\u4E2A\u4EBA\u8BBE\u7F6E', module: 'userDetail', className: 'user-detail',
-				footer: _react2.default.createElement('div', null)
-			},
-			_react2.default.createElement(
-				'div',
-				{ className: '' },
-				_react2.default.createElement(
-					_antdMobile.List,
-					{ className: 'my-list' },
-					_react2.default.createElement(
-						Item,
-						{ extra: _react2.default.createElement(
+		render() {
+				let {
+						addTime,
+						birthday,
+						email,
+						emergencyContactName,
+						emergencyContactPhone,
+						emergencyContactRelation,
+						id,
+						idCheck,
+						idNo,
+						idType,
+						lastLoginTime,
+						level,
+						name,
+						optTime,
+						phone,
+						qq,
+						recommender,
+						sex,
+						status,
+						userCode,
+						userId,
+						weibo,
+						weixin
+				} = this.state.info;
+				return _react2.default.createElement(
+						_user2.default,
+						{ title: '\u4E2A\u4EBA\u8BBE\u7F6E', module: 'userDetail', className: 'user-detail',
+								footer: _react2.default.createElement('div', null)
+						},
+						_react2.default.createElement(
 								'div',
-								null,
+								{ className: '' },
 								_react2.default.createElement(
-									'span',
-									null,
-									name ? name : userCode + " "
+										_antdMobile.List,
+										{ className: 'my-list' },
+										_react2.default.createElement(
+												Item,
+												{ extra: _react2.default.createElement(
+																'div',
+																null,
+																_react2.default.createElement(
+																		'span',
+																		null,
+																		name ? name : userCode + " "
+																),
+																_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+														) },
+												_react2.default.createElement(
+														'div',
+														{ className: 'J_listItem' },
+														'\u7528\u6237\u540D'
+												)
+										)
 								),
-								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-							) },
-						_react2.default.createElement(
-							'div',
-							{ className: 'J_listItem' },
-							'\u7528\u6237\u540D'
-						)
-					)
-				),
-				_react2.default.createElement(
-					_antdMobile.List,
-					{ className: 'my-list' },
-					_react2.default.createElement(
-						Item,
-						{
-							extra: _react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement('span', null),
-								_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-							)
-						},
-						_react2.default.createElement(
-							'div',
-							{ className: 'J_listItem' },
-							'\u4E2A\u4EBA\u4FE1\u606F'
-						)
-					)
-				),
-				_react2.default.createElement(
-					_antdMobile.List,
-					{ className: 'my-list' },
-					_react2.default.createElement(
-						Item,
-						{
-							extra: _react2.default.createElement(
-								'div',
-								null,
 								_react2.default.createElement(
-									'span',
-									null,
-									"个人账户"
-								)
-							)
-						},
-						_react2.default.createElement(
-							'div',
-							{ className: 'J_listItem' },
-							'\u8D26\u6237\u7C7B\u578B'
-						)
-					)
-				),
-				_react2.default.createElement(
-					_antdMobile.List,
-					{ className: 'my-list' },
-					_react2.default.createElement(
-						Item,
-						{
-							extra: _react2.default.createElement(
-								'div',
-								null,
+										_antdMobile.List,
+										{ className: 'my-list' },
+										_react2.default.createElement(
+												Item,
+												{
+														extra: _react2.default.createElement(
+																'div',
+																null,
+																_react2.default.createElement('span', null),
+																_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+														)
+												},
+												_react2.default.createElement(
+														'div',
+														{ className: 'J_listItem' },
+														'\u4E2A\u4EBA\u4FE1\u606F'
+												)
+										)
+								),
 								_react2.default.createElement(
-									'span',
-									null,
-									phone
+										_antdMobile.List,
+										{ className: 'my-list' },
+										_react2.default.createElement(
+												Item,
+												{
+														extra: _react2.default.createElement(
+																'div',
+																null,
+																_react2.default.createElement(
+																		'span',
+																		null,
+																		"个人账户"
+																)
+														)
+												},
+												_react2.default.createElement(
+														'div',
+														{ className: 'J_listItem' },
+														'\u8D26\u6237\u7C7B\u578B'
+												)
+										)
+								),
+								_react2.default.createElement(
+										_antdMobile.List,
+										{ className: 'my-list' },
+										_react2.default.createElement(
+												Item,
+												{
+														extra: _react2.default.createElement(
+																'div',
+																null,
+																_react2.default.createElement(
+																		'span',
+																		null,
+																		phone
+																)
+														)
+												},
+												_react2.default.createElement(
+														'div',
+														{ className: 'J_listItem' },
+														'\u624B\u673A'
+												)
+										)
+								),
+								_react2.default.createElement(
+										_reactRouterDom.Link,
+										{ to: '/cardInfo' },
+										_react2.default.createElement(
+												_antdMobile.List,
+												{ className: 'my-list' },
+												_react2.default.createElement(
+														Item,
+														{
+																extra: _react2.default.createElement(
+																		'div',
+																		null,
+																		_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+																)
+														},
+														_react2.default.createElement(
+																'div',
+																{ className: 'J_listItem' },
+																'\u94F6\u884C\u5361'
+														)
+												)
+										)
+								),
+								_react2.default.createElement(
+										_reactRouterDom.Link,
+										{ to: '/resetPassword' },
+										_react2.default.createElement(
+												_antdMobile.List,
+												{ className: 'my-list' },
+												_react2.default.createElement(
+														Item,
+														{
+																extra: _react2.default.createElement(
+																		'div',
+																		null,
+																		_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
+																)
+														},
+														_react2.default.createElement(
+																'div',
+																{ className: 'J_listItem' },
+																'\u66F4\u6362\u5BC6\u7801'
+														)
+												)
+										)
 								)
-							)
-						},
-						_react2.default.createElement(
-							'div',
-							{ className: 'J_listItem' },
-							'\u624B\u673A'
 						)
-					)
-				),
-				_react2.default.createElement(
-					_reactRouterDom.Link,
-					{ to: '/cardInfo' },
-					_react2.default.createElement(
-						_antdMobile.List,
-						{ className: 'my-list' },
-						_react2.default.createElement(
-							Item,
-							{
-								extra: _react2.default.createElement(
-									'div',
-									null,
-									_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-								)
-							},
-							_react2.default.createElement(
-								'div',
-								{ className: 'J_listItem' },
-								'\u94F6\u884C\u5361'
-							)
-						)
-					)
-				),
-				_react2.default.createElement(
-					_reactRouterDom.Link,
-					{ to: '/resetPassword' },
-					_react2.default.createElement(
-						_antdMobile.List,
-						{ className: 'my-list' },
-						_react2.default.createElement(
-							Item,
-							{
-								extra: _react2.default.createElement(
-									'div',
-									null,
-									_react2.default.createElement('i', { 'class': 'icon icon-chevron-right J_icon', 'aria-hidden': 'true' })
-								)
-							},
-							_react2.default.createElement(
-								'div',
-								{ className: 'J_listItem' },
-								'\u66F4\u6362\u5BC6\u7801'
-							)
-						)
-					)
-				)
-			)
-		);
-	}
+				);
+		}
 }, _class.contextTypes = {
-	'$store': _propTypes2.default.object.isRequired,
-	'$utils': _propTypes2.default.object.isRequired
+		'$store': _propTypes2.default.object.isRequired,
+		'$utils': _propTypes2.default.object.isRequired
 }, _temp2);
 exports.default = Index;
 

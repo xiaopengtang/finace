@@ -32,7 +32,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon",
+    "start": "egg-scripts start --daemon  --port 7003",
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev --port 7003",
     "debug": "egg-bin debug",

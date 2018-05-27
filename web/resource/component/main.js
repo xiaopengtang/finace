@@ -2,7 +2,7 @@
  * create by txp
  * version:1.0.0
  * email:txp_email@126.com
- * last update:2017-11-20 09:43:24
+ * last update:2018-05-27 05:43:45
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -1359,10 +1359,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 exports.default = (() => {
 	var _ref = _asyncToGenerator(function* (url) {
 		const Component = yield (0, _modules2.default)();
-		/*const props = matchPath(url, {
-  	'path': '/',
-  	'exact': true
-  })*/
 		const context = {};
 		return (0, _server.renderToString)(_react2.default.createElement(
 			_reactRouterDom.StaticRouter,
@@ -1424,8 +1420,6 @@ const { BrowserRouter, Route, Switch, IndexRoute, HashRouter, matchPath } = Reac
 * 初始化
 * @param config:
 *   enter => 进入
-*
-*
 */
 
 exports.default = (() => {
@@ -1518,24 +1512,6 @@ exports.default = (() => {
 		}, _temp);
 
 		return Home;
-		/*let props = {}
-  if(config.url){
-  	props = matchPath(config.url, {
-  		'path': '/',
-  		'component': Home,
-  		'exact': true
-  	})
-  }*/
-		/*const props = matchPath('/setting', {
-  	'path': '/',
-  	'component': Home
-  }, props => {
-  	console.log({props})
-  })*/
-		// console.log(Render)
-		// const body = document.querySelector('.wrap')
-		// alert([Dom.render, body])
-		// Dom.render(<Home {...props}/>, body)
 	});
 
 	return function (_x) {
@@ -1609,7 +1585,7 @@ module.exports.default = axios;
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <https://feross.org>
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
  * @license  MIT
  */
 
@@ -3058,7 +3034,7 @@ module.exports = require("zlib");
 /* 43 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[[{"raw":"axios@^0.17.0","scope":null,"escapedName":"axios","name":"axios","rawSpec":"^0.17.0","spec":">=0.17.0 <0.18.0","type":"range"},"D:\\node-web\\finace\\cdn"]],"_from":"axios@>=0.17.0 <0.18.0","_id":"axios@0.17.0","_inCache":true,"_location":"/axios","_nodeVersion":"6.10.1","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/axios-0.17.0.tgz_1508608890069_0.7621918669901788"},"_npmUser":{"name":"nickuraltsev","email":"nick.uraltsev@gmail.com"},"_npmVersion":"3.10.10","_phantomChildren":{},"_requested":{"raw":"axios@^0.17.0","scope":null,"escapedName":"axios","name":"axios","rawSpec":"^0.17.0","spec":">=0.17.0 <0.18.0","type":"range"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.17.0.tgz","_shasum":"7da747916db803f761651d6091d708789b953c6a","_shrinkwrap":null,"_spec":"axios@^0.17.0","_where":"D:\\node-web\\finace\\cdn","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.2.3","is-buffer":"^1.1.5"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.5.7","coveralls":"^2.11.9","es6-promise":"^4.0.5","grunt":"^1.0.1","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.0.0","grunt-contrib-nodeunit":"^1.0.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^19.0.0","grunt-karma":"^2.0.0","grunt-ts":"^6.0.0-beta.3","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.0.0","karma-coverage":"^1.0.0","karma-firefox-launcher":"^1.0.0","karma-jasmine":"^1.0.2","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-phantomjs-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.1.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","phantomjs-prebuilt":"^2.1.7","sinon":"^1.17.4","typescript":"^2.0.3","url-search-params":"^0.6.1","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"directories":{},"dist":{"shasum":"7da747916db803f761651d6091d708789b953c6a","tarball":"https://registry.npmjs.org/axios/-/axios-0.17.0.tgz"},"gitHead":"2c0e3183215d9a5fbc2ee8f35f459ac0e4d9f99c","homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","maintainers":[{"name":"mzabriskie","email":"mzabriskie@gmail.com"},{"name":"nickuraltsev","email":"nick.uraltsev@gmail.com"}],"name":"axios","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.17.0"}
+module.exports = {"_args":[["axios@0.17.0","/dev-center/finace/cdn"]],"_from":"axios@0.17.0","_id":"axios@0.17.0","_inBundle":false,"_integrity":"sha1-fadHkW24A/dhZR1gkdcIeJuVPGo=","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.17.0","name":"axios","escapedName":"axios","rawSpec":"0.17.0","saveSpec":null,"fetchSpec":"0.17.0"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.17.0.tgz","_spec":"0.17.0","_where":"/dev-center/finace/cdn","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.2.3","is-buffer":"^1.1.5"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.5.7","coveralls":"^2.11.9","es6-promise":"^4.0.5","grunt":"^1.0.1","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.0.0","grunt-contrib-nodeunit":"^1.0.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^19.0.0","grunt-karma":"^2.0.0","grunt-ts":"^6.0.0-beta.3","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.0.0","karma-coverage":"^1.0.0","karma-firefox-launcher":"^1.0.0","karma-jasmine":"^1.0.2","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-phantomjs-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.1.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","phantomjs-prebuilt":"^2.1.7","sinon":"^1.17.4","typescript":"^2.0.3","url-search-params":"^0.6.1","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.17.0"}
 
 /***/ }),
 /* 44 */
