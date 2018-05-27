@@ -4,7 +4,7 @@
   "description": "for maomi webServer",
   "private": true,
   "dependencies": {
-    "antd-mobile": "^2.0.3",
+    "antd-mobile": "^2.1.6",
     "axios": "^0.17.1",
     "egg": "^1.9.0",
     "egg-scripts": "^2.1.0",
