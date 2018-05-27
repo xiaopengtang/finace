@@ -37,7 +37,7 @@ module.exports = merge(base, {
 		    			'plugins': ['transform-decorators-legacy'],
 		    			'presets': [['env', {
 		    				'targets': {
-		    					'node': '7'
+		    					'node': '9.6.1'
 		    				}
 		    			}], 'react','stage-1']
 		    		}
